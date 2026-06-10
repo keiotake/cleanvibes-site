@@ -366,9 +366,6 @@ section{padding:clamp(96px,12vw,200px) 0 0}
   .footer .inner{grid-template-columns:1fr}
   .footer .links{align-items:flex-start}
 }
-@media (prefers-reduced-motion:reduce){
-  .grain,.marquee .track{animation:none!important}
-}
 </style>
 </head>
 <body>
@@ -760,7 +757,6 @@ section{padding:clamp(96px,12vw,200px) 0 0}
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
 <script>
 (function(){
-  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const header = document.getElementById('header');
 
   /* ----- header show/hide (works with or without libs) ----- */
@@ -772,8 +768,8 @@ section{padding:clamp(96px,12vw,200px) 0 0}
     lastY = y;
   }
 
-  /* ----- graceful fallback: no libs or reduced motion → everything stays visible ----- */
-  if (reduced || !window.gsap || !window.Lenis) {
+  /* ----- graceful fallback: no libs → everything stays visible ----- */
+  if (!window.gsap || !window.Lenis) {
     addEventListener('scroll', () => onScrollY(scrollY), {passive:true});
     return;
   }
