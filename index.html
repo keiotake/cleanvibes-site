@@ -312,6 +312,8 @@ section{padding:clamp(96px,12vw,180px) 0 0}
 .cal-card .row{display:grid;grid-template-columns:110px 1fr;gap:12px;padding:13px 4px;border-bottom:1px solid rgba(26,43,60,.08);font-size:14px}
 .cal-card .row dt{font-weight:700;color:var(--deepblue)}
 .cal-card .note{font-size:12px;color:var(--gray);margin-top:12px;line-height:2}
+.cal-card .recent li{font-size:13px;padding:9px 2px;border-bottom:1px dashed rgba(26,43,60,.12);line-height:1.9}
+.cal-card .recent li b{font-family:var(--en);color:var(--deepblue);margin-right:8px;font-weight:500}
 .contact-line{margin-top:16px;font-size:13.5px;line-height:2.2}
 .contact-line a{color:var(--deepblue);font-weight:700;border-bottom:1px solid currentColor}
 
@@ -380,9 +382,9 @@ section{padding:clamp(96px,12vw,180px) 0 0}
       <span class="line"><span class="l-in">伊東市から、<span class="grad-em">全国の街へ。</span></span></span>
       <span class="line"><span class="l-in">綺麗を、後世へ。</span></span>
     </h1>
-    <p class="sub">市民の手で組み立てた、除草剤を使わない防草メソッド。<br>通算455回、全部公開しています。</p>
+    <p class="sub">市民の手で組み立てた、除草剤を使わない防草メソッド。<br>通算<span data-total>459</span>回、全部公開しています。</p>
     <div class="stats">
-      <div class="stat"><b data-count="455">0</b><span>通算活動回数</span></div>
+      <div class="stat"><b data-count="459" data-live="total">0</b><span>通算活動回数</span></div>
       <div class="stat"><b>2022–2030</b><span>届けきって、終わる</span></div>
     </div>
   </div>
@@ -508,7 +510,7 @@ section{padding:clamp(96px,12vw,180px) 0 0}
       <p class="reveal" style="margin-top:1.4em"><b>完璧より、続けること。</b></p>
     </div>
     <div class="num-grid">
-      <div class="num reveal"><b><span data-count="455">0</span><span class="unit">回</span></b><span>通算活動回数</span></div>
+      <div class="num reveal"><b><span data-count="459" data-live="total">0</span><span class="unit">回</span></b><span>通算活動回数</span></div>
       <div class="num reveal"><b><span data-count="2022">0</span><span class="unit">年</span></b><span>活動開始</span></div>
       <div class="num reveal"><b><span data-count="2030">0</span><span class="unit">年</span></b><span>解散予定 — 届けきって終わる</span></div>
       <div class="num reveal"><b><span>0</span><span class="unit">剤</span></b><span>使用した除草剤の量</span></div>
@@ -587,6 +589,12 @@ section{padding:clamp(96px,12vw,180px) 0 0}
           <div class="row"><dt>場所</dt><dd>伊東市内各所（その時々で移動します）</dd></div>
           <div class="row"><dt>参加方法</dt><dd>公式LINEから「参加希望日・お名前・人数」を送信</dd></div>
         </dl>
+        <h3 style="margin-top:24px">直近の活動</h3>
+        <ul class="recent" id="recentList">
+          <li><b>2026.06.07</b> さくらの里 — 除草、防草、側溝（8名）</li>
+          <li><b>2026.06.06</b> さくらの里 — 防草、除草、側溝（7名）</li>
+          <li><b>2026.05.31</b> さくらの里 — 除草、防草、洗浄（12名）</li>
+        </ul>
         <p class="note">観光でお越しの方も大歓迎です。道具はすべて貸し出します。</p>
         <p class="contact-line">お問い合わせ：<a href="mailto:cleanvibes.ito@gmail.com">cleanvibes.ito@gmail.com</a><br>または Instagram DM / <a href="https://lin.ee/FV1oQEz" target="_blank" rel="noopener">公式LINE</a></p>
       </div>
@@ -703,7 +711,7 @@ section{padding:clamp(96px,12vw,180px) 0 0}
       (function tick(now){
         const p = Math.min(1, (now - t0) / dur);
         el.textContent = Math.round(end * (1 - Math.pow(1 - p, 3)));
-        if (p < 1) requestAnimationFrame(tick);
+        if (p < 1) requestAnimationFrame(tick); else el.dataset.done = '1';
       })(t0);
     });
   }, { rootMargin: '0px 0px 120px 0px' });
@@ -730,6 +738,27 @@ section{padding:clamp(96px,12vw,180px) 0 0}
     start: 'top 88%',
     onEnter: batch => gsap.to(batch, { y: 0, opacity: 1, duration: 1.1, ease: EASE, stagger: .08, overwrite: true })
   });
+
+  /* ===== live data from the activity-log app (GAS) ===== */
+  const GAS = 'https://script.google.com/macros/s/AKfycbyCHg6qLzpttcBDAAiAIFxBCreZ4ZVk0WdEQ-YVGNWMKYooWY4Wgsti2gGWSdZTRvVK0Q/exec';
+  const OFFSET = 409;
+  const esc = s => String(s).replace(/[<>&]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[c]));
+  fetch(GAS).then(r => r.json()).then(d => {
+    if (!d || !d.records) return;
+    const total = d.records.length + OFFSET;
+    document.querySelectorAll('[data-live="total"]').forEach(el => {
+      el.dataset.count = total;
+      if (el.dataset.done) el.textContent = total;
+    });
+    document.querySelectorAll('[data-total]').forEach(el => el.textContent = total);
+    const list = document.getElementById('recentList');
+    const recent = [...d.records].sort((a, b) => String(b.date).localeCompare(String(a.date))).slice(0, 3);
+    if (list && recent.length) {
+      list.innerHTML = recent.map(r =>
+        '<li><b>' + esc(String(r.date).replace(/-/g, '.')) + '</b> ' + esc(r.place) + ' — ' + esc(r.work) + '（' + r.members.length + '名）</li>'
+      ).join('');
+    }
+  }).catch(() => {});
 
   /* ===== magnetic CTA ===== */
   document.querySelectorAll('.header .cta, .btn-insta').forEach(btn => {
