@@ -699,7 +699,7 @@ section{padding:clamp(96px,12vw,180px) 0 0}
     const obj = { v: 0 };
     gsap.to(obj, {
       v: end, duration: 2.2, ease: 'power3.out',
-      scrollTrigger: { trigger: el, start: 'top 88%' },
+      scrollTrigger: { trigger: el, start: 'top bottom-=40' },
       onUpdate: () => el.textContent = Math.round(obj.v)
     });
   });
