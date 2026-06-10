@@ -711,6 +711,8 @@ section{padding:clamp(96px,12vw,180px) 0 0}
       el.textContent = Math.round((+el.dataset.count) * (1 - Math.pow(1 - p, 3)));
       if (p < 1) requestAnimationFrame(tick); else el.dataset.done = '1';
     })();
+    /* tab-hidden safety: rAF freezes in background tabs — force the final value */
+    setTimeout(() => { if (!el.dataset.done) { el.textContent = el.dataset.count; el.dataset.done = '1'; } }, 3500);
   }
   function checkCounters(){
     counters.forEach(el => {
