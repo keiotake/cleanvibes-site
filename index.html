@@ -701,21 +701,28 @@ section{padding:clamp(96px,12vw,180px) 0 0}
     gsap.fromTo(step.querySelector('.bg-no'), { yPercent: -75 }, { yPercent: -25, ease: 'none', scrollTrigger: { trigger: step, start: 'top bottom', end: 'bottom top', scrub: true } });
   });
 
-  /* ===== count-up numbers (IntersectionObserver: fires even at the fold) ===== */
-  const cntIO = new IntersectionObserver(entries => {
-    entries.forEach(en => {
-      if (!en.isIntersecting) return;
-      const el = en.target;
-      cntIO.unobserve(el);
-      const end = +el.dataset.count, t0 = performance.now(), dur = 2000;
-      (function tick(now){
-        const p = Math.min(1, (now - t0) / dur);
-        el.textContent = Math.round(end * (1 - Math.pow(1 - p, 3)));
-        if (p < 1) requestAnimationFrame(tick); else el.dataset.done = '1';
-      })(t0);
+  /* ===== count-up numbers (position check: fires the moment any part is visible) ===== */
+  const counters = Array.from(document.querySelectorAll('[data-count]'));
+  function runCounter(el){
+    el.dataset.started = '1';
+    const dur = 2000, t0 = performance.now();
+    (function tick(){
+      const p = Math.min(1, (performance.now() - t0) / dur);
+      el.textContent = Math.round((+el.dataset.count) * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) requestAnimationFrame(tick); else el.dataset.done = '1';
+    })();
+  }
+  function checkCounters(){
+    counters.forEach(el => {
+      if (el.dataset.started) return;
+      const r = el.getBoundingClientRect();
+      if (r.top < innerHeight + 60 && r.bottom > -60) runCounter(el);
     });
-  }, { rootMargin: '0px 0px 120px 0px' });
-  document.querySelectorAll('[data-count]').forEach(el => cntIO.observe(el));
+  }
+  checkCounters();
+  lenis.on('scroll', checkCounters);
+  addEventListener('resize', checkCounters, {passive:true});
+  setTimeout(checkCounters, 600);
 
   /* ===== join: ripples expanding from Ito ===== */
   const join = document.querySelector('.join');
