@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CleanVibes | 伊東市から、全国の街へ。綺麗を、後世へ。</title>
-<meta name="description" content="伊東市の市民まちづくり団体CleanVibes。除草剤を使わない防草メソッドを市民の手で組み立て、通算455回の活動をすべて公開。伊東市から全国の街へ広げます。">
-<meta property="og:title" content="CleanVibes | 伊東市から、全国の街へ。">
-<meta property="og:description" content="市民の手で組み立てた、除草剤を使わない防草メソッド。通算455回、全部公開しています。">
+<title>CleanVibes | 伊東市から全国の街へ。綺麗なまちを後世へ。</title>
+<meta name="description" content="伊東市の市民まちづくり団体CleanVibes。除草剤を使わない防草メソッドを市民の手で組み立て、通算459回の活動をすべて公開しています。伊東市から全国の街へ広げます。">
+<meta property="og:title" content="CleanVibes | 伊東市から全国の街へ。">
+<meta property="og:description" content="除草剤を使わない防草メソッドを市民の手で組み立てました。通算459回の活動をすべて公開しています。">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://keiotake.github.io/cleanvibes-website/img/act12.jpg">
 <meta name="theme-color" content="#1A2B3C">
@@ -128,9 +128,20 @@ section{padding:clamp(96px,12vw,180px) 0 0}
   margin-top:clamp(22px,3vw,38px);
   font-size:clamp(14.5px,1.35vw,19px);font-weight:400;line-height:2.3;color:rgba(255,255,255,.85);
 }
+.hero .ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:clamp(26px,3.2vw,44px)}
+.btn-hero{
+  display:inline-flex;align-items:center;gap:10px;border-radius:999px;
+  padding:16px 38px;font-weight:700;letter-spacing:.1em;font-size:clamp(14px,1.15vw,16.5px);
+  transition:transform .5s var(--ease),box-shadow .4s,background .4s;
+}
+.btn-hero.fill{background:var(--grad);color:#fff;box-shadow:0 10px 28px rgba(0,168,142,.35)}
+.btn-hero.fill:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(0,168,142,.45)}
+.btn-hero.ghost{border:1px solid rgba(255,255,255,.5);color:#fff}
+.btn-hero.ghost:hover{background:rgba(255,255,255,.12);transform:translateY(-3px)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-offset:3px}
 .hero .stats{
   display:flex;gap:clamp(14px,2vw,30px);flex-wrap:wrap;
-  margin-top:clamp(28px,3.6vw,52px);
+  margin-top:clamp(22px,2.8vw,40px);
 }
 .hero .stat{
   display:flex;align-items:baseline;gap:10px;
@@ -334,20 +345,21 @@ section{padding:clamp(96px,12vw,180px) 0 0}
 
 /* ---------- photos ---------- */
 .mission-photo{border-radius:24px;overflow:hidden;margin-top:clamp(44px,5.5vw,80px)}
-.mission-photo img{width:100%;max-height:600px;object-fit:cover;object-position:center 36%}
+.mission-photo img{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:center 68%}
 .field{margin-top:clamp(60px,7vw,110px);overflow:hidden}
 .field .track{display:flex;gap:14px;width:max-content;animation:slide 45s linear infinite}
 .field img{height:clamp(190px,26vw,320px);width:auto;border-radius:16px}
 @keyframes slide{to{transform:translateX(-50%)}}
 .reality-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,4vw,70px);align-items:center;position:relative;z-index:1}
 .reality-photo{border-radius:20px;overflow:hidden}
-.reality-photo img{width:100%;max-height:520px;object-fit:cover}
+.reality-photo img{width:100%;aspect-ratio:4/4.6;object-fit:cover;object-position:center 30%}
 
 /* ---------- responsive ---------- */
 @media (max-width:900px){
   .header nav{display:none}
   .menu-btn{display:block}
   .mission-grid,.activity .grid,.reality-grid{grid-template-columns:1fr}
+  .mission-photo img{aspect-ratio:4/3;object-position:center 62%}
   .value-cards,.action-grid{grid-template-columns:1fr}
   .num-grid{grid-template-columns:repeat(2,1fr)}
   .country-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin-left:-24px;margin-right:-24px;padding:0 24px 14px}
@@ -390,13 +402,17 @@ section{padding:clamp(96px,12vw,180px) 0 0}
   <div class="grid-pattern"></div>
   <div class="inner">
     <h1>
-      <span class="line"><span class="l-in">伊東市から、<span class="grad-em">全国の街へ。</span></span></span>
-      <span class="line"><span class="l-in">綺麗を、後世へ。</span></span>
+      <span class="line"><span class="l-in">伊東市から<span class="grad-em">全国の街へ。</span></span></span>
+      <span class="line"><span class="l-in">綺麗なまちを後世へ。</span></span>
     </h1>
-    <p class="sub">市民の手で組み立てた、除草剤を使わない防草メソッド。<br>通算<span data-total>459</span>回、全部公開しています。</p>
+    <p class="sub">除草剤を使わない防草メソッドを市民の手で組み立てました。<br>通算<span data-total>459</span>回の活動をすべて公開しています。</p>
+    <div class="ctas">
+      <a class="btn-hero fill" href="https://lin.ee/FV1oQEz" target="_blank" rel="noopener">活動に参加する</a>
+      <a class="btn-hero ghost" href="#method">メソッドを見る</a>
+    </div>
     <div class="stats">
       <div class="stat"><b data-count="459" data-live="total">0</b><span>通算活動回数</span></div>
-      <div class="stat"><b>2022–2030</b><span>届けきって、終わる</span></div>
+      <div class="stat"><b>2022–2030</b><span>届けきって終わる</span></div>
     </div>
   </div>
   <p class="scroll">Scroll</p>
@@ -407,9 +423,9 @@ section{padding:clamp(96px,12vw,180px) 0 0}
   <div class="container">
     <p class="label reveal">Why CleanVibes</p>
     <div class="mission-grid">
-      <h2 class="sec-title"><span class="mask"><span class="mline">なぜ、私たちは<br>続けるのか。</span></span></h2>
+      <h2 class="sec-title"><span class="mask"><span class="mline">なぜ私たちは<br>続けるのか。</span></span></h2>
       <div class="mission-copy">
-        <p class="reveal">2022年4月。伊東市で4人から始まりました。<br>「綺麗なまちを後世へ」。それが、私たちの約束です。</p>
+        <p class="reveal">2022年4月。伊東市で4人から始まりました。<br>「綺麗なまちを後世へ」。それが私たちの約束です。</p>
         <p class="reveal">除草剤を使わない。理由は3つ。<br>子どもとペットの健康を守りたいから。<br>海や川を汚したくないから。<br>そして、未来に残せる方法でやりたいから。</p>
       </div>
     </div>
@@ -430,7 +446,7 @@ section{padding:clamp(96px,12vw,180px) 0 0}
       <div class="vcard reveal">
         <svg class="icon" viewBox="0 0 46 46" fill="none" stroke="#1B9DC9" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M23 6 a17 17 0 1 1 -12 5"/><path d="M11 4 v8 h8" stroke="#00A88E"/></svg>
         <h3><small>Keep going</small>続けられる</h3>
-        <p>2030年まで通い続ける覚悟。完璧より、続けることを選びます。</p>
+        <p>2030年まで通い続ける覚悟。完璧より続けることを選びます。</p>
       </div>
     </div>
   </div>
@@ -440,7 +456,7 @@ section{padding:clamp(96px,12vw,180px) 0 0}
 <div class="method" id="method">
   <div class="container head">
     <p class="label reveal">The Method</p>
-    <h2 class="sec-title"><span class="mask"><span class="mline">4ステップで、街を守る。</span></span></h2>
+    <h2 class="sec-title"><span class="mask"><span class="mline">4ステップで街を守る。</span></span></h2>
     <p class="lead reveal">世界の有機除草研究を参考に、市民が組み立てたメソッド。</p>
   </div>
 
@@ -449,7 +465,7 @@ section{padding:clamp(96px,12vw,180px) 0 0}
     <div class="container body">
       <p class="step-label reveal">STEP 1</p>
       <h3 class="step-in">ほじる</h3>
-      <p class="aim reveal">種と土を、まとめて取り除く</p>
+      <p class="aim reveal">種と土をまとめて取り除く</p>
       <div class="step-grid">
         <p class="how reveal">表面の土を、地面ごと削り取ります。雑草を「抜く」のではなく、種ごと土を「どかす」のがポイントです。</p>
         <div class="why-box reveal">
@@ -466,7 +482,7 @@ section{padding:clamp(96px,12vw,180px) 0 0}
     <div class="container body">
       <p class="step-label reveal">STEP 2</p>
       <h3 class="step-in">焼く</h3>
-      <p class="aim reveal">残った根と種を、細胞ごと壊す</p>
+      <p class="aim reveal">残った根と種を細胞ごと壊す</p>
       <div class="step-grid">
         <p class="how reveal">火炎温度1,300〜1,500℃を一瞬当てます。「燃やす」のではなく「細胞を破壊する」工程です。</p>
         <div class="why-box reveal">
@@ -484,7 +500,7 @@ section{padding:clamp(96px,12vw,180px) 0 0}
     <div class="container body">
       <p class="step-label reveal">STEP 3</p>
       <h3 class="step-in">埋める</h3>
-      <p class="aim reveal">発芽できない環境を、地面に作る</p>
+      <p class="aim reveal">発芽できない環境を地面に作る</p>
       <div class="step-grid">
         <p class="how reveal">削った場所に、防草砂を入れて固めます。</p>
         <div class="why-box reveal">
@@ -501,7 +517,7 @@ section{padding:clamp(96px,12vw,180px) 0 0}
     <div class="container body">
       <p class="step-label reveal">STEP 4</p>
       <h3 class="step-in">撒く</h3>
-      <p class="aim reveal">雑草が育ちにくい環境を、保ち続ける</p>
+      <p class="aim reveal">雑草が育ちにくい環境を保ち続ける</p>
       <div class="step-grid">
         <p class="how reveal">水18Lにセスキ（セスキ炭酸ソーダ）約1kgを溶かして散布します。除草剤ではなく、身近な洗浄剤です。</p>
         <div class="why-box reveal">
@@ -525,11 +541,11 @@ section{padding:clamp(96px,12vw,180px) 0 0}
 <section class="reality" id="reality">
   <div class="container">
     <p class="label reveal">Our Reality</p>
-    <h2 class="sec-title"><span class="mask"><span class="mline">半年。それが、<br>効果の目安です。</span></span></h2>
+    <h2 class="sec-title"><span class="mask"><span class="mline">効果の目安は<br>半年です。</span></span></h2>
     <div class="reality-grid" style="margin-top:clamp(24px,3vw,40px)">
       <div class="copy" style="margin-top:0">
-        <p class="reveal">私たちは「絶対に生えない」とは言いません。<br>半年もすれば、雑草はまた顔を出します。<br>雑草は強い。だからこそ、大切なのは続ける仕組み。</p>
-        <p class="reveal" style="margin-top:1.4em"><b>完璧より、続けること。</b></p>
+        <p class="reveal">私たちは「絶対に生えない」とは言いません。<br>半年もすれば雑草はまた顔を出します。<br>雑草は強い。だからこそ大切なのは続ける仕組みです。</p>
+        <p class="reveal" style="margin-top:1.4em"><b>完璧より続けること。</b></p>
       </div>
       <figure class="reality-photo reveal">
         <img src="img/act08.jpg" alt="集めた雑草でいっぱいの土のう袋の山と仲間たち" loading="lazy">
@@ -548,7 +564,7 @@ section{padding:clamp(96px,12vw,180px) 0 0}
 <section class="global" id="global">
   <div class="container">
     <p class="label reveal">Global Movement</p>
-    <h2 class="sec-title"><span class="mask"><span class="mline">私たちは、世界の流れの<br>一部です。</span></span></h2>
+    <h2 class="sec-title"><span class="mask"><span class="mline">私たちは世界の流れの<br>一部です。</span></span></h2>
     <p class="lead reveal">除草剤を使わない方法は、すでに世界の標準になりつつあります。火炎除草は、欧州の自治体で広く採用されています。</p>
     <div class="country-grid">
       <div class="ccard reveal"><span class="flag" aria-hidden="true">🇫🇷</span><h3>フランス</h3><p>2021年、公共空間での農薬使用を全面禁止。火炎除草が主要な代替手段に。</p></div>
@@ -558,7 +574,7 @@ section{padding:clamp(96px,12vw,180px) 0 0}
       <div class="ccard reveal"><span class="flag" aria-hidden="true">🇺🇸</span><h3>アメリカ</h3><p>メリーランド大学・コロラド州立大学が公式に研究・推奨しています。</p></div>
       <div class="ccard jp-card reveal"><span class="tag">私たちはここ</span><span class="flag" aria-hidden="true">🇯🇵</span><h3>日本（CleanVibes）</h3><p>市民団体が組織的に運用する、国内では先進的な事例です。</p></div>
     </div>
-    <p class="closing reveal">日本ではまだ珍しい方法。だから、<span class="grad-text">私たちが先頭で証明します。</span></p>
+    <p class="closing reveal">日本ではまだ珍しい方法。だから<span class="grad-text">私たちが先頭で証明します。</span></p>
   </div>
 </section>
 
@@ -566,10 +582,10 @@ section{padding:clamp(96px,12vw,180px) 0 0}
 <section class="join" id="join">
   <div class="container" style="position:relative;z-index:2">
     <p class="label reveal">Join Us</p>
-    <h2 class="sec-title"><span class="mask"><span class="mline">伊東市から、全国の街へ。</span></span></h2>
+    <h2 class="sec-title"><span class="mask"><span class="mline">伊東市から全国の街へ。</span></span></h2>
     <div class="copy">
-      <p class="reveal">このメソッドは、伊東市だけのものではありません。<br>全国どの街でも、誰でも、今日から始められます。</p>
-      <p class="call reveal">真似してください。<br>改善してください。<br>あなたのまちで、始めてください。</p>
+      <p class="reveal">このメソッドは伊東市だけのものではありません。<br>全国どの街でも誰でも今日から始められます。</p>
+      <p class="call reveal">真似してください。<br>改善してください。<br>あなたのまちで始めてください。</p>
     </div>
     <div class="action-grid">
       <a class="acard reveal" href="mailto:cleanvibes.ito@gmail.com?subject=【資料希望】防草メソッドについて">
@@ -579,7 +595,7 @@ section{padding:clamp(96px,12vw,180px) 0 0}
       </a>
       <a class="acard reveal" href="https://lin.ee/FV1oQEz" target="_blank" rel="noopener">
         <p class="no">ACTION 02</p><h3>試す</h3>
-        <p>必要な道具リストと始め方は、公式LINEでご案内しています。伊東市での活動参加もこちらから。</p>
+        <p>必要な道具リストと始め方は公式LINEでご案内しています。伊東市での活動参加もこちらから。</p>
         <p class="arrow">LINEで聞いてみる</p>
       </a>
       <a class="acard reveal" href="https://www.instagram.com/clean_vibes_ito/" target="_blank" rel="noopener">
@@ -708,7 +724,8 @@ section{padding:clamp(96px,12vw,180px) 0 0}
   gsap.timeline({ defaults: { ease: EASE } })
     .from('.hero h1 .l-in', { yPercent: 115, duration: 1.4, stagger: 0.14 }, 0.15)
     .from('.hero .sub', { opacity: 0, y: 26, duration: 1.2 }, 0.7)
-    .from('.hero .stat', { opacity: 0, y: 30, scale: .92, duration: 1, stagger: 0.12, ease: 'back.out(1.6)' }, 0.95)
+    .from('.hero .ctas a', { opacity: 0, y: 24, duration: 1, stagger: 0.1 }, 0.85)
+    .from('.hero .stat', { opacity: 0, y: 30, scale: .92, duration: 1, stagger: 0.12, ease: 'back.out(1.6)' }, 1.0)
     .from('.hero .scroll', { opacity: 0, duration: 1 }, 1.5);
 
   /* hero blobs drift */
