@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clean Vibes | 綺麗なまちを後世へ | 静岡県伊東市</title>
+<meta name="description" content="非営利団体Clean Vibesは、静岡県伊東市を中心に除草作業・ゴミ拾い・花壇づくりに取り組み、後世へ繋ぐ綺麗なまちづくりを推進しています。">
+<meta name="theme-color" content="#C7BAAB">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Instrument+Sans:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --beige:#C7BAAB;
+  --beige-soft:#D3C8BB;
+  --sage:#C1CDBD;
+  --navy:#0B1725;
+  --ink:#202020;
+  --ink-rgb:32,32,32;
+  --white:#ffffff;
+  --white-rgb:255,255,255;
+  --serif:"Cormorant Garamond",serif;
+  --sans-en:"Instrument Sans",sans-serif;
+  --sans-jp:"Zen Kaku Gothic New",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--navy);
+  color:var(--ink);
+  font-family:var(--sans-jp);
+  font-weight:400;
+  font-feature-settings:"palt";
+  line-height:1.9;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+.en{font-family:var(--serif);font-weight:300}
+.label{
+  font-family:var(--sans-en);
+  font-size:clamp(11px,0.8vw,13px);
+  letter-spacing:0.28em;
+  text-transform:uppercase;
+  display:flex;align-items:center;gap:14px;
+}
+.label::before{content:"";width:34px;height:1px;background:currentColor;opacity:.6}
+.sec-title{
+  font-family:var(--serif);
+  font-weight:300;
+  font-size:clamp(54px,8.2vw,140px);
+  line-height:1.02;
+  letter-spacing:-0.02em;
+}
+.sec-title-jp{
+  font-weight:500;
+  font-size:clamp(15px,1.3vw,20px);
+  letter-spacing:0.16em;
+  margin-top:14px;
+}
+.container{width:min(1240px,calc(100% - 48px));margin:0 auto}
+
+/* ---------- header ---------- */
+.header{
+  position:fixed;inset:0 0 auto 0;z-index:100;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:clamp(16px,2vw,28px) clamp(20px,3vw,44px);
+  color:var(--white);
+  transition:background .5s ease,color .5s ease,padding .4s ease;
+}
+.header.is-scrolled{
+  background:rgba(11,23,37,.82);
+  backdrop-filter:blur(12px);
+  padding-top:12px;padding-bottom:12px;
+}
+.header .brand{
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(20px,1.8vw,26px);
+  letter-spacing:0.04em;line-height:1;
+}
+.header nav{display:flex;align-items:center;gap:clamp(18px,2.2vw,34px)}
+.header nav a{
+  font-family:var(--sans-en);
+  font-size:13px;letter-spacing:0.14em;
+  position:relative;padding:4px 0;
+}
+.header nav a::before{
+  content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;
+  background:currentColor;transform:scaleX(0);transform-origin:right;
+  transition:transform .4s cubic-bezier(.24,1,.34,1);
+}
+.header nav a:hover::before{transform:scaleX(1);transform-origin:left}
+.header .cta{
+  display:inline-flex;align-items:center;gap:8px;
+  border:1px solid rgba(var(--white-rgb),.55);
+  border-radius:999px;
+  padding:9px 22px;
+  font-family:var(--sans-en);font-size:13px;letter-spacing:0.12em;
+  transition:background .35s,color .35s,border-color .35s;
+}
+.header .cta:hover{background:var(--white);color:var(--navy);border-color:var(--white)}
+.header .cta::before{display:none}
+.menu-btn{display:none}
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative;
+  color:var(--white);
+  padding:clamp(120px,16vh,200px) clamp(20px,3vw,44px) 0;
+  overflow:hidden;
+}
+.hero .title{
+  font-family:var(--serif);font-weight:300;
+  font-size:clamp(64px,12.5vw,218px);
+  line-height:.95;letter-spacing:-0.03em;
+}
+.hero .title .line{display:block;overflow:hidden;padding-bottom:.06em;margin-bottom:-.06em}
+.hero .title .row2{text-align:right;font-style:italic;font-weight:300}
+.hero .title .line-inner{display:inline-block;transform:translateY(112%);animation:rise 1.5s cubic-bezier(.16,1,.3,1) forwards}
+.hero .title .row2 .line-inner{animation-delay:.14s}
+@keyframes rise{to{transform:translateY(0)}}
+.hero .sub{opacity:0;animation:fadeUp 1.2s cubic-bezier(.16,1,.3,1) .55s forwards}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.hero .visual{clip-path:inset(100% 0 0 0);animation:curtain 1.6s cubic-bezier(.16,1,.3,1) .75s forwards}
+@keyframes curtain{to{clip-path:inset(0 0 0 0)}}
+.hero .scroll{opacity:0;animation:fadeUp 1s ease 1.8s forwards}
+.hero .sub{
+  display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;
+  gap:16px;
+  margin:clamp(28px,4vw,56px) 0 clamp(28px,3.5vw,48px);
+}
+.hero .sub .jp{
+  font-size:clamp(17px,1.6vw,24px);font-weight:500;letter-spacing:0.22em;
+}
+.hero .sub .en-line{
+  font-family:var(--sans-en);font-size:clamp(11px,0.9vw,14px);
+  letter-spacing:0.3em;text-transform:uppercase;opacity:.75;
+}
+.hero .visual{
+  position:relative;
+  border-radius:clamp(20px,3vw,44px) clamp(20px,3vw,44px) 0 0;
+  overflow:hidden;
+  height:clamp(320px,62vh,640px);
+}
+.hero .visual img{width:100%;height:100%;object-fit:cover;transform:scale(1.04)}
+.hero .visual::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(11,23,37,.28),rgba(11,23,37,0) 40%);
+}
+.hero .scroll{
+  position:absolute;right:clamp(28px,4vw,60px);bottom:30px;z-index:3;
+  font-family:var(--sans-en);font-size:11px;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--white);writing-mode:vertical-rl;display:flex;align-items:center;gap:12px;
+}
+.hero .scroll::after{content:"";width:1px;height:54px;background:rgba(255,255,255,.7);animation:drop 2.2s ease-in-out infinite}
+@keyframes drop{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- light canvas ---------- */
+.canvas{
+  background:var(--beige);
+  border-radius:clamp(24px,4vw,56px) clamp(24px,4vw,56px) 0 0;
+  margin-top:-2px;
+  position:relative;z-index:2;
+}
+
+section{padding:clamp(90px,11vw,190px) 0 0}
+
+/* about */
+.about-grid{
+  display:grid;grid-template-columns:1.05fr .95fr;
+  gap:clamp(36px,5vw,90px);align-items:end;
+  margin-top:clamp(36px,4.5vw,80px);
+}
+.about-copy p{
+  font-size:clamp(15px,1.25vw,19px);line-height:2.3;
+  margin-bottom:1.6em;
+}
+.about-copy .keyword{
+  font-size:clamp(22px,2.4vw,36px);font-weight:500;letter-spacing:.12em;
+  line-height:1.7;margin-bottom:.9em;
+}
+.about-photo{border-radius:clamp(16px,2vw,28px);overflow:hidden}
+.about-photo img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
+
+/* activities */
+.act-head{display:flex;flex-direction:column;gap:6px}
+.act-list{margin-top:clamp(40px,5vw,86px);display:flex;flex-direction:column}
+.act-item{
+  display:grid;grid-template-columns:90px 1fr 1.1fr;
+  gap:clamp(24px,3.5vw,64px);align-items:center;
+  padding:clamp(34px,4vw,64px) 0;
+  border-top:1px solid rgba(var(--ink-rgb),.18);
+}
+.act-item:last-child{border-bottom:1px solid rgba(var(--ink-rgb),.18)}
+.act-no{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(26px,2.6vw,42px);opacity:.65}
+.act-body h3{
+  font-size:clamp(24px,2.6vw,40px);font-weight:500;letter-spacing:.1em;line-height:1.4;
+}
+.act-body h3 .en{display:block;font-size:clamp(12px,1vw,15px);font-style:italic;letter-spacing:.18em;opacity:.65;margin-top:4px}
+.act-body ul{margin-top:18px;display:flex;flex-direction:column}
+.act-body li{
+  padding:9px 0;font-size:clamp(13.5px,1.1vw,16px);
+  border-bottom:1px dashed rgba(var(--ink-rgb),.22);
+  display:flex;gap:12px;
+}
+.act-body li::before{content:"—";opacity:.5}
+.act-body li:last-child{border-bottom:none}
+.act-photo{border-radius:clamp(14px,1.8vw,24px);overflow:hidden}
+.act-photo img{width:100%;aspect-ratio:16/11;object-fit:cover;transition:transform 1.2s cubic-bezier(.24,1,.34,1)}
+.act-item:hover .act-photo img{transform:scale(1.05)}
+
+/* calendar */
+.calendar{background:var(--sage);border-radius:clamp(24px,4vw,56px);margin:clamp(90px,11vw,190px) clamp(12px,1.5vw,24px) 0;padding:clamp(70px,8vw,130px) 0}
+.cal-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(40px,5vw,90px);margin-top:clamp(36px,4.5vw,70px);align-items:start}
+.cal-table{border-top:1px solid rgba(var(--ink-rgb),.25)}
+.cal-row{
+  display:grid;grid-template-columns:150px 1fr;gap:18px;
+  padding:clamp(18px,2vw,28px) 6px;
+  border-bottom:1px solid rgba(var(--ink-rgb),.25);
+  font-size:clamp(14px,1.15vw,16.5px);
+}
+.cal-row dt{font-weight:700;letter-spacing:.1em}
+.cal-note{font-size:clamp(12.5px,1vw,14.5px);opacity:.75;margin-top:18px;line-height:2.1}
+.cal-cta{
+  background:var(--white);border-radius:clamp(16px,2vw,26px);
+  padding:clamp(28px,3vw,44px);
+  display:flex;flex-direction:column;gap:18px;
+}
+.cal-cta h3{font-size:clamp(17px,1.5vw,22px);font-weight:700;letter-spacing:.1em}
+.cal-cta p{font-size:clamp(13.5px,1.05vw,15.5px)}
+.cal-cta .steps{font-size:clamp(13px,1vw,15px);background:rgba(var(--ink-rgb),.05);border-radius:12px;padding:16px 20px;line-height:2.2}
+.btn-line{
+  display:inline-flex;justify-content:center;align-items:center;gap:10px;
+  background:#06C755;color:#fff;border-radius:999px;
+  padding:15px 34px;font-weight:700;letter-spacing:.12em;font-size:clamp(14px,1.1vw,16px);
+  transition:opacity .3s;
+}
+.btn-line:hover{opacity:.85}
+
+/* story */
+.story{color:var(--white)}
+.story-wrap{
+  background:var(--navy);
+  border-radius:clamp(24px,4vw,56px);
+  margin:clamp(90px,11vw,190px) clamp(12px,1.5vw,24px) 0;
+  padding:clamp(80px,9.5vw,160px) 0;
+}
+.story-grid{display:grid;grid-template-columns:1fr .82fr;gap:clamp(44px,6vw,110px);margin-top:clamp(40px,5vw,80px);align-items:start}
+.story-copy p{
+  font-size:clamp(14.5px,1.15vw,17px);font-weight:300;line-height:2.5;
+  margin-bottom:1.8em;color:rgba(255,255,255,.88);
+}
+.story-photo{border-radius:clamp(14px,1.8vw,24px);overflow:hidden;position:sticky;top:100px}
+.story-photo img{width:100%;object-fit:cover}
+.story-photo figcaption{
+  font-family:var(--sans-en);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(255,255,255,.55);padding-top:14px;
+}
+.story-name{
+  margin-top:clamp(60px,7vw,110px);
+  border-top:1px solid rgba(255,255,255,.2);
+  padding-top:clamp(40px,5vw,70px);
+  display:grid;grid-template-columns:auto 1fr;gap:clamp(30px,5vw,90px);align-items:start;
+}
+.story-name h3{
+  font-family:var(--serif);font-style:italic;font-weight:300;
+  font-size:clamp(34px,4.2vw,68px);line-height:1.1;letter-spacing:0;
+}
+.story-name h3 small{display:block;font-family:var(--sans-jp);font-style:normal;font-size:clamp(13px,1.1vw,16px);font-weight:400;letter-spacing:.22em;margin-top:14px;opacity:.7}
+.story-name p{font-size:clamp(14.5px,1.15vw,17px);font-weight:300;line-height:2.5;color:rgba(255,255,255,.88)}
+
+/* results */
+.results-list{margin-top:clamp(40px,5vw,86px)}
+.result-year{
+  display:grid;grid-template-columns:220px 1fr;gap:clamp(24px,4vw,70px);
+  padding:clamp(36px,4.5vw,70px) 0;
+  border-top:1px solid rgba(var(--ink-rgb),.18);
+}
+.result-year:last-child{border-bottom:1px solid rgba(var(--ink-rgb),.18)}
+.result-year .year{
+  font-family:var(--serif);font-weight:300;
+  font-size:clamp(44px,5vw,84px);line-height:1;letter-spacing:-0.02em;
+}
+.result-year ul{display:flex;flex-direction:column;gap:14px}
+.result-year li{
+  display:grid;grid-template-columns:64px 1fr;gap:18px;
+  font-size:clamp(14px,1.15vw,16.5px);
+}
+.result-year li b{font-weight:700;letter-spacing:.08em}
+.result-year li span small{display:block;opacity:.65;font-size:.88em}
+
+/* mvv */
+.mvv-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:clamp(16px,2vw,28px);margin-top:clamp(40px,5vw,80px);
+}
+.mvv-card{
+  background:rgba(255,255,255,.5);
+  border-radius:clamp(16px,2vw,26px);
+  padding:clamp(30px,3.4vw,52px) clamp(24px,2.6vw,40px);
+  display:flex;flex-direction:column;gap:18px;min-height:clamp(220px,24vw,320px);
+}
+.mvv-card .tag{
+  font-family:var(--serif);font-style:italic;font-weight:300;
+  font-size:clamp(24px,2.4vw,38px);line-height:1;
+}
+.mvv-card .tag small{display:block;font-family:var(--sans-jp);font-style:normal;font-size:12px;font-weight:500;letter-spacing:.26em;margin-top:10px;opacity:.6}
+.mvv-card p{font-size:clamp(15px,1.25vw,19px);font-weight:500;line-height:2.1;letter-spacing:.06em;margin-top:auto}
+
+/* issues */
+.issue-list{margin-top:clamp(40px,5vw,80px);display:flex;flex-direction:column}
+.issue{
+  display:grid;grid-template-columns:90px 1fr 1.2fr;
+  gap:clamp(20px,3.5vw,64px);
+  padding:clamp(30px,3.6vw,56px) 0;
+  border-top:1px solid rgba(var(--ink-rgb),.18);
+  align-items:baseline;
+}
+.issue:last-child{border-bottom:1px solid rgba(var(--ink-rgb),.18)}
+.issue .no{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(26px,2.6vw,42px);opacity:.65}
+.issue h3{font-size:clamp(18px,1.8vw,27px);font-weight:500;letter-spacing:.08em;line-height:1.7}
+.issue p{font-size:clamp(13.5px,1.1vw,16px);line-height:2.2}
+
+/* members */
+.member-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:clamp(20px,2.6vw,44px) clamp(16px,2vw,30px);
+  margin-top:clamp(40px,5vw,86px);
+}
+.member{display:flex;flex-direction:column;gap:14px}
+.member .photo{border-radius:clamp(14px,1.6vw,22px);overflow:hidden;position:relative}
+.member .photo img{width:100%;aspect-ratio:1/1;object-fit:cover;filter:saturate(.92);transition:transform 1s cubic-bezier(.24,1,.34,1)}
+.member:hover .photo img{transform:scale(1.06)}
+.member .photo .role{
+  position:absolute;left:10px;top:10px;
+  background:var(--navy);color:#fff;border-radius:999px;
+  font-size:11px;letter-spacing:.18em;padding:4px 14px;
+}
+.member .jp{font-size:clamp(15px,1.2vw,18px);font-weight:700;letter-spacing:.1em;line-height:1.4}
+.member .en-name{font-family:var(--serif);font-style:italic;font-size:clamp(12px,1vw,15px);opacity:.6;letter-spacing:.06em}
+
+/* news */
+.news-card{
+  margin-top:clamp(40px,5vw,80px);
+  display:grid;grid-template-columns:.9fr 1.1fr;
+  background:rgba(255,255,255,.5);
+  border-radius:clamp(16px,2.2vw,30px);overflow:hidden;
+  transition:background .4s;
+}
+.news-card:hover{background:rgba(255,255,255,.75)}
+.news-card .thumb{overflow:hidden}
+.news-card .thumb img{width:100%;height:100%;object-fit:cover;aspect-ratio:16/10;transition:transform 1s cubic-bezier(.24,1,.34,1)}
+.news-card:hover .thumb img{transform:scale(1.05)}
+.news-card .body{padding:clamp(26px,3vw,48px);display:flex;flex-direction:column;gap:14px;justify-content:center}
+.news-card .date{font-family:var(--sans-en);font-size:12px;letter-spacing:.22em;opacity:.6}
+.news-card h3{font-size:clamp(19px,1.9vw,28px);font-weight:500;letter-spacing:.06em;line-height:1.6}
+.news-card .more{font-family:var(--sans-en);font-size:12px;letter-spacing:.26em;text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-top:8px}
+.news-card .more::after{content:"→";transition:transform .35s}
+.news-card:hover .more::after{transform:translateX(6px)}
+.news-foot{margin-top:24px;text-align:right}
+.news-foot a{
+  font-family:var(--sans-en);font-size:13px;letter-spacing:.22em;text-transform:uppercase;
+  border-bottom:1px solid rgba(var(--ink-rgb),.5);padding-bottom:4px;
+}
+
+/* join cta */
+.join{
+  margin-top:clamp(100px,12vw,200px);
+  background:var(--navy);color:var(--white);
+  border-radius:clamp(24px,4vw,56px) clamp(24px,4vw,56px) 0 0;
+  padding:clamp(90px,11vw,180px) 0 clamp(80px,9vw,140px);
+  text-align:center;position:relative;overflow:hidden;
+}
+.join .big{
+  font-family:var(--serif);font-weight:300;font-style:italic;
+  font-size:clamp(58px,11vw,190px);line-height:1;letter-spacing:-0.02em;
+}
+.join .jp{font-size:clamp(16px,1.6vw,24px);font-weight:500;letter-spacing:.2em;margin-top:clamp(20px,2.6vw,40px)}
+.join .btns{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:clamp(34px,4vw,60px)}
+.join .btn{
+  display:inline-flex;align-items:center;gap:10px;
+  border-radius:999px;padding:17px 44px;
+  font-weight:700;letter-spacing:.14em;font-size:clamp(14px,1.1vw,16px);
+  transition:transform .35s,opacity .35s;
+}
+.join .btn:hover{transform:translateY(-3px);opacity:.9}
+.join .btn.green{background:#06C755;color:#fff}
+.join .btn.ghost{border:1px solid rgba(255,255,255,.55);color:#fff}
+
+/* footer */
+.footer{
+  background:var(--navy);color:var(--white);
+  padding:clamp(40px,5vw,80px) 0 clamp(30px,3vw,48px);
+}
+.footer .inner{
+  display:grid;grid-template-columns:1fr auto;gap:40px;
+  border-top:1px solid rgba(255,255,255,.18);
+  padding-top:clamp(36px,4.5vw,64px);
+}
+.footer .brand{font-family:var(--serif);font-size:clamp(28px,3vw,46px);font-weight:300;line-height:1.1}
+.footer .slogan{font-size:clamp(13px,1.05vw,15px);letter-spacing:.1em;margin-top:16px;color:rgba(255,255,255,.75)}
+.footer address{
+  font-style:normal;font-size:clamp(12.5px,1vw,14.5px);line-height:2.3;
+  color:rgba(255,255,255,.7);margin-top:26px;
+}
+.footer .links{display:flex;flex-direction:column;gap:12px;align-items:flex-end}
+.footer .links a{
+  font-family:var(--sans-en);font-size:13px;letter-spacing:.2em;text-transform:uppercase;
+  display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.85);
+  transition:color .3s;
+}
+.footer .links a:hover{color:#fff}
+.footer .copy{
+  text-align:center;font-family:var(--sans-en);font-size:11px;letter-spacing:.26em;
+  color:rgba(255,255,255,.45);margin-top:clamp(40px,5vw,70px);
+}
+
+/* reveal */
+.reveal{
+  opacity:0;transform:translateY(40px);
+  transition:opacity 1.2s cubic-bezier(.16,1,.3,1),transform 1.2s cubic-bezier(.16,1,.3,1);
+  transition-delay:var(--d,0s);
+}
+.reveal.is-in{opacity:1;transform:none}
+/* photos open like a curtain inside revealed blocks */
+.reveal .about-photo,.reveal .act-photo,.reveal .story-photo,.reveal .news-card .thumb,.member.reveal .photo{
+  clip-path:inset(0 0 100% 0);
+  transition:clip-path 1.4s cubic-bezier(.16,1,.3,1);
+  transition-delay:calc(var(--d,0s) + .12s);
+}
+.reveal.is-in .about-photo,.reveal.is-in .act-photo,.reveal.is-in .story-photo,.reveal.is-in .news-card .thumb,.member.reveal.is-in .photo{
+  clip-path:inset(0 0 0 0);
+}
+.reveal .about-photo img,.reveal .act-photo img,.reveal .story-photo img,.reveal .news-card .thumb img,.member.reveal .photo img{
+  transform:scale(1.14);
+  transition:transform 1.6s cubic-bezier(.16,1,.3,1);
+  transition-delay:calc(var(--d,0s) + .12s);
+}
+.reveal.is-in .about-photo img,.reveal.is-in .act-photo img,.reveal.is-in .story-photo img,.reveal.is-in .news-card .thumb img,.member.reveal.is-in .photo img{
+  transform:scale(1.001);
+}
+/* header hide on scroll down */
+.header.is-hidden{transform:translateY(-110%)}
+.header{will-change:transform}
+.header:not(.is-scrolled){transition:background .5s ease,color .5s ease,padding .4s ease,transform .5s cubic-bezier(.16,1,.3,1)}
+.header.is-scrolled{transition:background .5s ease,color .5s ease,padding .4s ease,transform .5s cubic-bezier(.16,1,.3,1)}
+@media (prefers-reduced-motion:reduce){
+  .reveal,.reveal *,.hero .title .line-inner,.hero .sub,.hero .visual,.hero .scroll{
+    animation:none!important;transition:none!important;opacity:1!important;transform:none!important;clip-path:none!important;
+  }
+}
+
+/* ---------- responsive ---------- */
+@media (max-width:900px){
+  .header nav a:not(.cta){display:none}
+  .about-grid,.cal-grid,.story-grid,.news-card{grid-template-columns:1fr}
+  .act-item{grid-template-columns:1fr;gap:20px}
+  .act-no{font-size:22px}
+  .act-photo{order:-1}
+  .member-grid{grid-template-columns:repeat(2,1fr)}
+  .mvv-grid{grid-template-columns:1fr}
+  .mvv-card{min-height:0}
+  .result-year{grid-template-columns:1fr;gap:18px}
+  .issue{grid-template-columns:1fr;gap:10px}
+  .issue .no{font-size:22px}
+  .story-name{grid-template-columns:1fr;gap:24px}
+  .story-photo{position:static;max-width:420px}
+  .cal-row{grid-template-columns:1fr;gap:4px}
+  .footer .inner{grid-template-columns:1fr}
+  .footer .links{align-items:flex-start}
+  .hero .scroll{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="header" id="header">
+  <a class="brand" href="#top">Clean Vibes</a>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#activity">Activity</a>
+    <a href="#calendar">Calendar</a>
+    <a href="#story">Story</a>
+    <a href="#results">Results</a>
+    <a href="#members">Members</a>
+    <a href="https://www.cleansvibes.com/news">News</a>
+    <a class="cta" href="https://lin.ee/FV1oQEz" target="_blank" rel="noopener">JOIN 活動参加</a>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<div class="hero" id="top">
+  <h1 class="title"><span class="line"><span class="line-inner">Clean</span></span><span class="line row2"><span class="line-inner">Vibes</span></span></h1>
+  <div class="sub">
+    <p class="jp">綺麗なまちを、後世に。</p>
+    <p class="en-line">Save our ITO city — Nonprofit Organization, Shizuoka Japan</p>
+  </div>
+  <div class="visual">
+    <img src="https://static.wixstatic.com/media/85bb4f_a570bad019f943b495bddd92d7c8e6d7~mv2.jpg/v1/fill/w_1920,h_1080,al_c,q_85,enc_avif,quality_auto/85bb4f_a570bad019f943b495bddd92d7c8e6d7~mv2.jpg" alt="伊東オレンジビーチでの美化活動">
+  </div>
+  <p class="scroll">Scroll</p>
+</div>
+
+<div class="canvas">
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about">
+    <div class="container reveal">
+      <p class="label">About us</p>
+      <h2 class="sec-title">Who <em>we</em> are</h2>
+      <p class="sec-title-jp">私たちについて</p>
+      <div class="about-grid">
+        <div class="about-copy">
+          <p class="keyword">合言葉は<br>【綺麗なまちを後世へ】</p>
+          <p>非営利団体Clean Vibesは、静岡県の伊東市を中心に、ゴミ拾いや草むしり、花壇づくりやフェンス掃除などに取り組んでいます。</p>
+          <p>世界中から観光客が訪れるこの伊東市を「また来たくなる街」にするため、後世へ繋ぐ綺麗な街づくりを推進しています。</p>
+        </div>
+        <figure class="about-photo">
+          <img src="https://static.wixstatic.com/media/85bb4f_9eb1aac845274154878d77668ad8da55~mv2.jpg/v1/fill/w_1200,h_900,al_c,q_85,enc_avif,quality_auto/85bb4f_9eb1aac845274154878d77668ad8da55~mv2.jpg" alt="Clean Vibesの活動風景">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ACTIVITY ============ -->
+  <section id="activity">
+    <div class="container reveal">
+      <div class="act-head">
+        <p class="label">Our activity</p>
+        <h2 class="sec-title">Three <em>actions</em></h2>
+        <p class="sec-title-jp">主な3つの活動</p>
+      </div>
+      <div class="act-list">
+        <article class="act-item reveal">
+          <p class="act-no">01</p>
+          <div class="act-body">
+            <h3>除草作業<span class="en">Weeding</span></h3>
+            <ul>
+              <li>雑草や草木を刈る</li>
+              <li>再発防止策を講じる</li>
+              <li>費用も手間もかける</li>
+              <li>今、未来の時間をつくる</li>
+              <li>新しいまちづくりをする</li>
+            </ul>
+          </div>
+          <figure class="act-photo">
+            <img src="https://static.wixstatic.com/media/85bb4f_155882576c774298a30a6b37bf50960f~mv2.jpg/v1/fill/w_900,h_620,al_c,q_85,enc_avif,quality_auto/85bb4f_155882576c774298a30a6b37bf50960f~mv2.jpg" alt="除草作業のようす">
+          </figure>
+        </article>
+        <article class="act-item reveal">
+          <p class="act-no">02</p>
+          <div class="act-body">
+            <h3>ゴミ拾い<span class="en">Beach &amp; town clean</span></h3>
+            <ul>
+              <li>海へ流れるゴミを食い止める</li>
+              <li>継続したアクションが必要</li>
+              <li>拾う人増＝捨てる人減</li>
+              <li>ゴミ拾いで人の輪ができる</li>
+              <li>居場所づくりにもなる</li>
+            </ul>
+          </div>
+          <figure class="act-photo">
+            <img src="https://static.wixstatic.com/media/85bb4f_bb17f644227e41b5a869a99fcb0d687a~mv2.jpg/v1/fill/w_900,h_620,al_c,q_85,enc_avif,quality_auto/85bb4f_bb17f644227e41b5a869a99fcb0d687a~mv2.jpg" alt="ゴミ拾いのようす">
+          </figure>
+        </article>
+        <article class="act-item reveal">
+          <p class="act-no">03</p>
+          <div class="act-body">
+            <h3>花壇づくり<span class="en">Flower beds</span></h3>
+            <ul>
+              <li>行政からの委託事業</li>
+              <li>オレンジビーチを管理</li>
+              <li>海辺の花壇は特徴的</li>
+              <li>塩害対策もしっかり</li>
+              <li>プロの仲間が花壇再生</li>
+            </ul>
+          </div>
+          <figure class="act-photo">
+            <img src="https://static.wixstatic.com/media/85bb4f_dd773e1040c344a5b22332d007ac5190~mv2.jpg/v1/fill/w_900,h_620,al_c,q_85,enc_avif,quality_auto/85bb4f_dd773e1040c344a5b22332d007ac5190~mv2.jpg" alt="花壇づくりのようす">
+          </figure>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CALENDAR ============ -->
+  <div class="calendar" id="calendar">
+    <div class="container reveal">
+      <p class="label">Event calendar</p>
+      <h2 class="sec-title">Join <em>us</em></h2>
+      <p class="sec-title-jp">イベントカレンダー・参加方法</p>
+      <div class="cal-grid">
+        <div>
+          <dl class="cal-table">
+            <div class="cal-row"><dt>基本の活動日</dt><dd>週末の朝 6:00〜7:00（場所や内容は時期によって異なります）</dd></div>
+            <div class="cal-row"><dt>主な活動場所</dt><dd>伊東市内各所（LINEでご連絡ください）</dd></div>
+            <div class="cal-row"><dt>主な活動内容</dt><dd>除草作業、ゴミ拾い、花壇づくり、啓蒙イベントの開催、講演会</dd></div>
+            <div class="cal-row"><dt>行政との協力</dt><dd>アダプトロード登録（静岡県）／アダプトシステム登録（伊東市）</dd></div>
+          </dl>
+          <p class="cal-note">※場所は、完了したら次の場所へ移動するためその時々によって異なります。<br>観光でお越しの方も大歓迎です！</p>
+        </div>
+        <div class="cal-cta">
+          <h3>参加申し込みは公式LINEから</h3>
+          <p>参加希望の方は、初回のみ以下の公式LINEよりご連絡ください。</p>
+          <p class="steps">【登録後に①〜③を送ってください】<br>① 参加希望日　② お名前　③ 人数</p>
+          <a class="btn-line" href="https://lin.ee/FV1oQEz" target="_blank" rel="noopener">LINE友だち追加</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ STORY ============ -->
+  <div class="story-wrap story" id="story">
+    <div class="container reveal">
+      <p class="label">Our story</p>
+      <h2 class="sec-title">Why <em>we started</em></h2>
+      <p class="sec-title-jp">設立の背景</p>
+      <div class="story-grid">
+        <div class="story-copy">
+          <p>設立者の大竹は伊東で生まれ育ちました。しかし多くの若者と同じようにこの街への愛着はなく、大学で伊東を出てからは帰って来る予定はありませんでした。</p>
+          <p>しかし父親の死をきっかけに伊東へ戻って家業を継ぎ、そのまま縁あって結婚。娘に恵まれたものの、大切なわが子が育って行くこの街を「大切に思えていない自分」に気が付きました。</p>
+          <p>海を見に行けば、花壇も雑草も放置され、ゴミも散乱しているありさま。歩道もコンクリートが割れ、雑草が行く手を阻んでいるかのように生い茂っていました。</p>
+          <p>これを見て、最初は行政の監督不行き届きに怒りを感じましたが、そのうち「住んでいるのは僕も同じ。誰かではなく自分が」と思いなおし、一人でコツコツと綺麗にすることにしました。</p>
+          <p>そのうちに仲間が一人増え二人増え。やればやるほど自分の娘だけではなく、この街に縁のある子どもみんなが「この街が好きだ」と思える場所にしたいと思い、団体を設立するまでに至りました。</p>
+        </div>
+        <figure class="story-photo">
+          <img src="https://static.wixstatic.com/media/85bb4f_8f8001ec86174f0a864bad77ec2705c7~mv2.jpg/v1/crop/x_271,y_0,w_1149,h_1108/fill/w_800,h_770,al_c,q_85,enc_avif,quality_auto/%E5%86%99%E7%9C%9F%E5%B1%95%E7%94%A8_210830_152.jpg" alt="設立者 大竹圭">
+          <figcaption>Founder — Kei Otake</figcaption>
+        </figure>
+      </div>
+      <div class="story-name reveal">
+        <h3>Clean Vibes<small>名前に込めた想い</small></h3>
+        <p>Clean Vibes（クリーンバイブス）の名前は、「美化活動」×「波紋」を表しています。自分たちが活動をするだけではなく、それが一石となり様々な波紋や振動、ムーブメントをおこしていくように取り組みたいと考えました。先人たちの活動を上手く引き継ぐことができず、一時は放置されている状況に陥っているコトやモノが多くあります。同じことを繰り返さないよう、私たちは一人でも多くの方を巻き込んでいきます。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ RESULTS ============ -->
+  <section id="results">
+    <div class="container reveal">
+      <p class="label">Results</p>
+      <h2 class="sec-title">Track <em>record</em></h2>
+      <p class="sec-title-jp">これまでの実績</p>
+      <div class="results-list">
+        <div class="result-year reveal">
+          <p class="year en">2024</p>
+          <ul>
+            <li><b>3月</b><span>防草作業の往路が完了<small>（約70％の防草効果）</small></span></li>
+            <li><b>8月</b><span>防草作業の往復が完了<small>（約95％の防草効果）</small></span></li>
+            <li><b>9月</b><span>なぎさ公園駐車場の防草、アスファルト補修を開始</span></li>
+            <li><b>11月</b><span>藤の広場の花壇作り体験会実施</span></li>
+          </ul>
+        </div>
+        <div class="result-year reveal">
+          <p class="year en">2023</p>
+          <ul>
+            <li><b>4月</b><span>芝生剥がし作業完了</span></li>
+            <li><b>4月</b><span>歩道の防草作業を開始（伊東オレンジビーチ）</span></li>
+          </ul>
+        </div>
+        <div class="result-year reveal">
+          <p class="year en">2022</p>
+          <ul>
+            <li><b>4月</b><span>芝生剥がし作業開始<small>伊東オレンジビーチの緑地エリアから外に飛び出している芝生を剥がし整える</small></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MVV ============ -->
+  <section id="mvv">
+    <div class="container reveal">
+      <p class="label">Mission / Vision / Value</p>
+      <h2 class="sec-title">Our <em>belief</em></h2>
+      <p class="sec-title-jp">私たちの想い</p>
+      <div class="mvv-grid">
+        <div class="mvv-card reveal">
+          <p class="tag">Mission<small>ミッション</small></p>
+          <p>伊東のまちを変え<br>人が動くきっかけを作り出す</p>
+        </div>
+        <div class="mvv-card reveal">
+          <p class="tag">Vision<small>ビジョン</small></p>
+          <p>綺麗な伊東のまちが<br>次世代で継承され続ける</p>
+        </div>
+        <div class="mvv-card reveal">
+          <p class="tag">Value<small>バリュー</small></p>
+          <p>後世への責任として<br>後世が誇れるまちづくりを担う</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ISSUES ============ -->
+  <section id="issues">
+    <div class="container reveal">
+      <p class="label">Local issues</p>
+      <h2 class="sec-title">Facing <em>ITO city</em></h2>
+      <p class="sec-title-jp">伊東市の課題</p>
+      <div class="issue-list">
+        <article class="issue reveal">
+          <p class="no">01</p>
+          <h3>後世が継ぎたくなる<br>綺麗なまちづくり</h3>
+          <p>この街で生まれ育つ子供たちが、自分の街に誇りを持てるような、そんな場所にしたいと考えます。大人たちの手で「誇れる街」にしてから、後世に継ぎたいです。</p>
+        </article>
+        <article class="issue reveal">
+          <p class="no">02</p>
+          <h3>承継できていない<br>放置箇所への対応</h3>
+          <p>伊東市が盛り上がっていた時代は活発に美化活動に取り組んでいた団体も高齢化で手が回らない現状です。新しい世代の団体へバトンタッチする必要があります。</p>
+        </article>
+        <article class="issue reveal">
+          <p class="no">03</p>
+          <h3>スピーディーな<br>官民一体の問題解決</h3>
+          <p>行政だけでは対処できない問題が多すぎて、民間に頼らざるを得ない現状があります。しかし連携を取るのは難しいため、私たちが繋ぎの役割をしたいと思います。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MEMBERS ============ -->
+  <section id="members">
+    <div class="container reveal">
+      <p class="label">Members</p>
+      <h2 class="sec-title">Our <em>crew</em></h2>
+      <p class="sec-title-jp">仲間たち</p>
+      <div class="member-grid">
+        <div class="member reveal">
+          <figure class="photo"><span class="role">代表</span><img src="https://static.wixstatic.com/media/85bb4f_0ee2b63f4cf74329976e5726b3a7432a~mv2.jpg/v1/crop/x_0,y_42,w_494,h_494/fill/w_500,h_500,al_c,q_85,enc_avif,quality_auto/m.jpg" alt="大竹 圭"></figure>
+          <p class="jp">大竹 圭</p><p class="en-name">Kei Otake</p>
+        </div>
+        <div class="member reveal">
+          <figure class="photo"><img src="https://static.wixstatic.com/media/85bb4f_66e29454a7f54abea536325ccbc5c346~mv2.jpg/v1/crop/x_0,y_160,w_960,h_960/fill/w_500,h_500,al_c,q_85,enc_avif,quality_auto/m.jpg" alt="小林 孝"></figure>
+          <p class="jp">小林 孝</p><p class="en-name">Takashi Kobayashi</p>
+        </div>
+        <div class="member reveal">
+          <figure class="photo"><img src="https://static.wixstatic.com/media/85bb4f_8e9979ef18e24c2095e51ff595e2a0f2~mv2.jpg/v1/crop/x_0,y_160,w_960,h_960/fill/w_500,h_500,al_c,q_85,enc_avif,quality_auto/m.jpg" alt="川畑 好都"></figure>
+          <p class="jp">川畑 好都</p><p class="en-name">Yoshito Kawahata</p>
+        </div>
+        <div class="member reveal">
+          <figure class="photo"><img src="https://static.wixstatic.com/media/85bb4f_147567b5859e42a6a8c131cb05655fa9~mv2.jpg/v1/crop/x_0,y_160,w_960,h_960/fill/w_500,h_500,al_c,q_85,enc_avif,quality_auto/m.jpg" alt="小泉 浩"></figure>
+          <p class="jp">小泉 浩</p><p class="en-name">Hiroshi Koizumi</p>
+        </div>
+        <div class="member reveal">
+          <figure class="photo"><img src="https://static.wixstatic.com/media/85bb4f_f24639b91fbe4f92809a0ae04d152e3d~mv2.jpg/v1/crop/x_0,y_500,w_3000,h_3000/fill/w_500,h_500,al_c,q_85,enc_avif,quality_auto/m.jpg" alt="牧本 洋平"></figure>
+          <p class="jp">牧本 洋平</p><p class="en-name">Yohei Makimoto</p>
+        </div>
+        <div class="member reveal">
+          <figure class="photo"><img src="https://static.wixstatic.com/media/85bb4f_ac13b25cfc6f4322a972c29c0d32c74f~mv2.jpg/v1/crop/x_1,y_0,w_1920,h_1920/fill/w_500,h_500,al_c,q_85,enc_avif,quality_auto/m.jpg" alt="藤原 弘稀"></figure>
+          <p class="jp">藤原 弘稀</p><p class="en-name">Hiroki Fujiwara</p>
+        </div>
+        <div class="member reveal">
+          <figure class="photo"><img src="https://static.wixstatic.com/media/85bb4f_27481f4f86ed475d911db69bfb419efb~mv2.png/v1/crop/x_40,y_0,w_2141,h_2141/fill/w_500,h_500,al_c,q_85,enc_avif,quality_auto/m.png" alt="大竹 奈美"></figure>
+          <p class="jp">大竹 奈美</p><p class="en-name">Nami Otake</p>
+        </div>
+        <div class="member reveal">
+          <figure class="photo"><img src="https://static.wixstatic.com/media/85bb4f_0e33bfb00e9f45d98cc16c3cf65738cd~mv2.jpg/v1/crop/x_0,y_160,w_960,h_960/fill/w_500,h_500,al_c,q_85,enc_avif,quality_auto/m.jpg" alt="安達 浩"></figure>
+          <p class="jp">安達 浩</p><p class="en-name">Hiroshi Adachi</p>
+        </div>
+        <div class="member reveal">
+          <figure class="photo"><img src="https://static.wixstatic.com/media/85bb4f_aaf4c4eb95be4b11815959039c24b84f~mv2.jpg/v1/crop/x_0,y_500,w_3000,h_3000/fill/w_500,h_500,al_c,q_85,enc_avif,quality_auto/m.jpg" alt="手塚 由香子"></figure>
+          <p class="jp">手塚 由香子</p><p class="en-name">Yukako Tuduka</p>
+        </div>
+        <div class="member reveal">
+          <figure class="photo"><img src="https://static.wixstatic.com/media/85bb4f_c3f8129e645f4f598c798e49e4f50d73~mv2.jpg/v1/crop/x_0,y_500,w_3000,h_3000/fill/w_500,h_500,al_c,q_85,enc_avif,quality_auto/m.jpg" alt="鈴木 陽向"></figure>
+          <p class="jp">鈴木 陽向</p><p class="en-name">Hinata Suzuki</p>
+        </div>
+        <div class="member reveal">
+          <figure class="photo"><img src="https://static.wixstatic.com/media/85bb4f_3e9544ed0ae54dfdae09671611208cbd~mv2.jpg/v1/crop/x_0,y_500,w_3000,h_3000/fill/w_500,h_500,al_c,q_85,enc_avif,quality_auto/m.jpg" alt="岩元 将進"></figure>
+          <p class="jp">岩元 将進</p><p class="en-name">Shoshin Iwamoto</p>
+        </div>
+        <div class="member reveal">
+          <figure class="photo"><img src="https://static.wixstatic.com/media/85bb4f_d71b2baca2794284944d11b71a40f1bb~mv2.jpg/v1/crop/x_0,y_500,w_3000,h_3000/fill/w_500,h_500,al_c,q_85,enc_avif,quality_auto/m.jpg" alt="府川 拓史"></figure>
+          <p class="jp">府川 拓史</p><p class="en-name">Takushi Fukawa</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NEWS ============ -->
+  <section id="news">
+    <div class="container reveal">
+      <p class="label">News</p>
+      <h2 class="sec-title">Latest <em>news</em></h2>
+      <p class="sec-title-jp">ニュース</p>
+      <a class="news-card" href="https://www.cleansvibes.com/post/藤の広場の花壇作り体験" target="_blank" rel="noopener">
+        <figure class="thumb">
+          <img src="https://static.wixstatic.com/media/85bb4f_d54ff092db434880b44be502e5db71f7~mv2.jpg/v1/fill/w_908,h_512,fp_0.50_0.50,q_90,enc_avif,quality_auto/85bb4f_d54ff092db434880b44be502e5db71f7~mv2.webp" alt="藤の広場の花壇作り体験">
+        </figure>
+        <div class="body">
+          <p class="date">2024.11.24</p>
+          <h3>藤の広場の花壇作り体験</h3>
+          <p class="more">Read more</p>
+        </div>
+      </a>
+      <p class="news-foot"><a href="https://www.cleansvibes.com/news" target="_blank" rel="noopener">View all news</a></p>
+    </div>
+  </section>
+
+  <!-- ============ JOIN ============ -->
+  <div class="join" id="join">
+    <div class="container reveal">
+      <p class="big">Join us</p>
+      <p class="jp">一緒に綺麗なまちを作りませんか？</p>
+      <div class="btns">
+        <a class="btn green" href="https://lin.ee/FV1oQEz" target="_blank" rel="noopener">JOIN 活動参加</a>
+        <a class="btn ghost" href="mailto:cleanvibes.ito@gmail.com">DONATION 寄付・協賛</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer" id="contact">
+  <div class="container">
+    <div class="inner">
+      <div>
+        <p class="brand">Clean Vibes</p>
+        <p class="slogan">合言葉は【綺麗なまちを後世へ】<br>非営利団体Clean Vibesは、後世へ繋ぐ綺麗なまちづくりを推進しています。</p>
+        <address>
+          Clean Vibes（クリーンバイブス）／ 代表：大竹 圭<br>
+          〒414-0053 静岡県伊東市荻581-153<br>
+          TEL 0557-35-0243 ／ MAIL cleanvibes.ito@gmail.com<br>
+          ※協賛、寄付、応援についてはお問い合わせください。
+        </address>
+      </div>
+      <div class="links">
+        <a href="https://www.instagram.com/clean_vibes_ito/" target="_blank" rel="noopener">Instagram ↗</a>
+        <a href="https://lin.ee/FV1oQEz" target="_blank" rel="noopener">Official LINE ↗</a>
+        <a href="https://www.cleansvibes.com/news" target="_blank" rel="noopener">News ↗</a>
+      </div>
+    </div>
+    <p class="copy">© 2024 Clean Vibes</p>
+  </div>
+</footer>
+
+<script>
+// header: tint after scroll, hide when scrolling down, show when scrolling up
+const header = document.getElementById('header');
+let lastY = 0;
+addEventListener('scroll', () => {
+  const y = scrollY;
+  header.classList.toggle('is-scrolled', y > 40);
+  if (y > 160 && y > lastY + 4) header.classList.add('is-hidden');
+  else if (y < lastY - 4) header.classList.remove('is-hidden');
+  lastY = y;
+}, {passive:true});
+
+// reveal on scroll, staggered when several items enter together
+const io = new IntersectionObserver(entries => {
+  let n = 0;
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.style.setProperty('--d', (n++ * 0.09) + 's');
+    e.target.classList.add('is-in');
+    io.unobserve(e.target);
+  });
+}, {threshold:0.12, rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// gentle parallax on the hero photo
+const heroImg = document.querySelector('.hero .visual img');
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (heroImg && !reduced) {
+  let ticking = false;
+  const update = () => {
+    heroImg.style.transform = 'translate3d(0,' + Math.min(scrollY * 0.1, 140) + 'px,0) scale(1.12)';
+    ticking = false;
+  };
+  addEventListener('scroll', () => {
+    if (!ticking) { requestAnimationFrame(update); ticking = true; }
+  }, {passive:true});
+  update();
+}
+</script>
+</body>
+</html>
