@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CleanVibes | 伊東市から全国の街へ。綺麗なまちを後世へ。</title>
+<title>CleanVibes | 綺麗な街を後世へ — 伊東市から全国を綺麗に</title>
 <meta name="description" content="伊東市の市民まちづくり団体CleanVibes。除草剤を使わない防草メソッドを市民の手で組み立て、通算459回の活動をすべて公開しています。伊東市から全国の街へ広げます。">
 <meta property="og:title" content="CleanVibes | 伊東市から全国の街へ。">
 <meta property="og:description" content="除草剤を使わない防草メソッドを市民の手で組み立てました。通算459回の活動をすべて公開しています。">
@@ -123,7 +123,12 @@ section{padding:clamp(96px,12vw,180px) 0 0}
 }
 .hero h1 .line{display:block;overflow:hidden;padding-bottom:.1em;margin-bottom:-.1em}
 .hero h1 .l-in{display:inline-block}
-.hero h1 .grad-em{background:var(--grad-soft);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero h1 .en-title{font-family:var(--en);font-weight:700;letter-spacing:-.03em}
+.hero h1 .grad-em,.hero .tagline .grad-em{background:var(--grad-soft);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .tagline{
+  margin-top:clamp(22px,2.8vw,40px);
+  font-size:clamp(19px,2.3vw,32px);font-weight:700;letter-spacing:.16em;
+}
 .hero .sub{
   margin-top:clamp(22px,3vw,38px);
   font-size:clamp(14.5px,1.35vw,19px);font-weight:400;line-height:2.3;color:rgba(255,255,255,.85);
@@ -402,9 +407,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
   <div class="grid-pattern"></div>
   <div class="inner">
     <h1>
-      <span class="line"><span class="l-in">伊東市から<span class="grad-em">全国の街へ。</span></span></span>
-      <span class="line"><span class="l-in">綺麗なまちを後世へ。</span></span>
+      <span class="line"><span class="l-in en-title">Clean<span class="grad-em">Vibes</span></span></span>
+      <span class="line"><span class="l-in">綺麗な街を後世へ</span></span>
     </h1>
+    <p class="tagline">伊東市から<span class="grad-em">全国</span>を綺麗に</p>
     <p class="sub">除草剤を使わない防草メソッドを市民の手で組み立てました。<br>通算<span data-total>459</span>回の活動をすべて公開しています。</p>
     <div class="ctas">
       <a class="btn-hero fill" href="https://lin.ee/FV1oQEz" target="_blank" rel="noopener">活動に参加する</a>
@@ -723,7 +729,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
   /* ===== hero intro: aligned line masks ===== */
   gsap.timeline({ defaults: { ease: EASE } })
     .from('.hero h1 .l-in', { yPercent: 115, duration: 1.4, stagger: 0.14 }, 0.15)
-    .from('.hero .sub', { opacity: 0, y: 26, duration: 1.2 }, 0.7)
+    .from('.hero .tagline', { opacity: 0, y: 26, duration: 1.2 }, 0.6)
+    .from('.hero .sub', { opacity: 0, y: 26, duration: 1.2 }, 0.75)
     .from('.hero .ctas a', { opacity: 0, y: 24, duration: 1, stagger: 0.1 }, 0.85)
     .from('.hero .stat', { opacity: 0, y: 30, scale: .92, duration: 1, stagger: 0.12, ease: 'back.out(1.6)' }, 1.0)
     .from('.hero .scroll', { opacity: 0, duration: 1 }, 1.5);
