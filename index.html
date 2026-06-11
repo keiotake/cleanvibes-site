@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <style>
 :root{
   --sky:#5BC2E7;
@@ -706,7 +706,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
   </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>window.__Leaflet = window.L;</script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
@@ -866,14 +867,15 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
 </script>
 <script>
 (function(){
-  if (!window.L) return;
+  const LL = window.__Leaflet;
+  if (!LL || typeof LL.map !== 'function') return;
   const tiles = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
   const attrib = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
-  const pin = (map, lat, lng, html, r) => L.circleMarker([lat, lng], {radius: r || 9, color: '#00A88E', weight: 3, fillColor: '#4ED4A0', fillOpacity: .85}).addTo(map).bindPopup(html);
+  const pin = (map, lat, lng, html, r) => LL.circleMarker([lat, lng], {radius: r || 9, color: '#00A88E', weight: 3, fillColor: '#4ED4A0', fillOpacity: .85}).addTo(map).bindPopup(html);
 
   /* 伊東市 活動マップ */
-  const ito = L.map('itoMap', {scrollWheelZoom: false}).setView([34.945, 139.097], 12);
-  L.tileLayer(tiles, {attribution: attrib}).addTo(ito);
+  const ito = LL.map('itoMap', {scrollWheelZoom: false}).setView([34.945, 139.097], 12);
+  LL.tileLayer(tiles, {attribution: attrib}).addTo(ito);
   [
     ['伊東オレンジビーチ', 34.9712, 139.0962, '芝生剥がし・歩道の防草・花壇管理'],
     ['なぎさ公園', 34.9676, 139.0993, '駐車場の防草・アスファルト補修'],
@@ -885,8 +887,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
   ].forEach(s => pin(ito, s[1], s[2], '<b>' + s[0] + '</b><br>' + s[3]));
 
   /* 全国マップ（うちのまちでやってみた） */
-  const jp = L.map('jpMap', {scrollWheelZoom: false}).setView([36.6, 137.8], 5);
-  L.tileLayer(tiles, {attribution: attrib}).addTo(jp);
+  const jp = LL.map('jpMap', {scrollWheelZoom: false}).setView([36.6, 137.8], 5);
+  LL.tileLayer(tiles, {attribution: attrib}).addTo(jp);
   pin(jp, 34.9656, 139.1018, '<b>静岡県伊東市</b><br>CleanVibes — 2022年から通算459回', 11);
 })();
 </script>
