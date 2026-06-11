@@ -16,6 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.css">
 <style>
 :root{
   --sky:#5BC2E7;
@@ -237,7 +238,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
 .reality .label{color:var(--green)}
 .reality .copy{max-width:34em;font-size:clamp(14.5px,1.25vw,18px);line-height:2.6;color:rgba(255,255,255,.85);margin-top:clamp(24px,3vw,40px)}
 .reality .copy b{color:var(--green);font-weight:700;font-size:1.15em}
-.num-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,28px);margin-top:clamp(46px,5.5vw,80px);position:relative;z-index:1}
+.num-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,28px);margin-top:clamp(46px,5.5vw,80px);position:relative;z-index:1}
 .num{
   border:1px solid rgba(255,255,255,.14);border-radius:20px;
   padding:clamp(24px,2.6vw,40px) clamp(18px,2vw,30px);
@@ -330,6 +331,20 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
 .cal-card .note{font-size:12px;color:var(--gray);margin-top:12px;line-height:2}
 .cal-card .recent li{font-size:13px;padding:9px 2px;border-bottom:1px dashed rgba(26,43,60,.12);line-height:1.9}
 .cal-card .recent li b{font-family:var(--en);color:var(--deepblue);margin-right:8px;font-weight:500}
+
+/* ---------- maps ---------- */
+.map-box{
+  height:clamp(340px,46vw,540px);border-radius:20px;overflow:hidden;
+  box-shadow:0 10px 34px rgba(26,43,60,.1);margin-top:clamp(34px,4vw,56px);
+  position:relative;z-index:1;
+}
+.map-note{font-size:12.5px;color:var(--gray);margin-top:12px}
+.leaflet-popup-content{font-family:var(--jp);font-size:13px;line-height:1.8}
+.tried-cta{
+  margin-top:clamp(26px,3vw,44px);background:var(--pale);border-radius:18px;
+  padding:clamp(22px,2.6vw,36px);font-size:clamp(13.5px,1.1vw,15.5px);line-height:2.2;
+}
+.tried-cta b{color:var(--deepblue)}
 .contact-line{margin-top:16px;font-size:13.5px;line-height:2.2}
 .contact-line a{color:var(--deepblue);font-weight:700;border-bottom:1px solid currentColor}
 
@@ -562,7 +577,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
       <div class="num reveal"><b><span data-count="459" data-live="total">0</span><span class="unit">回</span></b><span>通算活動回数</span></div>
       <div class="num reveal"><b><span data-count="2022">0</span><span class="unit">年</span></b><span>活動開始</span></div>
       <div class="num reveal"><b><span data-count="2030">0</span><span class="unit">年</span></b><span>解散予定 — 届けきって終わる</span></div>
-      <div class="num reveal"><b><span>0</span><span class="unit">剤</span></b><span>使用した除草剤の量</span></div>
     </div>
   </div>
 </section>
@@ -614,6 +628,21 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
   </div>
 </section>
 
+<!-- ============ 6.5 TRIED MAP ============ -->
+<section id="tried">
+  <div class="container">
+    <p class="label reveal">Try it in your town</p>
+    <h2 class="sec-title"><span class="mask"><span class="mline">うちのまちで、やってみた。</span></span></h2>
+    <p class="reveal" style="font-size:clamp(14.5px,1.25vw,18px);line-height:2.5;max-width:36em;margin-top:clamp(22px,3vw,38px)">この地図にピンが増えていくのが、私たちの夢です。<br>最初のピンは伊東市。次は、あなたのまちかもしれません。</p>
+    <div class="map-box" id="jpMap"></div>
+    <div class="tried-cta reveal">
+      <b>あなたのまちでやってみたら、ぜひ教えてください。</b><br>
+      ① まちの名前　② 活動した場所の写真　③ ひとこと<br>
+      この3つを <a href="https://www.instagram.com/clean_vibes_ito/" target="_blank" rel="noopener" style="color:var(--deepblue);font-weight:700;border-bottom:1px solid currentColor">Instagram DM</a> または <a href="mailto:cleanvibes.ito@gmail.com" style="color:var(--deepblue);font-weight:700;border-bottom:1px solid currentColor">メール</a> に送ってください。確認できしだい、この地図にあなたのまちのピンを立てます。
+    </div>
+  </div>
+</section>
+
 <!-- ============ 7. ACTIVITY ============ -->
 <section class="activity" id="activity">
   <div class="container">
@@ -648,6 +677,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
         <p class="contact-line">お問い合わせ：<a href="mailto:cleanvibes.ito@gmail.com">cleanvibes.ito@gmail.com</a><br>または Instagram DM / <a href="https://lin.ee/FV1oQEz" target="_blank" rel="noopener">公式LINE</a></p>
       </div>
     </div>
+    <h3 class="reveal" style="margin-top:clamp(50px,6vw,90px);font-size:clamp(20px,2vw,30px);font-weight:900;letter-spacing:.06em">伊東市 活動マップ</h3>
+    <p class="map-note reveal">私たちが手を入れてきた主なエリアです。ピンをタップすると活動内容が見られます。</p>
+    <div class="map-box" id="itoMap"></div>
   </div>
 </section>
 
@@ -674,6 +706,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
@@ -829,6 +862,32 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
     });
     btn.addEventListener('mouseleave', () => gsap.to(btn, { x: 0, y: 0, duration: .8, ease: 'elastic.out(1,0.4)' }));
   });
+})();
+</script>
+<script>
+(function(){
+  if (!window.L) return;
+  const tiles = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+  const attrib = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+  const pin = (map, lat, lng, html, r) => L.circleMarker([lat, lng], {radius: r || 9, color: '#00A88E', weight: 3, fillColor: '#4ED4A0', fillOpacity: .85}).addTo(map).bindPopup(html);
+
+  /* 伊東市 活動マップ */
+  const ito = L.map('itoMap', {scrollWheelZoom: false}).setView([34.945, 139.097], 12);
+  L.tileLayer(tiles, {attribution: attrib}).addTo(ito);
+  [
+    ['伊東オレンジビーチ', 34.9712, 139.0962, '芝生剥がし・歩道の防草・花壇管理'],
+    ['なぎさ公園', 34.9676, 139.0993, '駐車場の防草・アスファルト補修'],
+    ['藤の広場', 34.9667, 139.0986, '花壇づくり体験会・花壇再生'],
+    ['伊東市役所', 34.9656, 139.1018, '除草・清掃'],
+    ['伊豆伊東高校', 34.9780, 139.0871, '周辺の清掃・除草'],
+    ['さくらの里', 34.9128, 139.0935, '除草・防草・側溝の清掃'],
+    ['大室山', 34.9030, 139.0945, '除草・清掃']
+  ].forEach(s => pin(ito, s[1], s[2], '<b>' + s[0] + '</b><br>' + s[3]));
+
+  /* 全国マップ（うちのまちでやってみた） */
+  const jp = L.map('jpMap', {scrollWheelZoom: false}).setView([36.6, 137.8], 5);
+  L.tileLayer(tiles, {attribution: attrib}).addTo(jp);
+  pin(jp, 34.9656, 139.1018, '<b>静岡県伊東市</b><br>CleanVibes — 2022年から通算459回', 11);
 })();
 </script>
 </body>
