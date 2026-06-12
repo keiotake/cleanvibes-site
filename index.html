@@ -344,6 +344,16 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
 .cal-card .recent li{font-size:13px;padding:9px 2px;border-bottom:1px dashed rgba(26,43,60,.12);line-height:1.9}
 .cal-card .recent li b{font-family:var(--en);color:var(--deepblue);margin-right:8px;font-weight:500}
 
+/* ---------- works ---------- */
+.works{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(28px,3.4vw,46px)}
+.works li{
+  background:#fff;border-radius:999px;padding:11px 24px;
+  font-weight:700;font-size:clamp(13px,1.1vw,15.5px);letter-spacing:.06em;
+  box-shadow:0 4px 14px rgba(26,43,60,.07);
+}
+.works-note{margin-top:18px;font-size:clamp(14px,1.2vw,17px);line-height:2.2}
+.works-note b{color:var(--deepgreen)}
+
 /* ---------- maps ---------- */
 .map-box{
   height:clamp(340px,46vw,540px);border-radius:20px;overflow:hidden;
@@ -628,6 +638,15 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
   <div class="container">
     <p class="label reveal">Our Activity</p>
     <h2 class="sec-title"><span class="mask"><span class="mline">毎週末、まちに出ています。</span></span></h2>
+    <ul class="works reveal">
+      <li>除草〜防草</li>
+      <li>側溝清掃</li>
+      <li>苔落とし</li>
+      <li>駐車場の白線塗装</li>
+      <li>ガードレール等の塗装</li>
+      <li>学校の高圧洗浄</li>
+    </ul>
+    <p class="works-note reveal">仕上がりには、とことんこだわります。「ボランティアだから」ではなく、<b>ボランティアだからこそできる質</b>を。</p>
     <div class="grid">
       <div class="reveal">
         <div class="insta-grid">
@@ -645,6 +664,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
         <dl>
           <div class="row"><dt>活動日</dt><dd>週末の朝 6:00〜7:00</dd></div>
           <div class="row"><dt>場所</dt><dd>伊東市内各所（その時々で移動します）</dd></div>
+          <div class="row"><dt>作業内容</dt><dd>除草〜防草、側溝清掃、苔落とし、白線塗装、ガードレール塗装、高圧洗浄 など</dd></div>
           <div class="row"><dt>参加方法</dt><dd>公式LINEから「参加希望日・お名前・人数」を送信</dd></div>
         </dl>
         <h3 style="margin-top:24px">直近の活動</h3>
@@ -683,7 +703,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
   <div class="container">
     <p class="label reveal">Global Movement</p>
     <h2 class="sec-title"><span class="mask"><span class="mline">私たちは世界の流れの<br>一部です。</span></span></h2>
-    <p class="lead reveal">除草剤に頼らないまちづくりは、すでに世界の標準になりつつあります。火炎除草はヨーロッパの自治体で広く採用されている方法です。</p>
+    <p class="lead reveal">綺麗は、全人類が共通して持っている素敵な感覚です。だからこそ、すべての人が共感できるもので繋がりたい。除草剤に頼らないまちづくりは、すでに世界の標準になりつつあり、火炎除草はヨーロッパの自治体で広く採用されている方法です。</p>
     <div class="country-grid">
       <div class="ccard reveal"><span class="flag" aria-hidden="true">🇫🇷</span><h3>フランス</h3><p>2021年、公共空間での農薬使用を全面禁止。火炎除草が主要な代替手段に。</p></div>
       <div class="ccard reveal"><span class="flag" aria-hidden="true">🇩🇰</span><h3>デンマーク</h3><p>1995〜2002年で自治体の農薬使用を83%削減。火炎処理が広く使用されています。</p></div>
