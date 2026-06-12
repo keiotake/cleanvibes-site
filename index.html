@@ -869,8 +869,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
 (function(){
   const LL = window.__Leaflet;
   if (!LL || typeof LL.map !== 'function') return;
-  const tiles = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-  const attrib = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+  const tiles = 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png';
+  const attrib = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>';
   const pin = (map, lat, lng, html, r) => LL.circleMarker([lat, lng], {radius: r || 9, color: '#00A88E', weight: 3, fillColor: '#4ED4A0', fillOpacity: .85}).addTo(map).bindPopup(html);
 
   /* 伊東市 活動マップ */
