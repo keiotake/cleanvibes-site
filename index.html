@@ -10,6 +10,8 @@
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://keiotake.github.io/cleanvibes-website/img/act12.jpg">
 <meta name="theme-color" content="#1A2B3C">
+<link rel="icon" type="image/png" href="img/logo-mark.png">
+<link rel="apple-touch-icon" href="img/logo-mark.png">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"NGO","name":"CleanVibes","alternateName":"クリーンバイブス","foundingDate":"2022-04","address":{"@type":"PostalAddress","addressLocality":"伊東市","addressRegion":"静岡県","addressCountry":"JP"},"sameAs":["https://www.instagram.com/clean_vibes_ito/"]}
 </script>
@@ -75,6 +77,8 @@ section{padding:clamp(96px,12vw,180px) 0 0}
 }
 .header .brand{font-family:var(--en);font-weight:700;font-size:21px;letter-spacing:-.02em;display:flex;align-items:center;gap:10px}
 .header .brand .dot{width:12px;height:12px;border-radius:50%;background:var(--grad);flex:none}
+.brand-mark{width:32px;height:32px;object-fit:contain;flex:none}
+.footer .brand-mark{width:36px;height:36px}
 .header nav{display:flex;align-items:center;gap:clamp(18px,2.2vw,34px)}
 .header nav a{font-family:var(--en);font-size:13.5px;letter-spacing:.1em;font-weight:500;position:relative;padding:4px 0}
 .header nav a:not(.cta)::before{
@@ -404,7 +408,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
 <body>
 
 <header class="header" id="header">
-  <a class="brand" href="#top"><span class="dot"></span>CleanVibes</a>
+  <a class="brand" href="#top"><img class="brand-mark" src="img/logo-mark.png" alt="CleanVibesのロゴ">CleanVibes</a>
   <nav>
     <a href="#mission">About</a>
     <a href="#method">Method</a>
@@ -711,7 +715,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
   <div class="container">
     <div class="inner">
       <div>
-        <p class="brand"><span class="dot"></span>CleanVibes</p>
+        <p class="brand"><img class="brand-mark" src="img/logo-mark.png" alt="">CleanVibes</p>
         <p class="slogan">綺麗なまちを後世へ</p>
         <p class="slogan-en">Clean towns, handed to the future — from Ito to all of Japan.</p>
         <address>
@@ -912,7 +916,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
   /* 全国マップ（うちのまちでやってみた） */
   const jp = LL.map('jpMap', {scrollWheelZoom: false}).setView([36.6, 137.8], 5);
   LL.tileLayer(tiles, {attribution: attrib}).addTo(jp);
-  pin(jp, 34.9656, 139.1018, '<b>静岡県伊東市</b><br>CleanVibes — 2022年から通算459回', 11);
+  LL.marker([34.9656, 139.1018], {icon: LL.icon({iconUrl: 'img/logo-mark.png', iconSize: [38, 38], iconAnchor: [19, 19], popupAnchor: [0, -17]})}).addTo(jp).bindPopup('<b>静岡県伊東市</b><br>CleanVibes — 2022年から通算459回');
 })();
 </script>
 </body>
