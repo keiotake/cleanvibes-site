@@ -937,6 +937,74 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
   const jp = LL.map('jpMap', {scrollWheelZoom: false}).setView([36.6, 137.8], 5);
   LL.tileLayer(tiles, {attribution: attrib}).addTo(jp);
   LL.marker([34.9656, 139.1018], {icon: LL.icon({iconUrl: 'img/logo-mark.png', iconSize: [38, 38], iconAnchor: [19, 19], popupAnchor: [0, -17]})}).addTo(jp).bindPopup('<b>静岡県伊東市</b><br>CleanVibes — 2022年から通算459回');
+
+  /* ===== 「うちのまちでやってみた」ピンをスプレッドシートから自動表示 ===== */
+  /* 公開シートのCSV URL（File→共有→ウェブに公開→CSV）。空なら伊東ピンのみ。 */
+  const PIN_SHEET_CSV = '';
+  if (PIN_SHEET_CSV) loadTownPins(jp, LL, PIN_SHEET_CSV);
+
+  function loadTownPins(map, L, url){
+    fetch(url).then(r => r.text()).then(txt => {
+      const rows = parseCsv(txt);
+      if (!rows.length) return;
+      const head = rows[0].map(c => c.trim());
+      const col = name => head.findIndex(c => c.indexOf(name) >= 0);
+      const ci = {town: col('まち'), note: col('コメント'), date: col('日付'), lat: col('緯度'), lng: col('経度')};
+      const items = rows.slice(1).map(r => ({
+        town: (r[ci.town]||'').trim(),
+        note: ci.note>=0 ? (r[ci.note]||'').trim() : '',
+        date: ci.date>=0 ? (r[ci.date]||'').trim() : '',
+        lat:  ci.lat>=0 ? parseFloat(r[ci.lat]) : NaN,
+        lng:  ci.lng>=0 ? parseFloat(r[ci.lng]) : NaN
+      })).filter(x => x.town);
+      let i = 0;
+      (function next(){
+        if (i >= items.length) return;
+        const it = items[i++];
+        if (!isNaN(it.lat) && !isNaN(it.lng)) { drop(map, L, it.lat, it.lng, it); next(); return; }
+        geocode(it.town).then(c => { if (c) drop(map, L, c.lat, c.lng, it); setTimeout(next, 1100); });
+      })();
+    }).catch(() => {});
+  }
+
+  function drop(map, L, lat, lng, it){
+    const safe = s => String(s||'').replace(/[<>&]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[c]));
+    const body = '<b>' + safe(it.town) + '</b>' + (it.date ? '<br>' + safe(it.date) : '') + (it.note ? '<br>' + safe(it.note) : '');
+    L.circleMarker([lat, lng], {radius: 9, color: '#00A88E', weight: 3, fillColor: '#4ED4A0', fillOpacity: .9}).addTo(map).bindPopup(body);
+  }
+
+  function geocode(town){
+    const key = 'cvgeo:' + town;
+    try { const c = localStorage.getItem(key); if (c) return Promise.resolve(JSON.parse(c)); } catch(e){}
+    const q = encodeURIComponent(town + ', 日本');
+    return fetch('https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=jp&q=' + q, {headers:{'Accept':'application/json'}})
+      .then(r => r.json()).then(a => {
+        if (!a || !a.length) return null;
+        const c = {lat: parseFloat(a[0].lat), lng: parseFloat(a[0].lon)};
+        try { localStorage.setItem(key, JSON.stringify(c)); } catch(e){}
+        return c;
+      }).catch(() => null);
+  }
+
+  function parseCsv(text){
+    const rows = []; let row = [], cur = '', q = false;
+    for (let i = 0; i < text.length; i++){
+      const ch = text[i];
+      if (q){
+        if (ch === '"' && text[i+1] === '"'){ cur += '"'; i++; }
+        else if (ch === '"'){ q = false; }
+        else cur += ch;
+      } else {
+        if (ch === '"') q = true;
+        else if (ch === ','){ row.push(cur); cur = ''; }
+        else if (ch === '\n'){ row.push(cur); rows.push(row); row = []; cur = ''; }
+        else if (ch === '\r'){}
+        else cur += ch;
+      }
+    }
+    if (cur.length || row.length){ row.push(cur); rows.push(row); }
+    return rows.filter(r => r.some(c => c.trim() !== ''));
+  }
 })();
 </script>
 </body>
