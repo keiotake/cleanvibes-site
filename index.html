@@ -940,7 +940,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
 
   /* ===== 「うちのまちでやってみた」ピンをスプレッドシートから自動表示 ===== */
   /* 公開シートのCSV URL（File→共有→ウェブに公開→CSV）。空なら伊東ピンのみ。 */
-  const PIN_SHEET_CSV = '';
+  const PIN_SHEET_CSV = 'https://docs.google.com/spreadsheets/d/1uWfQ1JxVJt1YNRYYF6qH_-3T4dbiPTz3sUFXvFsf69w/gviz/tq?tqx=out:csv&gid=0';
   if (PIN_SHEET_CSV) loadTownPins(jp, LL, PIN_SHEET_CSV);
 
   function loadTownPins(map, L, url){
