@@ -965,8 +965,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
         if (!isNaN(it.lat) && !isNaN(it.lng)) { drop(map, L, it.lat, it.lng, it); next(); return; }
         geocode(it.town).then(c => { if (c) drop(map, L, c.lat, c.lng, it); setTimeout(next, 1100); });
       })();
-    };
-  (function(){ var s = document.createElement('script'); s.src = GAS + '?callback=cvApplyData'; s.async = true; document.body.appendChild(s); })();
+    }).catch(() => {});
   }
 
   function drop(map, L, lat, lng, it){
