@@ -450,13 +450,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
       <span class="line"><span class="l-in">綺麗なまちを後世へ</span></span>
     </h1>
     <p class="tagline">伊東市から<span class="grad-em">全国</span>を綺麗に</p>
-    <p class="sub">除草剤に頼らない防草のやり方を、市民の手だけで組み立ててきました。<br>これまでの活動は、通算<span data-total>459</span>回。その記録を、ぜんぶ公開しています。</p>
+    <p class="sub">除草剤に頼らない防草のやり方を、市民の手だけで組み立ててきました。<br>これまでの活動は、通算<span data-total>511</span>回。その記録を、ぜんぶ公開しています。</p>
     <div class="ctas">
       <a class="btn-hero fill" href="https://lin.ee/FV1oQEz" target="_blank" rel="noopener">活動に参加する</a>
       <a class="btn-hero ghost" href="#method">メソッドを見る</a>
     </div>
     <div class="stats">
-      <div class="stat"><b data-count="459" data-live="total">0</b><span>通算活動回数</span></div>
+      <div class="stat"><b data-count="511" data-live="total">0</b><span>通算活動回数</span></div>
       <div class="stat"><b>2022–2030</b><span>届けきって終わる</span></div>
     </div>
   </div>
@@ -597,7 +597,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
       </figure>
     </div>
     <div class="num-grid">
-      <div class="num reveal"><b><span data-count="459" data-live="total">0</span><span class="unit">回</span></b><span>通算活動回数</span></div>
+      <div class="num reveal"><b><span data-count="511" data-live="total">0</span><span class="unit">回</span></b><span>通算活動回数</span></div>
       <div class="num reveal"><b><span data-count="2022">0</span><span class="unit">年</span></b><span>活動開始</span></div>
       <div class="num reveal"><b><span data-count="2030">0</span><span class="unit">年</span></b><span>解散予定 — 届けきって終わる</span></div>
     </div>
@@ -885,7 +885,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
   const GAS = 'https://script.google.com/macros/s/AKfycbyCHg6qLzpttcBDAAiAIFxBCreZ4ZVk0WdEQ-YVGNWMKYooWY4Wgsti2gGWSdZTRvVK0Q/exec';
   const OFFSET = 409;
   const esc = s => String(s).replace(/[<>&]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[c]));
-  fetch(GAS).then(r => r.json()).then(d => {
+  window.cvApplyData = function(d){
     if (!d || !d.records) return;
     const total = d.records.length + OFFSET;
     document.querySelectorAll('[data-live="total"]').forEach(el => {
@@ -900,7 +900,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
         '<li><b>' + esc(String(r.date).replace(/-/g, '.')) + '</b> ' + esc(r.place) + ' — ' + esc(r.work) + '（' + r.members.length + '名）</li>'
       ).join('');
     }
-  }).catch(() => {});
+  };
+  (function(){ var s = document.createElement('script'); s.src = GAS + '?callback=cvApplyData'; s.async = true; document.body.appendChild(s); })();
 
   /* ===== magnetic CTA ===== */
   document.querySelectorAll('.header .cta, .btn-insta').forEach(btn => {
@@ -964,7 +965,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
         if (!isNaN(it.lat) && !isNaN(it.lng)) { drop(map, L, it.lat, it.lng, it); next(); return; }
         geocode(it.town).then(c => { if (c) drop(map, L, c.lat, c.lng, it); setTimeout(next, 1100); });
       })();
-    }).catch(() => {});
+    };
+  (function(){ var s = document.createElement('script'); s.src = GAS + '?callback=cvApplyData'; s.async = true; document.body.appendChild(s); })();
   }
 
   function drop(map, L, lat, lng, it){
