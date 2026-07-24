@@ -725,7 +725,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
     <div class="tried-cta reveal">
       <b>現場に立つことだけが、参加のかたちではありません。</b><br>
       道具も資材も、活動を続けるにはお金がかかります。いただいたご支援は、防草の資材や道具の購入に大切に使わせていただきます。『応援したい』——その気持ちだけで十分に力になります。法人・団体さまの協賛も、心より歓迎します。<br>
-      ご連絡は <a href="https://www.instagram.com/clean_vibes_ito/" target="_blank" rel="noopener" style="color:var(--deepblue);font-weight:700;border-bottom:1px solid currentColor">InstagramのDM</a> へ。<br><br><span style="font-size:12.5px;color:var(--gray);line-height:2">Clean Vibesは、地域美化を目的とする任意団体です。いただいたご支援はClean Vibesの美化活動にのみ使用し、代表者個人の政治活動および選挙運動には一切使用しません。</span>
+      ご連絡は <a href="https://www.instagram.com/clean_vibes_ito/" target="_blank" rel="noopener" style="color:var(--deepblue);font-weight:700;border-bottom:1px solid currentColor">InstagramのDM</a> へ。
     </div>
     <style>
       .support-wall{margin-top:clamp(30px,3.6vw,52px)}
@@ -960,7 +960,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
   /* 全国マップ（うちのまちでやってみた） */
   const jp = LL.map('jpMap', {scrollWheelZoom: false}).setView([36.6, 137.8], 5);
   LL.tileLayer(tiles, {attribution: attrib}).addTo(jp);
-  LL.marker([34.9656, 139.1018], {icon: LL.icon({iconUrl: 'img/logo-mark.png', iconSize: [38, 38], iconAnchor: [19, 19], popupAnchor: [0, -17]})}).addTo(jp).bindPopup('<b>静岡県伊東市</b><br>CleanVibes — 2022年から通算459回');
+  LL.marker([34.9656, 139.1018], {icon: LL.icon({iconUrl: 'img/logo-mark.png', iconSize: [38, 38], iconAnchor: [19, 19], popupAnchor: [0, -17]})}).addTo(jp).bindPopup('<b>静岡県伊東市</b><br>CleanVibes 発祥の地');
+  [['狭山市（埼玉県）', 35.8531, 139.4123, '活動を実施'], ['伊東市 伊豆高原', 34.8967, 139.0997, '防草・除草を実施'], ['伊東市 宇佐美', 35.0089, 139.0906, '防草・除草を実施']].forEach(function(s){ LL.circleMarker([s[1], s[2]], {radius: 9, color: '#00A88E', weight: 3, fillColor: '#4ED4A0', fillOpacity: .9}).addTo(jp).bindPopup('<b>' + s[0] + '</b><br>' + s[3]); });
 
   /* ===== 「うちのまちでやってみた」ピンをスプレッドシートから自動表示 ===== */
   /* 公開シートのCSV URL（File→共有→ウェブに公開→CSV）。空なら伊東ピンのみ。 */
