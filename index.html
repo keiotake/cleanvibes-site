@@ -906,7 +906,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
     const total = d.records.length + OFFSET;
     document.querySelectorAll('[data-live="total"]').forEach(el => {
       el.dataset.count = total;
-      if (el.dataset.done) el.textContent = total;
+      el.textContent = total;
+      el.dataset.done = '1';
     });
     document.querySelectorAll('[data-total]').forEach(el => el.textContent = total);
     const list = document.getElementById('recentList');
