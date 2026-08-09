@@ -414,6 +414,25 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
   .footer .inner{grid-template-columns:1fr}
   .footer .links{align-items:flex-start}
 }
+
+/* ===== activity reports（記録アプリから自動連携） ===== */
+.reports{padding:clamp(70px,9vw,130px) 0;background:var(--pale)}
+.reports .reports-note{font-size:13.5px;color:var(--gray);margin-top:10px}
+.report-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px;margin-top:34px}
+.report-card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 10px 30px rgba(26,43,60,.08);display:flex;flex-direction:column}
+.report-card .rphotos{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--pale)}
+.report-card .rphotos img{width:100%;height:130px;object-fit:cover;display:block}
+.report-card .rphotos.single img{height:210px;grid-column:1/-1}
+.report-card .rbody{padding:16px 18px 18px}
+.report-card .rdate{font-family:var(--en);font-weight:700;font-size:13px;letter-spacing:.08em;color:var(--deepblue)}
+.report-card .rplace{font-weight:900;font-size:16.5px;margin:2px 0 6px;line-height:1.5}
+.report-card .rwork{font-size:13.5px;color:var(--gray);line-height:1.8}
+.report-card .rmeta{margin-top:10px;font-size:12px;color:var(--gray);display:flex;gap:14px;flex-wrap:wrap}
+.report-card .rmeta b{color:var(--deepgreen);font-family:var(--en);font-size:14px}
+.rba{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:12px}
+.rba figure{margin:0}
+.rba img{width:100%;height:100px;object-fit:cover;border-radius:10px;display:block}
+.rba figcaption{font-size:10.5px;font-weight:700;letter-spacing:.14em;color:var(--gray);font-family:var(--en);margin-bottom:3px}
 </style>
 </head>
 <body>
@@ -683,6 +702,16 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
   </div>
 </section>
 
+<!-- ============ 7.5 ACTIVITY REPORTS（記録アプリから自動連携） ============ -->
+<section class="reports" id="reports" style="display:none">
+  <div class="container">
+    <p class="label">Activity Reports</p>
+    <h2 class="sec-title">最新の活動レポート</h2>
+    <p class="reports-note">活動記録アプリから自動で連携されています。</p>
+    <div class="report-grid" id="reportGrid"></div>
+  </div>
+</section>
+
 <!-- ============ 6.5 TRIED MAP ============ -->
 <section id="tried">
   <div class="container">
@@ -915,6 +944,38 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
       list.innerHTML = recent.map(r =>
         '<li><b>' + esc(String(r.date).replace(/-/g, '.')) + '</b> ' + esc(r.place) + ' — ' + esc(r.work) + '（' + r.members.length + '名）</li>'
       ).join('');
+    }
+    /* 活動レポートのカード（写真・Before/After・回収量つき） */
+    const grid = document.getElementById('reportGrid');
+    if (grid) {
+      const rs = [...d.records].sort((a, b) => String(b.date).localeCompare(String(a.date))).slice(0, 6);
+      if (rs.length) {
+        grid.innerHTML = rs.map(r => {
+          const date = String(r.date).replace(/-/g, '.');
+          const nm = (r.members || []).length;
+          const pics = [...(r.photos || []), ...(r.photosDone || [])].slice(0, 4);
+          const pair = (r.pairs || []).find(p => p.before && p.after);
+          let media = '';
+          if (pics.length) {
+            media = '<div class="rphotos' + (pics.length === 1 ? ' single' : '') + '">' +
+              pics.map(u => '<img src="' + esc(u) + '" alt="活動の様子" loading="lazy">').join('') + '</div>';
+          }
+          let ba = '';
+          if (pair) {
+            ba = '<div class="rba">' +
+              '<figure><figcaption>BEFORE</figcaption><img src="' + esc(pair.before) + '" alt="作業前" loading="lazy"></figure>' +
+              '<figure><figcaption>AFTER</figcaption><img src="' + esc(pair.after) + '" alt="作業後" loading="lazy"></figure></div>';
+          }
+          return '<article class="report-card">' + media +
+            '<div class="rbody"><div class="rdate">' + esc(date) + '</div>' +
+            '<div class="rplace">' + esc(r.place) + '</div>' +
+            '<div class="rwork">' + esc(r.work) + '</div>' + ba +
+            '<div class="rmeta"><span>参加 <b>' + nm + '</b> 名</span>' + (r.bags ? '<span>回収量 ' + esc(r.bags) + '</span>' : '') + '</div>' +
+            '</div></article>';
+        }).join('');
+        document.getElementById('reports').style.display = '';
+        if (window.ScrollTrigger) ScrollTrigger.refresh();
+      }
     }
     const sw = document.getElementById('supportList');
     if (sw && Array.isArray(d.supports) && d.supports.length) {
