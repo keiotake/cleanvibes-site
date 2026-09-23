@@ -434,6 +434,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
 .rba img{width:100%;height:100px;object-fit:cover;border-radius:10px;display:block}
 .rba figcaption{font-size:10.5px;font-weight:700;letter-spacing:.14em;color:var(--gray);font-family:var(--en);margin-bottom:3px}
 </style>
+<style id="social-video-style">
+.social-dock{position:fixed;right:20px;bottom:20px;z-index:105;display:flex;gap:8px;padding:8px;background:rgba(248,252,253,.96);border:1px solid rgba(26,43,60,.12);border-radius:18px;box-shadow:0 5px 24px #1a2b3c24;backdrop-filter:blur(12px)}
+.social-dock a{display:flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:10px 18px;border-radius:12px;font-size:12px;font-weight:700;line-height:1.4}.social-ig{background:linear-gradient(110deg,#a72c91,#b42a59);color:#fff}.social-yt{background:#fff;color:var(--navy);border:1px solid #d9e5e9}.social-icon{width:20px;height:20px;flex:none}.social-dock a:hover{filter:brightness(1.12)}
+.header nav a.social-nav{color:inherit;font-weight:700}.social-content{margin-top:40px}.instagram-feature{display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;background:linear-gradient(115deg,#f8eff6,#eaf6fb);padding:clamp(24px,4vw,48px);border:1px solid #e1dce5;border-radius:22px}.instagram-feature .eyebrow{font-family:var(--en);font-size:13px;color:#922478;letter-spacing:.13em;font-weight:700}.instagram-feature h3{font-size:clamp(23px,3vw,34px);line-height:1.6;margin:8px 0 12px}.instagram-feature p{font-size:14px;line-height:2}.instagram-feature .social-ig{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;padding:16px 25px;font-weight:700;font-size:14px;white-space:nowrap}.instagram-feature small{display:block;font-family:var(--en);font-size:12px;color:var(--gray);margin-top:10px;text-align:center}.shorts-heading{display:flex;align-items:end;justify-content:space-between;gap:20px;margin:42px 0 22px}.shorts-heading h3{font-size:clamp(22px,2.4vw,30px);line-height:1.5}.shorts-heading p{font-size:13px;color:var(--gray);margin-top:8px}.shorts-heading a{font-size:13px;color:var(--deepblue);font-weight:700;border-bottom:1px solid;white-space:nowrap}.shorts-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;max-width:940px;margin:0 auto}.short-card{min-width:0}.short-player{position:relative;aspect-ratio:9/16;background:#12242b;border-radius:18px;overflow:hidden}.short-player button{position:absolute;inset:0;width:100%;border:0;padding:0;cursor:pointer;background:#12242b;color:white;font-family:var(--jp)}.short-player button img{width:100%;height:100%;object-fit:cover;opacity:.8;transition:opacity .3s}.short-player button:hover img{opacity:1}.short-play-label{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;font-size:13px;font-weight:700;text-shadow:0 1px 5px #000}.short-play-label b{display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:#b91924;font-size:25px;box-shadow:0 3px 15px #0004;text-shadow:none}.short-player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}.short-card h4{font-size:14px;line-height:1.9;margin-top:14px}.short-card>a{display:inline-block;font-size:12px;color:var(--deepblue);margin-top:8px;text-decoration:underline;text-underline-offset:4px;min-height:32px}.shorts-note{font-size:12px;color:var(--gray);margin-top:20px}.footer{padding-bottom:105px}
+@media(min-width:901px) and (max-width:1100px){.header nav{gap:14px}.header nav a{font-size:12px}.header .cta{padding:10px 16px}.header .brand{font-size:18px}}
+@media(max-width:700px){.instagram-feature{grid-template-columns:1fr;gap:20px}.instagram-feature .social-ig{width:100%}.shorts-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;padding:3px 3px 16px}.short-card{flex:0 0 78%;scroll-snap-align:start}.shorts-heading{align-items:start;flex-direction:column;gap:12px}.social-dock{left:10px;right:10px;bottom:0;bottom:env(safe-area-inset-bottom,0px);border-radius:16px 16px 0 0;display:grid;grid-template-columns:1.35fr 1fr;padding:8px;gap:6px}.social-dock a{font-size:11px;padding:10px 6px;gap:6px}.social-dock .social-icon{width:18px;height:18px}.footer{padding-bottom:115px}.shorts-note{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.short-player button img{transition:none}}
+</style>
 </head>
 <body>
 
@@ -445,6 +453,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
     <a href="#activity">Activity</a>
     <a href="#tried">Map</a>
     <a href="#support">Support</a>
+    <a class="social-nav" href="https://www.instagram.com/clean_vibes_ito/reels/?hl=ja" target="_blank" rel="noopener">Instagram</a>
     <a class="cta" href="#join">Join Us</a>
   </nav>
   <button class="menu-btn" id="menuBtn" aria-label="メニューを開く"><span></span><span></span><span></span></button>
@@ -456,6 +465,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
   <a href="#activity">Activity</a>
   <a href="#tried">Map</a>
   <a href="#support">Support</a>
+  <a href="https://www.instagram.com/clean_vibes_ito/reels/?hl=ja" target="_blank" rel="noopener">Instagram Reels</a>
+  <a href="#social-videos">YouTube Shorts</a>
   <p class="jp-small">綺麗なまちを後世へ</p>
 </div>
 
@@ -471,8 +482,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
     <p class="tagline">伊東市から<span class="grad-em">全国</span>を綺麗に</p>
     <p class="sub">除草剤に頼らない防草のやり方を、市民の手だけで組み立ててきました。<br>これまでの活動は、通算<span data-total>470</span>回。その記録を、ぜんぶ公開しています。</p>
     <div class="ctas">
-      <a class="btn-hero fill" href="https://www.instagram.com/clean_vibes_ito/" target="_blank" rel="noopener">活動に参加する</a>
+      <a class="btn-hero fill" href="https://www.instagram.com/clean_vibes_ito/reels/?hl=ja" target="_blank" rel="noopener">Instagramで活動を見る</a>
       <a class="btn-hero ghost" href="#method">メソッドを見る</a>
+      <a class="btn-hero ghost" href="#social-videos">ショートを見る</a>
     </div>
     <div class="stats">
       <div class="stat"><b data-count="470" data-live="total">470</b><span>通算活動回数</span></div>
@@ -657,6 +669,18 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
   <div class="container">
     <p class="label reveal">Our Activity</p>
     <h2 class="sec-title"><span class="mask"><span class="mline">毎週末、まちに出ています。</span></span></h2>
+
+    <div class="social-content" id="social-videos" style="scroll-margin-top:90px">
+      <div class="instagram-feature">
+        <div><p class="eyebrow">INSTAGRAM / REELS</p><h3>まちでの活動を<br>いちばん近くで。</h3><p>日々の作業や仲間の様子はInstagramで発信しています。<br>最新のリールも、活動への参加相談もこちらから。</p></div>
+        <div><a class="social-ig" href="https://www.instagram.com/clean_vibes_ito/reels/?hl=ja" target="_blank" rel="noopener">Instagramのリールを見る ↗</a><small>@clean_vibes_ito</small></div>
+      </div>
+      <div class="shorts-heading"><div><h3>YouTube Shorts</h3><p>活動の様子をショート動画で。タップして再生できます。</p></div><a href="https://www.youtube.com/@ITO-CleanVibes/shorts" target="_blank" rel="noopener">新しいショートを一覧で見る ↗</a></div>
+      <div class="shorts-grid" aria-label="CleanVibesのショート動画"><article class="short-card"><div class="short-player"><button type="button" data-short-id="OF7wQui5P-I" data-short-title="子どもたちの通学路を何とかしてあげたい" aria-label="子どもたちの通学路を何とかしてあげたいを再生"><img src="https://i.ytimg.com/vi/OF7wQui5P-I/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"><span class="short-play-label"><b aria-hidden="true">▶</b><span>ショートを再生</span></span></button></div><h4>子どもたちの通学路を何とかしてあげたい</h4><a href="https://www.youtube.com/shorts/OF7wQui5P-I" target="_blank" rel="noopener">YouTubeで見る ↗</a></article>
+<article class="short-card"><div class="short-player"><button type="button" data-short-id="BD8wr3f6wv8" data-short-title="【伊東市】じめーっとした道を変えたいから綺麗にしてみた" aria-label="【伊東市】じめーっとした道を変えたいから綺麗にしてみたを再生"><img src="https://i.ytimg.com/vi/BD8wr3f6wv8/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"><span class="short-play-label"><b aria-hidden="true">▶</b><span>ショートを再生</span></span></button></div><h4>【伊東市】じめーっとした道を変えたいから綺麗にしてみた</h4><a href="https://www.youtube.com/shorts/BD8wr3f6wv8" target="_blank" rel="noopener">YouTubeで見る ↗</a></article>
+<article class="short-card"><div class="short-player"><button type="button" data-short-id="0IDDVp3S2s8" data-short-title="【伊東市】子どもたちの通学路にボランティアで手を入れてみた" aria-label="【伊東市】子どもたちの通学路にボランティアで手を入れてみたを再生"><img src="https://i.ytimg.com/vi/0IDDVp3S2s8/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"><span class="short-play-label"><b aria-hidden="true">▶</b><span>ショートを再生</span></span></button></div><h4>【伊東市】子どもたちの通学路にボランティアで手を入れてみた</h4><a href="https://www.youtube.com/shorts/0IDDVp3S2s8" target="_blank" rel="noopener">YouTubeで見る ↗</a></article></div>
+      <p class="shorts-note">スマホでは横にスワイプできます。再生できない場合は「YouTubeで見る」からご覧ください。新しい投稿は各SNSの一覧で確認できます。</p>
+    </div>
     <ul class="works reveal">
       <li>除草〜防草</li>
       <li>側溝清掃</li>
@@ -676,7 +700,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
           <a href="https://www.instagram.com/clean_vibes_ito/" target="_blank" rel="noopener"><img src="img/act05.jpg" alt="舗装の目地の除草" loading="lazy"></a>
           <a href="https://www.instagram.com/clean_vibes_ito/" target="_blank" rel="noopener"><img src="img/act04.jpg" alt="壁際の清掃のようす" loading="lazy"></a>
         </div>
-        <a class="btn-insta" href="https://www.instagram.com/clean_vibes_ito/" target="_blank" rel="noopener">@clean_vibes_ito をフォロー</a>
+        <a class="btn-insta" href="https://www.instagram.com/clean_vibes_ito/reels/?hl=ja" target="_blank" rel="noopener">Instagramの最新リールを見る</a>
       </div>
       <div class="cal-card reveal">
         <h3>活動カレンダー</h3>
@@ -788,7 +812,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
         </address>
       </div>
       <div class="links">
-        <a href="https://www.instagram.com/clean_vibes_ito/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.instagram.com/clean_vibes_ito/reels/?hl=ja" target="_blank" rel="noopener">Instagram Reels</a>
+        <a href="https://www.youtube.com/@ITO-CleanVibes/shorts" target="_blank" rel="noopener">YouTube Shorts</a>
       </div>
     </div>
     <p class="copy">2022 – 2030 CleanVibes — Ito, Shizuoka, Japan</p>
@@ -1091,6 +1116,27 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
     return rows.filter(r => r.some(c => c.trim() !== ''));
   }
 })();
+</script>
+<nav class="social-dock" aria-label="いつでも見られる公式SNS"><a class="social-ig" href="https://www.instagram.com/clean_vibes_ito/reels/?hl=ja" target="_blank" rel="noopener"><svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg>Instagram リール</a><a class="social-yt" href="https://www.youtube.com/@ITO-CleanVibes/shorts" target="_blank" rel="noopener"><svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3Z" fill="currentColor" stroke="none"/></svg>YouTube ショート</a></nav>
+<script>
+// Load the player only after a visitor requests a video. No API key is needed.
+document.querySelectorAll('[data-short-id]').forEach(function(button){
+  button.addEventListener('click',function(){
+    var id=button.dataset.shortId;
+    if(!/^[A-Za-z0-9_-]{11}$/.test(id))return;
+    document.querySelectorAll('.short-player iframe').forEach(function(old){
+      var poster=old.parentElement.querySelector('button');
+      old.remove();if(poster)poster.hidden=false;
+    });
+    var frame=document.createElement('iframe');
+    frame.src='https://www.youtube.com/embed/'+id+'?autoplay=1&playsinline=1&rel=0';
+    frame.title=button.dataset.shortTitle;
+    frame.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    frame.allowFullscreen=true;
+    frame.referrerPolicy='strict-origin-when-cross-origin';
+    button.hidden=true;button.parentElement.appendChild(frame);frame.focus();
+  });
+});
 </script>
 </body>
 </html>
