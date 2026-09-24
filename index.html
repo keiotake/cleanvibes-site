@@ -2,6 +2,36 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KL855VTTP3"></script>
+<script id="cv-analytics">
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-KL855VTTP3', {
+  allow_google_signals: false,
+  allow_ad_personalization_signals: false
+});
+document.addEventListener('click', function(event){
+  if (!(event.target instanceof Element)) return;
+  var link = event.target.closest('a[href]');
+  if (link) {
+    var url = new URL(link.href);
+    var platform = /^(www\.)?instagram\.com$/.test(url.hostname) ? 'instagram' :
+      /^(www\.)?youtube\.com$/.test(url.hostname) ? 'youtube' : '';
+    if (platform) {
+      var placement = link.closest('.social-dock') ? 'floating' :
+        link.closest('header') ? 'header' : link.closest('.hero') ? 'hero' :
+        link.closest('footer') ? 'footer' : 'content';
+      gtag('event', platform + '_click', {link_url: url.origin + url.pathname, placement: placement});
+    }
+  }
+  var button = event.target.closest('button[data-short-id]');
+  if (button && /^[A-Za-z0-9_-]{11}$/.test(button.dataset.shortId)) {
+    // Measures the request to play, not confirmed playback inside YouTube.
+    gtag('event', 'short_play_request', {video_id: button.dataset.shortId});
+  }
+});
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
 <title>CleanVibes｜綺麗なまちを後世へ — 伊東市から全国へ</title>
@@ -816,6 +846,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
         <a href="https://www.youtube.com/@ITO-CleanVibes/shorts" target="_blank" rel="noopener">YouTube Shorts</a>
       </div>
     </div>
+    <details style="margin-top:20px;font-size:12px;line-height:1.9">
+      <summary style="cursor:pointer">アクセス解析について</summary>
+      <p>当サイトではサイトの改善のためGoogle アナリティクスを使用し、Cookieを通じて閲覧状況やSNSリンクのクリックを集計しています。解析結果は一般公開しません。氏名やメールアドレスを計測データとして送信しません。広告向けの追加機能は無効にしています。</p>
+      <p><a href="https://policies.google.com/technologies/partner-sites?hl=ja" target="_blank" rel="noopener">Googleによるデータの利用</a> ／ <a href="https://tools.google.com/dlpage/gaoptout?hl=ja" target="_blank" rel="noopener">ブラウザ拡張による計測の停止</a></p>
+    </details>
     <p class="copy">2022 – 2030 CleanVibes — Ito, Shizuoka, Japan</p>
   </div>
 </footer>
