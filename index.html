@@ -49,7 +49,6 @@ document.addEventListener('click', function(event){
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <style>
 :root{
   --sky:#5BC2E7;
@@ -491,7 +490,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
     <a href="#mission">About</a>
     <a href="#method">Method</a>
     <a href="#activity">Activity</a>
-    <a href="#tried">Map</a>
     <a href="#support">Support</a>
     <a class="social-nav" href="https://www.instagram.com/clean_vibes_ito/reels/?hl=ja" target="_blank" rel="noopener">Instagram</a>
     <a class="cta" href="#join">Join Us</a>
@@ -503,7 +501,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
   <a href="#method">Method</a>
   <a href="#join">Join Us</a>
   <a href="#activity">Activity</a>
-  <a href="#tried">Map</a>
   <a href="#support">Support</a>
   <a href="https://www.instagram.com/clean_vibes_ito/reels/?hl=ja" target="_blank" rel="noopener">Instagram Reels</a>
   <a href="#social-videos">YouTube Shorts</a>
@@ -763,9 +760,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
         <p class="contact-line">お問い合わせは <a href="https://www.instagram.com/clean_vibes_ito/" target="_blank" rel="noopener" style="color:var(--deepblue);font-weight:700">InstagramのDM</a> へ。</p>
       </div>
     </div>
-    <h3 class="reveal" style="margin-top:clamp(50px,6vw,90px);font-size:clamp(20px,2vw,30px);font-weight:900;letter-spacing:.06em">伊東市 活動マップ</h3>
-    <p class="map-note reveal">私たちが手を入れてきた主なエリアです。ピンをタップすると活動内容が見られます。</p>
-    <div class="map-box" id="itoMap"></div>
   </div>
 </section>
 
@@ -776,21 +770,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
     <h2 class="sec-title">最新の活動レポート</h2>
     <p class="reports-note">活動記録アプリから自動で連携されています。</p>
     <div class="report-grid" id="reportGrid"></div>
-  </div>
-</section>
-
-<!-- ============ 6.5 TRIED MAP ============ -->
-<section id="tried">
-  <div class="container">
-    <p class="label reveal">Try it in your town</p>
-    <h2 class="sec-title"><span class="mask"><span class="mline">うちのまちで、やってみた。</span></span></h2>
-    <p class="reveal" style="font-size:clamp(14.5px,1.25vw,18px);line-height:2.5;max-width:36em;margin-top:clamp(22px,3vw,38px)">この地図のピンが、少しずつ増えていく。<br>それが、私たちのひそかな夢です。最初の一本は、伊東。次の一本は——あなたのまちかもしれません。</p>
-    <div class="map-box" id="jpMap"></div>
-    <div class="tried-cta reveal">
-      <b>あなたのまちでやってみたら、ぜひ教えてください。</b><br>
-      ① まちの名前　② 活動した場所の写真　③ ひとこと<br>
-      この3つを <a href="https://www.instagram.com/clean_vibes_ito/" target="_blank" rel="noopener" style="color:var(--deepblue);font-weight:700;border-bottom:1px solid currentColor">InstagramのDM</a> に送ってください。確認できしだい、この地図にあなたのまちのピンを立てます。
-    </div>
   </div>
 </section>
 
@@ -868,8 +847,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
   </div>
 </footer>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script>window.__Leaflet = window.L;</script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
@@ -1051,7 +1028,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
     }
     const sw = document.getElementById('supportList');
     if (sw && Array.isArray(d.supports) && d.supports.length) {
-      sw.innerHTML = d.supports.slice().reverse().map(function(s){
+      sw.innerHTML = d.supports.slice().filter(function(s){ return s.category !== '代表提供'; }).reverse().map(function(s){
         return '<li><b>' + esc(s.name) + '</b><span class="sv">' + esc(s.value) + '</span>' + (s.category ? '<span class="sc">' + esc(s.category) + '</span>' : '') + '</li>';
       }).join('');
       var sww = document.getElementById('supportWall'); if (sww) sww.style.display = '';
@@ -1067,102 +1044,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-o
     });
     btn.addEventListener('mouseleave', () => gsap.to(btn, { x: 0, y: 0, duration: .8, ease: 'elastic.out(1,0.4)' }));
   });
-})();
-</script>
-<script>
-(function(){
-  const LL = window.__Leaflet;
-  if (!LL || typeof LL.map !== 'function') return;
-  const tiles = 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png';
-  const attrib = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>';
-  const pin = (map, lat, lng, html, r) => LL.circleMarker([lat, lng], {radius: r || 9, color: '#00A88E', weight: 3, fillColor: '#4ED4A0', fillOpacity: .85}).addTo(map).bindPopup(html);
-
-  /* 伊東市 活動マップ */
-  const ito = LL.map('itoMap', {scrollWheelZoom: false}).setView([34.945, 139.097], 12);
-  LL.tileLayer(tiles, {attribution: attrib}).addTo(ito);
-  [
-    ['伊東オレンジビーチ', 34.9712, 139.0962, '芝生剥がし・歩道の防草・花壇管理'],
-    ['なぎさ公園', 34.9676, 139.0993, '駐車場の防草・アスファルト補修'],
-    ['藤の広場', 34.9667, 139.0986, '花壇づくり体験会・花壇再生'],
-    ['伊東市役所', 34.9656, 139.1018, '除草・清掃'],
-    ['伊豆伊東高校', 34.9780, 139.0871, '周辺の清掃・除草'],
-    ['さくらの里', 34.9128, 139.0935, '除草・防草・側溝の清掃'],
-    ['大室山', 34.9030, 139.0945, '除草・清掃']
-  ].forEach(s => pin(ito, s[1], s[2], '<b>' + s[0] + '</b><br>' + s[3]));
-
-  /* 全国マップ（うちのまちでやってみた） */
-  const jp = LL.map('jpMap', {scrollWheelZoom: false}).setView([36.6, 137.8], 5);
-  LL.tileLayer(tiles, {attribution: attrib}).addTo(jp);
-  LL.marker([34.9656, 139.1018], {icon: LL.icon({iconUrl: 'img/logo-mark.png', iconSize: [38, 38], iconAnchor: [19, 19], popupAnchor: [0, -17]})}).addTo(jp).bindPopup('<b>静岡県伊東市</b><br>CleanVibes 発祥の地');
-  [['狭山市（埼玉県）', 35.8531, 139.4123, '活動を実施'], ['伊東市 伊豆高原', 34.8967, 139.0997, '防草・除草を実施'], ['伊東市 宇佐美', 35.0089, 139.0906, '防草・除草を実施']].forEach(function(s){ LL.circleMarker([s[1], s[2]], {radius: 9, color: '#00A88E', weight: 3, fillColor: '#4ED4A0', fillOpacity: .9}).addTo(jp).bindPopup('<b>' + s[0] + '</b><br>' + s[3]); });
-
-  /* ===== 「うちのまちでやってみた」ピンをスプレッドシートから自動表示 ===== */
-  /* 公開シートのCSV URL（File→共有→ウェブに公開→CSV）。空なら伊東ピンのみ。 */
-  const PIN_SHEET_CSV = 'https://docs.google.com/spreadsheets/d/1uWfQ1JxVJt1YNRYYF6qH_-3T4dbiPTz3sUFXvFsf69w/gviz/tq?tqx=out:csv&gid=0';
-  if (PIN_SHEET_CSV) loadTownPins(jp, LL, PIN_SHEET_CSV);
-
-  function loadTownPins(map, L, url){
-    fetch(url).then(r => r.text()).then(txt => {
-      const rows = parseCsv(txt);
-      if (!rows.length) return;
-      const head = rows[0].map(c => c.trim());
-      const col = name => head.findIndex(c => c.indexOf(name) >= 0);
-      const ci = {town: col('まち'), note: col('コメント'), date: col('日付'), lat: col('緯度'), lng: col('経度')};
-      const items = rows.slice(1).map(r => ({
-        town: (r[ci.town]||'').trim(),
-        note: ci.note>=0 ? (r[ci.note]||'').trim() : '',
-        date: ci.date>=0 ? (r[ci.date]||'').trim() : '',
-        lat:  ci.lat>=0 ? parseFloat(r[ci.lat]) : NaN,
-        lng:  ci.lng>=0 ? parseFloat(r[ci.lng]) : NaN
-      })).filter(x => x.town);
-      let i = 0;
-      (function next(){
-        if (i >= items.length) return;
-        const it = items[i++];
-        if (!isNaN(it.lat) && !isNaN(it.lng)) { drop(map, L, it.lat, it.lng, it); next(); return; }
-        geocode(it.town).then(c => { if (c) drop(map, L, c.lat, c.lng, it); setTimeout(next, 1100); });
-      })();
-    }).catch(() => {});
-  }
-
-  function drop(map, L, lat, lng, it){
-    const safe = s => String(s||'').replace(/[<>&]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[c]));
-    const body = '<b>' + safe(it.town) + '</b>' + (it.date ? '<br>' + safe(it.date) : '') + (it.note ? '<br>' + safe(it.note) : '');
-    L.circleMarker([lat, lng], {radius: 9, color: '#00A88E', weight: 3, fillColor: '#4ED4A0', fillOpacity: .9}).addTo(map).bindPopup(body);
-  }
-
-  function geocode(town){
-    const key = 'cvgeo:' + town;
-    try { const c = localStorage.getItem(key); if (c) return Promise.resolve(JSON.parse(c)); } catch(e){}
-    const q = encodeURIComponent(town + ', 日本');
-    return fetch('https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=jp&q=' + q, {headers:{'Accept':'application/json'}})
-      .then(r => r.json()).then(a => {
-        if (!a || !a.length) return null;
-        const c = {lat: parseFloat(a[0].lat), lng: parseFloat(a[0].lon)};
-        try { localStorage.setItem(key, JSON.stringify(c)); } catch(e){}
-        return c;
-      }).catch(() => null);
-  }
-
-  function parseCsv(text){
-    const rows = []; let row = [], cur = '', q = false;
-    for (let i = 0; i < text.length; i++){
-      const ch = text[i];
-      if (q){
-        if (ch === '"' && text[i+1] === '"'){ cur += '"'; i++; }
-        else if (ch === '"'){ q = false; }
-        else cur += ch;
-      } else {
-        if (ch === '"') q = true;
-        else if (ch === ','){ row.push(cur); cur = ''; }
-        else if (ch === '\n'){ row.push(cur); rows.push(row); row = []; cur = ''; }
-        else if (ch === '\r'){}
-        else cur += ch;
-      }
-    }
-    if (cur.length || row.length){ row.push(cur); rows.push(row); }
-    return rows.filter(r => r.some(c => c.trim() !== ''));
-  }
 })();
 </script>
 <nav class="social-dock" aria-label="いつでも見られる公式SNS"><a class="social-ig" href="#instagram-reels"><svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg>Instagram リール</a><a class="social-yt" href="https://www.youtube.com/@ITO-CleanVibes/shorts" target="_blank" rel="noopener"><svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3Z" fill="currentColor" stroke="none"/></svg>YouTube ショート</a></nav>
