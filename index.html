@@ -34,20 +34,20 @@ document.addEventListener('click', function(event){
 });
 </script>
 <title>Clean Vibes｜伊東市の美化ボランティア団体 — 綺麗なまちを後世へ</title>
-<meta name="description" content="静岡県伊東市で、まちの美化と雑草対策に取り組む市民ボランティア団体です。除草剤を使わずに雑草を防ぐ方法を、現場で試しながら形にしています。活動は土日祝の朝6:30〜7:30。初めての方も歓迎します。">
+<meta name="description" content="静岡県伊東市で、まちの美化と雑草対策に取り組む市民ボランティア団体です。除草剤を使わずに雑草を生えにくくする方法を、現場で試しながら形にしています。活動は土日祝の朝6:30〜7:30。初めての方も歓迎します。">
 <link rel="canonical" href="https://www.cleanvibes-ito.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Clean Vibes">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:url" content="https://www.cleanvibes-ito.com/">
 <meta property="og:title" content="Clean Vibes｜伊東市の美化ボランティア団体">
-<meta property="og:description" content="除草剤を使わずに雑草を防ぐ方法を、伊東市の現場で試しながら形にしています。活動は土日祝の朝6:30〜7:30。初めての方も歓迎します。">
+<meta property="og:description" content="除草で終わらせない。防草まで、市民の手で。除草剤を使わずに雑草を生えにくくする方法を、伊東市の現場で試しながら形にしています。">
 <meta property="og:image" content="https://www.cleanvibes-ito.com/img/ogp.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Clean Vibes 綺麗なまちを後世へ">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0D3B7A">
+<meta name="theme-color" content="#091E40">
 <link rel="icon" type="image/png" href="img/logo-mark.png">
 <link rel="apple-touch-icon" href="img/logo-mark.png">
 <script type="application/ld+json">
@@ -55,169 +55,201 @@ document.addEventListener('click', function(event){
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
 :root{
   /* ロゴの色 */
-  --navy:#0D3B7A;
-  --blue:#0A84D6;
-  --sky:#4FC3F7;
-  --teal:#14B8B0;
-  --teal-dark:#078A86;
-  /* 文字用（白地で4.5:1以上になるよう濃くした色） */
-  --blue-text:#0972B9;
-  --teal-text:#067B78;
-  --ink:#1B2733;
-  --muted:#55687A;
-  /* 背景・線 */
-  --bg:#FFFFFF;
-  --bg-soft:#F2F8FC;
-  --bg-teal:#EDF8F7;
-  --line:#D6E3EC;
-  --warn-bg:#FFF6E5;
-  --warn-ink:#7A4300;
-  --radius:16px;
-  --wrap:1080px;
+  --navy:#0D3B7A; --blue:#0A84D6; --sky:#4FC3F7; --teal:#14B8B0; --teal-dark:#078A86;
+  /* 文字用（白地で4.5:1以上） */
+  --blue-text:#0972B9; --teal-text:#067B78; --ink:#1B2733; --muted:#55687A;
+  /* 濃い面 */
+  --deep:#091E40; --mint:#7FE3D9;
+  --bg-soft:#F2F8FC; --line:#D6E3EC; --warn-bg:#FFF6E5; --warn-ink:#7A4300;
+  --wrap:1120px;
   --font:"Noto Sans JP","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","YuGothic",Meiryo,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-padding-top:80px;-webkit-text-size-adjust:100%}
+html{scroll-padding-top:72px;-webkit-text-size-adjust:100%}
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
-body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.85;letter-spacing:.02em;overflow-wrap:anywhere}
+body{background:#fff;color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.85;letter-spacing:.02em;overflow-wrap:anywhere}
 @media (min-width:768px){body{font-size:17px}}
 img{display:block;max-width:100%;height:auto}
 a{color:var(--blue-text)}
-a:hover{text-decoration:none}
 ul,ol{list-style:none}
-:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:4px}
+:focus-visible{outline:3px solid var(--sky);outline-offset:3px;border-radius:4px}
 .wrap{width:min(var(--wrap),100% - 40px);margin-inline:auto}
 .skip{position:absolute;left:-9999px;top:0;background:var(--navy);color:#fff;padding:10px 16px;z-index:200}
 .skip:focus{left:12px;top:12px}
 .nowrap{white-space:nowrap}
+h1,h2,h3,.statement,.quote{word-break:auto-phrase}
 
-/* ===== ボタン ===== */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:12px 26px;border-radius:999px;font-weight:700;font-size:16px;line-height:1.4;text-decoration:none;text-align:center;transition:background-color .2s,color .2s,box-shadow .2s}
-.btn-primary{background:var(--blue-text);color:#fff;box-shadow:0 4px 14px rgba(9,114,185,.25)}
+/* ボタン */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:12px 28px;border-radius:999px;font-weight:700;font-size:16px;line-height:1.4;text-decoration:none;text-align:center;transition:background-color .2s,color .2s,transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-white{background:#fff;color:var(--navy)}
+.btn-line-white{border:2px solid #fff;color:#fff}
+.btn-line-white:hover{background:rgba(255,255,255,.12)}
+.btn-primary{background:var(--blue-text);color:#fff}
 .btn-primary:hover{background:var(--navy)}
 .btn-outline{background:#fff;color:var(--blue-text);border:2px solid var(--blue-text)}
-.btn-outline:hover{background:var(--bg-soft)}
 .btn-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-.text-link{font-weight:700}
 .ext::after{content:"↗";font-size:.85em;margin-left:2px}
 
-/* ===== 要確認の目印（試作版のみ） ===== */
-.tbd{display:inline-block;background:#FFF1C2;color:#5C4300;border:1px dashed #C99700;border-radius:6px;padding:0 8px;font-size:13px;font-weight:700;line-height:1.8;vertical-align:middle}
+/* 要確認の目印（試作版のみ） */
+.tbd{display:inline-block;background:#FFF1C2;color:#5C4300;border:1px dashed #C99700;border-radius:6px;padding:0 8px;font-size:13px;font-weight:700;line-height:1.8;vertical-align:middle;letter-spacing:0}
 
-/* ===== ヘッダー ===== */
-.site-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}
+/* ===== ヘッダー（写真の上に重なる濃い帯） ===== */
+.site-header{position:relative;z-index:100;background:rgba(9,30,64,.86);backdrop-filter:blur(10px);color:#fff}
+.js .site-header{position:sticky;top:0}
 .header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px}
-.brand{display:flex;align-items:center;gap:10px;color:var(--navy);font-weight:700;font-size:20px;letter-spacing:.01em;text-decoration:none;white-space:nowrap}
-.brand img{width:36px;height:36px}
-.menu-btn{display:none;align-items:center;gap:8px;min-height:44px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--navy);font:inherit;font-size:15px;font-weight:700;cursor:pointer}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:900;font-size:20px;text-decoration:none;white-space:nowrap}
+.brand img{width:36px;height:36px;background:#fff;border-radius:50%;padding:2px}
+.menu-btn{display:none;align-items:center;gap:8px;min-height:44px;padding:8px 14px;border:1px solid rgba(255,255,255,.5);border-radius:999px;background:transparent;color:#fff;font:inherit;font-size:15px;font-weight:700;cursor:pointer}
 .menu-btn .bars{display:block;width:18px;height:2px;background:currentColor;position:relative}
 .menu-btn .bars::before,.menu-btn .bars::after{content:"";position:absolute;left:0;width:18px;height:2px;background:currentColor}
 .menu-btn .bars::before{top:-6px}.menu-btn .bars::after{top:6px}
-.site-nav ul{display:flex;align-items:center;gap:4px}
-.site-nav a{display:block;white-space:nowrap;padding:8px 12px;border-radius:8px;color:var(--ink);font-size:15px;font-weight:700;text-decoration:none}
-.site-nav a:hover{background:var(--bg-soft);color:var(--navy)}
-.site-nav a.nav-cta{background:var(--blue-text);color:#fff;padding:8px 18px;border-radius:999px;margin-left:6px}
-.site-nav a.nav-cta:hover{background:var(--navy)}
+.site-nav ul{display:flex;align-items:center;gap:2px}
+.site-nav a{display:block;white-space:nowrap;padding:8px 12px;border-radius:8px;color:#fff;font-size:15px;font-weight:700;text-decoration:none}
+.site-nav a:hover{background:rgba(255,255,255,.12)}
+.site-nav a.nav-cta{background:#fff;color:var(--navy);padding:8px 18px;border-radius:999px;margin-left:8px}
 @media (max-width:1180px){
   .js .menu-btn{display:inline-flex}
   .site-nav{width:100%}
   .site-nav ul{flex-wrap:wrap;padding:4px 0 12px}
-  .js .site-nav{position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 12px 24px rgba(13,59,122,.08)}
-  .js .site-nav[hidden]{display:none}
-  .js .site-nav ul{flex-direction:column;align-items:stretch;gap:0;padding:8px 20px 16px}
-  .js .site-nav a{padding:14px 4px;border-bottom:1px solid var(--line);border-radius:0;font-size:17px}
-  .js .site-nav a.nav-cta{margin:14px 0 0;text-align:center;border-radius:999px;border-bottom:0}
   .header-inner{flex-wrap:wrap}
   .js .header-inner{flex-wrap:nowrap}
+  .js .site-nav{position:absolute;left:0;right:0;top:100%;background:var(--deep);box-shadow:0 16px 30px rgba(0,0,0,.25)}
+  .js .site-nav[hidden]{display:none}
+  .js .site-nav ul{flex-direction:column;align-items:stretch;gap:0;padding:8px 20px 18px}
+  .js .site-nav a{padding:14px 4px;border-bottom:1px solid rgba(255,255,255,.14);border-radius:0;font-size:17px}
+  .js .site-nav a.nav-cta{margin:14px 0 0;text-align:center;border-radius:999px;border-bottom:0}
 }
 
-/* ===== トップ ===== */
-.hero{background:linear-gradient(180deg,var(--bg-soft) 0%,#fff 100%);padding:48px 0 64px}
-.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
-.eyebrow{color:var(--teal-text);font-weight:700;font-size:15px;letter-spacing:.06em}
-.hero h1{color:var(--navy);font-size:clamp(34px,6.4vw,60px);line-height:1.35;letter-spacing:.04em;margin-top:10px;word-break:keep-all;overflow-wrap:normal}
-.hero .lead{margin-top:20px;font-size:17px;max-width:32em}
-@media (min-width:768px){.hero .lead{font-size:18px}}
-.facts{display:grid;grid-template-columns:repeat(3,auto);gap:10px;margin-top:28px;justify-content:start}
-.facts div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 16px}
-.facts dt{font-size:13px;color:var(--muted);font-weight:700}
-.facts dd{color:var(--navy);font-weight:700;font-size:16px;line-height:1.5}
-.facts dd small{display:block;font-size:13px;color:var(--muted);font-weight:400}
-.hero-photo{border-radius:24px;overflow:hidden;box-shadow:0 18px 40px rgba(13,59,122,.14)}
-.hero-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 60%}
-.hero .sub-link{margin-top:18px;font-size:15px}
+/* ===== トップ：写真を全面に ===== */
+.js .hero{margin-top:-64px}
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:var(--deep)}
+.hero picture,.hero picture img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 55%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(9,30,64,.8) 0%,rgba(9,30,64,.48) 55%,rgba(9,30,64,.14) 100%),linear-gradient(180deg,rgba(9,30,64,.4) 0%,rgba(9,30,64,.1) 35%,rgba(9,30,64,.9) 88%)}
+.hero .wrap{position:relative;z-index:2;padding:132px 0 64px}
+.pill{display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.5);border-radius:999px;padding:6px 16px;font-weight:700;font-size:15px}
+.hero h1{font-weight:900;font-size:clamp(46px,10.5vw,104px);line-height:1.18;letter-spacing:.02em;margin-top:18px;text-shadow:0 2px 24px rgba(0,0,0,.25)}
+.accent{background:linear-gradient(90deg,var(--sky),var(--mint));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .lead{margin-top:18px;font-size:clamp(16px,1.6vw,19px);max-width:31em}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.chips span{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.38);border-radius:10px;padding:6px 12px;font-size:14px;font-weight:700}
+
+/* ===== 写真が流れる帯 ===== */
+.marquee{overflow:hidden;background:var(--deep);padding:14px 0}
+.track{display:flex;gap:12px;width:max-content}
+.track img{height:160px;width:auto;aspect-ratio:3/4;object-fit:cover;border-radius:12px}
 
 /* ===== セクション共通 ===== */
-.section{padding:80px 0}
+.section{padding:88px 0}
 .section.soft{background:var(--bg-soft)}
-.section.teal{background:var(--bg-teal)}
-.sec-label{color:var(--teal-text);font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
-.section h2{color:var(--navy);font-size:clamp(26px,3.6vw,36px);line-height:1.45;letter-spacing:.04em;margin-top:6px}
+.section.dark{background:var(--deep);color:#fff}
+.sec-label{color:var(--teal-text);font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+.dark .sec-label{color:var(--sky)}
+.section h2{color:var(--navy);font-size:clamp(28px,4.4vw,48px);font-weight:900;line-height:1.35;letter-spacing:.03em;margin-top:6px}
+.dark h2{color:#fff}
 .sec-lead{margin-top:16px;max-width:40em}
-.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.dark .sec-lead{color:rgba(255,255,255,.88)}
+.dark .sec-lead a{color:var(--sky)}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px}
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.section h3{color:var(--navy);font-size:19px;line-height:1.55}
-h1,h2,h3,.call,.welcome{word-break:auto-phrase}
+.section h3{color:var(--navy);font-size:20px;line-height:1.55}
+.dark h3{color:#fff}
 .note{font-size:14px;color:var(--muted);margin-top:10px}
+.chip{display:inline-block;background:var(--bg-soft);color:var(--navy);border-radius:999px;padding:2px 12px;font-size:13px;font-weight:700;margin-bottom:10px}
+.badge{display:inline-block;margin-left:8px;padding:1px 10px;border:1.5px solid var(--teal-text);color:var(--teal-text);border-radius:999px;font-size:13px;font-weight:700;vertical-align:middle;line-height:1.6;letter-spacing:.04em}
+.dark .badge{border-color:var(--mint);color:var(--mint)}
 
 /* ===== 私たちについて ===== */
-.about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:start;margin-top:28px}
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;margin-top:32px}
 .prose p+p{margin-top:1.1em}
-.about-photo{border-radius:20px;overflow:hidden}
-.about-photo img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center 70%}
-.about-photo figcaption{font-size:14px;color:var(--muted);padding-top:8px}
-.profile{margin-top:48px}
+.about-photos{position:relative;padding-bottom:70px}
+.about-photos .big{border-radius:24px;overflow:hidden;box-shadow:0 20px 40px rgba(13,59,122,.16)}
+.about-photos .big img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center 70%}
+.about-photos .small{position:absolute;right:-10px;bottom:0;width:46%;border-radius:18px;overflow:hidden;border:6px solid #fff;box-shadow:0 16px 30px rgba(13,59,122,.18)}
+.about-photos .small img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.statement-band{margin-top:64px;border-radius:28px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;background:linear-gradient(120deg,#067B78,#0972B9);color:#fff}
+.statement-band .txt{padding:44px 40px}
+.statement{font-size:clamp(26px,3.6vw,40px);font-weight:900;line-height:1.45}
+.statement-band p.sub{margin-top:14px;color:rgba(255,255,255,.92)}
+.statement-band .ph{position:relative;min-height:300px}
+.statement-band .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.profile{margin-top:64px}
 .profile h3{margin-bottom:12px}
 .profile dl{display:grid;grid-template-columns:9em 1fr;border-top:1px solid var(--line)}
 .profile dt,.profile dd{padding:14px 4px;border-bottom:1px solid var(--line)}
 .profile dt{font-weight:700;color:var(--navy)}
 .values{margin-top:48px}
+.values .card{padding:0;overflow:hidden}
+.values .card img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.values .card .in{padding:20px 22px 24px}
 .values h3{margin-bottom:6px}
 .values p{font-size:15.5px}
 
-/* ===== 防草の方法 ===== */
-.steps{display:grid;gap:20px;margin-top:32px}
-.step{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px}
-.step-head{display:flex;align-items:center;gap:14px}
-.step-no{flex:none;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--navy);color:#fff;font-weight:700;font-size:18px}
-.step-head h3{font-size:24px;letter-spacing:.06em}
-.step-head p{color:var(--muted);font-size:15px;line-height:1.5}
-.step-body{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
-.step-body>div{background:var(--bg-soft);border-radius:12px;padding:16px 18px}
-.step-body h4{font-size:14px;color:var(--teal-text);letter-spacing:.08em;margin-bottom:4px}
-.step-body p{font-size:15.5px}
+/* ===== 写真の帯（言葉と一緒に） ===== */
+.photo-band{position:relative;min-height:62vh;display:flex;align-items:center;color:#fff;overflow:hidden;background:var(--deep)}
+.photo-band picture,.photo-band picture img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.photo-band::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(9,30,64,.85),rgba(9,30,64,.35))}
+.photo-band .wrap{position:relative;z-index:2;padding:72px 0}
+.quote{font-size:clamp(26px,4vw,46px);font-weight:900;line-height:1.5;max-width:18em}
+.quote small{display:block;margin-top:14px;font-size:16px;font-weight:700;color:rgba(255,255,255,.9)}
+
+/* ===== 防草の方法（濃い面） ===== */
+.steps-quick{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:36px}
+.steps-quick li{border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:20px 16px;background:rgba(255,255,255,.04)}
+.num{font-weight:900;font-size:52px;line-height:1;color:transparent;-webkit-text-stroke:1.5px var(--sky)}
+.verb{display:block;font-weight:900;font-size:28px;margin-top:10px;letter-spacing:.06em}
+.steps-quick p{font-size:14.5px;color:rgba(255,255,255,.86);line-height:1.7}
+.steps{display:grid;gap:18px;margin-top:40px}
+.step{border-radius:22px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);padding:26px;display:grid;grid-template-columns:1fr;gap:16px}
+.step.has-photo{grid-template-columns:1fr 280px}
+.step-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.step-head .num{font-size:40px}
+.step-head h3{font-size:26px;letter-spacing:.06em}
+.step-head p{color:rgba(255,255,255,.8);font-size:15px}
+.step-body{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
 .step-body.single{grid-template-columns:1fr}
+.step-body>div{background:rgba(255,255,255,.07);border-radius:14px;padding:16px 18px}
+.step-body h4{font-size:14px;color:var(--mint);letter-spacing:.08em;margin-bottom:4px}
+.step-body p{font-size:15.5px;color:rgba(255,255,255,.92)}
+.step figure{position:relative;min-height:220px}
+.step figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:16px}
 .safety{margin-top:14px;background:var(--warn-bg);color:var(--warn-ink);border-radius:12px;padding:12px 16px;font-size:15px}
 .safety b{display:block}
-.source{margin-top:12px;font-size:13px;color:var(--muted)}
-.badge{display:inline-block;margin-left:8px;padding:2px 10px;border:1.5px solid var(--teal-text);color:var(--teal-text);border-radius:999px;font-size:13px;font-weight:700;letter-spacing:.04em;vertical-align:middle;line-height:1.6}
-.no-herbicide{margin-top:24px;font-weight:700;color:var(--navy)}
+.source{margin-top:12px;font-size:13px;color:rgba(255,255,255,.75)}
+.source a{color:var(--sky)}
+.no-herb{margin-top:30px;font-weight:900;font-size:19px}
+.no-herb b{color:var(--sky)}
 
 /* ===== 検証と実績 ===== */
-.results{margin-top:32px}
-.results .card h3{margin-bottom:8px}
-.results .card p{font-size:15.5px}
-.results .card .note{font-size:14px}
-.results .chip{display:inline-block;background:var(--bg-soft);color:var(--navy);border-radius:999px;padding:2px 12px;font-size:13px;font-weight:700;margin-bottom:10px}
-.results.grid-3{grid-template-columns:2fr 1fr}
-@media (max-width:899px){.results.grid-3{grid-template-columns:1fr}}
+.results{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;margin-top:32px;align-items:start}
+.result-main{padding:0;overflow:hidden}
+.result-main img{width:100%;aspect-ratio:16/8;object-fit:cover}
+.result-main .in{padding:24px 26px 28px}
+.results h3{margin-bottom:8px}
+.results p{font-size:15.5px}
 
-/* ===== 参加する ===== */
-.join-card{margin-top:28px;padding:28px}
+/* ===== 参加する（グラデーションの面） ===== */
+.join{background:linear-gradient(120deg,#067B78,#0972B9);color:#fff;padding:88px 0}
+.join .sec-label{color:#fff}
+.join h2{color:#fff}
+.join-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start;margin-top:24px}
+.join .welcome{font-size:clamp(20px,2.6vw,28px);font-weight:900;line-height:1.5}
+.join-card{background:#fff;color:var(--ink);border-radius:22px;padding:26px;margin-top:24px}
 .join-card dl{display:grid;grid-template-columns:7em 1fr;border-top:1px solid var(--line)}
-.join-card dt,.join-card dd{padding:14px 4px;border-bottom:1px solid var(--line)}
+.join-card dt,.join-card dd{padding:12px 4px;border-bottom:1px solid var(--line)}
 .join-card dt{font-weight:700;color:var(--navy)}
-.welcome{margin-top:12px;font-weight:700;color:var(--navy);font-size:17px}
-.welcome::before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--teal);margin-right:8px;vertical-align:middle}
+.join-photos{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.join-photos img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:18px;border:4px solid rgba(255,255,255,.9)}
+.join-photos img:first-child{grid-column:span 2;aspect-ratio:16/10}
 
 /* ===== 始める ===== */
-.call{margin-top:20px;color:var(--navy);font-weight:700;font-size:clamp(19px,2.4vw,24px);line-height:1.7}
+.call{margin-top:20px;color:var(--navy);font-weight:900;font-size:clamp(20px,2.6vw,28px);line-height:1.6}
 .start-steps{margin-top:32px}
-.start-steps .num{color:var(--teal-text);font-weight:700;font-size:14px;letter-spacing:.1em}
+.start-steps .num-s{color:var(--teal-text);font-weight:900;font-size:14px;letter-spacing:.12em}
 .start-steps p{font-size:15.5px;margin-top:4px}
 
 /* ===== 活動の軌跡 ===== */
@@ -226,9 +258,10 @@ h1,h2,h3,.call,.welcome{word-break:auto-phrase}
 .timeline li::before{content:"";position:absolute;left:-33px;top:9px;width:15px;height:15px;border-radius:50%;background:#fff;border:3px solid var(--blue)}
 .timeline li.goal::before{background:var(--teal);border-color:var(--teal)}
 .timeline .when{display:block;font-weight:700;color:var(--navy)}
-.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
-.gallery img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:12px}
 .sub-h{margin-top:56px}
+.mosaic{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:180px;gap:10px;margin-top:20px;grid-auto-flow:dense}
+.mosaic img{width:100%;height:100%;object-fit:cover;border-radius:14px}
+.mosaic .w2{grid-column:span 2}.mosaic .h2{grid-row:span 2}
 .shorts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:20px;max-width:900px}
 .short-player{position:relative;aspect-ratio:9/16;background:#12242b;border-radius:16px;overflow:hidden}
 .short-player button{position:absolute;inset:0;width:100%;border:0;padding:0;cursor:pointer;background:#12242b;color:#fff;font:inherit}
@@ -239,48 +272,75 @@ h1,h2,h3,.call,.welcome{word-break:auto-phrase}
 .short h4{font-size:15px;line-height:1.7;margin-top:10px}
 .short a{font-size:14px}
 
-/* ===== メディア・受賞・協働 ===== */
+/* ===== 支援・メディア ===== */
+.support-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-top:24px}
+.support-grid>img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:24px}
 .proof{margin-top:28px}
-.proof .chip{display:inline-block;background:var(--bg-soft);color:var(--navy);border-radius:999px;padding:2px 12px;font-size:13px;font-weight:700;margin-bottom:10px}
+.media-list li{position:relative;padding-left:16px;font-size:15.5px}
+.media-list li::before{content:"";position:absolute;left:0;top:.75em;width:7px;height:7px;border-radius:50%;background:var(--teal)}
+.works{margin-top:20px}
+.works p{font-size:15.5px}
+.works h3{margin-bottom:6px}
 .proof h3{margin-bottom:6px}
 .proof p{font-size:15.5px}
 
 /* ===== お問い合わせ ===== */
-.contact-list{margin-top:28px;display:grid;grid-template-columns:1fr;border-top:1px solid var(--line);max-width:46em}
+.contact-list{margin-top:28px;display:grid;border-top:1px solid var(--line);max-width:46em}
 .contact-list div{display:grid;grid-template-columns:15em 1fr;gap:12px;padding:14px 4px;border-bottom:1px solid var(--line)}
 .contact-list dt{font-weight:700;color:var(--navy)}
 
 /* ===== フッター ===== */
-.site-footer{background:var(--bg-soft);border-top:1px solid var(--line);padding:48px 0 32px;font-size:15px}
+.site-footer{background:var(--deep);color:rgba(255,255,255,.88);padding:56px 0 36px;font-size:15px}
 .footer-grid{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:start}
-.footer-logo{width:240px}
+.footer-logo{width:240px;background:#fff;border-radius:14px;padding:10px 14px}
 .footer-links{display:flex;flex-direction:column;gap:8px;align-items:flex-end}
-.footer-links a{font-weight:700}
-.site-footer details{margin-top:24px;border-top:1px solid var(--line);padding-top:12px}
-.site-footer summary{cursor:pointer;font-weight:700;color:var(--navy);padding:6px 0}
-.site-footer details p{margin-top:6px;font-size:14px;color:var(--muted)}
-.copyright{margin-top:24px;font-size:14px;color:var(--muted)}
+.footer-links a{color:#fff;font-weight:700}
+.site-footer details{margin-top:24px;border-top:1px solid rgba(255,255,255,.16);padding-top:12px}
+.site-footer summary{cursor:pointer;font-weight:700;color:#fff;padding:6px 0}
+.site-footer details p{margin-top:6px;font-size:14px}
+.site-footer details a{color:var(--sky)}
+.copyright{margin-top:24px;font-size:14px;color:rgba(255,255,255,.75)}
 
-/* ===== スマホ下部の固定ボタン ===== */
+/* スマホ下部の固定ボタン */
 .mobile-bar{display:none}
 
+/* ===== 動き（「動きを減らす」設定のときは止める） ===== */
+@media (prefers-reduced-motion:no-preference){
+  .hero .wrap>*{animation:up .9s cubic-bezier(.2,.8,.2,1) both}
+  .hero .wrap>*:nth-child(2){animation-delay:.08s}.hero .wrap>*:nth-child(3){animation-delay:.16s}.hero .wrap>*:nth-child(4){animation-delay:.24s}.hero .wrap>*:nth-child(5){animation-delay:.32s}
+  .track{animation:slide 55s linear infinite}
+  .marquee:hover .track,.marquee:focus-within .track{animation-play-state:paused}
+  .js .reveal.pre{opacity:0;transform:translateY(28px)}
+  .js .reveal{transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
+}
+@keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes slide{to{transform:translateX(-50%)}}
+
 /* ===== レスポンシブ ===== */
-@media (max-width:899px){
-  .hero{padding:32px 0 48px}
-  .hero-grid,.about-grid{grid-template-columns:1fr;gap:28px}
-  .hero-photo img{aspect-ratio:4/3}
-  .facts{grid-template-columns:1fr;gap:8px}
-  .facts div{display:flex;align-items:baseline;gap:12px;padding:10px 14px}
-  .facts dt{flex:none;width:5.5em}
-  .facts dd small{display:block}
+@media (max-width:900px){
+  .hero::after{background:linear-gradient(180deg,rgba(9,30,64,.6) 0%,rgba(9,30,64,.72) 45%,rgba(9,30,64,.93) 85%)}
+  .hero .wrap{padding:110px 0 48px}
+  .about-grid,.join-grid,.support-grid,.results{grid-template-columns:1fr;gap:28px}
+  .statement-band{grid-template-columns:1fr}
+  .statement-band .txt{padding:32px 24px}
+  .statement-band .ph{min-height:220px}
+  .statement{font-size:24px}
   .grid-3{grid-template-columns:1fr}
+  .steps-quick{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:64%;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px}
+  .steps-quick li{scroll-snap-align:start}
+  .step,.step.has-photo{grid-template-columns:1fr;padding:20px}
+  .step figure{order:-1}
+  .step figure{min-height:0;aspect-ratio:16/9}
   .step-body{grid-template-columns:1fr}
-  .section{padding:56px 0}
+  .section,.join{padding:64px 0}
+  .photo-band{min-height:56vh}
+  .mosaic{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px}
   .shorts{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px}
   .short{flex:0 0 72%;scroll-snap-align:start}
+  .track img{height:120px}
   .footer-grid{grid-template-columns:1fr}
   .footer-links{align-items:flex-start}
-  .mobile-bar{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:90;background:rgba(255,255,255,.97);border-top:1px solid var(--line);padding:8px 12px calc(8px + env(safe-area-inset-bottom,0px))}
+  .mobile-bar{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:90;background:rgba(9,30,64,.95);padding:8px 12px calc(8px + env(safe-area-inset-bottom,0px))}
   .mobile-bar .btn{min-height:46px;padding:8px 10px;font-size:15px}
   body{padding-bottom:72px}
 }
@@ -289,12 +349,9 @@ h1,h2,h3,.call,.welcome{word-break:auto-phrase}
   .profile dt,.join-card dt{border-bottom:0;padding-bottom:0}
   .profile dd,.join-card dd{padding-top:2px}
   .contact-list div{grid-template-columns:1fr;gap:0}
-  .gallery{grid-template-columns:repeat(2,1fr)}
-  .join-card{padding:20px}
   .btn-row .btn{flex:1 1 100%}
-  .step{padding:18px}
-  .step-body>div{padding:14px}
-  .card{padding:20px}
+  .about-photos .small{right:0}
+  .join-card{padding:20px}
 }
 </style>
 </head>
@@ -323,27 +380,23 @@ h1,h2,h3,.call,.welcome{word-break:auto-phrase}
 
 <!-- 1. トップ -->
 <section class="hero" id="top">
-  <div class="wrap hero-grid">
-    <div>
-      <p class="eyebrow">静岡県伊東市の美化ボランティア団体</p>
-      <h1>綺麗なまちを<wbr>後世へ</h1>
-      <p class="lead">Clean Vibes（クリーンバイブス）は、市民の手でまちの美化と雑草対策に取り組んでいます。除草剤を使わずに雑草を生えにくくする方法を、現場で試しながら形にしています。</p>
-      <dl class="facts">
-        <div><dt>活動開始</dt><dd>2022年4月</dd></div>
-        <div><dt>活動回数</dt><dd>累計500回以上<small>（2026年10月時点）</small></dd></div>
-        <div><dt>活動日時</dt><dd>土日祝の朝<span class="nowrap">6:30〜7:30</span></dd></div>
-      </dl>
-      <div class="btn-row">
-        <a class="btn btn-primary" href="#join">伊東で参加する</a>
-        <a class="btn btn-outline" href="#method">防草の方法を見る</a>
-      </div>
-      <p class="sub-link">最新の活動は <a class="text-link ext" href="https://www.instagram.com/clean_vibes_ito/" target="_blank" rel="noopener">Instagram</a> でお知らせしています。</p>
-    </div>
-    <figure class="hero-photo">
-      <img src="img/sm/act07.jpg" alt="朝の道路沿いで、歩道の脇の雑草を取り除く参加者" width="800" height="1067">
-    </figure>
+  <picture>
+    <source media="(min-width:901px)" srcset="img/wide-act07.jpg">
+    <img src="img/sm/act07.jpg" alt="朝の道路沿いで、歩道の脇の雑草を取り除く参加者" width="800" height="1067">
+  </picture>
+  <div class="wrap">
+    <p class="pill">土日祝の朝6:30、伊東のどこかで。</p>
+    <h1>綺麗なまちを、<br><span class="accent">後世へ。</span></h1>
+    <p class="lead">Clean Vibes（クリーンバイブス）は、市民の手でまちの美化と雑草対策に取り組んでいます。除草剤を使わずに雑草を生えにくくする方法を、現場で試しながら形にしています。</p>
+    <div class="chips"><span>2022年4月から</span><span>累計500回以上（2026年10月時点）</span><span>土日祝 6:30〜7:30</span></div>
+    <div class="btn-row"><a class="btn btn-white" href="#join">伊東で参加する</a><a class="btn btn-line-white" href="#method">防草の方法を見る</a></div>
   </div>
 </section>
+
+<div class="marquee" aria-hidden="true"><div class="track">
+  <img src="img/sm/act05.jpg" alt=""><img src="img/sm/act01.jpg" alt=""><img src="img/sm/act12.jpg" alt=""><img src="img/sm/act06.jpg" alt=""><img src="img/sm/act09.jpg" alt=""><img src="img/sm/act10.jpg" alt=""><img src="img/sm/act08.jpg" alt=""><img src="img/sm/act03.jpg" alt=""><img src="img/sm/act11.jpg" alt=""><img src="img/sm/act04.jpg" alt="">
+  <img src="img/sm/act05.jpg" alt=""><img src="img/sm/act01.jpg" alt=""><img src="img/sm/act12.jpg" alt=""><img src="img/sm/act06.jpg" alt=""><img src="img/sm/act09.jpg" alt=""><img src="img/sm/act10.jpg" alt=""><img src="img/sm/act08.jpg" alt=""><img src="img/sm/act03.jpg" alt=""><img src="img/sm/act11.jpg" alt=""><img src="img/sm/act04.jpg" alt="">
+</div></div>
 
 <!-- 2. 私たちについて -->
 <section class="section" id="about">
@@ -351,19 +404,27 @@ h1,h2,h3,.call,.welcome{word-break:auto-phrase}
     <p class="sec-label">About</p>
     <h2>私たちについて</h2>
     <div class="about-grid">
-      <div class="prose">
+      <div class="prose reveal">
         <p>2022年4月、伊東のオレンジビーチから活動を始めました。テーマは「綺麗なまちを後世へ」。次の世代に、胸を張って手渡せるまちを残したい。その思いを込めた言葉です。</p>
         <p>除草剤は使わないと決めました。子どもや犬が転げ回る地面だから。雨水が、やがて海へ流れていくから。手間はかかります。それでも、これが私たちのやり方です。</p>
         <p>道路や身近な公共の場所を、市民が自分たちの手で守る。そんな文化をつくりたいと、私たちは考えています。</p>
         <p>2030年、このやり方を届けきったら、私たちは役目を終えます。「届けきって解散する」。それが私たちの目標です。</p>
       </div>
-      <figure class="about-photo">
-        <img src="img/sm/act12.jpg" alt="オレンジビーチでの活動後に撮影した参加者の集合写真" width="800" height="1067" loading="lazy">
-        <figcaption>伊東のオレンジビーチにて</figcaption>
-      </figure>
+      <div class="about-photos reveal">
+        <figure class="big"><img src="img/sm/act12.jpg" alt="オレンジビーチでの活動後に撮影した参加者の集合写真" width="800" height="1067" loading="lazy"></figure>
+        <figure class="small"><img src="img/sm/act02.jpg" alt="側溝の脇で、集めた土を袋に入れる参加者" width="800" height="1067" loading="lazy"></figure>
+      </div>
     </div>
 
-    <div class="profile">
+    <div class="statement-band reveal">
+      <div class="txt">
+        <p class="statement">除草で終わらせない。<br>防草まで、市民の手で。</p>
+        <p class="sub">草を取るだけでなく、生えにくくするところまで。除草剤を使わずに、市民の手で取り組んでいます。</p>
+      </div>
+      <div class="ph"><img src="img/sm/act09.jpg" alt="歩道の縁に沿って雑草を取り除いた跡" width="800" height="1067" loading="lazy"></div>
+    </div>
+
+    <div class="profile reveal">
       <h3>団体概要</h3>
       <dl>
         <dt>団体名</dt><dd>Clean Vibes（クリーンバイブス）</dd>
@@ -372,6 +433,8 @@ h1,h2,h3,.call,.welcome{word-break:auto-phrase}
         <dt>拠点</dt><dd>静岡県伊東市</dd>
         <dt>活動日時</dt><dd>土日祝の朝6:30〜7:30（場所は毎回変わります）</dd>
         <dt>活動回数</dt><dd>累計500回以上（2026年10月時点）</dd>
+        <dt>表彰</dt><dd>静岡県道路利用者会議 会長表彰（令和7年度、公共施設清掃活動）<br>関東商工会議所連合会 会長表彰<span class="tbd">要確認：年月</span></dd>
+        <dt>行政との協働</dt><dd>しずおかアダプトロード・プログラム（国道135号 湯川交差点〜なぎさ公園の約1km）</dd>
         <dt>運営体制</dt><dd><span class="tbd">要確認</span></dd>
         <dt>連絡先</dt><dd>Instagramのダイレクトメッセージ（DM）：@clean_vibes_ito<br>メール：<span class="tbd">要確認</span></dd>
         <dt>目標</dt><dd>2030年に、このやり方を届けきって解散</dd>
@@ -379,46 +442,71 @@ h1,h2,h3,.call,.welcome{word-break:auto-phrase}
     </div>
 
     <div class="values grid-3">
-      <div class="card">
+      <div class="card reveal"><img src="img/sm/act04.jpg" alt="建物の壁際を掃き清める参加者" width="800" height="1067" loading="lazy"><div class="in">
         <h3>研究を参考に、現場で確かめる</h3>
         <p>国内外の研究や事例を参考にしながら、伊東での実践を通じて改善を重ねています。研究でわかっていることと、私たちの現場での結果は、分けてお伝えします。</p>
-      </div>
-      <div class="card">
+      </div></div>
+      <div class="card reveal"><img src="img/sm/act01.jpg" alt="側溝の脇を清掃する参加者" width="800" height="1067" loading="lazy"><div class="in">
         <h3>資格や高価な機械はいらない</h3>
         <p>特別な資格や高価な機械がなくても取り組めます。ただし、火を使う工程は経験者が担当し、管理者への確認を必ず行います。</p>
-      </div>
-      <div class="card">
+      </div></div>
+      <div class="card reveal"><img src="img/sm/act10.jpg" alt="交差点近くの歩道で作業する参加者" width="800" height="1067" loading="lazy"><div class="in">
         <h3>一度きりより、続けること</h3>
         <p>仕上がりには、とことんこだわります。「ボランティアだから、ここまで」とは考えません。そして、一度きりの完璧より、何度でも通い続けることを選びました。</p>
-      </div>
+      </div></div>
     </div>
   </div>
 </section>
 
+<!-- 写真の帯 -->
+<div class="photo-band">
+  <picture>
+    <source media="(min-width:901px)" srcset="img/wide-act03.jpg">
+    <img src="img/sm/act03.jpg" alt="" width="800" height="1067" loading="lazy">
+  </picture>
+  <div class="wrap">
+    <p class="quote reveal">子どもや犬が転げ回る地面だから。<br>雨水が、やがて海へ流れていくから。<small>だから、除草剤は使いません。</small></p>
+  </div>
+</div>
+
 <!-- 3. 防草の方法 -->
-<section class="section soft" id="method">
+<section class="section dark" id="method">
   <div class="wrap">
     <p class="sec-label">Method</p>
-    <h2>防草の方法（5つの工程）</h2>
-    <p class="sec-lead">防草とは、雑草を生えにくくすることです。ここでは、除草剤を使わずに雑草を生えにくくするための5つの工程を紹介します。「研究でわかっていること」には論文で報告されている一般的な内容を、伊東での結果は<a href="#results">「検証と実績」</a>に、分けて書いています。</p>
+    <h2>除草剤を使わない、<br>5つの工程。</h2>
+    <p class="sec-lead">防草とは、雑草を生えにくくすることです。「研究でわかっていること」には論文で報告されている一般的な内容を、伊東での結果は<a href="#results">「検証と実績」</a>に、分けて書いています。</p>
+
+    <ol class="steps-quick" aria-label="5つの工程の一覧">
+      <li><span class="num" aria-hidden="true">01</span><span class="verb">ほじる</span><p>土ごと、根ごと取り除く</p></li>
+      <li><span class="num" aria-hidden="true">02</span><span class="verb">掃く</span><p>地面をきれいにする</p></li>
+      <li><span class="num" aria-hidden="true">03</span><span class="verb">焼く</span><p>地上に出ている草を、熱で傷める</p></li>
+      <li><span class="num" aria-hidden="true">04</span><span class="verb">埋める</span><p>目地や隙間をふさぐ</p></li>
+      <li><span class="num" aria-hidden="true">05</span><span class="verb">まく</span><p>アルカリ水をまく<span class="badge">検証中</span></p></li>
+    </ol>
 
     <ol class="steps">
-      <li class="step">
-        <div class="step-head"><span class="step-no" aria-hidden="true">1</span><div><h3>ほじる</h3><p>土ごと、根ごと取り除く</p></div></div>
-        <div class="step-body">
-          <div><h4>やり方</h4><p>専用の道具で、草を根ごと掘り起こします。表面の土に残った根や種も、できるだけ一緒に取り除きます。次に生えてくる草を減らすためです。</p></div>
-          <div><h4>研究でわかっていること</h4><p>畑での調査では、雑草の多くが地表近くの浅いところから芽を出すことが報告されています。</p></div>
+      <li class="step has-photo reveal">
+        <div>
+          <div class="step-head"><span class="num" aria-hidden="true">01</span><h3>ほじる</h3><p>土ごと、根ごと取り除く</p></div>
+          <div class="step-body">
+            <div><h4>やり方</h4><p>専用の道具で、草を根ごと掘り起こします。表面の土に残った根や種も、できるだけ一緒に取り除きます。次に生えてくる草を減らすためです。</p></div>
+            <div><h4>研究でわかっていること</h4><p>畑での調査では、雑草の多くが地表近くの浅いところから芽を出すことが報告されています。</p></div>
+          </div>
+          <p class="source">参考：du Croix Sissons ほか（2000）<a href="https://doi.org/10.1614/0043-1745(2000)048%5B0327:DOSROF%5D2.0.CO;2" target="_blank" rel="noopener">Weed Science 48巻</a></p>
         </div>
-        <p class="source">参考：du Croix Sissons ほか（2000）<a href="https://doi.org/10.1614/0043-1745(2000)048%5B0327:DOSROF%5D2.0.CO;2" target="_blank" rel="noopener">Weed Science 48巻</a></p>
+        <figure><img src="img/sm/act05.jpg" alt="歩道の目地の雑草を取り除く参加者" width="800" height="1067" loading="lazy"></figure>
       </li>
-      <li class="step">
-        <div class="step-head"><span class="step-no" aria-hidden="true">2</span><div><h3>掃く</h3><p>地面をきれいにする</p></div></div>
-        <div class="step-body single">
-          <div><h4>やり方</h4><p>ほじった後の土や草くずを掃き集めます。<span class="tbd">要確認：この工程の目的</span></p></div>
+      <li class="step has-photo reveal">
+        <div>
+          <div class="step-head"><span class="num" aria-hidden="true">02</span><h3>掃く</h3><p>地面をきれいにする</p></div>
+          <div class="step-body single">
+            <div><h4>やり方</h4><p>ほじった後の土や草くずを掃き集めます。<span class="tbd">要確認：この工程の目的</span></p></div>
+          </div>
         </div>
+        <figure><img src="img/sm/act06.jpg" alt="植え込みの脇を、ほうきで掃き集める参加者" width="800" height="1067" loading="lazy"></figure>
       </li>
-      <li class="step">
-        <div class="step-head"><span class="step-no" aria-hidden="true">3</span><div><h3>焼く</h3><p>地上に出ている草を、熱で傷める</p></div></div>
+      <li class="step reveal">
+        <div class="step-head"><span class="num" aria-hidden="true">03</span><h3>焼く</h3><p>地上に出ている草を、熱で傷める</p></div>
         <div class="step-body">
           <div><h4>やり方</h4><p>バーナーの火を短時間だけ当てます。燃やすのではなく、熱で草の細胞を傷める工程です。必要に応じて何度か繰り返します。地中の根や種までは枯らせません。</p></div>
           <div><h4>研究でわかっていること</h4><p>火を当てたときの効き方は、草の種類や育ち具合によって大きく変わることが報告されています。</p></div>
@@ -426,22 +514,22 @@ h1,h2,h3,.call,.welcome{word-break:auto-phrase}
         <p class="safety"><b>安全のために</b>火を使うため、経験者が担当します。管理者への確認、消火の準備、周りの安全確認を必ず行います。<span class="tbd">要確認：中止の基準・消防への届出</span></p>
         <p class="source">参考：Ascard（1995）<a href="https://doi.org/10.1111/j.1365-3180.1995.tb01636.x" target="_blank" rel="noopener">Weed Research 35巻</a></p>
       </li>
-      <li class="step">
-        <div class="step-head"><span class="step-no" aria-hidden="true">4</span><div><h3>埋める</h3><p>目地や隙間をふさぐ</p></div></div>
+      <li class="step reveal">
+        <div class="step-head"><span class="num" aria-hidden="true">04</span><h3>埋める</h3><p>目地や隙間をふさぐ</p></div>
         <div class="step-body">
           <div><h4>やり方</h4><p>目地や隙間を防草材で埋めます。種が入り込む場所を減らすためです。防草材は、場所や景観、管理者の方針に合わせて選び、製品の施工要領に従って使います。<span class="tbd">要確認：防草材の種類</span></p></div>
           <div><h4>研究でわかっていること</h4><p>舗装された場所の雑草対策では、いくつかの方法を組み合わせることや、雑草が生えにくい舗装にすることが有効だとまとめられています。</p></div>
         </div>
         <p class="source">参考：Rask &amp; Kristoffersen（2007）<a href="https://doi.org/10.1111/j.1365-3180.2007.00579.x" target="_blank" rel="noopener">Weed Research 47巻</a></p>
       </li>
-      <li class="step">
-        <div class="step-head"><span class="step-no" aria-hidden="true">5</span><div><h3>アルカリ水をまく<span class="badge">検証中</span></h3><p>効果を確かめている途中の工程</p></div></div>
+      <li class="step reveal">
+        <div class="step-head"><span class="num" aria-hidden="true">05</span><h3>アルカリ水をまく<span class="badge">検証中</span></h3><p>効果を確かめている途中の工程</p></div>
         <div class="step-body single">
           <div><h4>やり方</h4><p>セスキ炭酸ソーダ（重曹に近い、身近な洗浄成分）を水に溶かしたアルカリ水をまきます。この工程の効果は、いま現場で確かめているところです。<span class="tbd">要確認：まく目的と、除草剤との違いの説明</span></p></div>
         </div>
       </li>
     </ol>
-    <p class="no-herbicide">どの工程でも、除草剤は使いません。</p>
+    <p class="no-herb">どの工程でも、<b>除草剤は使いません。</b></p>
   </div>
 </section>
 
@@ -450,15 +538,18 @@ h1,h2,h3,.call,.welcome{word-break:auto-phrase}
   <div class="wrap">
     <p class="sec-label">Results</p>
     <h2>検証と実績</h2>
-    <div class="results grid-3">
-      <div class="card result-main">
-        <span class="chip">検証の結果</span>
-        <h3>作業した場所を、3か月後に確かめました</h3>
-        <p><span class="tbd">要確認：年</span>4月に作業した場所を、3か月後に確かめました。雑草は約95%抑えられており、生えていたのは、わずかな隙間からだけでした。</p>
-        <p class="note">※この場所での結果です。<span class="tbd">要確認：行った工程・確かめ方</span></p>
-        <p style="margin-top:14px">ただし、「もう二度と生えない」とは言いません。半年もすれば、雑草はまた顔を出します。本当に、しぶといんです。だから私たちは、何度でも通い続けます。<span class="tbd">要確認：「半年」がいまの団体の見解か</span></p>
+    <div class="results">
+      <div class="card result-main reveal">
+        <img src="img/sm/act11.jpg" alt="カラーコーンを置いて作業した歩道" width="800" height="1067" loading="lazy">
+        <div class="in">
+          <span class="chip">検証の結果</span>
+          <h3>作業した場所を、3か月後に確かめました</h3>
+          <p><span class="tbd">要確認：年</span>4月に作業した場所を、3か月後に確かめました。雑草は約95%抑えられており、生えていたのは、わずかな隙間からだけでした。</p>
+          <p class="note">※この場所での結果です。<span class="tbd">要確認：行った工程・確かめ方</span></p>
+          <p style="margin-top:14px">ただし、「もう二度と生えない」とは言いません。半年もすれば、雑草はまた顔を出します。本当に、しぶといんです。だから私たちは、何度でも通い続けます。<span class="tbd">要確認：「半年」がいまの団体の見解か</span></p>
+        </div>
       </div>
-      <div class="card">
+      <div class="card reveal">
         <span class="chip">新しい試み</span>
         <h3>モルタルを使った防草の実証実験<span class="badge">検証中</span></h3>
         <p>2026年11月から、左官職人の指導のもと、モルタルを使った防草の実証実験を始めました。効果はこれから確かめます。</p>
@@ -468,70 +559,97 @@ h1,h2,h3,.call,.welcome{word-break:auto-phrase}
 </section>
 
 <!-- 5. 伊東で参加する -->
-<section class="section teal" id="join">
+<section class="join" id="join">
   <div class="wrap">
     <p class="sec-label">Join</p>
     <h2>伊東で参加する</h2>
-    <p class="sec-lead">土日祝の朝、まちに出ています。</p>
-    <p class="welcome">初めての方、親子、観光でお越しの方も歓迎です</p>
-    <div class="card join-card">
-      <dl>
-        <dt>日時</dt><dd>土日祝の朝6:30〜7:30</dd>
-        <dt>場所</dt><dd>毎回変わります。Instagramでお知らせします。</dd>
-        <dt>作業内容</dt><dd>除草・防草、側溝の清掃、<span class="nowrap">苔落とし など</span><span class="tbd">要確認：いまも行っている作業</span></dd>
-        <dt>申し込み</dt><dd>Instagramのダイレクトメッセージ（DM）で、「参加希望日・お名前・人数」をお送りください。<br>Instagramをお使いでない方：<span class="tbd">要確認</span></dd>
-        <dt>持ち物</dt><dd>軍手（道具はある程度こちらで用意します）</dd>
-        <dt>服装</dt><dd><span class="tbd">要確認</span></dd>
-        <dt>雨の日</dt><dd><span class="tbd">要確認</span></dd>
-        <dt>保険</dt><dd><span class="tbd">要確認</span></dd>
-        <dt>写真</dt><dd><span class="tbd">要確認：撮影・掲載の方針</span></dd>
-      </dl>
-      <div class="btn-row">
-        <a class="btn btn-primary" href="https://ig.me/m/clean_vibes_ito" target="_blank" rel="noopener">InstagramのDMで申し込む</a>
-        <a class="btn btn-outline" href="https://www.instagram.com/clean_vibes_ito/" target="_blank" rel="noopener">最新の日程を見る</a>
+    <div class="join-grid">
+      <div class="reveal">
+        <p class="welcome">土日祝の朝、まちに出ています。<br>初めての方も、親子も、旅の途中の方も。</p>
+        <div class="join-card">
+          <dl>
+            <dt>日時</dt><dd>土日祝の朝6:30〜7:30</dd>
+            <dt>場所</dt><dd>毎回変わります。Instagramでお知らせします。</dd>
+            <dt>作業内容</dt><dd>除草・防草、側溝の清掃、苔落とし、駐車場の白線の引き直し、歩道の柵の塗装 など（場所によって変わります）</dd>
+            <dt>申し込み</dt><dd>Instagramのダイレクトメッセージ（DM）で、「参加希望日・お名前・人数」をお送りください。<br>Instagramをお使いでない方：<span class="tbd">要確認</span></dd>
+            <dt>持ち物</dt><dd>軍手（道具はある程度こちらで用意します）</dd>
+            <dt>服装</dt><dd><span class="tbd">要確認</span></dd>
+            <dt>雨の日</dt><dd><span class="tbd">要確認</span></dd>
+            <dt>保険</dt><dd><span class="tbd">要確認</span></dd>
+            <dt>写真</dt><dd><span class="tbd">要確認：撮影・掲載の方針</span></dd>
+          </dl>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn-white" href="https://ig.me/m/clean_vibes_ito" target="_blank" rel="noopener">InstagramのDMで申し込む</a>
+          <a class="btn btn-line-white" href="https://www.instagram.com/clean_vibes_ito/" target="_blank" rel="noopener">最新の日程を見る</a>
+        </div>
+      </div>
+      <div class="join-photos reveal">
+        <img src="img/sm/act12.jpg" alt="オレンジビーチでの活動後の集合写真" width="800" height="1067" loading="lazy">
+        <img src="img/sm/act08.jpg" alt="集めた雑草の袋の山と参加者" width="800" height="1067" loading="lazy">
+        <img src="img/sm/act02.jpg" alt="側溝の脇で作業する参加者" width="800" height="1067" loading="lazy">
       </div>
     </div>
   </div>
 </section>
 
-<!-- 6. あなたのまちで始める -->
+<!-- 6. 自分のまちで始める -->
 <section class="section" id="start">
   <div class="wrap">
     <p class="sec-label">Start</p>
     <h2>あなたのまちで始める</h2>
-    <p class="sec-lead">このやり方を、伊東だけのものにするつもりはありません。伊東市内の他の地域や、埼玉県狭山市など他県でも、同じような取り組みが始まりつつあります。</p>
-    <p class="call">真似してください。もっと良くしてください。<br>そして、あなたのまちで始めてください。</p>
+    <p class="sec-lead reveal">このやり方を、伊東だけのものにするつもりはありません。伊東市内の他の地域や、埼玉県狭山市など他県でも、同じような取り組みが始まりつつあります。</p>
+    <p class="call reveal">真似してください。もっと良くしてください。<br>そして、あなたのまちで始めてください。</p>
     <ol class="start-steps grid-3">
-      <li class="card"><p class="num">STEP 1</p><h3>方法を知る</h3><p>このページの<a href="#method">「防草の方法」</a>で、5つの工程を紹介しています。</p></li>
-      <li class="card"><p class="num">STEP 2</p><h3>始める前に</h3><p>公共の場所では、必ず管理者の許可を得てください。火を使う工程は経験のある人が担当し、消火の準備と周りの安全確認をしてから行ってください。経験のある人がいない場合は<span class="tbd">要確認：団体としての案内</span>。⑤のアルカリ水は、効果を確かめている途中の工程です。</p></li>
-      <li class="card"><p class="num">STEP 3</p><h3>相談・報告する</h3><p>詳しい資料のご依頼や道具の相談、「うちのまちでもやってみた」というご報告は、InstagramのDMで受け付けています。</p></li>
+      <li class="card reveal"><p class="num-s">STEP 1</p><h3>方法を知る</h3><p>このページの<a href="#method">「防草の方法」</a>で、5つの工程を紹介しています。</p></li>
+      <li class="card reveal"><p class="num-s">STEP 2</p><h3>始める前に</h3><p>公共の場所では、必ず管理者の許可を得てください。火を使う工程は経験のある人が担当し、消火の準備と周りの安全確認をしてから行ってください。経験のある人がいない場合は<span class="tbd">要確認：団体としての案内</span>。⑤のアルカリ水は、効果を確かめている途中の工程です。</p></li>
+      <li class="card reveal"><p class="num-s">STEP 3</p><h3>相談・報告する</h3><p>詳しい資料のご依頼や道具の相談、「うちのまちでもやってみた」というご報告は、InstagramのDMで受け付けています。</p></li>
     </ol>
   </div>
 </section>
+
+<!-- 写真の帯 -->
+<div class="photo-band">
+  <picture>
+    <source media="(min-width:901px)" srcset="img/wide-act08.jpg">
+    <img src="img/sm/act08.jpg" alt="" width="800" height="1067" loading="lazy">
+  </picture>
+  <div class="wrap">
+    <p class="quote reveal">一度きりの完璧より、<br>何度でも通い続けること。<small>2022年4月から、累計500回以上（2026年10月時点）。</small></p>
+  </div>
+</div>
 
 <!-- 7. 活動の軌跡 -->
 <section class="section soft" id="history">
   <div class="wrap">
     <p class="sec-label">History</p>
     <h2>活動の軌跡</h2>
-    <ol class="timeline">
+    <ol class="timeline reveal">
       <li><span class="when">2022年4月</span>伊東のオレンジビーチで活動開始</li>
-      <li><span class="when"><span class="tbd">要確認：時期</span></span>しずおかアダプトロード・プログラムで、国道135号のオレンジビーチ沿いの区間について協定（同意書）を結ぶ</li>
-      <li><span class="when"><span class="tbd">要確認：時期</span></span>伊豆新聞に活動が取り上げられる</li>
-      <li><span class="when">2025年</span>関東商工会議所連合会ベスト・アクション表彰ほか<span class="tbd">要確認：正式名称・受賞月</span></li>
+      <li><span class="when">2024年12月ごろ<span class="tbd">要確認：日付</span></span>しずおかアダプトロード・プログラムの同意書を、伊東市・静岡県熱海土木事務所と取り交わす（国道135号 湯川交差点〜なぎさ公園の約1km）</li>
+      <li><span class="when"><span class="tbd">要確認：年月</span></span>関東商工会議所連合会 会長表彰（なぎさ公園駐車場の白線の引き直しや除草など、まちづくりへの貢献）</li>
+      <li><span class="when">2025年9月</span>静岡県道路利用者会議 会長表彰（令和7年度 道路愛護優良団体表彰、公共施設清掃活動）</li>
       <li><span class="when">2026年10月時点</span>活動回数が累計500回以上</li>
       <li><span class="when">2026年11月</span>左官職人の指導で、モルタルを使った防草の実証実験を開始</li>
       <li class="goal"><span class="when">2030年（目標）</span>このやり方を届けきって解散</li>
     </ol>
 
+    <h3 class="sub-h">草だけでなく、まちの設備も</h3>
+    <div class="works grid-3">
+      <div class="card reveal"><span class="chip">駐車場の白線</span><h3>消えかけた白線を引き直す</h3><p>一碧湖の駐車場（40台余り）で、市の観光課と協力して白線を引き直しました。週末の早朝に、近所の子どもたちや学童野球チームも加わりました。なぎさ公園の駐車場でも取り組んでいます。</p></div>
+      <div class="card reveal"><span class="chip">歩道の柵</span><h3>さびた柵を塗り直す</h3><p>荻の歩道脇の柵、約100mで古い塗料とさびを落とし、塗り直しました。地元の塗装業者の皆さんに協力していただきました。</p></div>
+      <div class="card reveal"><span class="chip">側溝</span><h3>高校生や子どもたちと一緒に</h3><p>伊豆伊東高校の前では、高校の部活動や学童野球チームの皆さんと約70人で、側溝の泥を掘り出し、古くなった植木を取り除きました。</p></div>
+    </div>
+
     <h3 class="sub-h">活動の様子</h3>
-    <div class="gallery">
+    <div class="mosaic reveal">
+      <img class="w2 h2" src="img/sm/act12.jpg" alt="オレンジビーチでの集合写真" width="800" height="1067" loading="lazy">
       <img src="img/sm/act05.jpg" alt="歩道の目地の雑草を取り除く様子" width="800" height="1067" loading="lazy">
-      <img src="img/sm/act01.jpg" alt="側溝の脇を清掃する様子" width="800" height="1067" loading="lazy">
       <img src="img/sm/act06.jpg" alt="植え込みの脇を掃き集める様子" width="800" height="1067" loading="lazy">
+      <img class="h2" src="img/sm/act07.jpg" alt="朝の道路沿いでの作業" width="800" height="1067" loading="lazy">
       <img src="img/sm/act09.jpg" alt="歩道の縁の雑草を取り除いた跡" width="800" height="1067" loading="lazy">
-      <img src="img/sm/act10.jpg" alt="交差点近くの歩道で作業する参加者" width="800" height="1067" loading="lazy">
-      <img src="img/sm/act08.jpg" alt="集めた雑草を詰めた袋の山" width="800" height="1067" loading="lazy">
+      <img class="w2" src="img/sm/act10.jpg" alt="交差点近くの歩道で作業する参加者" width="800" height="1067" loading="lazy">
+      <img src="img/sm/act01.jpg" alt="側溝の脇を清掃する様子" width="800" height="1067" loading="lazy">
     </div>
 
     <h3 class="sub-h">動画で見る</h3>
@@ -552,15 +670,18 @@ h1,h2,h3,.call,.welcome{word-break:auto-phrase}
   <div class="wrap">
     <p class="sec-label">Support</p>
     <h2>活動を支援する</h2>
-    <div class="prose sec-lead">
-      <p>現場に立つことだけが、参加のかたちではありません。活動を続けるには、道具や資材が欠かせません。いただいたご支援は、防草の資材や道具の購入に大切に使います。企業・団体の皆さまからの協賛も歓迎しています。</p>
-      <p>これまでに物品や資材、お力添えをくださった皆さま、本当にありがとうございます。</p>
+    <div class="support-grid">
+      <div class="prose reveal">
+        <p>現場に立つことだけが、参加のかたちではありません。活動を続けるには、道具や資材が欠かせません。いただいたご支援は、防草の資材や道具の購入に大切に使います。企業・団体の皆さまからの協賛も歓迎しています。</p>
+        <p>これまでに物品や資材、お力添えをくださった皆さま、本当にありがとうございます。</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#" aria-disabled="true">Amazonほしい物リスト</a>
+          <a class="btn btn-outline" href="#contact">協賛のご相談</a>
+        </div>
+        <p class="note"><span class="tbd">要確認：ほしい物リストのURL</span> <span class="tbd">要確認：受け付ける支援（物品・協賛・寄付金）</span> <span class="tbd">要確認：使い道の報告方法</span></p>
+      </div>
+      <img class="reveal" src="img/sm/act08.jpg" alt="集めた雑草の袋の山と参加者" width="800" height="1067" loading="lazy">
     </div>
-    <div class="btn-row">
-      <a class="btn btn-primary" href="#" aria-disabled="true">Amazonほしい物リスト</a>
-      <a class="btn btn-outline" href="#contact">協賛のご相談</a>
-    </div>
-    <p class="note"><span class="tbd">要確認：ほしい物リストのURL</span> <span class="tbd">要確認：受け付ける支援（物品・協賛・寄付金）</span> <span class="tbd">要確認：使い道の報告方法</span></p>
   </div>
 </section>
 
@@ -570,21 +691,29 @@ h1,h2,h3,.call,.welcome{word-break:auto-phrase}
     <p class="sec-label">Recognition</p>
     <h2>メディア・受賞・協働</h2>
     <div class="proof grid-3">
-      <div class="card">
+      <div class="card reveal">
+        <span class="chip">受賞</span>
+        <h3>静岡県道路利用者会議 会長表彰</h3>
+        <p>令和7年度の道路愛護優良団体表彰で、公共施設の清掃活動について感謝状をいただきました（2025年9月11日、伊東市役所での表彰式）。</p>
+        <h3 style="margin-top:18px">関東商工会議所連合会 会長表彰</h3>
+        <p>なぎさ公園駐車場の白線の引き直しや除草など、まちづくりへの貢献を評価していただきました。<span class="tbd">要確認：年月</span></p>
+      </div>
+      <div class="card reveal">
         <span class="chip">行政との協働</span>
         <h3>しずおかアダプトロード・プログラム</h3>
-        <p>この制度に参加し、国道135号のオレンジビーチ沿いの区間について、協定（同意書）を結んでいます。<span class="tbd">要確認：締結日</span></p>
+        <p>伊東市、静岡県熱海土木事務所と同意書を取り交わし、国道135号の湯川交差点〜なぎさ公園の約1kmで、清掃や除草を行っています。<span class="tbd">要確認：締結日</span></p>
         <p class="note"><a class="ext" href="https://www.pref.shizuoka.jp/machizukuri/doro/doroiji/1040923/1029261.html" target="_blank" rel="noopener">制度について（静岡県）</a></p>
       </div>
-      <div class="card">
+      <div class="card reveal">
         <span class="chip">メディア掲載</span>
         <h3>伊豆新聞</h3>
-        <p>活動が取り上げられています（諏訪市での活動の記事など）。<span class="tbd">要確認：掲載日・記事の見出し</span></p>
-      </div>
-      <div class="card">
-        <span class="chip">受賞</span>
-        <h3>関東商工会議所連合会 ベスト・アクション表彰ほか</h3>
-        <p>2025年<span class="tbd">要確認：正式名称・受賞月</span></p>
+        <ul class="media-list">
+          <li>「国道135号美化へ協働」</li>
+          <li>「歩道の柵 美しく」</li>
+          <li>「駐車場白線引き完了」</li>
+          <li>「クリーンバイブス関東会長賞」</li>
+        </ul>
+        <p class="note"><span class="tbd">要確認：各記事の掲載日</span></p>
       </div>
     </div>
   </div>
@@ -595,7 +724,7 @@ h1,h2,h3,.call,.welcome{word-break:auto-phrase}
   <div class="wrap">
     <p class="sec-label">Contact</p>
     <h2>お問い合わせ</h2>
-    <dl class="contact-list">
+    <dl class="contact-list reveal">
       <div><dt>活動への参加</dt><dd>Instagramのダイレクトメッセージ（DM）</dd></div>
       <div><dt>自分のまちで始めたい・資料がほしい</dt><dd>InstagramのDM</dd></div>
       <div><dt>支援・協賛のご相談</dt><dd><span class="tbd">要確認：メールまたはフォーム</span>（当面はInstagramのDM）</dd></div>
@@ -635,8 +764,8 @@ h1,h2,h3,.call,.welcome{word-break:auto-phrase}
 </footer>
 
 <nav class="mobile-bar" aria-label="参加とInstagram">
-  <a class="btn btn-primary" href="#join">参加する</a>
-  <a class="btn btn-outline" href="https://www.instagram.com/clean_vibes_ito/" target="_blank" rel="noopener">Instagram</a>
+  <a class="btn btn-white" href="#join">参加する</a>
+  <a class="btn btn-line-white" href="https://www.instagram.com/clean_vibes_ito/" target="_blank" rel="noopener">Instagram</a>
 </nav>
 
 <script>
@@ -654,6 +783,17 @@ h1,h2,h3,.call,.welcome{word-break:auto-phrase}
   nav.addEventListener('click', function(e){ if (e.target.closest('a') && mq.matches) setOpen(false); });
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') { setOpen(false); btn.focus(); } });
   mq.addEventListener('change', function(){ setOpen(false); });
+
+  /* スクロールで、ふわっと表示（動きを減らす設定では何もしない。失敗しても内容は表示されたまま） */
+  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var els = document.querySelectorAll('.reveal');
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if (en.isIntersecting) { en.target.classList.remove('pre'); io.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function(el){
+      if (el.getBoundingClientRect().top > window.innerHeight) { el.classList.add('pre'); io.observe(el); }
+    });
+  }
 
   /* 動画は、再生ボタンを押したときだけYouTubeから読み込む */
   document.querySelectorAll('[data-short-id]').forEach(function(button){
