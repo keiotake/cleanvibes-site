@@ -195,7 +195,7 @@ h1,h2,h3,.welcome,.lead-l{word-break:auto-phrase}
 
 /* ===== 活動内容 ===== */
 .acts .card{padding:0;overflow:hidden;display:flex;flex-direction:column}
-.acts .card img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.acts .card img{width:100%;aspect-ratio:1/1;object-fit:cover}
 .acts .card .in{padding:22px 24px 26px}
 .acts h3{margin-bottom:6px}
 .acts p{font-size:15.5px}
@@ -206,7 +206,13 @@ h1,h2,h3,.welcome,.lead-l{word-break:auto-phrase}
 .gallery figcaption b{display:block;color:var(--navy);font-size:15.5px}
 .acts-note{margin-top:8px;color:var(--muted);font-size:15.5px}
 @media (max-width:900px){.gallery{columns:2;column-gap:12px}.gallery figure{margin-bottom:12px}}
-@media (max-width:520px){.gallery{columns:1}}
+
+
+/* ===== 作業の前と後 ===== */
+.ba-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.ba-grid figure{background:#fff;border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+.ba-grid figcaption{padding:12px 16px 14px;color:var(--navy);font-weight:700;font-size:15.5px}
+@media (max-width:900px){.ba-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.ba-grid figcaption{font-size:14px;padding:10px 12px}}
 
 /* ===== 防草の方法 ===== */
 .steps5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;counter-reset:step}
@@ -214,7 +220,12 @@ h1,h2,h3,.welcome,.lead-l{word-break:auto-phrase}
 .steps5 .num{display:block;font-family:var(--en);font-weight:700;font-size:34px;line-height:1;background:linear-gradient(135deg,var(--blue-text),var(--teal-text));-webkit-background-clip:text;background-clip:text;color:transparent}
 .steps5 h3{margin:12px 0 8px;font-size:22px!important;letter-spacing:.06em}
 .steps5 p{font-size:15px;line-height:1.8}
-.steps5 .badge{margin:8px 0 0}
+.steps5 .badge{margin:8px 0 0;justify-self:start}
+.step-photos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:24px}
+.step-photos figure{background:#fff;border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+.step-photos img{width:100%;aspect-ratio:1/1;object-fit:cover;object-position:center 60%}
+.step-photos figcaption{padding:12px 16px 14px;font-size:14.5px;line-height:1.7}
+.step-photos figcaption b{display:block;color:var(--navy);font-size:16px}
 .no-herb{margin-top:28px;display:flex;align-items:center;gap:12px;color:var(--navy);font-weight:700;font-size:18px}
 .no-herb::before{content:"";flex:none;width:28px;height:28px;border-radius:50%;background:var(--teal-text) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L19 7'/%3E%3C/svg%3E") center/16px no-repeat}
 @media (max-width:1000px){
@@ -264,7 +275,7 @@ h1,h2,h3,.welcome,.lead-l{word-break:auto-phrase}
 .proof p{font-size:15.5px}
 .award2{display:grid;grid-template-columns:150px 1fr;gap:18px;align-items:center;margin-top:22px;padding-top:20px;border-top:1px solid var(--line)}
 .award2 img{width:150px;border-radius:8px;box-shadow:0 6px 16px rgba(13,59,122,.15)}
-.award3{margin-top:22px;padding-top:20px;border-top:1px solid var(--line)}
+.award2.tall img{width:110px;justify-self:center}
 .media-list li{position:relative;padding-left:16px;margin-top:4px}
 .media-list li::before{content:"";position:absolute;left:0;top:.8em;width:6px;height:6px;border-radius:50%;background:var(--teal)}
 .note{margin-top:12px;font-size:14.5px}
@@ -287,7 +298,7 @@ h1,h2,h3,.welcome,.lead-l{word-break:auto-phrase}
 /* ===== 支援する ===== */
 .support-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center}
 .support-grid figure img{width:100%;border-radius:22px;box-shadow:var(--shadow)}
-.sponsors{margin-top:24px;background:var(--bg-soft);border-radius:16px;padding:18px 20px}
+.sponsors{margin-top:24px;background:#fff;border-radius:16px;padding:18px 22px;box-shadow:var(--shadow)}
 .sponsors-title{font-weight:700;color:var(--navy)}
 .sponsors li{margin-top:6px}
 .sponsors a{font-weight:700}
@@ -342,7 +353,16 @@ h1,h2,h3,.welcome,.lead-l{word-break:auto-phrase}
 @media (max-width:520px){
   .btn-row .btn{flex:1 1 100%}
 }
-</style>
+/* スマホでは、写真の欄を横にスワイプして見る形にして、ページが長くなりすぎないようにする */
+.swipe-hint{display:none;margin:-8px 0 12px;font-size:13.5px;color:var(--muted)}
+@media (max-width:700px){
+  .swipe-hint{display:block}
+  .gallery,.ba-grid,.step-photos{display:grid;grid-template-columns:none;grid-auto-flow:column;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;gap:12px;padding:4px 20px 14px;margin-inline:-20px;scroll-padding-inline:20px;align-items:start;columns:auto}
+  .gallery{grid-auto-columns:72%}
+  .ba-grid{grid-auto-columns:82%}
+  .step-photos{grid-auto-columns:72%}
+  .gallery>figure,.ba-grid>li,.step-photos>figure{margin:0;scroll-snap-align:start}
+}</style>
 </head>
 <body>
 <a class="skip" href="#main">本文へ移動</a>
@@ -423,8 +443,8 @@ h1,h2,h3,.welcome,.lead-l{word-break:auto-phrase}
       </div>
     </div>
     <div class="about-photos">
-      <figure><img src="img/sm/together.jpg" alt="道路脇の縁石まわりで、道具を使って力を合わせて作業する参加者" width="900" height="1051" loading="lazy"></figure>
-      <figure><img src="img/sm/act02.jpg" alt="側溝の脇で、集めた土を袋に入れる参加者" width="800" height="1067" loading="lazy"></figure>
+      <figure><img src="img/p/about-banner.jpg" alt="「仲間募集中」ののぼりを囲んで撮った参加者の集合写真" width="750" height="1000" loading="lazy"></figure>
+      <figure><img src="img/p/about-branches.jpg" alt="反射ベストを着て、道路脇の木の枝を払う参加者" width="753" height="1000" loading="lazy"></figure>
     </div>
   </div>
 </section>
@@ -438,18 +458,47 @@ h1,h2,h3,.welcome,.lead-l{word-break:auto-phrase}
       <p class="sec-lead">草は取っても、しばらくするとまた生えてきます。そこで私たちは、草を取る「除草」だけでなく、雑草が生えにくい状態をつくる「防草」まで行っています。</p>
     </div>
     <div class="acts grid-3">
-      <div class="card"><img src="img/sm/act05.jpg" alt="歩道の目地の雑草を取り除く参加者" width="800" height="1067" loading="lazy"><div class="in"><h3>除草・防草</h3><p>草を根から取り除き、目地や隙間を固まる砂で埋めて、雑草が生えにくい状態にします。</p></div></div>
-      <div class="card"><img src="img/sm/act01.jpg" alt="側溝の脇を清掃する参加者" width="800" height="1067" loading="lazy"><div class="in"><h3>通学路の整備</h3><p>大池小学校の通学路で、伸びた枝の伐採や除草、フェンスの水拭き、側溝や用水路の清掃を続けています。必要な許可を取り、民有地では地主さんの了承を得て作業しています。</p></div></div>
-      <div class="card"><img src="img/sm/lines-work.jpg" alt="早朝のなぎさ公園の駐車場で、白線を引き直す参加者" width="900" height="886" loading="lazy"><div class="in"><h3>駐車場の白線</h3><p>なぎさ公園の駐車場で100台分以上、一碧湖の駐車場では市の観光課と協力して、消えかけた白線を引き直しました。</p></div></div>
+      <div class="card"><img src="img/p/card-joints.jpg" alt="反射ベストを着て、道路沿いの目地で防草の作業をする参加者" width="678" height="900" loading="lazy"><div class="in"><h3>除草・防草</h3><p>草を根から取り除き、目地や隙間を固まる砂で埋めて、雑草が生えにくい状態にします。</p></div></div>
+      <div class="card"><img src="img/p/card-ladder.jpg" alt="はしごを使って、道路脇の斜面の木を切る参加者" width="675" height="900" loading="lazy"><div class="in"><h3>通学路の整備</h3><p>大池小学校の通学路で、伸びた枝の伐採や除草、フェンスの水拭き、側溝や用水路の清掃を続けています。必要な許可を取り、民有地では地主さんの了承を得て作業しています。</p></div></div>
+      <div class="card"><img src="img/p/card-lines.jpg" alt="一碧湖の駐車場で、白線を引き直す前（左）と後（右）" width="900" height="900" loading="lazy"><div class="in"><h3>駐車場の白線</h3><p>なぎさ公園の駐車場で100台分以上、一碧湖の駐車場では市の観光課と協力して、消えかけた白線を引き直しました。</p></div></div>
     </div>
 
     <h3 class="sub-h">そのほかの活動</h3>
-    <p class="acts-note">荻区でのガードレールの塗装や、小学校の清掃にも取り組んでいます。地域の高校生や子どもたちと一緒に清掃することもあります。地域の行事にも、みんなで参加しています。伊東市の外では、長野県諏訪市でもボランティア活動を行いました。</p>
+    <p class="swipe-hint">横にスワイプすると、ほかの写真も見られます。</p>
+    <div class="gallery">
+      <figure><img src="img/p/g-ogi-paint.jpg" alt="荻区で、赤いガードレールを塗装する参加者" width="675" height="900" loading="lazy"><figcaption><b>ガードレールの塗装</b>荻区で、さびたガードレールを塗り直しました。</figcaption></figure>
+      <figure><img src="img/p/g-sign.jpg" alt="汚れた案内標識（左）と、汚れを落とした後の案内標識（右）" width="900" height="900" loading="lazy"><figcaption><b>案内標識の汚れ落とし</b>左が作業の前、右が作業の後です。</figcaption></figure>
+      <figure><img src="img/p/g-oike.jpg" alt="大池小学校の体育館へ続く階段" width="678" height="900" loading="lazy"><figcaption><b>小学校の清掃</b>大池小学校で、階段などの清掃を行いました。</figcaption></figure>
+      <figure><img src="img/p/g-gutter.jpg" alt="側溝のふたを外し、中にたまった泥をかき出す参加者" width="675" height="900" loading="lazy"><figcaption><b>側溝の清掃</b>中伊豆入口からカインズまでの区間で、側溝の泥をかき出しました。</figcaption></figure>
+      <figure><img src="img/p/g-field.jpg" alt="草地で、反射ベストを着た参加者が除草をしている様子" width="1200" height="900" loading="lazy"><figcaption><b>草地の除草</b>2026年7月</figcaption></figure>
+      <figure><img src="img/p/g-event.jpg" alt="Clean Vibesのベストを着て、たらいに乗って川を進む参加者" width="675" height="900" loading="lazy"><figcaption><b>地域の行事</b>地域の行事にも、みんなで参加しています。</figcaption></figure>
+    </div>
+    <p class="acts-note">地域の高校生や子どもたちと一緒に清掃することもあります。伊東市の外では、長野県諏訪市でもボランティア活動を行いました。</p>
+  </div>
+</section>
+
+<!-- 作業の前と後 -->
+<section class="section" id="before-after">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-en">BEFORE / AFTER</p>
+      <h2>作業の前と後</h2>
+      <p class="sec-lead">どの写真も、左が作業の前、右が作業の後です。</p>
+    </div>
+    <p class="swipe-hint">横にスワイプすると、ほかの写真も見られます。</p>
+    <ul class="ba-grid">
+      <li><figure><img src="img/p/ba-ditch.jpg" alt="草に覆われた水路（左）と、草を取り除いた後の水路（右）" width="900" height="900" loading="lazy"><figcaption>水路まわりの草取り</figcaption></figure></li>
+      <li><figure><img src="img/p/ba-edge.jpg" alt="草が伸びた歩道の端（左）と、草を取った後の歩道の端（右）" width="900" height="900" loading="lazy"><figcaption>歩道の端の草取り</figcaption></figure></li>
+      <li><figure><img src="img/p/ba-walk.jpg" alt="草が生えた歩道（左）と、草を取った後の歩道（右）" width="900" height="900" loading="lazy"><figcaption>歩道の草取り</figcaption></figure></li>
+      <li><figure><img src="img/p/ba-branches.jpg" alt="木の枝が張り出した歩道（左）と、枝を払った後の歩道（右）" width="900" height="900" loading="lazy"><figcaption>歩道に張り出した枝の剪定</figcaption></figure></li>
+      <li><figure><img src="img/p/ba-stairs.jpg" alt="汚れた階段（左）と、汚れを落とした後の階段（右）" width="900" height="900" loading="lazy"><figcaption>階段の汚れ落とし</figcaption></figure></li>
+      <li><figure><img src="img/p/ba-grate.jpg" alt="落ち葉や泥がたまった排水ます（左）と、掃除した後の排水ます（右）" width="900" height="900" loading="lazy"><figcaption>排水ますの掃除</figcaption></figure></li>
+    </ul>
   </div>
 </section>
 
 <!-- 防草の方法 -->
-<section class="section" id="method">
+<section class="section soft" id="method">
   <div class="wrap">
     <div class="sec-head">
       <p class="sec-en">METHOD</p>
@@ -463,6 +512,11 @@ h1,h2,h3,.welcome,.lead-l{word-break:auto-phrase}
       <li><span class="num" aria-hidden="true">04</span><h3>埋める</h3><p>目地や隙間を、水で固まる砂や土で埋めます。場所に合わせて市販の資材を使い分けており、行政から支給していただいた資材も使っています。</p></li>
       <li><span class="num" aria-hidden="true">05</span><h3>まく</h3><p>最後に水をまいて、埋めた材料を固めます。あわせてアルカリ性の水もまき、雑草が生えにくくなるか経過を確かめています。</p><span class="badge">検証中</span></li>
     </ol>
+    <div class="step-photos">
+      <figure><img src="img/p/step-hojiru.jpg" alt="道路の縁の目地から、道具で根や土をかき出す参加者" width="602" height="800" loading="lazy"><figcaption><b>ほじる</b>目地にたまった土や根をかき出します。</figcaption></figure>
+      <figure><img src="img/p/step-haku.jpg" alt="ほうきとちりとりを置いて、歩道の縁で作業する参加者" width="600" height="800" loading="lazy"><figcaption><b>掃く</b>ほうきとちりとりで、細かな土まで集めます。</figcaption></figure>
+      <figure><img src="img/p/step-umeru.jpg" alt="道路の縁の目地の横に置いた、砂の入った容器" width="602" height="800" loading="lazy"><figcaption><b>埋める</b>目地に詰める、水で固まる砂です。</figcaption></figure>
+    </div>
     <p class="no-herb">どの工程でも、除草剤は使いません。</p>
 
     <h3 class="sub-h">使っている道具</h3>
@@ -538,13 +592,13 @@ h1,h2,h3,.welcome,.lead-l{word-break:auto-phrase}
     </ol>
     <div class="join-photos">
       <img src="img/wide-thanks.jpg" alt="子どもたちが書いた「CLEAN VIBES! ありがとう」の横断幕を手に、活動後に集まった参加者" width="1125" height="843" loading="lazy">
-      <img src="img/sm/group.jpg" alt="「仲間募集中」ののぼりの前で撮った参加者の集合写真" width="900" height="690" loading="lazy">
+      <img src="img/p/join-group.jpg" alt="活動の後に、建物の前に集まった参加者" width="1280" height="960" loading="lazy">
     </div>
   </div>
 </section>
 
 <!-- 実績 -->
-<section class="section soft" id="record">
+<section class="section" id="record">
   <div class="wrap">
     <div class="sec-head">
       <p class="sec-en">RECORD</p>
@@ -559,8 +613,10 @@ h1,h2,h3,.welcome,.lead-l{word-break:auto-phrase}
           <img src="img/sm/award-best-action.jpg" alt="関東商工会議所連合会からの表彰状" width="236" height="176" loading="lazy">
           <div><h3>関東商工会議所連合会 ベスト・アクション表彰</h3><p>なぎさ公園駐車場の白線の引き直しや除草など、まちづくりへの貢献を評価していただきました（2025年）。</p></div>
         </div>
-        <h3 class="award3">伊東市立大池小学校・同PTA 感謝状</h3>
-        <p>小学校での清掃ボランティアについて、校長先生とPTA会長から感謝状をいただきました（2025年11月17日）。</p>
+        <div class="award2 tall">
+          <img src="img/p/award-oike.jpg" alt="伊東市立大池小学校と同校PTAからの感謝状" width="284" height="420" loading="lazy">
+          <div><h3>伊東市立大池小学校・同PTA 感謝状</h3><p>小学校での清掃ボランティアについて、校長先生とPTA会長から感謝状をいただきました（2025年11月17日）。</p></div>
+        </div>
       </div>
       <div class="card">
         <span class="chip">行政との協働</span>
@@ -607,7 +663,7 @@ h1,h2,h3,.welcome,.lead-l{word-break:auto-phrase}
 </section>
 
 <!-- 支援する -->
-<section class="section" id="support">
+<section class="section soft" id="support">
   <div class="wrap support-grid">
     <div>
       <div class="sec-head">
@@ -633,12 +689,12 @@ h1,h2,h3,.welcome,.lead-l{word-break:auto-phrase}
         <a class="btn btn-outline" href="#contact">ご支援・協賛のご相談</a>
       </div>
     </div>
-    <figure><img src="img/sm/lines-done.jpg" alt="白線を引き直した、なぎさ公園の駐車場" width="900" height="897" loading="lazy"></figure>
+    <figure><img src="img/p/support-materials.jpg" alt="道路の縁に置いた、砂の入った容器と、ほうき、ちりとり" width="678" height="900" loading="lazy"></figure>
   </div>
 </section>
 
 <!-- 団体概要 -->
-<section class="section soft" id="profile">
+<section class="section" id="profile">
   <div class="wrap">
     <div class="sec-head">
       <p class="sec-en">PROFILE</p>
@@ -662,7 +718,7 @@ h1,h2,h3,.welcome,.lead-l{word-break:auto-phrase}
 </section>
 
 <!-- お問い合わせ -->
-<section class="section" id="contact">
+<section class="section soft" id="contact">
   <div class="wrap">
     <div class="sec-head">
       <p class="sec-en">CONTACT</p>
