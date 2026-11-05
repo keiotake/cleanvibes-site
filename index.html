@@ -374,6 +374,25 @@ h1,h2,h3,.statement,.quote{word-break:auto-phrase}
   .join .join-photos{grid-template-columns:1fr 1fr}
   .join .join-photos img:first-child{grid-column:span 2;aspect-ratio:16/10}
 }
+
+/* ===== 使っている道具 ===== */
+.tools{columns:2;column-gap:16px;margin-top:20px}
+.tool-group{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px 22px;break-inside:avoid;margin-bottom:16px}
+.tool-step{display:inline-block;background:var(--navy);color:#fff;border-radius:999px;padding:2px 14px;font-weight:700;font-size:14px}
+.tool-group li{padding:12px 0;border-bottom:1px solid var(--line)}
+.tool-group li:last-child{border-bottom:0;padding-bottom:0}
+.tool-group b{color:var(--navy);font-size:17px}
+.tool-group small{margin-left:8px;color:var(--muted);font-size:13px}
+.tool-group li>span:last-child{display:block;font-size:15px;margin-top:2px}
+.tool-group li.fav{background:var(--bg-mint);border-radius:14px;padding:14px 16px;margin:10px 0;border-bottom:0}
+.fav-tag{display:inline-block;background:var(--teal-text);color:#fff;border-radius:999px;padding:0 10px;font-size:13px;font-weight:700;margin-right:8px;vertical-align:2px}
+/* ===== 協力企業 ===== */
+.sponsors{margin-top:22px;background:var(--bg-soft);border-radius:16px;padding:16px 18px}
+.sponsors-title{font-weight:700;color:var(--navy)}
+.sponsors li{margin-top:6px}
+.sponsors a{font-weight:700}
+.sponsors small{margin-left:10px;color:var(--muted);font-size:14px}
+@media (max-width:900px){.tools{columns:1}}
 </style>
 </head>
 <body>
@@ -452,15 +471,54 @@ h1,h2,h3,.statement,.quote{word-break:auto-phrase}
     <h2>防草の方法</h2>
     <p class="sec-lead">私たちが作業するのは、子どもやペットも行き交う道や公園です。雨が降れば、水は側溝から海へと流れていきます。だから、除草剤は使いません。5つの工程で、雑草が生えにくい状態をつくります。</p>
     <ol class="steps5">
-      <li ><span class="num" aria-hidden="true">01</span><h3>ほじる</h3><p>草を根ごと取り除きます。表面の土に残った根や種も、できるだけ一緒に取ります。</p></li>
-      <li ><span class="num" aria-hidden="true">02</span><h3>掃く</h3><p>取り除いた土や草を掃き集め、地面をきれいにします。</p></li>
-      <li ><span class="num" aria-hidden="true">03</span><h3>焼く</h3><p>残った草に火を短時間当て、熱で弱らせます。火を使うため、経験者が担当し、消火の準備をしてから行います。</p></li>
-      <li ><span class="num" aria-hidden="true">04</span><h3>埋める</h3><p>目地や隙間を、ホームセンターで売っている「固まる砂」で埋めます。</p></li>
-      <li ><span class="num" aria-hidden="true">05</span><h3>まく<span class="badge">検証中</span></h3><p>セスキ炭酸ソーダを水に溶かしたアルカリ水をまきます。効果を確かめている途中の工程です。</p></li>
+      <li><span class="num" aria-hidden="true">01</span><h3>ほじる</h3><p>草を根ごと取り除きます。表面の土に残った根や種も、できるだけ一緒に取ります。</p></li>
+      <li><span class="num" aria-hidden="true">02</span><h3>掃く</h3><p>取り除いた土や草を掃き集め、地面をきれいにします。</p></li>
+      <li><span class="num" aria-hidden="true">03</span><h3>焼く</h3><p>残った草に火を短時間当て、熱で弱らせます。火を使うため、経験者が担当し、消火の準備をしてから行います。</p></li>
+      <li><span class="num" aria-hidden="true">04</span><h3>埋める</h3><p>目地や隙間を、水で固まる砂や土で埋めます。場所に合わせて材料を使い分けています。</p></li>
+      <li><span class="num" aria-hidden="true">05</span><h3>まく<span class="badge">検証中</span></h3><p>セスキ炭酸ソーダを水に溶かしたアルカリ水をまきます。効果を確かめている途中の工程です。</p></li>
     </ol>
 
+    <h3 class="sub-h">使っている道具</h3>
+    <div class="tools">
+      <div class="tool-group">
+        <p class="tool-step">①ほじる</p>
+        <ul>
+          <li class="fav"><span class="fav-tag">いちばんの相棒</span><b>草取り一番</b><small>清水製作所 モンブラン</small><span>太い根も細かい根も絡め取り、狭い隙間までしっかりほじれます。この道具なしに、Clean Vibesの「ほじる」はありえません。</span></li>
+          <li><b>根こそぎ草抜き</b><small>千吉 SGJ-10</small><span>細かい根を取ります。</span></li>
+          <li><b>パワーグリップ付草取り</b><small>千吉 SGT-16PW</small><span>頑固な根を、力を入れてほじるときに使います。</span></li>
+        </ul>
+      </div>
+      <div class="tool-group">
+        <p class="tool-step">②掃く</p>
+        <ul>
+          <li class="fav"><span class="fav-tag">仕上がりを決める</span><b>外苑ほうき</b><small>アズマ工業 名匠168</small><span>活動を始めた頃から使い続けているほうきです。コシが強く、溝の奥の砂や土までしっかりかき出せます。</span></li>
+          <li><b>手箕（てみ）</b><small>千吉 ECOテミ 小</small><span>集めた砂や草をすくいます。土のう袋やガラ袋に入れやすい大きさです。</span></li>
+        </ul>
+      </div>
+      <div class="tool-group">
+        <p class="tool-step">③焼く</p>
+        <ul>
+          <li><b>ガスバーナー</b><span>ガスは、地元企業の株式会社マルヰエナジー様からご提供いただいています。</span></li>
+        </ul>
+      </div>
+      <div class="tool-group">
+        <p class="tool-step">④埋める</p>
+        <ul>
+          <li class="fav"><span class="fav-tag">始まりの原点</span><b>雑草ストッパー</b><small>カインズ ハード 速乾</small><span>オレンジビーチの約800mの歩道は、これで施工しました。</span></li>
+          <li><b>マサファルト</b><small>水で固まる自然土</small><span>大室山・さくらの里周辺で使っています。</span></li>
+          <li><b>散水パッチ</b><small>MATERAN</small><span>歩道やアスファルトで使っています。</span></li>
+        </ul>
+      </div>
+      <div class="tool-group">
+        <p class="tool-step">⑤まく</p>
+        <ul>
+          <li><b>セスキ炭酸ソーダ</b><small>ニチガ</small><span>水に溶かして、アルカリ水をつくります。</span></li>
+        </ul>
+      </div>
+    </div>
+
     <div class="effect2 grid-2">
-      <div class="card hl"><span class="chip">防草の効果</span><h3>全体のおよそ8〜9割で、雑草を防げています</h3><p>オレンジビーチで始めた防草施工での結果です。完璧ではないからこそ、何度でも手入れに通います。</p></div>
+      <div class="card hl"><span class="chip">防草の効果</span><h3>全体のおよそ8〜9割で、雑草を防げています</h3><p>防草の施工は、オレンジビーチの歩道から始まりました。約800mの歩道を、カインズの「雑草ストッパー」（水で固まる砂）で施工した結果です。完璧ではないからこそ、何度でも手入れに通います。</p></div>
       <div class="card"><span class="chip">いま試していること</span><h3>モルタルを使った防草<span class="badge">検証中</span></h3><p>2026年11月から、モルタルを使った防草の実証実験を始めました。効果はこれから確かめます。</p></div>
     </div>
 
@@ -556,6 +614,14 @@ h1,h2,h3,.statement,.quote{word-break:auto-phrase}
         <p>活動には、道具や資材が欠かせません。いただいたご支援は、防草の資材や道具の購入に大切に使います。企業・団体の皆さまからの協賛も歓迎しています。</p>
         <p>道具や資材は、Amazonの「ほしい物リスト」からもご支援いただけます。</p>
         <p>これまでに物品や資材でご支援くださった皆さま、本当にありがとうございます。</p>
+        <div class="sponsors">
+          <p class="sponsors-title">活動を支えてくださる伊東市内の企業</p>
+          <ul>
+            <li><a class="ext" href="https://maruienazyi.co.jp/" target="_blank" rel="noopener">株式会社マルヰエナジー 様</a><small>ガスのご提供</small></li>
+            <li><a class="ext" href="https://nomuragroup.com/" target="_blank" rel="noopener">株式会社野村商店・野村マテリアルプロダクツ株式会社 様</a></li>
+            <li><a class="ext" href="https://arcre.jp/" target="_blank" rel="noopener">株式会社アクリ 様</a></li>
+          </ul>
+        </div>
         <div class="btn-row">
           <a class="btn btn-primary ext" href="https://www.amazon.jp/hz/wishlist/ls/391DJWK7C03F4" target="_blank" rel="noopener">Amazonほしい物リストを見る</a>
           <a class="btn btn-outline" href="#contact">ご支援・協賛のご相談</a>
