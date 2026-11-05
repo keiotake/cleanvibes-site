@@ -259,6 +259,7 @@ h1,h2,h3,.statement,.quote{word-break:auto-phrase}
 .proof p{font-size:15.5px}
 .award2{display:grid;grid-template-columns:150px 1fr;gap:16px;align-items:center;margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
 .award2 img{width:150px;border-radius:8px;box-shadow:0 6px 16px rgba(13,59,122,.15)}
+.award3{margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
 .media-list li{position:relative;padding-left:16px;font-size:15.5px}
 .media-list li::before{content:"";position:absolute;left:0;top:.75em;width:7px;height:7px;border-radius:50%;background:var(--teal)}
 
@@ -367,14 +368,12 @@ h1,h2,h3,.statement,.quote{word-break:auto-phrase}
 .join-steps h3{color:var(--navy);font-size:20px;margin:4px 0 6px}
 .join-steps p{font-size:15.5px}
 .join-steps .btn{margin-top:auto;align-self:flex-start;margin-top:16px}
-.join .join-photos{margin-top:28px;grid-template-columns:2fr 1fr 1fr}
-.join .join-photos img{aspect-ratio:auto;height:100%;min-height:300px}
-.join .join-photos img:first-child{grid-column:auto}
+/* 横写真は切らずに全体を見せる */
+.join .join-photos{margin-top:28px;grid-template-columns:1fr 1fr;align-items:start}
+.join .join-photos img,.join .join-photos img:first-child{grid-column:auto;aspect-ratio:auto;height:auto;object-fit:contain}
 @media (max-width:900px){
   .join-steps{grid-template-columns:1fr}
-  .join .join-photos{grid-template-columns:1fr 1fr}
-  .join .join-photos img{min-height:0;aspect-ratio:3/4}
-  .join .join-photos img:first-child{grid-column:span 2;aspect-ratio:4/3}
+  .join .join-photos{grid-template-columns:1fr}
 }
 
 /* ===== 使っている道具 ===== */
@@ -463,7 +462,7 @@ h1,h2,h3,.statement,.quote{word-break:auto-phrase}
       <div class="card"><img src="img/sm/act01.jpg" alt="側溝の脇を清掃する参加者" width="800" height="1067" loading="lazy"><div class="in"><h3>側溝の清掃</h3><p>側溝にたまった泥や落ち葉を取り除きます。</p></div></div>
       <div class="card"><img src="img/sm/lines-work.jpg" alt="早朝のなぎさ公園の駐車場で、白線を引き直す参加者" width="900" height="886" loading="lazy"><div class="in"><h3>駐車場の白線</h3><p>なぎさ公園の駐車場で100台分以上、一碧湖の駐車場では市の観光課と協力して、消えかけた白線を引き直しました。</p></div></div>
     </div>
-    <p class="acts-note">このほか、歩道の柵の塗装や、地域の高校生・子どもたちと一緒の清掃にも取り組んでいます。</p>
+    <p class="acts-note">このほか、通学路のガードレールの水拭き、荻区でのガードレールの塗装、小学校の清掃にも取り組んでいます。地域の高校生や子どもたちと一緒に清掃することもあります。伊東市の外では、長野県諏訪市でもボランティア活動を行いました。</p>
   </div>
 </section>
 
@@ -550,7 +549,6 @@ h1,h2,h3,.statement,.quote{word-break:auto-phrase}
     <div class="join-photos">
       <img src="img/wide-thanks.jpg" alt="子どもたちが書いた「CLEAN VIBES! ありがとう」の横断幕を手に、活動後に集まった参加者" width="1125" height="843" loading="lazy">
       <img src="img/sm/group.jpg" alt="「仲間募集中」ののぼりの前で撮った参加者の集合写真" width="900" height="690" loading="lazy">
-      <img src="img/sm/act06.jpg" alt="植え込みの脇を掃き集める参加者" width="800" height="1067" loading="lazy">
     </div>
   </div>
 </section>
@@ -561,13 +559,15 @@ h1,h2,h3,.statement,.quote{word-break:auto-phrase}
     <h2>実績</h2>
     <div class="proof grid-2">
       <div class="card">
-        <span class="chip">受賞</span>
+        <span class="chip">表彰・感謝状</span>
         <h3>静岡県道路利用者会議 会長表彰</h3>
         <p>令和7年度の道路愛護優良団体表彰で、公共施設の清掃活動について感謝状をいただきました（2025年9月11日）。</p>
         <div class="award2">
           <img src="img/sm/award-best-action.jpg" alt="関東商工会議所連合会からの表彰状" width="236" height="176" loading="lazy">
           <div><h3>関東商工会議所連合会 ベスト・アクション表彰</h3><p>なぎさ公園駐車場の白線の引き直しや除草など、まちづくりへの貢献を評価していただきました（2025年）。</p></div>
         </div>
+        <h3 class="award3">伊東市立大池小学校・同PTA 感謝状</h3>
+        <p>小学校での清掃ボランティアについて、校長先生とPTA会長から感謝状をいただきました（2025年11月17日）。</p>
       </div>
       <div class="card">
         <span class="chip">行政との協働</span>
@@ -600,6 +600,7 @@ h1,h2,h3,.statement,.quote{word-break:auto-phrase}
       <li><span class="when">2025年</span>関東商工会議所連合会 ベスト・アクション表彰</li>
       <li><span class="when">2025年度</span>セブン-イレブン記念財団「環境市民活動助成」</li>
       <li><span class="when">2025年9月</span>静岡県道路利用者会議 会長表彰</li>
+      <li><span class="when">2025年11月</span>伊東市立大池小学校・同PTAから感謝状</li>
       <li><span class="when">2026年10月時点</span>活動が累計500回以上に</li>
       <li><span class="when">2026年11月</span>モルタルを使った防草の実証実験を開始</li>
       <li class="goal"><span class="when">2030年（目標）</span>このやり方を届けきって解散</li>
@@ -647,7 +648,7 @@ h1,h2,h3,.statement,.quote{word-break:auto-phrase}
         <dt>拠点</dt><dd>静岡県伊東市</dd>
         <dt>活動日時・場所</dt><dd>主に土日祝の早朝、伊東市内の各所（日時・場所は毎回変わります。Instagramの「活動カレンダー」でお知らせしています）</dd>
         <dt>活動回数</dt><dd>累計500回以上（2026年10月時点）</dd>
-        <dt>表彰</dt><dd>静岡県道路利用者会議 会長表彰（令和7年度）<br>関東商工会議所連合会 ベスト・アクション表彰（2025年）</dd>
+        <dt>表彰・感謝状</dt><dd>静岡県道路利用者会議 会長表彰（令和7年度）<br>関東商工会議所連合会 ベスト・アクション表彰（2025年）<br>伊東市立大池小学校・同PTA 感謝状（2025年11月）</dd>
         <dt>助成</dt><dd>セブン-イレブン記念財団 2025年度「環境市民活動助成」</dd>
         <dt>行政との協働</dt><dd>しずおかアダプトロード・プログラム（国道135号 湯川交差点〜なぎさ公園の約1km）</dd>
         <dt>連絡先</dt><dd>InstagramのDM：@clean_vibes_ito<br>メール（代表 大竹）：<a href="mailto:ka@oh-life.co.jp">ka@oh-life.co.jp</a></dd>
