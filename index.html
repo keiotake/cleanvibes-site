@@ -50,58 +50,62 @@ document.addEventListener('click', function(event){
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
+/* ============================================================
+   Clean Vibes 公式サイト
+   色はロゴの色から。文字に使う色は、白地で4.5:1以上の濃さにしています。
+   ============================================================ */
 :root{
-  /* ロゴの色 */
-  --navy:#0D3B7A; --blue:#0A84D6; --sky:#4FC3F7; --teal:#14B8B0; --teal-dark:#078A86;
-  /* 文字用（白地で4.5:1以上） */
-  --blue-text:#0972B9; --teal-text:#067B78; --ink:#1B2733; --muted:#55687A;
-  /* 明るい面 */
-  --bg-soft:#F2F8FC; --bg-sky:#E8F4FC; --bg-mint:#E9F7F5; --line:#D6E3EC; --warn-bg:#FFF6E5; --warn-ink:#7A4300;
-  --wrap:1120px;
+  --navy:#0D3B7A; --blue:#0A84D6; --sky:#4FC3F7; --teal:#14B8B0;
+  --blue-text:#0972B9; --teal-text:#067B78; --ink:#1E2B37; --muted:#556877;
+  --bg-soft:#F3F8FC; --bg-sky:#E7F3FB; --bg-mint:#E8F6F4; --line:#DCE6EE;
+  --warn-bg:#FFF6E5; --warn-ink:#7A4300;
+  --shadow:0 1px 2px rgba(13,59,122,.05),0 10px 30px rgba(13,59,122,.07);
+  --radius:18px;
+  --wrap:1160px;
   --font:"Noto Sans JP","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","YuGothic",Meiryo,sans-serif;
+  --en:"Montserrat","Noto Sans JP",sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-padding-top:72px;-webkit-text-size-adjust:100%}
+html{scroll-padding-top:76px;-webkit-text-size-adjust:100%}
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
-body{background:#fff;color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.85;letter-spacing:.02em;overflow-wrap:anywhere}
+body{background:#fff;color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.9;letter-spacing:.03em;overflow-wrap:anywhere;font-feature-settings:"palt" 0}
 @media (min-width:768px){body{font-size:17px}}
 img{display:block;max-width:100%;height:auto}
-a{color:var(--blue-text)}
+a{color:var(--blue-text);text-underline-offset:3px}
 ul,ol{list-style:none}
 :focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:4px}
 .wrap{width:min(var(--wrap),100% - 40px);margin-inline:auto}
 .skip{position:absolute;left:-9999px;top:0;background:var(--navy);color:#fff;padding:10px 16px;z-index:200}
 .skip:focus{left:12px;top:12px}
-.nowrap{white-space:nowrap}
-h1,h2,h3,.statement,.quote,.join .welcome{word-break:auto-phrase}
+h1,h2,h3,.welcome,.lead-l{word-break:auto-phrase}
 .nw{white-space:nowrap}
+.ext::after{content:"↗";font-size:.85em;margin-left:3px}
 
 /* ボタン */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:12px 28px;border-radius:999px;font-weight:700;font-size:16px;line-height:1.4;text-decoration:none;text-align:center;transition:background-color .2s,color .2s,transform .2s}
-.btn:hover{transform:translateY(-2px)}
-.btn-primary{background:var(--blue-text);color:#fff;box-shadow:0 6px 16px rgba(9,114,185,.25)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:54px;padding:12px 30px;border-radius:999px;font-weight:700;font-size:16px;line-height:1.4;text-decoration:none;text-align:center;transition:background-color .2s,color .2s,box-shadow .2s}
+.btn-primary{background:var(--blue-text);color:#fff;box-shadow:0 8px 20px rgba(9,114,185,.22)}
 .btn-primary:hover{background:var(--navy)}
-.btn-outline{background:#fff;color:var(--blue-text);border:2px solid var(--blue-text)}
+.btn-outline{background:#fff;color:var(--blue-text);border:1.5px solid var(--blue-text)}
 .btn-outline:hover{background:var(--bg-soft)}
-.btn-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-.ext::after{content:"↗";font-size:.85em;margin-left:2px}
+.btn-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.arrow::after{content:"";width:7px;height:7px;border-top:2px solid currentColor;border-right:2px solid currentColor;transform:rotate(45deg);margin-left:4px}
 
-/* ===== ヘッダー（白） ===== */
-.site-header{position:relative;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+/* ===== ヘッダー ===== */
+.site-header{position:relative;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .js .site-header{position:sticky;top:0}
-.header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px}
-.brand{display:flex;align-items:center;gap:10px;color:var(--navy);font-weight:900;font-size:20px;text-decoration:none;white-space:nowrap}
-.brand img{width:36px;height:36px}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:68px}
+.brand{display:flex;align-items:center;gap:10px;color:var(--navy);font-family:var(--en);font-weight:700;font-size:20px;letter-spacing:.01em;text-decoration:none;white-space:nowrap}
+.brand img{width:38px;height:38px}
 .menu-btn{display:none;align-items:center;gap:8px;min-height:44px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--navy);font:inherit;font-size:15px;font-weight:700;cursor:pointer}
 .menu-btn .bars{display:block;width:18px;height:2px;background:currentColor;position:relative}
 .menu-btn .bars::before,.menu-btn .bars::after{content:"";position:absolute;left:0;width:18px;height:2px;background:currentColor}
 .menu-btn .bars::before{top:-6px}.menu-btn .bars::after{top:6px}
 .site-nav ul{display:flex;align-items:center;gap:2px}
-.site-nav a{display:block;white-space:nowrap;padding:8px 12px;border-radius:8px;color:var(--ink);font-size:15px;font-weight:700;text-decoration:none}
-.site-nav a:hover{background:var(--bg-soft);color:var(--navy)}
-.site-nav a.nav-cta{background:var(--blue-text);color:#fff;padding:8px 18px;border-radius:999px;margin-left:8px}
+.site-nav a{display:block;white-space:nowrap;padding:8px 12px;border-radius:8px;color:var(--ink);font-size:15px;font-weight:500;text-decoration:none}
+.site-nav a:hover{color:var(--blue-text)}
+.site-nav a.nav-cta{background:var(--blue-text);color:#fff;font-weight:700;padding:9px 20px;border-radius:999px;margin-left:10px}
 .site-nav a.nav-cta:hover{background:var(--navy)}
 @media (max-width:1180px){
   .js .menu-btn{display:inline-flex}
@@ -116,271 +120,112 @@ h1,h2,h3,.statement,.quote,.join .welcome{word-break:auto-phrase}
   .js .site-nav a.nav-cta{margin:14px 0 0;text-align:center;border-radius:999px;border-bottom:0}
 }
 
-/* ===== トップ：明るい写真 ===== */
-.hero{position:relative;min-height:calc(100svh - 64px);display:flex;align-items:center;overflow:hidden;background:var(--bg-sky)}
-.hero picture,.hero picture img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 55%}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.95) 0%,rgba(255,255,255,.86) 38%,rgba(255,255,255,.2) 66%,rgba(255,255,255,0) 100%)}
-.hero .wrap{position:relative;z-index:2;padding:72px 0}
-.hero .copy{max-width:700px}
-.pill{display:inline-block;background:var(--bg-mint);color:var(--teal-text);border-radius:999px;padding:6px 16px;font-weight:700;font-size:15px}
-.hero h1{color:var(--navy);font-weight:900;font-size:clamp(40px,6.6vw,80px);line-height:1.25;letter-spacing:.02em;word-break:keep-all;overflow-wrap:normal}
-.accent{background:linear-gradient(90deg,var(--blue-text),var(--teal-text));-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero .lead{max-width:560px;margin-top:18px;font-size:clamp(16px,1.6vw,19px)}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
-.chips span{background:#fff;border:1px solid var(--line);color:var(--navy);border-radius:10px;padding:6px 12px;font-size:14px;font-weight:700}
-
+/* ===== トップ ===== */
+.hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#fff 0%,var(--bg-soft) 100%)}
+.hero::before{content:"";position:absolute;right:-12%;top:-30%;width:70%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(79,195,247,.20),rgba(79,195,247,0) 65%);pointer-events:none}
+.hero-inner{position:relative;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:center;padding:72px 0 88px}
+.hero-label{display:inline-flex;align-items:center;gap:10px;color:var(--teal-text);font-weight:700;font-size:15px;letter-spacing:.08em}
+.hero-label::before{content:"";width:28px;height:2px;background:currentColor}
+.hero h1{margin-top:18px;color:var(--navy);font-weight:700;font-size:clamp(40px,5.6vw,72px);line-height:1.3;letter-spacing:.04em;word-break:keep-all;overflow-wrap:normal}
+.hero h1 .accent{color:var(--blue-text)}
+.hero .lead{margin-top:22px;font-size:clamp(16px,1.5vw,18px);max-width:30em}
+.facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.facts li{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px 16px;line-height:1.5}
+.facts small{color:var(--muted);font-size:12.5px;font-weight:500}
+.facts b{color:var(--navy);font-size:15.5px}
+.hero-photo{position:relative}
+.hero-photo img{width:100%;border-radius:28px;box-shadow:0 30px 60px rgba(13,59,122,.18)}
+.hero-photo figcaption{margin-top:10px;font-size:13.5px;color:var(--muted);text-align:right}
+@media (max-width:900px){
+  .hero-inner{grid-template-columns:1fr;gap:32px;padding:40px 0 56px}
+  .hero-photo img{border-radius:20px}
+}
 
 /* ===== セクション共通 ===== */
-.section{padding:88px 0}
+.section{padding:104px 0}
 .section.soft{background:var(--bg-soft)}
-.sec-label{color:var(--teal-text);font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
-.section h2{color:var(--navy);font-size:clamp(28px,4.4vw,48px);font-weight:900;line-height:1.35;letter-spacing:.03em;margin-top:6px}
-.sec-lead{margin-top:16px;max-width:40em}
-.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px}
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.section h3{color:var(--navy);font-size:20px;line-height:1.55}
-.note{font-size:14px;color:var(--muted);margin-top:10px}
-.chip{display:inline-block;background:var(--bg-soft);color:var(--navy);border-radius:999px;padding:2px 12px;font-size:13px;font-weight:700;margin-bottom:10px}
-.badge{display:inline-block;margin-left:8px;padding:1px 10px;border:1.5px solid var(--teal-text);color:var(--teal-text);background:#fff;border-radius:999px;font-size:13px;font-weight:700;vertical-align:middle;line-height:1.6;letter-spacing:.04em}
-.badge.first{margin-left:0;margin-bottom:10px}
-
-/* ===== 私たちについて ===== */
-.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;margin-top:32px}
-.prose p+p{margin-top:1.1em}
-.about-photos{position:relative;padding-bottom:70px}
-.about-photos .big{border-radius:24px;overflow:hidden;box-shadow:0 20px 40px rgba(13,59,122,.14)}
-.about-photos .big img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center 70%}
-.about-photos .small{position:absolute;right:-10px;bottom:0;width:46%;border-radius:18px;overflow:hidden;border:6px solid #fff;box-shadow:0 16px 30px rgba(13,59,122,.16)}
-.about-photos .small img{width:100%;aspect-ratio:1/1;object-fit:cover}
-.statement-band{margin-top:64px;border-radius:28px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;background:linear-gradient(120deg,#E3F5F3,#E3F0FB)}
-.statement-band .txt{padding:44px 40px}
-.statement{color:var(--navy);font-size:clamp(26px,3.6vw,40px);font-weight:900;line-height:1.45}
-.statement-band p.sub{margin-top:14px}
-.statement-band .ph{position:relative;min-height:300px}
-.statement-band .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.profile{margin-top:64px}
-.profile h3{margin-bottom:12px}
-.profile dl{display:grid;grid-template-columns:9em 1fr;border-top:1px solid var(--line)}
-.profile dt,.profile dd{padding:14px 4px;border-bottom:1px solid var(--line)}
-.profile dt{font-weight:700;color:var(--navy)}
-.values{margin-top:48px}
-.values .card{padding:0;overflow:hidden}
-.values .card img{width:100%;aspect-ratio:16/9;object-fit:cover}
-.values .card .in{padding:20px 22px 24px}
-.values h3{margin-bottom:6px}
-.values p{font-size:15.5px}
-
-/* ===== 写真の帯（写真は明るいまま、言葉は白いカードに） ===== */
-.photo-band{position:relative;min-height:60vh;display:flex;align-items:center;overflow:hidden;background:var(--bg-sky)}
-.photo-band picture,.photo-band picture img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.photo-band .wrap{position:relative;z-index:2;padding:72px 0}
-.quote{display:inline-block;background:rgba(255,255,255,.93);color:var(--navy);border-radius:22px;padding:28px 32px;font-size:clamp(22px,3.2vw,36px);font-weight:900;line-height:1.55;max-width:20em;box-shadow:0 14px 36px rgba(13,59,122,.15)}
-.quote small{display:block;margin-top:10px;font-size:16px;font-weight:700;color:var(--muted)}
-
-/* ===== 防草の方法（淡い面） ===== */
-.steps-quick{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:36px}
-.steps-quick li{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px 16px}
-.num{font-weight:900;font-size:48px;line-height:1;color:transparent;-webkit-text-stroke:1.5px var(--blue)}
-.verb{display:block;color:var(--navy);font-weight:900;font-size:28px;margin-top:10px;letter-spacing:.06em}
-.steps-quick p{font-size:14.5px;color:var(--muted);line-height:1.7}
-.steps{display:grid;gap:18px;margin-top:40px}
-.step{border-radius:22px;background:#fff;border:1px solid var(--line);padding:26px;display:grid;grid-template-columns:1fr;gap:16px}
-.step.has-photo{grid-template-columns:1fr 280px}
-.step-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
-.step-head .num{font-size:40px}
-.step-head h3{font-size:26px;letter-spacing:.06em}
-.step-head p{color:var(--muted);font-size:15px}
-.step-body{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
-.step-body.single{grid-template-columns:1fr}
-.step-body>div{background:var(--bg-soft);border-radius:14px;padding:16px 18px}
-.step-body h4{font-size:14px;color:var(--teal-text);letter-spacing:.08em;margin-bottom:4px}
-.step-body p{font-size:15.5px}
-.step figure{position:relative;min-height:200px}
-.step figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:16px}
-.safety{margin-top:14px;background:var(--warn-bg);color:var(--warn-ink);border-radius:12px;padding:12px 16px;font-size:15px}
-.safety b{display:block}
-.source{margin-top:12px;font-size:13px;color:var(--muted)}
-.no-herb{margin-top:30px;color:var(--navy);font-weight:900;font-size:19px}
-.no-herb b{color:var(--blue-text)}
-
-/* ===== 防草の効果 ===== */
-.effect-main{display:grid;grid-template-columns:.9fr 1.1fr;gap:0;margin-top:32px;border-radius:24px;overflow:hidden;border:1px solid var(--line);background:#fff}
-.effect-main .big{background:linear-gradient(135deg,#E3F5F3,#E3F0FB);padding:36px 32px;display:flex;flex-direction:column;justify-content:center}
-.effect-main .big span{color:var(--teal-text);font-weight:700;font-size:15px}
-.effect-main .big b{display:block;color:var(--navy);font-size:clamp(30px,4vw,44px);font-weight:900;line-height:1.3;margin-top:4px}
-.effect-main .big small{display:block;margin-top:8px;color:var(--muted);font-size:14px}
-.effect-main .txt{padding:32px}
-.effect-main .txt p+p{margin-top:1em}
-.trying{margin-top:20px}
-.trying h3{margin-bottom:6px}
-.trying p{font-size:15.5px}
-
-/* ===== 活動に参加する（淡い面） ===== */
-.join{background:linear-gradient(120deg,var(--bg-mint),var(--bg-sky));padding:88px 0}
-.join-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start;margin-top:24px}
-.join .welcome{color:var(--navy);font-size:clamp(20px,2.6vw,28px);font-weight:900;line-height:1.5}
-.join-card{background:#fff;border-radius:22px;padding:26px;margin-top:24px;box-shadow:0 10px 30px rgba(13,59,122,.08)}
-.join-card dl{display:grid;grid-template-columns:7em 1fr;border-top:1px solid var(--line)}
-.join-card dt,.join-card dd{padding:12px 4px;border-bottom:1px solid var(--line)}
-.join-card dt{font-weight:700;color:var(--navy)}
-.join-photos{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.join-photos img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:18px;border:4px solid #fff;box-shadow:0 10px 24px rgba(13,59,122,.12)}
-.join-photos img:first-child{grid-column:span 2;aspect-ratio:16/10}
-
-/* ===== 始める ===== */
-.call{margin-top:20px;color:var(--navy);font-weight:900;font-size:clamp(20px,2.6vw,28px);line-height:1.6}
-.start-steps{margin-top:32px}
-.start-steps .num-s{color:var(--teal-text);font-weight:900;font-size:14px;letter-spacing:.12em}
-.start-steps p{font-size:15.5px;margin-top:4px}
-
-/* ===== 活動の軌跡 ===== */
-.timeline{margin-top:32px;border-left:3px solid var(--sky);padding-left:24px;max-width:46em}
-.timeline li{position:relative;padding:0 0 22px}
-.timeline li::before{content:"";position:absolute;left:-33px;top:9px;width:15px;height:15px;border-radius:50%;background:#fff;border:3px solid var(--blue)}
-.timeline li.goal::before{background:var(--teal);border-color:var(--teal)}
-.timeline .when{display:block;font-weight:700;color:var(--navy)}
-.sub-h{margin-top:56px}
-.works{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px}
-.works .feature{grid-column:1/-1;display:grid;grid-template-columns:1.1fr .9fr;padding:0;overflow:hidden}
-.works .feature .pics{display:grid;grid-template-columns:1fr 1fr;gap:4px}
-.works .feature .pics img{width:100%;height:100%;aspect-ratio:1/1;object-fit:cover}
-.works .feature .in{padding:26px 28px;align-self:center}
-.works p{font-size:15.5px}
-.works h3{margin-bottom:6px}
-.mosaic{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:180px;gap:10px;margin-top:20px;grid-auto-flow:dense}
-.mosaic img{width:100%;height:100%;object-fit:cover;border-radius:14px}
-.mosaic .w2{grid-column:span 2}.mosaic .h2{grid-row:span 2}
-
-/* ===== 支援・メディア ===== */
-.support-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-top:24px}
-.support-grid>img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:24px}
-.proof{margin-top:28px}
-.proof h3{margin-bottom:6px}
-.proof p{font-size:15.5px}
-.award2{display:grid;grid-template-columns:150px 1fr;gap:16px;align-items:center;margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
-.award2 img{width:150px;border-radius:8px;box-shadow:0 6px 16px rgba(13,59,122,.15)}
-.award3{margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
-.media-list li{position:relative;padding-left:16px;font-size:15.5px}
-.media-list li::before{content:"";position:absolute;left:0;top:.75em;width:7px;height:7px;border-radius:50%;background:var(--teal)}
-
-/* ===== お問い合わせ ===== */
-.contact-ways{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:28px;max-width:860px}
-.contact-ways h3{margin-bottom:4px}
-.contact-ways p{font-size:15.5px}
-.contact-ways .btn{margin-top:16px}
-.mail{font-weight:700;font-size:18px;word-break:break-all}
-
-/* ===== フッター（淡い面） ===== */
-.site-footer{background:var(--bg-soft);border-top:1px solid var(--line);padding:56px 0 36px;font-size:15px}
-.footer-grid{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:start}
-.footer-logo{width:240px}
-.footer-links{display:flex;flex-direction:column;gap:8px;align-items:flex-end}
-.footer-links a{font-weight:700}
-.site-footer details{margin-top:24px;border-top:1px solid var(--line);padding-top:12px}
-.site-footer summary{cursor:pointer;font-weight:700;color:var(--navy);padding:6px 0}
-.site-footer details p{margin-top:6px;font-size:14px;color:var(--muted)}
-.copyright{margin-top:24px;font-size:14px;color:var(--muted)}
-
-/* スマホ下部の固定ボタン */
-.mobile-bar{display:none}
-
-
-/* ===== レスポンシブ ===== */
+.sec-head{margin-bottom:40px}
+.sec-en{font-family:var(--en);font-weight:700;font-size:13px;letter-spacing:.22em;color:var(--teal-text)}
+.section h2{margin-top:6px;color:var(--navy);font-size:clamp(28px,3.6vw,42px);font-weight:700;line-height:1.4;letter-spacing:.05em}
+.sec-lead{margin-top:18px;max-width:40em}
+.section h3{color:var(--navy);font-size:19px;font-weight:700;line-height:1.6}
+.card{background:#fff;border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
+.chip{display:inline-block;background:var(--bg-sky);color:var(--navy);border-radius:999px;padding:2px 12px;font-size:13px;font-weight:700;margin-bottom:12px}
+.badge{display:inline-block;margin-left:8px;padding:0 10px;border:1.5px solid var(--teal-text);color:var(--teal-text);background:#fff;border-radius:999px;font-size:13px;font-weight:700;vertical-align:2px;line-height:1.7}
+.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.prose p+p{margin-top:1.2em}
+.sub-h{margin-top:72px;margin-bottom:24px;display:flex;align-items:center;gap:14px;font-size:22px!important}
+.sub-h::before{content:"";width:6px;height:26px;border-radius:3px;background:linear-gradient(var(--blue),var(--teal))}
 @media (max-width:900px){
-  .hero{display:block;min-height:0;background:#fff}
-  .hero picture{position:relative;display:block;aspect-ratio:4/3}
-  .hero::after{display:none}
-  .hero .wrap{padding:28px 0 44px}
-  .about-grid,.join-grid,.support-grid,.effect-main{grid-template-columns:1fr;gap:28px}
-  .effect-main{gap:0}
-  .statement-band{grid-template-columns:1fr}
-  .statement-band .txt{padding:32px 24px}
-  .statement-band .ph{min-height:220px}
-  .statement{font-size:24px}
-  .grid-3,.grid-2,.works,.works .feature,.contact-ways{grid-template-columns:1fr}
-  .award2{grid-template-columns:110px 1fr}
-  .award2 img{width:110px}
-  .join-photos{order:-1}
-  .steps-quick{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:64%;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px}
-  .steps-quick li{scroll-snap-align:start}
-  .step,.step.has-photo{grid-template-columns:1fr;padding:20px}
-  .step figure{order:-1;min-height:0;aspect-ratio:16/9}
-  .step-body{grid-template-columns:1fr}
-  .section,.join{padding:64px 0}
-  .photo-band{min-height:0;display:block}
-  .photo-band picture{position:relative;display:block;aspect-ratio:4/3}
-  .photo-band .wrap{padding:0 0 32px;margin-top:-56px}
-  .quote{padding:22px 22px}
-  .mosaic{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px}
-  .footer-grid{grid-template-columns:1fr}
-  .footer-links{align-items:flex-start}
-  .mobile-bar{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:90;background:rgba(255,255,255,.97);border-top:1px solid var(--line);padding:8px 12px calc(8px + env(safe-area-inset-bottom,0px))}
-  .mobile-bar .btn{min-height:46px;padding:8px 10px;font-size:15px}
-  body{padding-bottom:72px}
+  .section{padding:72px 0}
+  .grid-2,.grid-3{grid-template-columns:1fr}
+  .card{padding:22px}
 }
-@media (max-width:520px){
-  .profile dl,.join-card dl{grid-template-columns:1fr}
-  .profile dt,.join-card dt{border-bottom:0;padding-bottom:0}
-  .profile dd,.join-card dd{padding-top:2px}
-  .btn-row .btn{flex:1 1 100%}
-  .about-photos .small{right:0}
-  .join-card{padding:20px}
+
+/* ===== 最近の活動 ===== */
+.news{padding:64px 0;border-bottom:1px solid var(--line)}
+.news-grid{display:grid;grid-template-columns:260px 1fr;gap:40px;align-items:start}
+.news h2{margin-top:6px;color:var(--navy);font-size:clamp(24px,2.6vw,30px);font-weight:700;letter-spacing:.05em}
+.news-note{margin-top:10px;font-size:14.5px;color:var(--muted)}
+.news-more{margin-top:18px;display:inline-flex;align-items:center;gap:4px;font-weight:700;font-size:15px}
+.news-list li{border-bottom:1px solid var(--line)}
+.news-list li:first-child{border-top:1px solid var(--line)}
+.news-list a{display:grid;grid-template-columns:7.5em 1fr auto;gap:16px;align-items:center;padding:18px 4px;color:var(--ink);text-decoration:none}
+.news-list a:hover .t{color:var(--blue-text);text-decoration:underline}
+.news-list time{font-family:var(--en);font-weight:600;font-size:14.5px;color:var(--teal-text);letter-spacing:.04em}
+.news-list .t{font-size:16px}
+.news-list .ig{font-size:12.5px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;white-space:nowrap}
+@media (max-width:900px){
+  .news-grid{grid-template-columns:1fr;gap:20px}
+  .news-list a{grid-template-columns:1fr auto;gap:2px 12px;padding:14px 2px}
+  .news-list time{grid-column:1}
+  .news-list .t{grid-column:1}
+  .news-list .ig{grid-column:2;grid-row:1 / span 2}
 }
+@media (max-width:520px){.news-list a{grid-template-columns:1fr}.news-list .ig{display:none}}
+
+/* ===== Clean Vibesとは ===== */
+.about-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center}
+.about-grid .lead-l{color:var(--navy);font-size:clamp(20px,2.2vw,26px);font-weight:700;line-height:1.7;margin-bottom:24px}
+.about-photos{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+.about-photos figure{border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+.about-photos .wide{grid-column:span 2}
+@media (max-width:900px){.about-grid{grid-template-columns:1fr;gap:36px}}
 
 /* ===== 活動内容 ===== */
-.acts{margin-top:32px}
-.acts .card{padding:0;overflow:hidden}
+.acts .card{padding:0;overflow:hidden;display:flex;flex-direction:column}
 .acts .card img{width:100%;aspect-ratio:4/3;object-fit:cover}
-.acts .card .in{padding:20px 22px 24px}
+.acts .card .in{padding:22px 24px 26px}
 .acts h3{margin-bottom:6px}
 .acts p{font-size:15.5px}
-.acts-note{margin-top:20px;color:var(--muted)}
-/* ===== 防草の5工程 ===== */
-.steps5{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:36px}
-.steps5 li{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px 18px}
-.steps5 .num{font-size:40px}
-.steps5 h3{margin:8px 0 6px;font-size:22px;letter-spacing:.04em}
-.steps5 p{font-size:15px;line-height:1.75}
-.effect2{margin-top:28px}
-.effect2 .card.hl{background:linear-gradient(135deg,#E3F5F3,#E3F0FB);border-color:transparent}
-.effect2 h3{margin-bottom:8px}
-.effect2 p{font-size:15.5px}
-.refs{margin-top:28px;border-top:1px solid var(--line);padding-top:12px}
-.refs summary{cursor:pointer;font-weight:700;color:var(--navy);padding:6px 0}
-.refs li{font-size:14px;color:var(--muted);margin-top:6px;padding-left:1em;text-indent:-1em}
-.refs li::before{content:"・"}
-.narrow{max-width:860px}
-.caution{margin-top:16px;background:var(--warn-bg);color:var(--warn-ink);border-radius:12px;padding:12px 16px;font-size:15px;max-width:40em}
-.join-title{color:var(--navy);font-size:clamp(28px,4.4vw,48px);font-weight:900;line-height:1.35;margin-top:6px}
-.join .sec-label{color:var(--teal-text)}
-@media (max-width:900px){
+.gallery{columns:3;column-gap:20px}
+.gallery figure{break-inside:avoid;margin-bottom:20px;background:#fff;border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+.gallery img{width:100%}
+.gallery figcaption{padding:12px 16px 14px;font-size:14.5px;line-height:1.7}
+.gallery figcaption b{display:block;color:var(--navy);font-size:15.5px}
+.acts-note{margin-top:8px;color:var(--muted);font-size:15.5px}
+@media (max-width:900px){.gallery{columns:2;column-gap:12px}.gallery figure{margin-bottom:12px}}
+@media (max-width:520px){.gallery{columns:1}}
+
+/* ===== 防草の方法 ===== */
+.steps5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;counter-reset:step}
+.steps5 li{position:relative;background:#fff;border-radius:var(--radius);padding:26px 20px 24px;box-shadow:var(--shadow)}
+.steps5 .num{display:block;font-family:var(--en);font-weight:700;font-size:34px;line-height:1;background:linear-gradient(135deg,var(--blue-text),var(--teal-text));-webkit-background-clip:text;background-clip:text;color:transparent}
+.steps5 h3{margin:12px 0 8px;font-size:22px!important;letter-spacing:.06em}
+.steps5 p{font-size:15px;line-height:1.8}
+.steps5 .badge{margin:8px 0 0}
+.no-herb{margin-top:28px;display:flex;align-items:center;gap:12px;color:var(--navy);font-weight:700;font-size:18px}
+.no-herb::before{content:"";flex:none;width:28px;height:28px;border-radius:50%;background:var(--teal-text) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L19 7'/%3E%3C/svg%3E") center/16px no-repeat}
+@media (max-width:1000px){
   .steps5{grid-template-columns:1fr}
-  .steps5 li{display:grid;grid-template-columns:64px 1fr;gap:0 12px;align-items:start}
-  .steps5 .num{grid-row:span 2;font-size:36px}
+  .steps5 li{display:grid;grid-template-columns:60px 1fr;gap:0 14px;padding:20px}
+  .steps5 .num{grid-row:span 3;font-size:30px;padding-top:4px}
   .steps5 h3{margin-top:0}
 }
-
-/* ===== 参加方法 ===== */
-.join .welcome{margin-top:12px}
-.join-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:28px}
-.join-steps li{background:#fff;border-radius:20px;padding:24px;box-shadow:0 10px 30px rgba(13,59,122,.08);display:flex;flex-direction:column}
-.join-steps .step-n{color:var(--teal-text);font-weight:900;font-size:14px;letter-spacing:.12em}
-.join-steps h3{color:var(--navy);font-size:20px;margin:4px 0 6px}
-.join-steps p{font-size:15.5px}
-.join-steps .btn{margin-top:auto;align-self:flex-start;margin-top:16px}
-/* 横写真は切らずに全体を見せる */
-.join .join-photos{margin-top:28px;grid-template-columns:1fr 1fr;align-items:start}
-.join .join-photos img,.join .join-photos img:first-child{grid-column:auto;aspect-ratio:auto;height:auto;object-fit:contain}
-@media (max-width:900px){
-  .join-steps{grid-template-columns:1fr}
-  .join .join-photos{grid-template-columns:1fr}
-}
-
-/* ===== 使っている道具 ===== */
-.tools{columns:2;column-gap:16px;margin-top:20px}
-.tool-group{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px 22px;break-inside:avoid;margin-bottom:16px}
-.tool-step{display:inline-block;background:var(--navy);color:#fff;border-radius:999px;padding:2px 14px;font-weight:700;font-size:14px}
+.tools{columns:2;column-gap:20px}
+.tool-group{background:#fff;border-radius:var(--radius);padding:22px 24px;break-inside:avoid;margin-bottom:20px;box-shadow:var(--shadow)}
+.tool-step{display:inline-block;background:var(--navy);color:#fff;border-radius:999px;padding:1px 14px;font-weight:700;font-size:14px}
 .tool-group li{padding:12px 0;border-bottom:1px solid var(--line)}
 .tool-group li:last-child{border-bottom:0;padding-bottom:0}
 .tool-group b{color:var(--navy);font-size:17px}
@@ -388,13 +233,115 @@ h1,h2,h3,.statement,.quote,.join .welcome{word-break:auto-phrase}
 .tool-group li>span:last-child{display:block;font-size:15px;margin-top:2px}
 .tool-group li.fav{background:var(--bg-mint);border-radius:14px;padding:14px 16px;margin:10px 0;border-bottom:0}
 .fav-tag{display:inline-block;background:var(--teal-text);color:#fff;border-radius:999px;padding:0 10px;font-size:13px;font-weight:700;margin-right:8px;vertical-align:2px}
-/* ===== 協力企業 ===== */
-.sponsors{margin-top:22px;background:var(--bg-soft);border-radius:16px;padding:16px 18px}
+@media (max-width:900px){.tools{columns:1}}
+.effect2 .card.hl{background:linear-gradient(135deg,#E3F5F3,#E3F0FB);box-shadow:none}
+.effect2 h3{margin-bottom:8px}
+.effect2 p{font-size:15.5px}
+.caution{margin-top:24px;background:var(--warn-bg);color:var(--warn-ink);border-radius:12px;padding:14px 18px;font-size:15px}
+.refs{margin-top:28px;border-top:1px solid var(--line);padding-top:12px}
+.refs summary{cursor:pointer;font-weight:700;color:var(--navy);padding:6px 0}
+.refs li{font-size:14px;color:var(--muted);margin-top:6px;padding-left:1em;text-indent:-1em}
+.refs li::before{content:"・"}
+
+/* ===== 参加方法 ===== */
+.join{background:linear-gradient(160deg,var(--bg-sky) 0%,var(--bg-mint) 100%)}
+.welcome{color:var(--navy);font-size:clamp(19px,2.2vw,26px);font-weight:700;line-height:1.65;margin-top:18px}
+.join-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.join-steps li{background:#fff;border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.step-n{font-family:var(--en);color:var(--teal-text);font-weight:700;font-size:14px;letter-spacing:.14em}
+.join-steps h3{margin:6px 0 8px}
+.join-steps p{font-size:15.5px}
+.join-steps .btn{margin-top:auto;align-self:flex-start}
+.join-steps p+.btn{margin-top:18px}
+.join-photos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:40px;align-items:start}
+.join-photos img{width:100%;border-radius:18px;border:5px solid #fff;box-shadow:var(--shadow)}
+@media (max-width:900px){
+  .join-steps,.join-photos{grid-template-columns:1fr}
+}
+
+/* ===== 実績 ===== */
+.proof .card h3+p{margin-top:4px}
+.proof p{font-size:15.5px}
+.award2{display:grid;grid-template-columns:150px 1fr;gap:18px;align-items:center;margin-top:22px;padding-top:20px;border-top:1px solid var(--line)}
+.award2 img{width:150px;border-radius:8px;box-shadow:0 6px 16px rgba(13,59,122,.15)}
+.award3{margin-top:22px;padding-top:20px;border-top:1px solid var(--line)}
+.media-list li{position:relative;padding-left:16px;margin-top:4px}
+.media-list li::before{content:"";position:absolute;left:0;top:.8em;width:6px;height:6px;border-radius:50%;background:var(--teal)}
+.note{margin-top:12px;font-size:14.5px}
+.history{display:grid;grid-template-columns:280px 1fr;gap:40px;margin-top:72px;align-items:start}
+.history .sub-h{margin:0}
+.history-note{margin-top:12px;font-size:15px;color:var(--muted)}
+.timeline{position:relative;border-left:2px solid var(--sky);padding-left:28px}
+.timeline li{position:relative;display:grid;grid-template-columns:9em 1fr;gap:16px;padding:0 0 22px}
+.timeline li:last-child{padding-bottom:0}
+.timeline li::before{content:"";position:absolute;left:-36px;top:8px;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--blue)}
+.timeline li.goal::before{background:var(--teal);border-color:var(--teal)}
+.timeline .when{font-weight:700;color:var(--navy)}
+@media (max-width:900px){
+  .award2{grid-template-columns:110px 1fr}
+  .award2 img{width:110px}
+  .history{grid-template-columns:1fr;gap:20px}
+  .timeline li{grid-template-columns:1fr;gap:0}
+}
+
+/* ===== 支援する ===== */
+.support-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center}
+.support-grid figure img{width:100%;border-radius:22px;box-shadow:var(--shadow)}
+.sponsors{margin-top:24px;background:var(--bg-soft);border-radius:16px;padding:18px 20px}
 .sponsors-title{font-weight:700;color:var(--navy)}
 .sponsors li{margin-top:6px}
 .sponsors a{font-weight:700}
 .sponsors small{margin-left:10px;color:var(--muted);font-size:14px}
-@media (max-width:900px){.tools{columns:1}}
+@media (max-width:900px){.support-grid{grid-template-columns:1fr;gap:32px}}
+
+/* ===== 団体概要 ===== */
+.profile dl{display:grid;grid-template-columns:11em 1fr;background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:8px 32px}
+.profile dt,.profile dd{padding:18px 4px;border-bottom:1px solid var(--line)}
+.profile dt:last-of-type,.profile dd:last-of-type{border-bottom:0}
+.profile dt{font-weight:700;color:var(--navy)}
+@media (max-width:600px){
+  .profile dl{grid-template-columns:1fr;padding:8px 20px}
+  .profile dt{border-bottom:0;padding-bottom:0}
+  .profile dd{padding-top:2px}
+}
+
+/* ===== お問い合わせ ===== */
+.contact-ways h3{margin-bottom:6px}
+.contact-ways p{font-size:15.5px}
+.contact-ways .btn{margin-top:18px}
+.mail{margin-top:14px;font-weight:700;font-size:19px;word-break:break-all}
+
+/* ===== フッター ===== */
+.site-footer{background:var(--navy);color:#fff;padding:72px 0 40px;font-size:15px}
+.site-footer a{color:#fff}
+.footer-grid{display:grid;grid-template-columns:1.2fr 2fr;gap:48px;align-items:start}
+.site-footer .brand{color:#fff}
+.site-footer .brand img{background:#fff;border-radius:50%;padding:3px}
+.footer-tag{margin-top:14px;color:rgba(255,255,255,.85);font-size:14.5px}
+.footer-nav ul{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px 24px}
+.footer-nav a{text-decoration:none;font-weight:500}
+.footer-nav a:hover{text-decoration:underline}
+.footer-sns{margin-top:22px}
+.footer-sns a{font-weight:700}
+.footer-bottom{margin-top:48px;padding-top:20px;border-top:1px solid rgba(255,255,255,.2)}
+.site-footer summary{cursor:pointer;font-weight:700;padding:6px 0}
+.site-footer details p{margin-top:6px;font-size:14px;color:rgba(255,255,255,.85)}
+.copyright{margin-top:18px;font-size:13.5px;color:rgba(255,255,255,.8)}
+@media (max-width:900px){
+  .footer-grid{grid-template-columns:1fr;gap:32px}
+  .footer-nav ul{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+/* ===== スマホ下部の固定ボタン ===== */
+.mobile-bar{display:none}
+@media (max-width:900px){
+  .mobile-bar{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:90;background:rgba(255,255,255,.97);border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
+  .mobile-bar .btn{min-height:46px;padding:8px 10px;font-size:15px}
+  body{padding-bottom:72px}
+}
+@media (max-width:520px){
+  .btn-row .btn{flex:1 1 100%}
+}
 </style>
 </head>
 <body>
@@ -402,14 +349,14 @@ h1,h2,h3,.statement,.quote,.join .welcome{word-break:auto-phrase}
 
 <header class="site-header">
   <div class="wrap header-inner">
-    <a class="brand" href="#top"><img src="img/logo-mark.png" alt="" width="36" height="36">Clean Vibes</a>
+    <a class="brand" href="#top"><img src="img/logo-mark.png" alt="" width="38" height="38">Clean Vibes</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav"><span class="bars" aria-hidden="true"></span>メニュー</button>
     <nav class="site-nav" id="site-nav" aria-label="サイト内メニュー">
       <ul>
         <li><a href="#about">Clean Vibesとは</a></li>
         <li><a href="#activities">活動内容</a></li>
-        <li><a href="#join">参加方法</a></li>
         <li><a href="#method">防草の方法</a></li>
+        <li><a href="#join">参加方法</a></li>
         <li><a href="#record">実績</a></li>
         <li><a href="#support">支援する</a></li>
         <li><a href="#contact">お問い合わせ</a></li>
@@ -423,33 +370,61 @@ h1,h2,h3,.statement,.quote,.join .welcome{word-break:auto-phrase}
 
 <!-- トップ -->
 <section class="hero" id="top">
-  <picture>
-    <source media="(min-width:901px)" srcset="img/wide-act07.jpg">
-    <img src="img/sm/act07.jpg" alt="朝の道路沿いで、歩道の脇の雑草を取り除く参加者" width="800" height="1067">
-  </picture>
-  <div class="wrap"><div class="copy">
-    <h1>綺麗なまちを、<br><span class="accent">後世へ。</span></h1>
-    <p class="lead">Clean Vibes（クリーンバイブス）は、伊東市で、市民の手でまちの美化と雑草対策に取り組んでいます。</p>
-    <div class="chips"><span>2022年4月から</span><span>累計500回以上（2026年10月時点）</span><span>主に土日祝 朝6時30分から</span></div>
-    <div class="btn-row"><a class="btn btn-primary" href="#join">活動に参加する</a><a class="btn btn-outline" href="#about">Clean Vibesとは</a></div>
-  </div></div>
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <p class="hero-label">伊東市の美化・防草ボランティア</p>
+      <h1>綺麗なまちを、<br><span class="accent">後世へ。</span></h1>
+      <p class="lead">Clean Vibes（クリーンバイブス）は、伊東市で、市民の手でまちの美化と雑草対策に取り組んでいます。</p>
+      <ul class="facts">
+        <li><small>活動開始</small><b>2022年4月</b></li>
+        <li><small>活動回数（2026年10月時点）</small><b>累計500回以上</b></li>
+        <li><small>活動日時</small><b>主に土日祝 朝6時30分から</b></li>
+      </ul>
+      <div class="btn-row"><a class="btn btn-primary" href="#join">活動に参加する</a><a class="btn btn-outline" href="#about">Clean Vibesとは</a></div>
+    </div>
+    <figure class="hero-photo">
+      <img src="img/sm/group.jpg" alt="「仲間募集中」ののぼりの前で撮った参加者の集合写真" width="900" height="690">
+    </figure>
+  </div>
 </section>
 
-<!-- 私たちについて -->
+<!-- 最近の活動 -->
+<section class="news" aria-labelledby="news-title">
+  <div class="wrap news-grid">
+    <div>
+      <p class="sec-en">NEWS</p>
+      <h2 id="news-title">最近の活動</h2>
+      <p class="news-note">活動の様子は、Instagramで毎回お知らせしています。</p>
+      <a class="news-more ext" href="https://www.instagram.com/clean_vibes_ito/" target="_blank" rel="noopener">Instagramを見る</a>
+    </div>
+    <ul class="news-list">
+      <li><a href="https://www.instagram.com/reel/DfQoZEFyYdz/" target="_blank" rel="noopener"><time datetime="2026-11-03">2026.11.03</time><span class="t">丸亀製麺の周辺で、早朝から防草作業を行いました。</span><span class="ig">Instagram</span></a></li>
+      <li><a href="https://www.instagram.com/reel/DfLaSGzSzUo/" target="_blank" rel="noopener"><time datetime="2026-11-01">2026.11.01</time><span class="t">大池小学校の通学路で、用水路の清掃や苔落としを行いました。</span><span class="ig">Instagram</span></a></li>
+      <li><a href="https://www.instagram.com/reel/DfJagb7yRzX/" target="_blank" rel="noopener"><time datetime="2026-10-31">2026.10.31</time><span class="t">大池小学校の通学路で、フェンスの掃除と除草を行いました。</span><span class="ig">Instagram</span></a></li>
+      <li><a href="https://www.instagram.com/reel/DenexpCSY0L/" target="_blank" rel="noopener"><time datetime="2026-10-18">2026.10.18</time><span class="t">大池小学校の通学路で、木の伐採・枝払いと歩道の除草を行いました。</span><span class="ig">Instagram</span></a></li>
+      <li><a href="https://www.instagram.com/reel/DeD80ppyIUw/" target="_blank" rel="noopener"><time datetime="2026-10-04">2026.10.04</time><span class="t">市内の県道で、防草施工を行いました。</span><span class="ig">Instagram</span></a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- Clean Vibesとは -->
 <section class="section" id="about">
-  <div class="wrap">
-    <h2>Clean Vibesとは</h2>
-    <div class="about-grid">
+  <div class="wrap about-grid">
+    <div>
+      <div class="sec-head">
+        <p class="sec-en">ABOUT</p>
+        <h2>Clean Vibesとは</h2>
+      </div>
       <div class="prose">
         <p>2022年4月、伊東のオレンジビーチで活動を始めました。</p>
         <p>道路や歩道、通学路、公園の駐車場など、毎日の暮らしで使う場所を、自分たちの手できれいにしています。土日祝の早朝に集まり、草を取り、側溝を掃除し、消えかけた白線を引き直してきました。活動は累計500回以上になります（2026年10月時点）。</p>
         <p>かつて地域にあった、みんなで草刈りや奉仕作業をする習慣は、高齢化や働き方の変化で少しずつ減ってきています。だから私たちは、草を何度も刈り続けるのではなく、草が生えにくい状態をつくることで、手入れの回数を減らしてもきれいなまちが続く仕組みをつくりたいと考えています。</p>
         <p>目指しているのは、自分たちのまちを自分たちで大切にすることが、伊東の文化として根づくことです。2030年、このやり方を届けきったら、団体としての役目を終えると決めています。</p>
       </div>
-      <div class="about-photos">
-        <figure class="big"><img src="img/sm/together.jpg" alt="道路脇の縁石まわりで、道具を使って力を合わせて作業する参加者" width="900" height="1051" loading="lazy"></figure>
-        <figure class="small"><img src="img/sm/act02.jpg" alt="側溝の脇で、集めた土を袋に入れる参加者" width="800" height="1067" loading="lazy"></figure>
-      </div>
+    </div>
+    <div class="about-photos">
+      <figure><img src="img/sm/together.jpg" alt="道路脇の縁石まわりで、道具を使って力を合わせて作業する参加者" width="900" height="1051" loading="lazy"></figure>
+      <figure><img src="img/sm/act02.jpg" alt="側溝の脇で、集めた土を袋に入れる参加者" width="800" height="1067" loading="lazy"></figure>
     </div>
   </div>
 </section>
@@ -457,29 +432,38 @@ h1,h2,h3,.statement,.quote,.join .welcome{word-break:auto-phrase}
 <!-- 活動内容 -->
 <section class="section soft" id="activities">
   <div class="wrap">
-    <h2>活動内容</h2>
-    <p class="sec-lead">草は取っても、しばらくするとまた生えてきます。そこで私たちは、草を取る「除草」だけでなく、雑草が生えにくい状態をつくる「防草」まで行っています。</p>
+    <div class="sec-head">
+      <p class="sec-en">ACTIVITIES</p>
+      <h2>活動内容</h2>
+      <p class="sec-lead">草は取っても、しばらくするとまた生えてきます。そこで私たちは、草を取る「除草」だけでなく、雑草が生えにくい状態をつくる「防草」まで行っています。</p>
+    </div>
     <div class="acts grid-3">
       <div class="card"><img src="img/sm/act05.jpg" alt="歩道の目地の雑草を取り除く参加者" width="800" height="1067" loading="lazy"><div class="in"><h3>除草・防草</h3><p>草を根から取り除き、目地や隙間を固まる砂で埋めて、雑草が生えにくい状態にします。</p></div></div>
       <div class="card"><img src="img/sm/act01.jpg" alt="側溝の脇を清掃する参加者" width="800" height="1067" loading="lazy"><div class="in"><h3>通学路の整備</h3><p>大池小学校の通学路で、伸びた枝の伐採や除草、フェンスの水拭き、側溝や用水路の清掃を続けています。必要な許可を取り、民有地では地主さんの了承を得て作業しています。</p></div></div>
       <div class="card"><img src="img/sm/lines-work.jpg" alt="早朝のなぎさ公園の駐車場で、白線を引き直す参加者" width="900" height="886" loading="lazy"><div class="in"><h3>駐車場の白線</h3><p>なぎさ公園の駐車場で100台分以上、一碧湖の駐車場では市の観光課と協力して、消えかけた白線を引き直しました。</p></div></div>
     </div>
-    <p class="acts-note">このほか、荻区でのガードレールの塗装や、小学校の清掃にも取り組んでいます。地域の高校生や子どもたちと一緒に清掃することもあります。地域の行事にも、みんなで参加しています。伊東市の外では、長野県諏訪市でもボランティア活動を行いました。</p>
+
+    <h3 class="sub-h">そのほかの活動</h3>
+    <p class="acts-note">荻区でのガードレールの塗装や、小学校の清掃にも取り組んでいます。地域の高校生や子どもたちと一緒に清掃することもあります。地域の行事にも、みんなで参加しています。伊東市の外では、長野県諏訪市でもボランティア活動を行いました。</p>
   </div>
 </section>
 
 <!-- 防草の方法 -->
 <section class="section" id="method">
   <div class="wrap">
-    <h2>防草の方法</h2>
-    <p class="sec-lead">私たちが作業するのは、子どもやペットも行き交う道や公園です。雨が降れば、水は側溝から海へと流れていきます。だから、除草剤は使いません。5つの工程で、雑草が生えにくい状態をつくります。</p>
+    <div class="sec-head">
+      <p class="sec-en">METHOD</p>
+      <h2>防草の方法</h2>
+      <p class="sec-lead">私たちが作業するのは、子どもやペットも行き交う道や公園です。雨が降れば、水は側溝から海へと流れていきます。だから、除草剤は使いません。5つの工程で、雑草が生えにくい状態をつくります。</p>
+    </div>
     <ol class="steps5">
       <li><span class="num" aria-hidden="true">01</span><h3>ほじる</h3><p>雑草や根、たまった土を、道具で取り除きます。防草では、この下地づくりがとても大切だと考えています。</p></li>
       <li><span class="num" aria-hidden="true">02</span><h3>掃く</h3><p>細かな土やごみを、ほうきでできるだけ取り除きます。土そのものをしっかり取りたい場所では、ブロワーではなく、コシの強いほうきを使います。</p></li>
       <li><span class="num" aria-hidden="true">03</span><h3>焼く</h3><p>表面に残った雑草の根や種を、できる範囲で熱で処理します。火を使うため、経験者が担当し、消火の準備をしてから行います。</p></li>
       <li><span class="num" aria-hidden="true">04</span><h3>埋める</h3><p>目地や隙間を、水で固まる砂や土で埋めます。場所に合わせて市販の資材を使い分けており、行政から支給していただいた資材も使っています。</p></li>
-      <li><span class="num" aria-hidden="true">05</span><h3>まく</h3><p>最後に水をまいて、埋めた材料を固めます。あわせてアルカリ性の水もまき、雑草が生えにくくなるか経過を確かめています<span class="badge">検証中</span></p></li>
+      <li><span class="num" aria-hidden="true">05</span><h3>まく</h3><p>最後に水をまいて、埋めた材料を固めます。あわせてアルカリ性の水もまき、雑草が生えにくくなるか経過を確かめています。</p><span class="badge">検証中</span></li>
     </ol>
+    <p class="no-herb">どの工程でも、除草剤は使いません。</p>
 
     <h3 class="sub-h">使っている道具</h3>
     <div class="tools">
@@ -520,6 +504,7 @@ h1,h2,h3,.statement,.quote,.join .welcome{word-break:auto-phrase}
       </div>
     </div>
 
+    <h3 class="sub-h">これまでの成果と、いま試していること</h3>
     <div class="effect2 grid-2">
       <div class="card hl"><span class="chip">防草の効果</span><h3>全体のおよそ8〜9割で、雑草を防げています</h3><p>防草の施工は、オレンジビーチの歩道から始まりました。約800mの歩道を、カインズの「雑草ストッパー」（水で固まる砂）で施工した結果です。完璧ではないからこそ、何度でも手入れに通います。</p></div>
       <div class="card"><span class="chip">いま試していること</span><h3>モルタルを使った防草<span class="badge">検証中</span></h3><p>2026年11月から、モルタルを使った防草の実証実験を始めました。効果はこれから確かめます。</p></div>
@@ -539,10 +524,13 @@ h1,h2,h3,.statement,.quote,.join .welcome{word-break:auto-phrase}
 </section>
 
 <!-- 参加方法 -->
-<section class="join" id="join">
+<section class="section join" id="join">
   <div class="wrap">
-    <h2 class="join-title">参加方法</h2>
-    <p class="welcome">伊東市内で、主に土日祝の<span class="nw">朝6時30分から</span><span class="nw">7時30分ごろまで</span>活動しています。<br>初めての方、親子、観光で来られた方も歓迎です。</p>
+    <div class="sec-head">
+      <p class="sec-en">JOIN US</p>
+      <h2>参加方法</h2>
+      <p class="welcome">伊東市内で、主に土日祝の<span class="nw">朝6時30分から</span><span class="nw">7時30分ごろまで</span>活動しています。<br>初めての方、親子、観光で来られた方も歓迎です。</p>
+    </div>
     <ol class="join-steps">
       <li><span class="step-n">STEP 1</span><h3>活動カレンダーを見る</h3><p>日時と場所は毎回変わります。Instagramの「活動カレンダー」でお知らせしています。天気によって場所が変わることもあるので、参加の前にご確認ください。</p><a class="btn btn-outline" href="https://www.instagram.com/clean_vibes_ito/" target="_blank" rel="noopener">活動カレンダーを見る</a></li>
       <li><span class="step-n">STEP 2</span><h3>InstagramのDMで申し込む</h3><p>「参加希望日・お名前・人数」を、InstagramのDMでお送りください。</p><a class="btn btn-primary" href="https://ig.me/m/clean_vibes_ito" target="_blank" rel="noopener">DMで申し込む</a></li>
@@ -558,7 +546,10 @@ h1,h2,h3,.statement,.quote,.join .welcome{word-break:auto-phrase}
 <!-- 実績 -->
 <section class="section soft" id="record">
   <div class="wrap">
-    <h2>実績</h2>
+    <div class="sec-head">
+      <p class="sec-en">RECORD</p>
+      <h2>実績</h2>
+    </div>
     <div class="proof grid-2">
       <div class="card">
         <span class="chip">表彰・感謝状</span>
@@ -595,53 +586,64 @@ h1,h2,h3,.statement,.quote,.join .welcome{word-break:auto-phrase}
       </div>
     </div>
 
-    <h3 class="sub-h">これまでの歩み</h3>
-    <ol class="timeline">
-      <li><span class="when">2022年4月</span>伊東のオレンジビーチで活動を始める</li>
-      <li><span class="when">2024年</span>しずおかアダプトロード・プログラムの同意書を取り交わす</li>
-      <li><span class="when">2025年</span>関東商工会議所連合会 ベスト・アクション表彰</li>
-      <li><span class="when">2025年度</span>セブン-イレブン記念財団「環境市民活動助成」</li>
-      <li><span class="when">2025年9月</span>静岡県道路利用者会議 会長表彰</li>
-      <li><span class="when">2025年11月</span>伊東市立大池小学校・同PTAから感謝状</li>
-      <li><span class="when">2026年10月時点</span>活動が累計500回以上に</li>
-      <li><span class="when">2026年11月</span>モルタルを使った防草の実証実験を開始</li>
-      <li class="goal"><span class="when">2030年（目標）</span>このやり方を届けきって解散</li>
-    </ol>
+    <div class="history">
+      <div>
+        <h3 class="sub-h">これまでの歩み</h3>
+        <p class="history-note">2022年4月、オレンジビーチでの活動から始まりました。</p>
+      </div>
+      <ol class="timeline">
+        <li><span class="when">2022年4月</span><span>伊東のオレンジビーチで活動を始める</span></li>
+        <li><span class="when">2024年</span><span>しずおかアダプトロード・プログラムの同意書を取り交わす</span></li>
+        <li><span class="when">2025年</span><span>関東商工会議所連合会 ベスト・アクション表彰</span></li>
+        <li><span class="when">2025年度</span><span>セブン-イレブン記念財団「環境市民活動助成」</span></li>
+        <li><span class="when">2025年9月</span><span>静岡県道路利用者会議 会長表彰</span></li>
+        <li><span class="when">2025年11月</span><span>伊東市立大池小学校・同PTAから感謝状</span></li>
+        <li><span class="when">2026年10月時点</span><span>活動が累計500回以上に</span></li>
+        <li><span class="when">2026年11月</span><span>モルタルを使った防草の実証実験を開始</span></li>
+        <li class="goal"><span class="when">2030年（目標）</span><span>このやり方を届けきって解散</span></li>
+      </ol>
+    </div>
   </div>
 </section>
 
 <!-- 支援する -->
 <section class="section" id="support">
-  <div class="wrap">
-    <h2>活動を支援する</h2>
-    <div class="support-grid">
+  <div class="wrap support-grid">
+    <div>
+      <div class="sec-head">
+        <p class="sec-en">SUPPORT</p>
+        <h2>活動を支援する</h2>
+      </div>
       <div class="prose">
         <p>活動には、道具や資材が欠かせません。いただいたご支援は、防草の資材や道具の購入に大切に使います。企業・団体の皆さまからの協賛も歓迎しています。</p>
         <p>道具や資材は、Amazonの「ほしい物リスト」からもご支援いただけます。</p>
         <p>これまでに物品や資材でご支援くださった皆さま、本当にありがとうございます。</p>
-        <div class="sponsors">
-          <p class="sponsors-title">活動を支えてくださる伊東市内の企業</p>
-          <ul>
-            <li><a class="ext" href="https://www.maruta-izu.com/" target="_blank" rel="noopener">MARUTA株式会社 様</a><small>活動資材のご提供</small></li>
-            <li><a class="ext" href="https://arcre.jp/" target="_blank" rel="noopener">株式会社アクリ 様</a><small>活動資材のご提供</small></li>
-            <li><a class="ext" href="https://nomuragroup.com/" target="_blank" rel="noopener">株式会社野村商店・野村マテリアルプロダクツ株式会社 様</a><small>活動資材のご提供</small></li>
-            <li><a class="ext" href="https://maruienazyi.co.jp/" target="_blank" rel="noopener">株式会社マルヰエナジー 様</a><small>ガスのご提供</small></li>
-          </ul>
-        </div>
-        <div class="btn-row">
-          <a class="btn btn-primary ext" href="https://www.amazon.jp/hz/wishlist/ls/391DJWK7C03F4" target="_blank" rel="noopener">Amazonほしい物リストを見る</a>
-          <a class="btn btn-outline" href="#contact">ご支援・協賛のご相談</a>
-        </div>
       </div>
-      <img  src="img/sm/lines-done.jpg" alt="白線を引き直した、なぎさ公園の駐車場" width="900" height="897" loading="lazy">
+      <div class="sponsors">
+        <p class="sponsors-title">活動を支えてくださる伊東市内の企業</p>
+        <ul>
+          <li><a class="ext" href="https://www.maruta-izu.com/" target="_blank" rel="noopener">MARUTA株式会社 様</a><small>活動資材のご提供</small></li>
+          <li><a class="ext" href="https://arcre.jp/" target="_blank" rel="noopener">株式会社アクリ 様</a><small>活動資材のご提供</small></li>
+          <li><a class="ext" href="https://nomuragroup.com/" target="_blank" rel="noopener">株式会社野村商店・野村マテリアルプロダクツ株式会社 様</a><small>活動資材のご提供</small></li>
+          <li><a class="ext" href="https://maruienazyi.co.jp/" target="_blank" rel="noopener">株式会社マルヰエナジー 様</a><small>ガスのご提供</small></li>
+        </ul>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-primary ext" href="https://www.amazon.jp/hz/wishlist/ls/391DJWK7C03F4" target="_blank" rel="noopener">Amazonほしい物リストを見る</a>
+        <a class="btn btn-outline" href="#contact">ご支援・協賛のご相談</a>
+      </div>
     </div>
+    <figure><img src="img/sm/lines-done.jpg" alt="白線を引き直した、なぎさ公園の駐車場" width="900" height="897" loading="lazy"></figure>
   </div>
 </section>
 
 <!-- 団体概要 -->
 <section class="section soft" id="profile">
   <div class="wrap">
-    <h2>団体概要</h2>
+    <div class="sec-head">
+      <p class="sec-en">PROFILE</p>
+      <h2>団体概要</h2>
+    </div>
     <div class="profile">
       <dl>
         <dt>団体名</dt><dd>Clean Vibes（クリーンバイブス）</dd>
@@ -662,9 +664,12 @@ h1,h2,h3,.statement,.quote,.join .welcome{word-break:auto-phrase}
 <!-- お問い合わせ -->
 <section class="section" id="contact">
   <div class="wrap">
-    <h2>お問い合わせ</h2>
-    <p class="sec-lead">活動へのご参加、自分のまちで始めたい方のご相談、支援・協賛、取材などのお問い合わせは、次のどちらかでご連絡ください。</p>
-    <div class="contact-ways">
+    <div class="sec-head">
+      <p class="sec-en">CONTACT</p>
+      <h2>お問い合わせ</h2>
+      <p class="sec-lead">活動へのご参加、自分のまちで始めたい方のご相談、支援・協賛、取材などのお問い合わせは、次のどちらかでご連絡ください。</p>
+    </div>
+    <div class="contact-ways grid-2">
       <div class="card"><h3>InstagramのDM</h3><p>Instagramのダイレクトメッセージで受け付けています。</p><a class="btn btn-primary" href="https://ig.me/m/clean_vibes_ito" target="_blank" rel="noopener">InstagramのDMを送る</a></div>
       <div class="card"><h3>メール</h3><p>代表の大竹に、直接メールでご連絡いただけます。</p><p class="mail"><a href="mailto:ka@oh-life.co.jp">ka@oh-life.co.jp</a></p></div>
     </div>
@@ -674,16 +679,26 @@ h1,h2,h3,.statement,.quote,.join .welcome{word-break:auto-phrase}
 </main>
 
 <footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <img class="footer-logo" src="img/logo-yoko.png" alt="Clean Vibes 綺麗なまちを後世へ" width="800" height="226" loading="lazy">
-        <p style="margin-top:12px">静岡県伊東市</p>
-      </div>
-      <div class="footer-links">
-        <a class="ext" href="https://www.instagram.com/clean_vibes_ito/" target="_blank" rel="noopener">Instagram（@clean_vibes_ito）</a>
-      </div>
+  <div class="wrap footer-grid">
+    <div>
+      <a class="brand" href="#top"><img src="img/logo-mark.png" alt="" width="38" height="38" loading="lazy">Clean Vibes</a>
+      <p class="footer-tag">綺麗なまちを後世へ<br>静岡県伊東市の美化・防草ボランティア</p>
+      <p class="footer-sns"><a class="ext" href="https://www.instagram.com/clean_vibes_ito/" target="_blank" rel="noopener">Instagram（@clean_vibes_ito）</a></p>
     </div>
+    <nav class="footer-nav" aria-label="フッターメニュー">
+      <ul>
+        <li><a href="#about">Clean Vibesとは</a></li>
+        <li><a href="#activities">活動内容</a></li>
+        <li><a href="#method">防草の方法</a></li>
+        <li><a href="#join">参加方法</a></li>
+        <li><a href="#record">実績</a></li>
+        <li><a href="#support">支援する</a></li>
+        <li><a href="#profile">団体概要</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="wrap footer-bottom">
     <details>
       <summary>アクセス解析について</summary>
       <p>このサイトでは、内容の改善のためにGoogleアナリティクスを使い、Cookieを通じて閲覧状況やSNSへのリンクのクリック数を集計しています。集計結果は公開しません。氏名やメールアドレスを、計測データとして送ることはありません。広告向けの機能は無効にしています。</p>
@@ -713,7 +728,6 @@ h1,h2,h3,.statement,.quote,.join .welcome{word-break:auto-phrase}
   nav.addEventListener('click', function(e){ if (e.target.closest('a') && mq.matches) setOpen(false); });
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') { setOpen(false); btn.focus(); } });
   mq.addEventListener('change', function(){ setOpen(false); });
-
 })();
 </script>
 </body>
