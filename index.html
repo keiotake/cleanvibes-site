@@ -368,11 +368,13 @@ h1,h2,h3,.statement,.quote{word-break:auto-phrase}
 .join-steps p{font-size:15.5px}
 .join-steps .btn{margin-top:auto;align-self:flex-start;margin-top:16px}
 .join .join-photos{margin-top:28px;grid-template-columns:2fr 1fr 1fr}
-.join .join-photos img:first-child{grid-column:auto;aspect-ratio:auto;height:100%}
+.join .join-photos img{aspect-ratio:auto;height:100%;min-height:300px}
+.join .join-photos img:first-child{grid-column:auto}
 @media (max-width:900px){
   .join-steps{grid-template-columns:1fr}
   .join .join-photos{grid-template-columns:1fr 1fr}
-  .join .join-photos img:first-child{grid-column:span 2;aspect-ratio:16/10}
+  .join .join-photos img{min-height:0;aspect-ratio:3/4}
+  .join .join-photos img:first-child{grid-column:span 2;aspect-ratio:4/3}
 }
 
 /* ===== 使っている道具 ===== */
@@ -546,8 +548,8 @@ h1,h2,h3,.statement,.quote{word-break:auto-phrase}
       <li><span class="step-n">STEP 3</span><h3>当日、軍手を持って参加</h3><p>持ち物は軍手だけで大丈夫です。道具はある程度こちらで用意します。</p></li>
     </ol>
     <div class="join-photos">
+      <img src="img/wide-thanks.jpg" alt="子どもたちが書いた「CLEAN VIBES! ありがとう」の横断幕を手に、活動後に集まった参加者" width="1125" height="843" loading="lazy">
       <img src="img/sm/group.jpg" alt="「仲間募集中」ののぼりの前で撮った参加者の集合写真" width="900" height="690" loading="lazy">
-      <img src="img/sm/act08.jpg" alt="集めた雑草の袋の山と参加者" width="800" height="1067" loading="lazy">
       <img src="img/sm/act06.jpg" alt="植え込みの脇を掃き集める参加者" width="800" height="1067" loading="lazy">
     </div>
   </div>
