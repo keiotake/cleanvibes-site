@@ -349,6 +349,9 @@ h1,h2,h3,.welcome,.lead-l{word-break:auto-phrase}
 @media (max-width:900px){
   .mobile-bar{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:90;background:rgba(255,255,255,.97);border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
   .mobile-bar .btn{min-height:46px;padding:8px 10px;font-size:15px}
+  /* トップのボタンが見えている間は隠し、下へ進んだら出す（JavaScriptが動かない環境では常に表示） */
+  .js .mobile-bar{transform:translateY(110%);visibility:hidden;transition:transform .25s,visibility .25s}
+  .js .mobile-bar.show{transform:none;visibility:visible}
   body{padding-bottom:72px}
 }
 @media (max-width:520px){
@@ -786,6 +789,16 @@ h1,h2,h3,.welcome,.lead-l{word-break:auto-phrase}
   nav.addEventListener('click', function(e){ if (e.target.closest('a') && mq.matches) setOpen(false); });
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') { setOpen(false); btn.focus(); } });
   mq.addEventListener('change', function(){ setOpen(false); });
+
+  /* スマホ下部の固定ボタン：トップのボタンが画面から外れたら表示する */
+  var bar = document.querySelector('.mobile-bar');
+  var heroBtns = document.querySelector('.hero .btn-row');
+  if (bar && heroBtns && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function(entries){
+      var e = entries[0];
+      bar.classList.toggle('show', !e.isIntersecting && e.boundingClientRect.top < 0);
+    }).observe(heroBtns);
+  } else if (bar) { bar.classList.add('show'); }
 })();
 </script>
 </body>
