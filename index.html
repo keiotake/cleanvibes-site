@@ -2,6 +2,8 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add('js');</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-KL855VTTP3"></script>
 <script id="cv-analytics">
 window.dataLayer = window.dataLayer || [];
@@ -16,10 +18,10 @@ document.addEventListener('click', function(event){
   var link = event.target.closest('a[href]');
   if (link) {
     var url = new URL(link.href);
-    var platform = /^(www\.)?instagram\.com$/.test(url.hostname) ? 'instagram' :
+    var platform = /^(www\.)?instagram\.com$|^ig\.me$/.test(url.hostname) ? 'instagram' :
       /^(www\.)?youtube\.com$/.test(url.hostname) ? 'youtube' : '';
     if (platform) {
-      var placement = link.closest('.social-dock') ? 'floating' :
+      var placement = link.closest('.mobile-bar') ? 'floating' :
         link.closest('header') ? 'header' : link.closest('.hero') ? 'hero' :
         link.closest('footer') ? 'footer' : 'content';
       gtag('event', platform + '_click', {link_url: url.origin + url.pathname, placement: placement});
@@ -27,1048 +29,651 @@ document.addEventListener('click', function(event){
   }
   var button = event.target.closest('button[data-short-id]');
   if (button && /^[A-Za-z0-9_-]{11}$/.test(button.dataset.shortId)) {
-    // Measures the request to play, not confirmed playback inside YouTube.
     gtag('event', 'short_play_request', {video_id: button.dataset.shortId});
   }
 });
 </script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
-<title>CleanVibes｜綺麗なまちを後世へ — 伊東市から全国へ</title>
-<meta name="description" content="伊東市の市民まちづくり団体CleanVibes。除草剤に頼らない防草メソッドを市民の手で組み立て、通算470回の活動をすべて公開しています。伊東市から全国へ広げます。">
-<meta property="og:title" content="CleanVibes｜綺麗なまちを後世へ — 伊東市から全国へ">
-<meta property="og:description" content="除草剤に頼らない防草メソッドを市民の手で組み立てました。通算470回の活動をすべて公開しています。">
-<meta property="og:type" content="website">
-<meta property="og:image" content="https://www.cleanvibes-ito.com/img/act12.jpg">
-<meta property="og:url" content="https://www.cleanvibes-ito.com/">
+<title>Clean Vibes｜伊東市の美化ボランティア団体 — 綺麗なまちを後世へ</title>
+<meta name="description" content="静岡県伊東市で、まちの美化と雑草対策に取り組む市民ボランティア団体です。除草剤を使わずに雑草を防ぐ方法を、現場で試しながら形にしています。活動は土日祝の朝6:30〜7:30。初めての方も歓迎します。">
 <link rel="canonical" href="https://www.cleanvibes-ito.com/">
-<meta name="theme-color" content="#1A2B3C">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Clean Vibes">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:url" content="https://www.cleanvibes-ito.com/">
+<meta property="og:title" content="Clean Vibes｜伊東市の美化ボランティア団体">
+<meta property="og:description" content="除草剤を使わずに雑草を防ぐ方法を、伊東市の現場で試しながら形にしています。活動は土日祝の朝6:30〜7:30。初めての方も歓迎します。">
+<meta property="og:image" content="https://www.cleanvibes-ito.com/img/ogp.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Clean Vibes 綺麗なまちを後世へ">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0D3B7A">
 <link rel="icon" type="image/png" href="img/logo-mark.png">
 <link rel="apple-touch-icon" href="img/logo-mark.png">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"NGO","name":"CleanVibes","alternateName":"クリーンバイブス","foundingDate":"2022-04","address":{"@type":"PostalAddress","addressLocality":"伊東市","addressRegion":"静岡県","addressCountry":"JP"},"sameAs":["https://www.instagram.com/clean_vibes_ito/"]}
+{"@context":"https://schema.org","@type":"NGO","name":"Clean Vibes","alternateName":"クリーンバイブス","url":"https://www.cleanvibes-ito.com/","logo":"https://www.cleanvibes-ito.com/img/logo-mark.png","foundingDate":"2022-04","address":{"@type":"PostalAddress","addressLocality":"伊東市","addressRegion":"静岡県","addressCountry":"JP"},"sameAs":["https://www.instagram.com/clean_vibes_ito/","https://www.youtube.com/@ITO-CleanVibes"]}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --sky:#5BC2E7;
-  --deepblue:#1B9DC9;
-  --green:#4ED4A0;
-  --deepgreen:#00A88E;
-  --navy:#1A2B3C;
-  --offwhite:#F8FCFD;
-  --pale:#EAF6FB;
-  --gray:#6B8090;
-  --grad:linear-gradient(100deg,var(--deepblue),var(--deepgreen));
-  --grad-soft:linear-gradient(100deg,var(--sky),var(--green));
-  --en:"Space Grotesk",sans-serif;
-  --jp:"Noto Sans JP",sans-serif;
-  --ease:cubic-bezier(.16,1,.3,1);
+  /* ロゴの色 */
+  --navy:#0D3B7A;
+  --blue:#0A84D6;
+  --sky:#4FC3F7;
+  --teal:#14B8B0;
+  --teal-dark:#078A86;
+  /* 文字用（白地で4.5:1以上になるよう濃くした色） */
+  --blue-text:#0972B9;
+  --teal-text:#067B78;
+  --ink:#1B2733;
+  --muted:#55687A;
+  /* 背景・線 */
+  --bg:#FFFFFF;
+  --bg-soft:#F2F8FC;
+  --bg-teal:#EDF8F7;
+  --line:#D6E3EC;
+  --warn-bg:#FFF6E5;
+  --warn-ink:#7A4300;
+  --radius:16px;
+  --wrap:1080px;
+  --font:"Noto Sans JP","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","YuGothic",Meiryo,sans-serif;
 }
-*{margin:0;padding:0;box-sizing:border-box}
-html.lenis,html.lenis body{height:auto}
-.lenis.lenis-smooth{scroll-behavior:auto!important}
-body{
-  background:var(--offwhite);color:var(--navy);
-  font-family:var(--jp);font-weight:400;line-height:2;
-  font-feature-settings:"palt";-webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
-img{display:block;max-width:100%}
-a{color:inherit;text-decoration:none}
-ul{list-style:none}
-::selection{background:var(--deepblue);color:#fff}
-.container{width:min(1200px,calc(100% - 48px));margin:0 auto}
-.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.mask{display:block;overflow:hidden;padding-bottom:.1em;margin-bottom:-.1em}
-.label{
-  font-family:var(--en);font-size:13px;letter-spacing:.3em;text-transform:uppercase;
-  color:var(--deepblue);display:flex;align-items:center;gap:14px;font-weight:500;
-}
-.label::before{content:"";width:36px;height:2px;background:var(--grad);border-radius:2px}
-.sec-title{
-  font-size:clamp(30px,4.6vw,58px);font-weight:900;line-height:1.5;
-  letter-spacing:.02em;margin-top:18px;
-}
-section{padding:clamp(96px,12vw,180px) 0 0}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-padding-top:80px;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.85;letter-spacing:.02em;overflow-wrap:anywhere}
+@media (min-width:768px){body{font-size:17px}}
+img{display:block;max-width:100%;height:auto}
+a{color:var(--blue-text)}
+a:hover{text-decoration:none}
+ul,ol{list-style:none}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:4px}
+.wrap{width:min(var(--wrap),100% - 40px);margin-inline:auto}
+.skip{position:absolute;left:-9999px;top:0;background:var(--navy);color:#fff;padding:10px 16px;z-index:200}
+.skip:focus{left:12px;top:12px}
+.nowrap{white-space:nowrap}
 
-/* ---------- header ---------- */
-.header{
-  position:fixed;inset:0 0 auto 0;z-index:100;
-  display:flex;justify-content:space-between;align-items:center;
-  padding:20px clamp(20px,3vw,44px);
-  transition:padding .4s var(--ease),background .4s,box-shadow .4s,transform .5s var(--ease),color .4s;
-}
-.header.is-hidden{transform:translateY(-110%)}
-.header.is-scrolled{
-  padding-top:10px;padding-bottom:10px;
-  background:rgba(248,252,253,.72);backdrop-filter:blur(16px);
-  box-shadow:0 1px 0 rgba(26,43,60,.06);
-}
-.header .brand{font-family:var(--en);font-weight:700;font-size:21px;letter-spacing:-.02em;display:flex;align-items:center;gap:10px}
-.header .brand .dot{width:12px;height:12px;border-radius:50%;background:var(--grad);flex:none}
-.brand-mark{width:32px;height:32px;object-fit:contain;flex:none}
-.footer .brand-mark{width:36px;height:36px}
-.header nav{display:flex;align-items:center;gap:clamp(18px,2.2vw,34px)}
-.header nav a{font-family:var(--en);font-size:13.5px;letter-spacing:.1em;font-weight:500;position:relative;padding:4px 0}
-.header nav a:not(.cta)::before{
-  content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;border-radius:2px;background:var(--grad);
-  transform:scaleX(0);transform-origin:right;transition:transform .45s var(--ease);
-}
-.header nav a:not(.cta):hover::before{transform:scaleX(1);transform-origin:left}
-.header .cta{
-  background:var(--grad);color:#fff;border-radius:999px;padding:10px 24px;
-  font-weight:700;box-shadow:0 6px 18px rgba(27,157,201,.3);
-  transition:box-shadow .4s,filter .4s;
-}
-.header .cta:hover{box-shadow:0 10px 26px rgba(0,168,142,.4);filter:brightness(1.05)}
-.menu-btn{display:none;background:none;border:none;cursor:pointer;z-index:120;width:44px;height:44px;color:inherit}
-.menu-btn span{display:block;width:24px;height:2px;background:currentColor;margin:6px auto;border-radius:2px;transition:transform .4s var(--ease),opacity .3s}
-.mobile-nav{
-  position:fixed;inset:0;z-index:110;background:rgba(26,43,60,.97);backdrop-filter:blur(20px);
-  display:flex;flex-direction:column;justify-content:center;align-items:center;gap:26px;
-  opacity:0;pointer-events:none;transition:opacity .45s var(--ease);
-}
-.mobile-nav.open{opacity:1;pointer-events:auto}
-.mobile-nav a{color:#fff;font-family:var(--en);font-size:28px;font-weight:500;letter-spacing:.06em}
-.mobile-nav .jp-small{font-family:var(--jp);font-size:13px;color:rgba(255,255,255,.5);letter-spacing:.2em}
+/* ===== ボタン ===== */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:12px 26px;border-radius:999px;font-weight:700;font-size:16px;line-height:1.4;text-decoration:none;text-align:center;transition:background-color .2s,color .2s,box-shadow .2s}
+.btn-primary{background:var(--blue-text);color:#fff;box-shadow:0 4px 14px rgba(9,114,185,.25)}
+.btn-primary:hover{background:var(--navy)}
+.btn-outline{background:#fff;color:var(--blue-text);border:2px solid var(--blue-text)}
+.btn-outline:hover{background:var(--bg-soft)}
+.btn-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.text-link{font-weight:700}
+.ext::after{content:"↗";font-size:.85em;margin-left:2px}
 
-/* ---------- hero ---------- */
-.hero{
-  min-height:100svh;position:relative;color:#fff;overflow:hidden;
-  display:flex;flex-direction:column;justify-content:center;
-  background:
-    radial-gradient(900px 600px at 85% -10%, rgba(78,212,160,.55), transparent 60%),
-    radial-gradient(1000px 700px at -10% 110%, rgba(91,194,231,.5), transparent 60%),
-    linear-gradient(135deg,#103A52 0%,#0E4D5E 45%,#0B5F58 100%);
-}
-.hero .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.5;will-change:transform}
-.hero .blob.b1{width:46vw;height:46vw;background:var(--sky);top:-12%;right:-8%}
-.hero .blob.b2{width:40vw;height:40vw;background:var(--green);bottom:-16%;left:-6%}
-.hero .grid-pattern{
-  position:absolute;inset:0;opacity:.12;
-  background-image:linear-gradient(rgba(255,255,255,.4) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.4) 1px,transparent 1px);
-  background-size:64px 64px;
-  mask-image:radial-gradient(70% 70% at 50% 40%,#000 30%,transparent 100%);
-  -webkit-mask-image:radial-gradient(70% 70% at 50% 40%,#000 30%,transparent 100%);
-}
-.hero .inner{position:relative;z-index:2;width:min(1200px,calc(100% - 48px));margin:0 auto;padding-top:90px}
-.hero h1{
-  font-size:clamp(38px,7.6vw,104px);font-weight:900;line-height:1.42;letter-spacing:.02em;
-}
-.hero h1 .line{display:block;overflow:hidden;padding-bottom:.1em;margin-bottom:-.1em}
-.hero h1 .l-in{display:inline-block}
-.hero h1 .en-title{font-family:var(--en);font-weight:700;letter-spacing:-.03em}
-.hero h1 .grad-em,.hero .tagline .grad-em{background:var(--grad-soft);-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero .tagline{
-  margin-top:clamp(22px,2.8vw,40px);
-  font-size:clamp(19px,2.3vw,32px);font-weight:700;letter-spacing:.16em;
-}
-.hero .sub{
-  margin-top:clamp(22px,3vw,38px);
-  font-size:clamp(14.5px,1.35vw,19px);font-weight:400;line-height:2.3;color:rgba(255,255,255,.85);
-}
-.hero .ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:clamp(26px,3.2vw,44px)}
-.btn-hero{
-  display:inline-flex;align-items:center;gap:10px;border-radius:999px;
-  padding:16px 38px;font-weight:700;letter-spacing:.1em;font-size:clamp(14px,1.15vw,16.5px);
-  transition:transform .5s var(--ease),box-shadow .4s,background .4s;
-}
-.btn-hero.fill{background:var(--grad);color:#fff;box-shadow:0 10px 28px rgba(0,168,142,.35)}
-.btn-hero.fill:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(0,168,142,.45)}
-.btn-hero.ghost{border:1px solid rgba(255,255,255,.5);color:#fff}
-.btn-hero.ghost:hover{background:rgba(255,255,255,.12);transform:translateY(-3px)}
-a:focus-visible,button:focus-visible{outline:2px solid var(--deepblue);outline-offset:3px}
-.hero .stats{
-  display:flex;gap:clamp(14px,2vw,30px);flex-wrap:wrap;
-  margin-top:clamp(22px,2.8vw,40px);
-}
-.hero .stat{
-  display:flex;align-items:baseline;gap:10px;
-  padding:14px 22px;border:1px solid rgba(255,255,255,.25);border-radius:16px;
-  background:rgba(255,255,255,.08);backdrop-filter:blur(10px);
-}
-.hero .stat b{font-family:var(--en);font-size:clamp(22px,2.4vw,34px);font-weight:700;line-height:1}
-.hero .stat span{font-size:12.5px;color:rgba(255,255,255,.7);letter-spacing:.1em}
-.hero .scroll{
-  position:absolute;right:clamp(24px,4vw,56px);bottom:32px;z-index:3;
-  font-family:var(--en);font-size:11px;letter-spacing:.3em;text-transform:uppercase;
-  color:rgba(255,255,255,.8);writing-mode:vertical-rl;display:flex;align-items:center;gap:12px;
-}
-.hero .scroll::after{content:"";width:1px;height:52px;background:rgba(255,255,255,.7);animation:drop 2.2s ease-in-out infinite}
-@keyframes drop{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+/* ===== 要確認の目印（試作版のみ） ===== */
+.tbd{display:inline-block;background:#FFF1C2;color:#5C4300;border:1px dashed #C99700;border-radius:6px;padding:0 8px;font-size:13px;font-weight:700;line-height:1.8;vertical-align:middle}
 
-/* ---------- mission ---------- */
-.mission-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(36px,5vw,90px);margin-top:clamp(30px,4vw,60px);align-items:start}
-.mission-copy p{font-size:clamp(15px,1.25vw,18px);line-height:2.5;margin-bottom:1.6em}
-.value-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.8vw,24px);margin-top:clamp(44px,5.5vw,80px)}
-.vcard{
-  position:relative;border-radius:22px;padding:clamp(26px,2.8vw,40px) clamp(20px,2.2vw,32px);
-  background:rgba(255,255,255,.65);backdrop-filter:blur(14px);
-  box-shadow:0 8px 30px rgba(26,43,60,.06);
-  transition:transform .6s var(--ease),box-shadow .6s var(--ease);
-}
-.vcard::before{
-  content:"";position:absolute;inset:0;border-radius:22px;padding:1.5px;
-  background:linear-gradient(135deg,rgba(91,194,231,.7),rgba(78,212,160,.7));
-  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;
-}
-.vcard:hover{transform:translateY(-10px);box-shadow:0 22px 44px rgba(27,157,201,.16)}
-.vcard .icon{width:46px;height:46px;margin-bottom:18px}
-.vcard h3{font-size:clamp(17px,1.5vw,21px);font-weight:700;letter-spacing:.06em;margin-bottom:10px;line-height:1.6}
-.vcard h3 small{display:block;font-family:var(--en);font-size:11px;letter-spacing:.24em;color:var(--deepblue);text-transform:uppercase;margin-bottom:6px}
-.vcard p{font-size:13.5px;line-height:2.1;color:var(--gray)}
-
-/* ---------- method ---------- */
-.method{background:var(--pale);margin-top:clamp(96px,12vw,180px);padding-bottom:clamp(70px,8vw,120px)}
-.method .head{padding-top:clamp(80px,10vw,150px)}
-.method .lead{font-size:clamp(14px,1.2vw,17px);color:var(--gray);margin-top:14px}
-.step{padding:clamp(12px,1.6vw,22px) 0;overflow:visible}
-.step .bg-no{display:none}
-.step .body{
-  background:#fff;border-radius:24px;
-  box-shadow:0 10px 32px rgba(26,43,60,.08);
-  padding:clamp(28px,3.4vw,56px) clamp(22px,3.2vw,56px);
-}
-.step .step-label{
-  display:inline-flex;align-items:center;
-  background:var(--grad);color:#fff;border-radius:999px;
-  padding:7px 20px;font-family:var(--en);font-weight:700;
-  font-size:12.5px;letter-spacing:.26em;
-}
-.step h3{
-  font-size:clamp(40px,5.4vw,72px);font-weight:900;line-height:1.2;
-  letter-spacing:.06em;margin:16px 0 4px;
-}
-.step .aim{font-size:clamp(15px,1.45vw,20px);font-weight:700;color:var(--deepblue);margin-bottom:22px}
-.step-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,1.8vw,24px);align-items:stretch;margin-top:0}
-.step .how{
-  background:var(--pale);border-radius:16px;
-  padding:clamp(18px,2.2vw,30px);
-  font-size:clamp(14px,1.15vw,16.5px);line-height:2.2;
-}
-.step .how::before{
-  content:"やり方";display:block;
-  font-size:12px;font-weight:700;letter-spacing:.24em;color:var(--deepblue);
-  margin-bottom:8px;
-}
-.why-box{
-  background:linear-gradient(135deg,rgba(27,157,201,.08),rgba(0,168,142,.1));
-  border:none;border-radius:16px;
-  padding:clamp(18px,2.2vw,30px);
-}
-.why-box .q{font-family:var(--en);font-weight:700;font-size:12px;letter-spacing:.24em;color:var(--deepgreen);text-transform:uppercase;margin-bottom:8px}
-.why-box p{font-size:clamp(14px,1.15vw,16.5px);line-height:2.2}
-.why-box p b{color:var(--deepblue)}
-.step .warn{
-  margin-top:16px;font-size:12.5px;color:#B4541E;background:rgba(255,150,60,.12);
-  border-radius:10px;padding:10px 16px;display:inline-block;line-height:1.9;
-}
-.step .source{margin-top:14px;font-size:11.5px;font-style:italic;color:var(--gray);font-family:var(--en);letter-spacing:.02em}
-
-/* ---------- reality ---------- */
-.reality{
-  background:var(--navy);color:#fff;
-  padding:clamp(90px,11vw,160px) 0;position:relative;overflow:hidden;
-}
-.reality::after{
-  content:"";position:absolute;width:60vw;height:60vw;border-radius:50%;
-  background:radial-gradient(circle,rgba(0,168,142,.18),transparent 65%);
-  top:-30%;right:-20%;pointer-events:none;
-}
-.reality .label{color:var(--green)}
-.reality .copy{max-width:34em;font-size:clamp(14.5px,1.25vw,18px);line-height:2.6;color:rgba(255,255,255,.85);margin-top:clamp(24px,3vw,40px)}
-.reality .copy b{color:var(--green);font-weight:700;font-size:1.15em}
-.num-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,28px);margin-top:clamp(46px,5.5vw,80px);position:relative;z-index:1}
-.num{
-  border:1px solid rgba(255,255,255,.14);border-radius:20px;
-  padding:clamp(24px,2.6vw,40px) clamp(18px,2vw,30px);
-  background:rgba(255,255,255,.04);
-}
-.num b{
-  display:block;font-family:var(--en);font-weight:700;
-  font-size:clamp(40px,4.8vw,72px);line-height:1.1;letter-spacing:-.02em;
-}
-.num b .unit{font-size:.4em;letter-spacing:.04em;margin-left:4px;color:var(--green)}
-.num span{display:block;margin-top:8px;font-size:12.5px;letter-spacing:.14em;color:rgba(255,255,255,.6);line-height:1.9}
-
-/* ---------- global ---------- */
-.global .lead{font-size:clamp(14.5px,1.25vw,18px);line-height:2.5;max-width:36em;margin-top:clamp(22px,3vw,38px)}
-.country-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.8vw,24px);
-  margin-top:clamp(40px,5vw,70px);
-}
-.ccard{
-  border-radius:20px;padding:clamp(24px,2.6vw,36px);
-  background:#fff;box-shadow:0 8px 30px rgba(26,43,60,.07);
-  border:1px solid rgba(26,43,60,.05);
-  transition:transform .6s var(--ease),box-shadow .6s var(--ease);
-}
-.ccard:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(26,43,60,.12)}
-.ccard .flag{font-size:34px;line-height:1;margin-bottom:14px;display:block}
-.ccard h3{font-size:clamp(16px,1.4vw,19px);font-weight:700;margin-bottom:8px}
-.ccard p{font-size:13px;line-height:2.1;color:var(--gray)}
-.ccard.jp-card{
-  position:relative;background:linear-gradient(135deg,rgba(91,194,231,.1),rgba(78,212,160,.12));
-}
-.ccard.jp-card::before{
-  content:"";position:absolute;inset:0;border-radius:20px;padding:2px;
-  background:var(--grad);
-  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;
-}
-.ccard.jp-card .tag{
-  display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.18em;
-  background:var(--grad);color:#fff;border-radius:999px;padding:3px 12px;margin-bottom:10px;
-}
-.global .closing{
-  margin-top:clamp(36px,4.4vw,60px);font-size:clamp(16px,1.6vw,23px);font-weight:700;text-align:center;
+/* ===== ヘッダー ===== */
+.site-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px}
+.brand{display:flex;align-items:center;gap:10px;color:var(--navy);font-weight:700;font-size:20px;letter-spacing:.01em;text-decoration:none;white-space:nowrap}
+.brand img{width:36px;height:36px}
+.menu-btn{display:none;align-items:center;gap:8px;min-height:44px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--navy);font:inherit;font-size:15px;font-weight:700;cursor:pointer}
+.menu-btn .bars{display:block;width:18px;height:2px;background:currentColor;position:relative}
+.menu-btn .bars::before,.menu-btn .bars::after{content:"";position:absolute;left:0;width:18px;height:2px;background:currentColor}
+.menu-btn .bars::before{top:-6px}.menu-btn .bars::after{top:6px}
+.site-nav ul{display:flex;align-items:center;gap:4px}
+.site-nav a{display:block;white-space:nowrap;padding:8px 12px;border-radius:8px;color:var(--ink);font-size:15px;font-weight:700;text-decoration:none}
+.site-nav a:hover{background:var(--bg-soft);color:var(--navy)}
+.site-nav a.nav-cta{background:var(--blue-text);color:#fff;padding:8px 18px;border-radius:999px;margin-left:6px}
+.site-nav a.nav-cta:hover{background:var(--navy)}
+@media (max-width:1180px){
+  .js .menu-btn{display:inline-flex}
+  .site-nav{width:100%}
+  .site-nav ul{flex-wrap:wrap;padding:4px 0 12px}
+  .js .site-nav{position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 12px 24px rgba(13,59,122,.08)}
+  .js .site-nav[hidden]{display:none}
+  .js .site-nav ul{flex-direction:column;align-items:stretch;gap:0;padding:8px 20px 16px}
+  .js .site-nav a{padding:14px 4px;border-bottom:1px solid var(--line);border-radius:0;font-size:17px}
+  .js .site-nav a.nav-cta{margin:14px 0 0;text-align:center;border-radius:999px;border-bottom:0}
+  .header-inner{flex-wrap:wrap}
+  .js .header-inner{flex-wrap:nowrap}
 }
 
-/* ---------- join ---------- */
-.join{
-  position:relative;overflow:hidden;
-  background:linear-gradient(135deg,#0F3C54,#0B5F58);color:#fff;
-  margin-top:clamp(96px,12vw,180px);padding:clamp(90px,11vw,160px) 0;
-}
-.join .ripple{position:absolute;border:1px solid rgba(255,255,255,.14);border-radius:50%;pointer-events:none}
-.join .label{color:var(--green)}
-.join .copy{font-size:clamp(14.5px,1.3vw,18px);line-height:2.6;color:rgba(255,255,255,.85);margin-top:clamp(22px,3vw,38px);max-width:34em}
-.join .copy .call{font-size:clamp(18px,1.9vw,26px);font-weight:900;color:#fff;line-height:2.2;margin-top:1em}
-.action-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.8vw,24px);margin-top:clamp(44px,5vw,70px)}
-.acard{
-  display:flex;flex-direction:column;gap:12px;
-  background:rgba(255,255,255,.08);backdrop-filter:blur(12px);
-  border:1px solid rgba(255,255,255,.18);border-radius:20px;
-  padding:clamp(26px,2.8vw,40px) clamp(20px,2.2vw,32px);
-  transition:background .4s,transform .6s var(--ease);
-}
-.acard:hover{background:rgba(255,255,255,.16);transform:translateY(-8px)}
-.acard .no{font-family:var(--en);font-size:13px;letter-spacing:.26em;color:var(--green)}
-.acard h3{font-size:clamp(20px,2vw,27px);font-weight:900}
-.acard p{font-size:13.5px;line-height:2.1;color:rgba(255,255,255,.75)}
-.acard .arrow{margin-top:auto;font-family:var(--en);font-size:13px;letter-spacing:.2em;display:flex;align-items:center;gap:8px;font-weight:500}
-.acard .arrow::after{content:"→";transition:transform .4s var(--ease)}
-.acard:hover .arrow::after{transform:translateX(8px)}
+/* ===== トップ ===== */
+.hero{background:linear-gradient(180deg,var(--bg-soft) 0%,#fff 100%);padding:48px 0 64px}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.eyebrow{color:var(--teal-text);font-weight:700;font-size:15px;letter-spacing:.06em}
+.hero h1{color:var(--navy);font-size:clamp(34px,6.4vw,60px);line-height:1.35;letter-spacing:.04em;margin-top:10px;word-break:keep-all;overflow-wrap:normal}
+.hero .lead{margin-top:20px;font-size:17px;max-width:32em}
+@media (min-width:768px){.hero .lead{font-size:18px}}
+.facts{display:grid;grid-template-columns:repeat(3,auto);gap:10px;margin-top:28px;justify-content:start}
+.facts div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 16px}
+.facts dt{font-size:13px;color:var(--muted);font-weight:700}
+.facts dd{color:var(--navy);font-weight:700;font-size:16px;line-height:1.5}
+.facts dd small{display:block;font-size:13px;color:var(--muted);font-weight:400}
+.hero-photo{border-radius:24px;overflow:hidden;box-shadow:0 18px 40px rgba(13,59,122,.14)}
+.hero-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 60%}
+.hero .sub-link{margin-top:18px;font-size:15px}
 
-/* ---------- activity ---------- */
-.activity .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(30px,4vw,70px);margin-top:clamp(40px,5vw,70px);align-items:start}
-.insta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.insta-grid a{border-radius:14px;overflow:hidden;position:relative;aspect-ratio:1/1;display:block}
-.insta-grid img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
-.insta-grid a:hover img{transform:scale(1.08)}
-.btn-insta{
-  display:inline-flex;align-items:center;gap:10px;margin-top:18px;
-  background:var(--grad);color:#fff;border-radius:999px;padding:14px 32px;
-  font-weight:700;letter-spacing:.08em;font-size:14.5px;
-  box-shadow:0 8px 22px rgba(27,157,201,.3);transition:box-shadow .4s,filter .4s;
-}
-.btn-insta:hover{box-shadow:0 14px 30px rgba(0,168,142,.4);filter:brightness(1.06)}
-.cal-card{background:#fff;border-radius:20px;box-shadow:0 8px 30px rgba(26,43,60,.07);padding:clamp(24px,2.6vw,38px)}
-.cal-card h3{font-size:clamp(17px,1.5vw,21px);font-weight:700;margin-bottom:14px}
-.cal-card dl{border-top:1px solid rgba(26,43,60,.08)}
-.cal-card .row{display:grid;grid-template-columns:110px 1fr;gap:12px;padding:13px 4px;border-bottom:1px solid rgba(26,43,60,.08);font-size:14px}
-.cal-card .row dt{font-weight:700;color:var(--deepblue)}
-.cal-card .note{font-size:12px;color:var(--gray);margin-top:12px;line-height:2}
-.cal-card .recent li{font-size:13px;padding:9px 2px;border-bottom:1px dashed rgba(26,43,60,.12);line-height:1.9}
-.cal-card .recent li b{font-family:var(--en);color:var(--deepblue);margin-right:8px;font-weight:500}
+/* ===== セクション共通 ===== */
+.section{padding:80px 0}
+.section.soft{background:var(--bg-soft)}
+.section.teal{background:var(--bg-teal)}
+.sec-label{color:var(--teal-text);font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.section h2{color:var(--navy);font-size:clamp(26px,3.6vw,36px);line-height:1.45;letter-spacing:.04em;margin-top:6px}
+.sec-lead{margin-top:16px;max-width:40em}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.section h3{color:var(--navy);font-size:19px;line-height:1.55}
+h1,h2,h3,.call,.welcome{word-break:auto-phrase}
+.note{font-size:14px;color:var(--muted);margin-top:10px}
 
-/* ---------- works ---------- */
-.works{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(28px,3.4vw,46px)}
-.works li{
-  background:#fff;border-radius:999px;padding:11px 24px;
-  font-weight:700;font-size:clamp(13px,1.1vw,15.5px);letter-spacing:.06em;
-  box-shadow:0 4px 14px rgba(26,43,60,.07);
-}
-.works-note{margin-top:18px;font-size:clamp(14px,1.2vw,17px);line-height:2.2}
-.works-note b{color:var(--deepgreen)}
+/* ===== 私たちについて ===== */
+.about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:start;margin-top:28px}
+.prose p+p{margin-top:1.1em}
+.about-photo{border-radius:20px;overflow:hidden}
+.about-photo img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center 70%}
+.about-photo figcaption{font-size:14px;color:var(--muted);padding-top:8px}
+.profile{margin-top:48px}
+.profile h3{margin-bottom:12px}
+.profile dl{display:grid;grid-template-columns:9em 1fr;border-top:1px solid var(--line)}
+.profile dt,.profile dd{padding:14px 4px;border-bottom:1px solid var(--line)}
+.profile dt{font-weight:700;color:var(--navy)}
+.values{margin-top:48px}
+.values h3{margin-bottom:6px}
+.values p{font-size:15.5px}
 
-/* ---------- maps ---------- */
-.map-box{
-  height:clamp(340px,46vw,540px);border-radius:20px;overflow:hidden;
-  box-shadow:0 10px 34px rgba(26,43,60,.1);margin-top:clamp(34px,4vw,56px);
-  position:relative;z-index:1;
-}
-.map-note{font-size:12.5px;color:var(--gray);margin-top:12px}
-.leaflet-popup-content{font-family:var(--jp);font-size:13px;line-height:1.8}
-.tried-cta{
-  margin-top:clamp(26px,3vw,44px);background:var(--pale);border-radius:18px;
-  padding:clamp(22px,2.6vw,36px);font-size:clamp(13.5px,1.1vw,15.5px);line-height:2.2;
-}
-.tried-cta b{color:var(--deepblue)}
-.contact-line{margin-top:16px;font-size:13.5px;line-height:2.2}
-.contact-line a{color:var(--deepblue);font-weight:700;border-bottom:1px solid currentColor}
+/* ===== 防草の方法 ===== */
+.steps{display:grid;gap:20px;margin-top:32px}
+.step{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.step-head{display:flex;align-items:center;gap:14px}
+.step-no{flex:none;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--navy);color:#fff;font-weight:700;font-size:18px}
+.step-head h3{font-size:24px;letter-spacing:.06em}
+.step-head p{color:var(--muted);font-size:15px;line-height:1.5}
+.step-body{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+.step-body>div{background:var(--bg-soft);border-radius:12px;padding:16px 18px}
+.step-body h4{font-size:14px;color:var(--teal-text);letter-spacing:.08em;margin-bottom:4px}
+.step-body p{font-size:15.5px}
+.step-body.single{grid-template-columns:1fr}
+.safety{margin-top:14px;background:var(--warn-bg);color:var(--warn-ink);border-radius:12px;padding:12px 16px;font-size:15px}
+.safety b{display:block}
+.source{margin-top:12px;font-size:13px;color:var(--muted)}
+.badge{display:inline-block;margin-left:8px;padding:2px 10px;border:1.5px solid var(--teal-text);color:var(--teal-text);border-radius:999px;font-size:13px;font-weight:700;letter-spacing:.04em;vertical-align:middle;line-height:1.6}
+.no-herbicide{margin-top:24px;font-weight:700;color:var(--navy)}
 
-/* ---------- footer ---------- */
-.footer{background:var(--navy);color:#fff;margin-top:clamp(96px,12vw,180px);padding:clamp(56px,7vw,90px) 0 28px}
-.footer .inner{display:grid;grid-template-columns:1fr auto;gap:36px;padding-bottom:clamp(36px,4.4vw,60px);border-bottom:1px solid rgba(255,255,255,.12)}
-.footer .brand{font-family:var(--en);font-weight:700;font-size:26px;display:flex;align-items:center;gap:10px}
-.footer .brand .dot{width:12px;height:12px;border-radius:50%;background:var(--grad)}
-.footer .slogan{margin-top:10px;font-size:13.5px;letter-spacing:.12em;color:rgba(255,255,255,.7)}
-.footer .slogan-en{margin-top:6px;font-family:var(--en);font-size:12px;letter-spacing:.06em;color:rgba(255,255,255,.45)}
-.footer address{font-style:normal;margin-top:18px;font-size:12.5px;line-height:2.3;color:rgba(255,255,255,.55)}
-.footer .links{display:flex;flex-direction:column;gap:10px;align-items:flex-end}
-.footer .links a{font-family:var(--en);font-size:13px;letter-spacing:.18em;color:rgba(255,255,255,.8);transition:color .3s}
-.footer .links a:hover{color:var(--green)}
-.footer .copy{
-  text-align:center;margin-top:24px;font-family:var(--en);
-  font-size:11.5px;letter-spacing:.26em;color:rgba(255,255,255,.4);
+/* ===== 検証と実績 ===== */
+.results{margin-top:32px}
+.results .card h3{margin-bottom:8px}
+.results .card p{font-size:15.5px}
+.results .card .note{font-size:14px}
+.results .chip{display:inline-block;background:var(--bg-soft);color:var(--navy);border-radius:999px;padding:2px 12px;font-size:13px;font-weight:700;margin-bottom:10px}
+.results.grid-3{grid-template-columns:2fr 1fr}
+@media (max-width:899px){.results.grid-3{grid-template-columns:1fr}}
+
+/* ===== 参加する ===== */
+.join-card{margin-top:28px;padding:28px}
+.join-card dl{display:grid;grid-template-columns:7em 1fr;border-top:1px solid var(--line)}
+.join-card dt,.join-card dd{padding:14px 4px;border-bottom:1px solid var(--line)}
+.join-card dt{font-weight:700;color:var(--navy)}
+.welcome{margin-top:12px;font-weight:700;color:var(--navy);font-size:17px}
+.welcome::before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--teal);margin-right:8px;vertical-align:middle}
+
+/* ===== 始める ===== */
+.call{margin-top:20px;color:var(--navy);font-weight:700;font-size:clamp(19px,2.4vw,24px);line-height:1.7}
+.start-steps{margin-top:32px}
+.start-steps .num{color:var(--teal-text);font-weight:700;font-size:14px;letter-spacing:.1em}
+.start-steps p{font-size:15.5px;margin-top:4px}
+
+/* ===== 活動の軌跡 ===== */
+.timeline{margin-top:32px;border-left:3px solid var(--sky);padding-left:24px;max-width:46em}
+.timeline li{position:relative;padding:0 0 22px}
+.timeline li::before{content:"";position:absolute;left:-33px;top:9px;width:15px;height:15px;border-radius:50%;background:#fff;border:3px solid var(--blue)}
+.timeline li.goal::before{background:var(--teal);border-color:var(--teal)}
+.timeline .when{display:block;font-weight:700;color:var(--navy)}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
+.gallery img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:12px}
+.sub-h{margin-top:56px}
+.shorts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:20px;max-width:900px}
+.short-player{position:relative;aspect-ratio:9/16;background:#12242b;border-radius:16px;overflow:hidden}
+.short-player button{position:absolute;inset:0;width:100%;border:0;padding:0;cursor:pointer;background:#12242b;color:#fff;font:inherit}
+.short-player button img{width:100%;height:100%;object-fit:cover;opacity:.85}
+.short-play{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;font-size:14px;font-weight:700;text-shadow:0 1px 4px #000}
+.short-play b{display:grid;place-items:center;width:60px;height:60px;border-radius:50%;background:#C4161C;font-size:22px;text-shadow:none}
+.short-player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.short h4{font-size:15px;line-height:1.7;margin-top:10px}
+.short a{font-size:14px}
+
+/* ===== メディア・受賞・協働 ===== */
+.proof{margin-top:28px}
+.proof .chip{display:inline-block;background:var(--bg-soft);color:var(--navy);border-radius:999px;padding:2px 12px;font-size:13px;font-weight:700;margin-bottom:10px}
+.proof h3{margin-bottom:6px}
+.proof p{font-size:15.5px}
+
+/* ===== お問い合わせ ===== */
+.contact-list{margin-top:28px;display:grid;grid-template-columns:1fr;border-top:1px solid var(--line);max-width:46em}
+.contact-list div{display:grid;grid-template-columns:15em 1fr;gap:12px;padding:14px 4px;border-bottom:1px solid var(--line)}
+.contact-list dt{font-weight:700;color:var(--navy)}
+
+/* ===== フッター ===== */
+.site-footer{background:var(--bg-soft);border-top:1px solid var(--line);padding:48px 0 32px;font-size:15px}
+.footer-grid{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:start}
+.footer-logo{width:240px}
+.footer-links{display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.footer-links a{font-weight:700}
+.site-footer details{margin-top:24px;border-top:1px solid var(--line);padding-top:12px}
+.site-footer summary{cursor:pointer;font-weight:700;color:var(--navy);padding:6px 0}
+.site-footer details p{margin-top:6px;font-size:14px;color:var(--muted)}
+.copyright{margin-top:24px;font-size:14px;color:var(--muted)}
+
+/* ===== スマホ下部の固定ボタン ===== */
+.mobile-bar{display:none}
+
+/* ===== レスポンシブ ===== */
+@media (max-width:899px){
+  .hero{padding:32px 0 48px}
+  .hero-grid,.about-grid{grid-template-columns:1fr;gap:28px}
+  .hero-photo img{aspect-ratio:4/3}
+  .facts{grid-template-columns:1fr;gap:8px}
+  .facts div{display:flex;align-items:baseline;gap:12px;padding:10px 14px}
+  .facts dt{flex:none;width:5.5em}
+  .facts dd small{display:block}
+  .grid-3{grid-template-columns:1fr}
+  .step-body{grid-template-columns:1fr}
+  .section{padding:56px 0}
+  .shorts{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px}
+  .short{flex:0 0 72%;scroll-snap-align:start}
+  .footer-grid{grid-template-columns:1fr}
+  .footer-links{align-items:flex-start}
+  .mobile-bar{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:90;background:rgba(255,255,255,.97);border-top:1px solid var(--line);padding:8px 12px calc(8px + env(safe-area-inset-bottom,0px))}
+  .mobile-bar .btn{min-height:46px;padding:8px 10px;font-size:15px}
+  body{padding-bottom:72px}
 }
-
-/* ---------- photos ---------- */
-.mission-photo{border-radius:24px;overflow:hidden;margin-top:clamp(44px,5.5vw,80px)}
-.mission-photo img{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:center 68%}
-.field{margin-top:clamp(60px,7vw,110px);overflow:hidden}
-.field .track{display:flex;gap:14px;width:max-content;animation:slide 45s linear infinite}
-.field img{height:clamp(190px,26vw,320px);width:auto;border-radius:16px}
-@keyframes slide{to{transform:translateX(-50%)}}
-.reality-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,4vw,70px);align-items:center;position:relative;z-index:1}
-.reality-photo{border-radius:20px;overflow:hidden}
-.reality-photo img{width:100%;aspect-ratio:4/4.6;object-fit:cover;object-position:center 30%}
-
-/* ---------- responsive ---------- */
-@media (max-width:900px){
-  .header nav{display:none}
-  .menu-btn{display:block}
-  .mission-grid,.activity .grid,.reality-grid{grid-template-columns:1fr}
-  .mission-photo img{aspect-ratio:4/3;object-position:center 62%}
-  .value-cards,.action-grid{grid-template-columns:1fr}
-  .num-grid{grid-template-columns:repeat(2,1fr)}
-  .country-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin-left:-24px;margin-right:-24px;padding:0 24px 14px}
-  .country-grid::-webkit-scrollbar{display:none}
-  .ccard{min-width:78%;scroll-snap-align:start}
-  .step-grid{grid-template-columns:1fr}
-  .hero .scroll{display:none}
-  .footer .inner{grid-template-columns:1fr}
-  .footer .links{align-items:flex-start}
+@media (max-width:520px){
+  .profile dl,.join-card dl{grid-template-columns:1fr}
+  .profile dt,.join-card dt{border-bottom:0;padding-bottom:0}
+  .profile dd,.join-card dd{padding-top:2px}
+  .contact-list div{grid-template-columns:1fr;gap:0}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .join-card{padding:20px}
+  .btn-row .btn{flex:1 1 100%}
+  .step{padding:18px}
+  .step-body>div{padding:14px}
+  .card{padding:20px}
 }
-
-/* ===== activity reports（記録アプリから自動連携） ===== */
-.reports{padding:clamp(70px,9vw,130px) 0;background:var(--pale)}
-.reports .reports-note{font-size:13.5px;color:var(--gray);margin-top:10px}
-.report-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px;margin-top:34px}
-.report-card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 10px 30px rgba(26,43,60,.08);display:flex;flex-direction:column}
-.report-card .rphotos{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--pale)}
-.report-card .rphotos img{width:100%;height:130px;object-fit:cover;display:block}
-.report-card .rphotos.single img{height:210px;grid-column:1/-1}
-.report-card .rbody{padding:16px 18px 18px}
-.report-card .rdate{font-family:var(--en);font-weight:700;font-size:13px;letter-spacing:.08em;color:var(--deepblue)}
-.report-card .rplace{font-weight:900;font-size:16.5px;margin:2px 0 6px;line-height:1.5}
-.report-card .rwork{font-size:13.5px;color:var(--gray);line-height:1.8}
-.report-card .rmeta{margin-top:10px;font-size:12px;color:var(--gray);display:flex;gap:14px;flex-wrap:wrap}
-.report-card .rmeta b{color:var(--deepgreen);font-family:var(--en);font-size:14px}
-.rba{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:12px}
-.rba figure{margin:0}
-.rba img{width:100%;height:100px;object-fit:cover;border-radius:10px;display:block}
-.rba figcaption{font-size:10.5px;font-weight:700;letter-spacing:.14em;color:var(--gray);font-family:var(--en);margin-bottom:3px}
-</style>
-<style id="social-video-style">
-.social-dock{position:fixed;right:20px;bottom:20px;z-index:105;display:flex;gap:8px;padding:8px;background:rgba(248,252,253,.96);border:1px solid rgba(26,43,60,.12);border-radius:18px;box-shadow:0 5px 24px #1a2b3c24;backdrop-filter:blur(12px)}
-.social-dock a{display:flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:10px 18px;border-radius:12px;font-size:12px;font-weight:700;line-height:1.4}.social-ig{background:linear-gradient(110deg,#a72c91,#b42a59);color:#fff}.social-yt{background:#fff;color:var(--navy);border:1px solid #d9e5e9}.social-icon{width:20px;height:20px;flex:none}.social-dock a:hover{filter:brightness(1.12)}
-.header nav a.social-nav{color:inherit;font-weight:700}.social-content{margin-top:40px}.instagram-feature{display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;background:linear-gradient(115deg,#f8eff6,#eaf6fb);padding:clamp(24px,4vw,48px);border:1px solid #e1dce5;border-radius:22px}.instagram-feature .eyebrow{font-family:var(--en);font-size:13px;color:#922478;letter-spacing:.13em;font-weight:700}.instagram-feature h3{font-size:clamp(23px,3vw,34px);line-height:1.6;margin:8px 0 12px}.instagram-feature p{font-size:14px;line-height:2}.instagram-feature .social-ig{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;padding:16px 25px;font-weight:700;font-size:14px;white-space:nowrap}.instagram-feature small{display:block;font-family:var(--en);font-size:12px;color:var(--gray);margin-top:10px;text-align:center}.shorts-heading{display:flex;align-items:end;justify-content:space-between;gap:20px;margin:42px 0 22px}.shorts-heading h3{font-size:clamp(22px,2.4vw,30px);line-height:1.5}.shorts-heading p{font-size:13px;color:var(--gray);margin-top:8px}.shorts-heading a{font-size:13px;color:var(--deepblue);font-weight:700;border-bottom:1px solid;white-space:nowrap}.shorts-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;max-width:940px;margin:0 auto}.short-card{min-width:0}.short-player{position:relative;aspect-ratio:9/16;background:#12242b;border-radius:18px;overflow:hidden}.short-player button{position:absolute;inset:0;width:100%;border:0;padding:0;cursor:pointer;background:#12242b;color:white;font-family:var(--jp)}.short-player button img{width:100%;height:100%;object-fit:cover;opacity:.8;transition:opacity .3s}.short-player button:hover img{opacity:1}.short-play-label{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;font-size:13px;font-weight:700;text-shadow:0 1px 5px #000}.short-play-label b{display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:#b91924;font-size:25px;box-shadow:0 3px 15px #0004;text-shadow:none}.short-player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}.short-card h4{font-size:14px;line-height:1.9;margin-top:14px}.short-card>a{display:inline-block;font-size:12px;color:var(--deepblue);margin-top:8px;text-decoration:underline;text-underline-offset:4px;min-height:32px}.shorts-note{font-size:12px;color:var(--gray);margin-top:20px}.footer{padding-bottom:105px}
-@media(min-width:901px) and (max-width:1100px){.header nav{gap:14px}.header nav a{font-size:12px}.header .cta{padding:10px 16px}.header .brand{font-size:18px}}
-@media(max-width:700px){.instagram-feature{grid-template-columns:1fr;gap:20px}.instagram-feature .social-ig{width:100%}.shorts-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;padding:3px 3px 16px}.short-card{flex:0 0 78%;scroll-snap-align:start}.shorts-heading{align-items:start;flex-direction:column;gap:12px}.social-dock{left:10px;right:10px;bottom:0;bottom:env(safe-area-inset-bottom,0px);border-radius:16px 16px 0 0;display:grid;grid-template-columns:1.35fr 1fr;padding:8px;gap:6px}.social-dock a{font-size:11px;padding:10px 6px;gap:6px}.social-dock .social-icon{width:18px;height:18px}.footer{padding-bottom:115px}.shorts-note{font-size:11px}}
-@media(prefers-reduced-motion:reduce){.short-player button img{transition:none}}
-</style>
-<style id="instagram-reels-style">
-.ig-reels-section{margin-top:32px;scroll-margin-top:100px}
-.ig-reels-section h3{font-size:clamp(22px,2.4vw,30px);margin-bottom:12px}
-.ig-reels-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:20px}
-.ig-reel-card{min-width:0;background:white;border:1px solid #e1dce5;border-radius:18px;padding:10px}
-.ig-reel-card .instagram-media{min-width:0!important;width:100%!important;margin:0!important;box-shadow:none!important}
-.ig-reel-card>a{display:inline-block;padding:12px 4px;font-size:13px;color:var(--deepblue);text-decoration:underline}
-@media(max-width:1050px){.ig-reels-grid{display:flex;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:16px}.ig-reel-card{flex:0 0 340px;scroll-snap-align:start}}
-@media(max-width:390px){.ig-reel-card{flex-basis:100%}}
 </style>
 </head>
 <body>
+<a class="skip" href="#main">本文へ移動</a>
 
-<header class="header" id="header">
-  <a class="brand" href="#top"><img class="brand-mark" src="img/logo-mark.png" alt="CleanVibesのロゴ">CleanVibes</a>
-  <nav>
-    <a href="#mission">About</a>
-    <a href="#method">Method</a>
-    <a href="#activity">Activity</a>
-    <a href="#support">Support</a>
-    <a class="social-nav" href="https://www.instagram.com/clean_vibes_ito/reels/?hl=ja" target="_blank" rel="noopener">Instagram</a>
-    <a class="cta" href="#join">Join Us</a>
-  </nav>
-  <button class="menu-btn" id="menuBtn" aria-label="メニューを開く"><span></span><span></span><span></span></button>
-</header>
-<div class="mobile-nav" id="mobileNav">
-  <a href="#mission">About</a>
-  <a href="#method">Method</a>
-  <a href="#join">Join Us</a>
-  <a href="#activity">Activity</a>
-  <a href="#support">Support</a>
-  <a href="https://www.instagram.com/clean_vibes_ito/reels/?hl=ja" target="_blank" rel="noopener">Instagram Reels</a>
-  <a href="#social-videos">YouTube Shorts</a>
-  <p class="jp-small">綺麗なまちを後世へ</p>
-</div>
-
-<!-- ============ 1. HERO ============ -->
-<div class="hero" id="top">
-  <div class="blob b1"></div><div class="blob b2"></div>
-  <div class="grid-pattern"></div>
-  <div class="inner">
-    <h1>
-      <span class="line"><span class="l-in en-title">Clean<span class="grad-em">Vibes</span></span></span>
-      <span class="line"><span class="l-in">綺麗なまちを後世へ</span></span>
-    </h1>
-    <p class="tagline">伊東市から<span class="grad-em">全国</span>を綺麗に</p>
-    <p class="sub">除草剤に頼らない防草のやり方を、市民の手だけで組み立ててきました。<br>これまでの活動は、通算<span data-total>470</span>回。その記録を、ぜんぶ公開しています。</p>
-    <div class="ctas">
-      <a class="btn-hero fill" href="https://www.instagram.com/clean_vibes_ito/reels/?hl=ja" target="_blank" rel="noopener">Instagramで活動を見る</a>
-      <a class="btn-hero ghost" href="#method">メソッドを見る</a>
-      <a class="btn-hero ghost" href="#social-videos">ショートを見る</a>
-    </div>
-    <div class="stats">
-      <div class="stat"><b data-count="470" data-live="total">470</b><span>通算活動回数</span></div>
-      <div class="stat"><b>2022–2030</b><span>届けきって終わる</span></div>
-    </div>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top"><img src="img/logo-mark.png" alt="" width="36" height="36">Clean Vibes</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav"><span class="bars" aria-hidden="true"></span>メニュー</button>
+    <nav class="site-nav" id="site-nav" aria-label="サイト内メニュー">
+      <ul>
+        <li><a href="#about">私たちについて</a></li>
+        <li><a href="#method">防草の方法</a></li>
+        <li><a href="#results">検証と実績</a></li>
+        <li><a href="#start">自分のまちで始める</a></li>
+        <li><a href="#support">支援する</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+        <li><a class="nav-cta" href="#join">参加する</a></li>
+      </ul>
+    </nav>
   </div>
-  <p class="scroll">Scroll</p>
-</div>
+</header>
 
-<!-- ============ 2. MISSION ============ -->
-<section id="mission">
-  <div class="container">
-    <p class="label reveal">Why CleanVibes</p>
-    <div class="mission-grid">
-      <h2 class="sec-title"><span class="mask"><span class="mline">なぜ私たちは<br>続けるのか。</span></span></h2>
-      <div class="mission-copy">
-        <p class="reveal">はじまりは、2022年の春。伊東のまちに、たった2人で立っていました。<br>「綺麗なまちを、次の世代へ」。あのとき交わした約束は、今も変わりません。</p>
-        <p class="reveal">除草剤は、使わないと決めました。<br>子どもや犬が転げ回る地面だから。雨は、やがて海へ流れていくから。<br>そして何より、胸を張って次の世代へ手渡せるやり方でやりたいから。<br>手間はかかります。それでも、これが私たちのやり方です。</p>
+<main id="main">
+
+<!-- 1. トップ -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">静岡県伊東市の美化ボランティア団体</p>
+      <h1>綺麗なまちを<wbr>後世へ</h1>
+      <p class="lead">Clean Vibes（クリーンバイブス）は、市民の手でまちの美化と雑草対策に取り組んでいます。除草剤を使わずに雑草を生えにくくする方法を、現場で試しながら形にしています。</p>
+      <dl class="facts">
+        <div><dt>活動開始</dt><dd>2022年4月</dd></div>
+        <div><dt>活動回数</dt><dd>累計500回以上<small>（2026年10月時点）</small></dd></div>
+        <div><dt>活動日時</dt><dd>土日祝の朝<span class="nowrap">6:30〜7:30</span></dd></div>
+      </dl>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="#join">伊東で参加する</a>
+        <a class="btn btn-outline" href="#method">防草の方法を見る</a>
       </div>
+      <p class="sub-link">最新の活動は <a class="text-link ext" href="https://www.instagram.com/clean_vibes_ito/" target="_blank" rel="noopener">Instagram</a> でお知らせしています。</p>
     </div>
-    <figure class="mission-photo reveal">
-      <img src="img/act12.jpg" alt="伊東オレンジビーチでの活動後、仲間との集合写真" loading="lazy">
+    <figure class="hero-photo">
+      <img src="img/sm/act07.jpg" alt="朝の道路沿いで、歩道の脇の雑草を取り除く参加者" width="800" height="1067">
     </figure>
-    <div class="value-cards">
-      <div class="vcard reveal">
-        <svg class="icon" viewBox="0 0 46 46" fill="none" stroke="#1B9DC9" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="20" cy="20" r="12"/><path d="M29 29 L40 40"/><path d="M14 20 h12 M20 14 v12" stroke="#00A88E"/></svg>
-        <h3><small>Science</small>研究を参考に、現場で検証</h3>
-        <p>国内外の研究や事例を参考にしながら、伊東市内での実践を通じて改善を重ねています。研究で確認されている一般的な知見と、私たちの現場での経験は、分けて紹介します。</p>
-      </div>
-      <div class="vcard reveal">
-        <svg class="icon" viewBox="0 0 46 46" fill="none" stroke="#1B9DC9" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="23" cy="14" r="7"/><path d="M8 40 c0-9 6.5-14 15-14 s15 5 15 14" stroke="#00A88E"/></svg>
-        <h3><small>Everyone</small>誰でもできる</h3>
-        <p>難しい資格も、高価な機械もいりません。ただし公共の場所では、管理者の許可を得て、安全対策を整えたうえで実施してください。火を扱う工程は、経験者が担当します。</p>
-      </div>
-      <div class="vcard reveal">
-        <svg class="icon" viewBox="0 0 46 46" fill="none" stroke="#1B9DC9" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M23 6 a17 17 0 1 1 -12 5"/><path d="M11 4 v8 h8" stroke="#00A88E"/></svg>
-        <h3><small>Keep going</small>続けられる</h3>
-        <p>2030年まで、通い続けると決めています。一度きりの完璧より、ずっと続くことを選びました。</p>
-      </div>
-    </div>
   </div>
 </section>
 
-<!-- ============ 3. METHOD ============ -->
-<div class="method" id="method">
-  <div class="container head">
-    <p class="label reveal">The Method</p>
-    <h2 class="sec-title"><span class="mask"><span class="mline">4ステップで、まちを守る。</span></span></h2>
-    <p class="lead reveal">国内外の研究や事例を参考にしながら、伊東での実践を通じて改善してきた方法です。</p>
-  </div>
-
-  <div class="step">
-    <p class="bg-no" aria-hidden="true">1</p>
-    <div class="container body">
-      <p class="step-label reveal">STEP 1</p>
-      <h3 class="step-in">ほじる</h3>
-      <p class="aim reveal">種と土をまとめて取り除く</p>
-      <div class="step-grid">
-        <p class="how reveal">専用の道具で、種ごと物理的に取り除きます。表面の土を地面ごと削り取り、雑草を「抜く」のではなく土ごと「どかす」のがポイントです。</p>
-        <div class="why-box reveal">
-          <p class="q">Why?</p>
-          <p>多くの雑草は、地表に近い層から発芽します。だからClean Vibesでは、表面の土や堆積物ごと種子を取り除くことを大切にしています。</p>
-        </div>
+<!-- 2. 私たちについて -->
+<section class="section" id="about">
+  <div class="wrap">
+    <p class="sec-label">About</p>
+    <h2>私たちについて</h2>
+    <div class="about-grid">
+      <div class="prose">
+        <p>2022年4月、伊東のオレンジビーチから活動を始めました。テーマは「綺麗なまちを後世へ」。次の世代に、胸を張って手渡せるまちを残したい。その思いを込めた言葉です。</p>
+        <p>除草剤は使わないと決めました。子どもや犬が転げ回る地面だから。雨水が、やがて海へ流れていくから。手間はかかります。それでも、これが私たちのやり方です。</p>
+        <p>道路や身近な公共の場所を、市民が自分たちの手で守る。そんな文化をつくりたいと、私たちは考えています。</p>
+        <p>2030年、このやり方を届けきったら、私たちは役目を終えます。「届けきって解散する」。それが私たちの目標です。</p>
       </div>
-      <p class="source reveal">出典: Kuk &amp; Hooker (2000) Canadian Journal of Plant Science</p>
-    </div>
-  </div>
-
-  <div class="step">
-    <p class="bg-no" aria-hidden="true">2</p>
-    <div class="container body">
-      <p class="step-label reveal">STEP 2</p>
-      <h3 class="step-in">焼く</h3>
-      <p class="aim reveal">地上に出た雑草を、熱で傷める</p>
-      <div class="step-grid">
-        <p class="how reveal">1,300〜1,500℃の火炎を一瞬だけ当てます。「燃やす」のではなく「細胞を壊す」工程です。</p>
-        <div class="why-box reveal">
-          <p class="q">Why?</p>
-          <p>火炎処理は、植物の地上部に短時間の熱を加えて細胞を傷める方法です。効果は雑草の種類や成長段階、加熱の時間によって大きく異なるため、必要に応じて再処理します。地中の根や種子まで枯らせるわけではありません。</p>
-        </div>
-      </div>
-      <p class="warn reveal">⚠ 安全第一：管理者確認・消火準備・周囲確認を必ず行います</p>
-      <p class="source reveal">出典: Dahlquist et al. (2007) Weed Science 55(6)</p>
-    </div>
-  </div>
-
-  <div class="step">
-    <p class="bg-no" aria-hidden="true">3</p>
-    <div class="container body">
-      <p class="step-label reveal">STEP 3</p>
-      <h3 class="step-in">埋める</h3>
-      <p class="aim reveal">雑草が伸びにくい状態をつくる</p>
-      <div class="step-grid">
-        <p class="how reveal">防草材を場所に応じて使い分け、目地や隙間を埋めます。景観にもできる限り配慮します。</p>
-        <div class="why-box reveal">
-          <p class="q">Why?</p>
-          <p>目地や隙間を防草材で埋めることで、種子が入り込みにくく、発芽した雑草も地上へ伸びにくい状態をつくります。</p>
-        </div>
-      </div>
-      <p class="source reveal">出典: Benvenuti et al. (2019) Frontiers in Plant Science</p>
-    </div>
-  </div>
-
-  <div class="step">
-    <p class="bg-no" aria-hidden="true">4</p>
-    <div class="container body">
-      <p class="step-label reveal">STEP 4</p>
-      <h3 class="step-in">仕上げる</h3>
-      <p class="aim reveal">場所と景観に合わせて仕上げる</p>
-      <div class="step-grid">
-        <p class="how reveal">使用する防草材は、施工場所や景観、管理者の方針に合わせて選び、製品の施工要領に従って仕上げます。仕上げに、セスキ炭酸ソーダ（重曹に近い身近な洗浄成分）を溶かした水を使うこともあります。</p>
-        <div class="why-box reveal">
-          <p class="q">Why?</p>
-          <p>アルカリ性の水が雑草の生育に与える影響は、植物の種類によって差があると言われています。この工程の効果については、Clean Vibesが現場で検証している段階です。</p>
-        </div>
-      </div>
-      <p class="source reveal"><span style="color:var(--deepgreen);font-weight:700">※現在、効果を検証中の工程です</span></p>
-    </div>
-  </div>
-
-  <div class="field" aria-hidden="true">
-    <div class="track">
-      <img src="img/act05.jpg" alt="" loading="lazy"><img src="img/act01.jpg" alt="" loading="lazy"><img src="img/act03.jpg" alt="" loading="lazy"><img src="img/act09.jpg" alt="" loading="lazy"><img src="img/act02.jpg" alt="" loading="lazy"><img src="img/act11.jpg" alt="" loading="lazy">
-      <img src="img/act05.jpg" alt="" loading="lazy"><img src="img/act01.jpg" alt="" loading="lazy"><img src="img/act03.jpg" alt="" loading="lazy"><img src="img/act09.jpg" alt="" loading="lazy"><img src="img/act02.jpg" alt="" loading="lazy"><img src="img/act11.jpg" alt="" loading="lazy">
-    </div>
-  </div>
-</div>
-
-<!-- ============ 4. REALITY ============ -->
-<section class="reality" id="reality">
-  <div class="container">
-    <p class="label reveal">Our Reality</p>
-    <h2 class="sec-title"><span class="mask"><span class="mline">効果の目安は、<br>半年。</span></span></h2>
-    <div class="reality-grid" style="margin-top:clamp(24px,3vw,40px)">
-      <div class="copy" style="margin-top:0">
-        <p class="reveal">正直に、お話しします。「もう二度と生えない」とは、私たちは言いません。<br>半年もすれば、雑草はまた顔を出す。本当に、しぶといんです。<br>だからこそ大事なのは、一度の完璧より、何度でも通える仕組みのほうでした。</p>
-        <p class="reveal" style="margin-top:1.4em"><b>完璧より、続けること。</b></p>
-        <p class="reveal" style="margin-top:1.2em;font-size:clamp(13px,1.1vw,15.5px);line-height:2.2;color:rgba(255,255,255,.72)">2030年、このメソッドを全国に届けきったら、私たちは役目を終えます。だから「届けきって終わる」。それが私たちの約束です。</p>
-      </div>
-      <figure class="reality-photo reveal">
-        <img src="img/act08.jpg" alt="集めた雑草でいっぱいの土のう袋の山と仲間たち" loading="lazy">
+      <figure class="about-photo">
+        <img src="img/sm/act12.jpg" alt="オレンジビーチでの活動後に撮影した参加者の集合写真" width="800" height="1067" loading="lazy">
+        <figcaption>伊東のオレンジビーチにて</figcaption>
       </figure>
     </div>
-    <div class="num-grid">
-      <div class="num reveal"><b>2022<span class="unit">年</span></b><span>活動開始</span></div>
-      <div class="num reveal"><b>2030<span class="unit">年</span></b><span>解散予定 — 届けきって終わる</span></div>
-    </div>
-  </div>
-</section>
 
-<!-- ============ 6. JOIN ============ -->
-<section class="join" id="join">
-  <div class="container" style="position:relative;z-index:2">
-    <p class="label reveal">Join Us</p>
-    <h2 class="sec-title"><span class="mask"><span class="mline">伊東市から、全国へ。</span></span></h2>
-    <div class="copy">
-      <p class="reveal">このやり方を、伊東だけのものにするつもりはありません。<br>どこのまちでも、誰にでも、今日から始められます。</p>
-      <p class="call reveal">真似してください。<br>もっと良くしてください。<br>そして、あなたのまちで始めてください。</p>
+    <div class="profile">
+      <h3>団体概要</h3>
+      <dl>
+        <dt>団体名</dt><dd>Clean Vibes（クリーンバイブス）</dd>
+        <dt>テーマ</dt><dd>綺麗なまちを後世へ</dd>
+        <dt>活動開始</dt><dd>2022年4月（伊東のオレンジビーチから）</dd>
+        <dt>拠点</dt><dd>静岡県伊東市</dd>
+        <dt>活動日時</dt><dd>土日祝の朝6:30〜7:30（場所は毎回変わります）</dd>
+        <dt>活動回数</dt><dd>累計500回以上（2026年10月時点）</dd>
+        <dt>運営体制</dt><dd><span class="tbd">要確認</span></dd>
+        <dt>連絡先</dt><dd>Instagramのダイレクトメッセージ（DM）：@clean_vibes_ito<br>メール：<span class="tbd">要確認</span></dd>
+        <dt>目標</dt><dd>2030年に、このやり方を届けきって解散</dd>
+      </dl>
     </div>
-    <div class="action-grid">
-      <a class="acard reveal" href="https://www.instagram.com/clean_vibes_ito/" target="_blank" rel="noopener">
-        <p class="no">ACTION 01</p><h3>学ぶ</h3>
-        <p>メソッドの詳しい資料は、InstagramのDMでお送りします。お気軽にご連絡ください。</p>
-        <p class="arrow">資料をリクエスト</p>
-      </a>
-      <a class="acard reveal" href="https://www.instagram.com/clean_vibes_ito/" target="_blank" rel="noopener">
-        <p class="no">ACTION 02</p><h3>試す</h3>
-        <p>必要な道具リストと始め方は、InstagramのDMでご案内しています。伊東市での活動参加もこちらから。</p>
-        <p class="arrow">DMで聞いてみる</p>
-      </a>
-      <a class="acard reveal" href="https://www.instagram.com/clean_vibes_ito/" target="_blank" rel="noopener">
-        <p class="no">ACTION 03</p><h3>報告する</h3>
-        <p>「うちのまちでもやってみた」をぜひ教えてください。InstagramのDMで受け付けています。</p>
-        <p class="arrow">DMで報告する</p>
-      </a>
-    </div>
-  </div>
-</section>
 
-<!-- ============ 7. ACTIVITY ============ -->
-<section class="activity" id="activity">
-  <div class="container">
-    <p class="label reveal">Our Activity</p>
-    <h2 class="sec-title"><span class="mask"><span class="mline">毎週末、まちに出ています。</span></span></h2>
-
-    <div class="social-content" id="social-videos" style="scroll-margin-top:90px">
-      <div class="instagram-feature">
-        <div><p class="eyebrow">INSTAGRAM / REELS</p><h3>まちでの活動を<br>いちばん近くで。</h3><p>日々の作業や仲間の様子はInstagramで発信しています。<br>最新のリールも、活動への参加相談もこちらから。</p></div>
-        <div><a class="social-ig" href="https://www.instagram.com/clean_vibes_ito/reels/?hl=ja" target="_blank" rel="noopener">Instagramのリールを見る ↗</a><small>@clean_vibes_ito</small></div>
+    <div class="values grid-3">
+      <div class="card">
+        <h3>研究を参考に、現場で確かめる</h3>
+        <p>国内外の研究や事例を参考にしながら、伊東での実践を通じて改善を重ねています。研究でわかっていることと、私たちの現場での結果は、分けてお伝えします。</p>
       </div>
-      <section class="ig-reels-section" id="instagram-reels" aria-labelledby="ig-reels-title"><h3 id="ig-reels-title">Instagram Reels</h3><p>まちが変わっていく様子を動画で。</p><div class="ig-reels-grid"><article class="ig-reel-card" aria-label="CleanVibesのリール 1"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DdnKeAwysT2/" data-instgrm-version="14"><a href="https://www.instagram.com/reel/DdnKeAwysT2/" target="_blank" rel="noopener">CleanVibesのリールをInstagramで見る</a></blockquote><a href="https://www.instagram.com/reel/DdnKeAwysT2/" target="_blank" rel="noopener">Instagramで見る ↗</a></article>
-<article class="ig-reel-card" aria-label="CleanVibesのリール 2"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DdkjBBtS7ou/" data-instgrm-version="14"><a href="https://www.instagram.com/reel/DdkjBBtS7ou/" target="_blank" rel="noopener">CleanVibesのリールをInstagramで見る</a></blockquote><a href="https://www.instagram.com/reel/DdkjBBtS7ou/" target="_blank" rel="noopener">Instagramで見る ↗</a></article>
-<article class="ig-reel-card" aria-label="CleanVibesのリール 3"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DdhuDiHyLyX/" data-instgrm-version="14"><a href="https://www.instagram.com/reel/DdhuDiHyLyX/" target="_blank" rel="noopener">CleanVibesのリールをInstagramで見る</a></blockquote><a href="https://www.instagram.com/reel/DdhuDiHyLyX/" target="_blank" rel="noopener">Instagramで見る ↗</a></article></div><p class="shorts-note">横に並ぶ動画はスワイプしてご覧ください。表示・再生できない場合は「Instagramで見る」から開けます。</p></section>
-      <div class="shorts-heading"><div><h3>YouTube Shorts</h3><p>活動の様子をショート動画で。タップして再生できます。</p></div><a href="https://www.youtube.com/@ITO-CleanVibes/shorts" target="_blank" rel="noopener">新しいショートを一覧で見る ↗</a></div>
-      <div class="shorts-grid" aria-label="CleanVibesのショート動画"><article class="short-card"><div class="short-player"><button type="button" data-short-id="OF7wQui5P-I" data-short-title="子どもたちの通学路を何とかしてあげたい" aria-label="子どもたちの通学路を何とかしてあげたいを再生"><img src="https://i.ytimg.com/vi/OF7wQui5P-I/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"><span class="short-play-label"><b aria-hidden="true">▶</b><span>ショートを再生</span></span></button></div><h4>子どもたちの通学路を何とかしてあげたい</h4><a href="https://www.youtube.com/shorts/OF7wQui5P-I" target="_blank" rel="noopener">YouTubeで見る ↗</a></article>
-<article class="short-card"><div class="short-player"><button type="button" data-short-id="BD8wr3f6wv8" data-short-title="【伊東市】じめーっとした道を変えたいから綺麗にしてみた" aria-label="【伊東市】じめーっとした道を変えたいから綺麗にしてみたを再生"><img src="https://i.ytimg.com/vi/BD8wr3f6wv8/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"><span class="short-play-label"><b aria-hidden="true">▶</b><span>ショートを再生</span></span></button></div><h4>【伊東市】じめーっとした道を変えたいから綺麗にしてみた</h4><a href="https://www.youtube.com/shorts/BD8wr3f6wv8" target="_blank" rel="noopener">YouTubeで見る ↗</a></article>
-<article class="short-card"><div class="short-player"><button type="button" data-short-id="0IDDVp3S2s8" data-short-title="【伊東市】子どもたちの通学路にボランティアで手を入れてみた" aria-label="【伊東市】子どもたちの通学路にボランティアで手を入れてみたを再生"><img src="https://i.ytimg.com/vi/0IDDVp3S2s8/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"><span class="short-play-label"><b aria-hidden="true">▶</b><span>ショートを再生</span></span></button></div><h4>【伊東市】子どもたちの通学路にボランティアで手を入れてみた</h4><a href="https://www.youtube.com/shorts/0IDDVp3S2s8" target="_blank" rel="noopener">YouTubeで見る ↗</a></article></div>
-      <p class="shorts-note">スマホでは横にスワイプできます。再生できない場合は「YouTubeで見る」からご覧ください。新しい投稿は各SNSの一覧で確認できます。</p>
+      <div class="card">
+        <h3>資格や高価な機械はいらない</h3>
+        <p>特別な資格や高価な機械がなくても取り組めます。ただし、火を使う工程は経験者が担当し、管理者への確認を必ず行います。</p>
+      </div>
+      <div class="card">
+        <h3>一度きりより、続けること</h3>
+        <p>仕上がりには、とことんこだわります。「ボランティアだから、ここまで」とは考えません。そして、一度きりの完璧より、何度でも通い続けることを選びました。</p>
+      </div>
     </div>
-    <ul class="works reveal">
-      <li>除草〜防草</li>
-      <li>側溝清掃</li>
-      <li>苔落とし</li>
-      <li>駐車場の白線塗装</li>
-      <li>ガードレール等の塗装</li>
-      <li>学校の高圧洗浄</li>
-    </ul>
-    <p class="works-note reveal">仕上がりには、とことんこだわります。「ボランティアだから、ここまで」とは考えません。<br>お金にも納期にも縛られないからこそ、出せる質がある。<b>ボランティアだからこそできる質</b>を、私たちは信じています。</p>
-    <div class="grid">
-      <div class="reveal">
-        <div class="insta-grid">
-          <a href="https://www.instagram.com/clean_vibes_ito/" target="_blank" rel="noopener"><img src="img/act12.jpg" alt="オレンジビーチでの集合写真" loading="lazy"></a>
-          <a href="https://www.instagram.com/clean_vibes_ito/" target="_blank" rel="noopener"><img src="img/act06.jpg" alt="掃き掃除のようす" loading="lazy"></a>
-          <a href="https://www.instagram.com/clean_vibes_ito/" target="_blank" rel="noopener"><img src="img/act07.jpg" alt="道路沿いの除草作業" loading="lazy"></a>
-          <a href="https://www.instagram.com/clean_vibes_ito/" target="_blank" rel="noopener"><img src="img/act10.jpg" alt="歩道の清掃作業" loading="lazy"></a>
-          <a href="https://www.instagram.com/clean_vibes_ito/" target="_blank" rel="noopener"><img src="img/act05.jpg" alt="舗装の目地の除草" loading="lazy"></a>
-          <a href="https://www.instagram.com/clean_vibes_ito/" target="_blank" rel="noopener"><img src="img/act04.jpg" alt="壁際の清掃のようす" loading="lazy"></a>
+  </div>
+</section>
+
+<!-- 3. 防草の方法 -->
+<section class="section soft" id="method">
+  <div class="wrap">
+    <p class="sec-label">Method</p>
+    <h2>防草の方法（5つの工程）</h2>
+    <p class="sec-lead">防草とは、雑草を生えにくくすることです。ここでは、除草剤を使わずに雑草を生えにくくするための5つの工程を紹介します。「研究でわかっていること」には論文で報告されている一般的な内容を、伊東での結果は<a href="#results">「検証と実績」</a>に、分けて書いています。</p>
+
+    <ol class="steps">
+      <li class="step">
+        <div class="step-head"><span class="step-no" aria-hidden="true">1</span><div><h3>ほじる</h3><p>土ごと、根ごと取り除く</p></div></div>
+        <div class="step-body">
+          <div><h4>やり方</h4><p>専用の道具で、草を根ごと掘り起こします。表面の土に残った根や種も、できるだけ一緒に取り除きます。次に生えてくる草を減らすためです。</p></div>
+          <div><h4>研究でわかっていること</h4><p>畑での調査では、雑草の多くが地表近くの浅いところから芽を出すことが報告されています。</p></div>
         </div>
-        <a class="btn-insta" href="https://www.instagram.com/clean_vibes_ito/reels/?hl=ja" target="_blank" rel="noopener">Instagramの最新リールを見る</a>
+        <p class="source">参考：du Croix Sissons ほか（2000）<a href="https://doi.org/10.1614/0043-1745(2000)048%5B0327:DOSROF%5D2.0.CO;2" target="_blank" rel="noopener">Weed Science 48巻</a></p>
+      </li>
+      <li class="step">
+        <div class="step-head"><span class="step-no" aria-hidden="true">2</span><div><h3>掃く</h3><p>地面をきれいにする</p></div></div>
+        <div class="step-body single">
+          <div><h4>やり方</h4><p>ほじった後の土や草くずを掃き集めます。<span class="tbd">要確認：この工程の目的</span></p></div>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-head"><span class="step-no" aria-hidden="true">3</span><div><h3>焼く</h3><p>地上に出ている草を、熱で傷める</p></div></div>
+        <div class="step-body">
+          <div><h4>やり方</h4><p>バーナーの火を短時間だけ当てます。燃やすのではなく、熱で草の細胞を傷める工程です。必要に応じて何度か繰り返します。地中の根や種までは枯らせません。</p></div>
+          <div><h4>研究でわかっていること</h4><p>火を当てたときの効き方は、草の種類や育ち具合によって大きく変わることが報告されています。</p></div>
+        </div>
+        <p class="safety"><b>安全のために</b>火を使うため、経験者が担当します。管理者への確認、消火の準備、周りの安全確認を必ず行います。<span class="tbd">要確認：中止の基準・消防への届出</span></p>
+        <p class="source">参考：Ascard（1995）<a href="https://doi.org/10.1111/j.1365-3180.1995.tb01636.x" target="_blank" rel="noopener">Weed Research 35巻</a></p>
+      </li>
+      <li class="step">
+        <div class="step-head"><span class="step-no" aria-hidden="true">4</span><div><h3>埋める</h3><p>目地や隙間をふさぐ</p></div></div>
+        <div class="step-body">
+          <div><h4>やり方</h4><p>目地や隙間を防草材で埋めます。種が入り込む場所を減らすためです。防草材は、場所や景観、管理者の方針に合わせて選び、製品の施工要領に従って使います。<span class="tbd">要確認：防草材の種類</span></p></div>
+          <div><h4>研究でわかっていること</h4><p>舗装された場所の雑草対策では、いくつかの方法を組み合わせることや、雑草が生えにくい舗装にすることが有効だとまとめられています。</p></div>
+        </div>
+        <p class="source">参考：Rask &amp; Kristoffersen（2007）<a href="https://doi.org/10.1111/j.1365-3180.2007.00579.x" target="_blank" rel="noopener">Weed Research 47巻</a></p>
+      </li>
+      <li class="step">
+        <div class="step-head"><span class="step-no" aria-hidden="true">5</span><div><h3>アルカリ水をまく<span class="badge">検証中</span></h3><p>効果を確かめている途中の工程</p></div></div>
+        <div class="step-body single">
+          <div><h4>やり方</h4><p>セスキ炭酸ソーダ（重曹に近い、身近な洗浄成分）を水に溶かしたアルカリ水をまきます。この工程の効果は、いま現場で確かめているところです。<span class="tbd">要確認：まく目的と、除草剤との違いの説明</span></p></div>
+        </div>
+      </li>
+    </ol>
+    <p class="no-herbicide">どの工程でも、除草剤は使いません。</p>
+  </div>
+</section>
+
+<!-- 4. 検証と実績 -->
+<section class="section" id="results">
+  <div class="wrap">
+    <p class="sec-label">Results</p>
+    <h2>検証と実績</h2>
+    <div class="results grid-3">
+      <div class="card result-main">
+        <span class="chip">検証の結果</span>
+        <h3>作業した場所を、3か月後に確かめました</h3>
+        <p><span class="tbd">要確認：年</span>4月に作業した場所を、3か月後に確かめました。雑草は約95%抑えられており、生えていたのは、わずかな隙間からだけでした。</p>
+        <p class="note">※この場所での結果です。<span class="tbd">要確認：行った工程・確かめ方</span></p>
+        <p style="margin-top:14px">ただし、「もう二度と生えない」とは言いません。半年もすれば、雑草はまた顔を出します。本当に、しぶといんです。だから私たちは、何度でも通い続けます。<span class="tbd">要確認：「半年」がいまの団体の見解か</span></p>
       </div>
-      <div class="cal-card reveal">
-        <h3>活動カレンダー</h3>
-        <dl>
-          <div class="row"><dt>活動日</dt><dd>週末の朝 6:00〜7:00</dd></div>
-          <div class="row"><dt>場所</dt><dd>伊東市内各所（その時々で移動します）</dd></div>
-          <div class="row"><dt>作業内容</dt><dd>除草〜防草、側溝清掃、苔落とし、白線塗装、ガードレール塗装、高圧洗浄 など</dd></div>
-          <div class="row"><dt>参加方法</dt><dd>InstagramのDMから「参加希望日・お名前・人数」を送信</dd></div>
-        </dl>
-        <h3 style="margin-top:24px">直近の活動</h3>
-        <ul class="recent" id="recentList">
-          <li><b>2026.06.07</b> さくらの里 — 除草、防草、側溝（8名）</li>
-          <li><b>2026.06.06</b> さくらの里 — 防草、除草、側溝（7名）</li>
-          <li><b>2026.05.31</b> さくらの里 — 除草、防草、洗浄（12名）</li>
-        </ul>
-        <p class="note">最新の活動報告は<a href="https://www.instagram.com/clean_vibes_ito/" target="_blank" rel="noopener" style="color:var(--deepblue);font-weight:700">Instagram</a>で随時更新中。観光でお越しの方も大歓迎です。道具はすべて貸し出します。</p>
-        <p class="contact-line">お問い合わせは <a href="https://www.instagram.com/clean_vibes_ito/" target="_blank" rel="noopener" style="color:var(--deepblue);font-weight:700">InstagramのDM</a> へ。</p>
+      <div class="card">
+        <span class="chip">新しい試み</span>
+        <h3>モルタルを使った防草の実証実験<span class="badge">検証中</span></h3>
+        <p>2026年11月から、左官職人の指導のもと、モルタルを使った防草の実証実験を始めました。効果はこれから確かめます。</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ 7.5 ACTIVITY REPORTS（記録アプリから自動連携） ============ -->
-<section class="reports" id="reports" style="display:none">
-  <div class="container">
-    <p class="label">Activity Reports</p>
-    <h2 class="sec-title">最新の活動レポート</h2>
-    <p class="reports-note">活動記録アプリから自動で連携されています。</p>
-    <div class="report-grid" id="reportGrid"></div>
-  </div>
-</section>
-
-<!-- ============ 5. GLOBAL ============ -->
-<section class="global" id="global">
-  <div class="container">
-    <p class="label reveal">Global Movement</p>
-    <h2 class="sec-title"><span class="mask"><span class="mline">私たちは世界の流れの<br>一部です。</span></span></h2>
-    <p class="lead reveal">「綺麗にしたい」という気持ちは、きっと国境も言葉も超えて、誰の心にもあります。だからこそ私たちは、その共通の感覚で世界とつながりたい。除草剤に頼らないまちづくりは、すでに世界の潮流です。火炎除草も、ヨーロッパの自治体ではめずらしくない方法です。</p>
-    <div class="country-grid">
-      <div class="ccard reveal"><span class="flag" aria-hidden="true">🇫🇷</span><h3>フランス</h3><p>2017年から公共空間での農薬使用を禁止（2022年に対象を拡大）。火炎除草が主要な代替手段に。</p></div>
-      <div class="ccard reveal"><span class="flag" aria-hidden="true">🇩🇰</span><h3>デンマーク</h3><p>1995〜2002年で自治体の農薬使用を83%削減。火炎処理が広く使用されています。</p></div>
-      <div class="ccard reveal"><span class="flag" aria-hidden="true">🇸🇪</span><h3>スウェーデン</h3><p>火炎処理が自治体レベルで定着しています。</p></div>
-      <div class="ccard reveal"><span class="flag" aria-hidden="true">🇩🇪</span><h3>ドイツ</h3><p>欧州最大の火炎除草機メーカー（Reinert）が存在。業務用の大型機で、市民が使う火炎機より高温の2,000℃級で処理します。</p></div>
-      <div class="ccard reveal"><span class="flag" aria-hidden="true">🇺🇸</span><h3>アメリカ</h3><p>メリーランド大学・コロラド州立大学が公式に研究・推奨しています。</p></div>
-      <div class="ccard jp-card reveal"><span class="tag">私たちはここ</span><span class="flag" aria-hidden="true">🇯🇵</span><h3>日本（CleanVibes）</h3><p>市民団体が組織的に運用する、国内では先進的な事例です。</p></div>
-    </div>
-    <p class="closing reveal">日本ではまだ、珍しいやり方かもしれません。だったら——<span class="grad-text">私たちが先頭を走って、証明します。</span></p>
-  </div>
-</section>
-
-<!-- ============ SUPPORT ============ -->
-<section id="support">
-  <div class="container">
-    <p class="label reveal">Support us</p>
-    <h2 class="sec-title"><span class="mask"><span class="mline">活動を、支える。</span></span></h2>
-    <p class="sec-title-jp reveal">寄付・協賛のお願い</p>
-    <div class="tried-cta reveal">
-      <b>現場に立つことだけが、参加のかたちではありません。</b><br>
-      道具も資材も、活動を続けるにはお金がかかります。いただいたご支援は、防草の資材や道具の購入に大切に使わせていただきます。『応援したい』——その気持ちだけで十分に力になります。法人・団体さまの協賛も、心より歓迎します。<br>
-      ご連絡は <a href="https://www.instagram.com/clean_vibes_ito/" target="_blank" rel="noopener" style="color:var(--deepblue);font-weight:700;border-bottom:1px solid currentColor">InstagramのDM</a> へ。
-    </div>
-    <style>
-      .support-wall{margin-top:clamp(30px,3.6vw,52px)}
-      .sw-title{font-size:clamp(16px,1.5vw,22px);font-weight:900;letter-spacing:.06em;margin-bottom:16px}
-      .support-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;list-style:none;padding:0;margin:0}
-      .support-list li{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:#fff;border-radius:12px;padding:12px 16px;box-shadow:0 3px 12px rgba(26,43,60,.06);font-size:13.5px}
-      .support-list li b{font-weight:700}
-      .support-list .sv{color:var(--gray)}
-      .support-list .sc{margin-left:auto;font-size:11px;font-weight:700;letter-spacing:.06em;color:#fff;background:var(--grad);border-radius:999px;padding:3px 11px;white-space:nowrap}
-      .sw-note{font-size:12px;color:var(--gray);margin-top:16px;line-height:2}
-    </style>
-    <div class="support-wall reveal" id="supportWall" style="display:none">
-      <h3 class="sw-title">これまでの応援</h3>
-      <ul class="support-list" id="supportList"></ul>
-      <p class="sw-note">物品・資材・お力添えをくださったみなさま、本当にありがとうございます。（お名前はプライバシー配慮のためイニシャルで掲載しています）</p>
+<!-- 5. 伊東で参加する -->
+<section class="section teal" id="join">
+  <div class="wrap">
+    <p class="sec-label">Join</p>
+    <h2>伊東で参加する</h2>
+    <p class="sec-lead">土日祝の朝、まちに出ています。</p>
+    <p class="welcome">初めての方、親子、観光でお越しの方も歓迎です</p>
+    <div class="card join-card">
+      <dl>
+        <dt>日時</dt><dd>土日祝の朝6:30〜7:30</dd>
+        <dt>場所</dt><dd>毎回変わります。Instagramでお知らせします。</dd>
+        <dt>作業内容</dt><dd>除草・防草、側溝の清掃、<span class="nowrap">苔落とし など</span><span class="tbd">要確認：いまも行っている作業</span></dd>
+        <dt>申し込み</dt><dd>Instagramのダイレクトメッセージ（DM）で、「参加希望日・お名前・人数」をお送りください。<br>Instagramをお使いでない方：<span class="tbd">要確認</span></dd>
+        <dt>持ち物</dt><dd>軍手（道具はある程度こちらで用意します）</dd>
+        <dt>服装</dt><dd><span class="tbd">要確認</span></dd>
+        <dt>雨の日</dt><dd><span class="tbd">要確認</span></dd>
+        <dt>保険</dt><dd><span class="tbd">要確認</span></dd>
+        <dt>写真</dt><dd><span class="tbd">要確認：撮影・掲載の方針</span></dd>
+      </dl>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="https://ig.me/m/clean_vibes_ito" target="_blank" rel="noopener">InstagramのDMで申し込む</a>
+        <a class="btn btn-outline" href="https://www.instagram.com/clean_vibes_ito/" target="_blank" rel="noopener">最新の日程を見る</a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============ 8. FOOTER ============ -->
-<footer class="footer" id="contact">
-  <div class="container">
-    <div class="inner">
+<!-- 6. あなたのまちで始める -->
+<section class="section" id="start">
+  <div class="wrap">
+    <p class="sec-label">Start</p>
+    <h2>あなたのまちで始める</h2>
+    <p class="sec-lead">このやり方を、伊東だけのものにするつもりはありません。伊東市内の他の地域や、埼玉県狭山市など他県でも、同じような取り組みが始まりつつあります。</p>
+    <p class="call">真似してください。もっと良くしてください。<br>そして、あなたのまちで始めてください。</p>
+    <ol class="start-steps grid-3">
+      <li class="card"><p class="num">STEP 1</p><h3>方法を知る</h3><p>このページの<a href="#method">「防草の方法」</a>で、5つの工程を紹介しています。</p></li>
+      <li class="card"><p class="num">STEP 2</p><h3>始める前に</h3><p>公共の場所では、必ず管理者の許可を得てください。火を使う工程は経験のある人が担当し、消火の準備と周りの安全確認をしてから行ってください。経験のある人がいない場合は<span class="tbd">要確認：団体としての案内</span>。⑤のアルカリ水は、効果を確かめている途中の工程です。</p></li>
+      <li class="card"><p class="num">STEP 3</p><h3>相談・報告する</h3><p>詳しい資料のご依頼や道具の相談、「うちのまちでもやってみた」というご報告は、InstagramのDMで受け付けています。</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 7. 活動の軌跡 -->
+<section class="section soft" id="history">
+  <div class="wrap">
+    <p class="sec-label">History</p>
+    <h2>活動の軌跡</h2>
+    <ol class="timeline">
+      <li><span class="when">2022年4月</span>伊東のオレンジビーチで活動開始</li>
+      <li><span class="when"><span class="tbd">要確認：時期</span></span>しずおかアダプトロード・プログラムで、国道135号のオレンジビーチ沿いの区間について協定（同意書）を結ぶ</li>
+      <li><span class="when"><span class="tbd">要確認：時期</span></span>伊豆新聞に活動が取り上げられる</li>
+      <li><span class="when">2025年</span>関東商工会議所連合会ベスト・アクション表彰ほか<span class="tbd">要確認：正式名称・受賞月</span></li>
+      <li><span class="when">2026年10月時点</span>活動回数が累計500回以上</li>
+      <li><span class="when">2026年11月</span>左官職人の指導で、モルタルを使った防草の実証実験を開始</li>
+      <li class="goal"><span class="when">2030年（目標）</span>このやり方を届けきって解散</li>
+    </ol>
+
+    <h3 class="sub-h">活動の様子</h3>
+    <div class="gallery">
+      <img src="img/sm/act05.jpg" alt="歩道の目地の雑草を取り除く様子" width="800" height="1067" loading="lazy">
+      <img src="img/sm/act01.jpg" alt="側溝の脇を清掃する様子" width="800" height="1067" loading="lazy">
+      <img src="img/sm/act06.jpg" alt="植え込みの脇を掃き集める様子" width="800" height="1067" loading="lazy">
+      <img src="img/sm/act09.jpg" alt="歩道の縁の雑草を取り除いた跡" width="800" height="1067" loading="lazy">
+      <img src="img/sm/act10.jpg" alt="交差点近くの歩道で作業する参加者" width="800" height="1067" loading="lazy">
+      <img src="img/sm/act08.jpg" alt="集めた雑草を詰めた袋の山" width="800" height="1067" loading="lazy">
+    </div>
+
+    <h3 class="sub-h">動画で見る</h3>
+    <div class="shorts">
+      <article class="short"><div class="short-player"><button type="button" data-short-id="OF7wQui5P-I" data-short-title="子どもたちの通学路を何とかしてあげたい" aria-label="動画「子どもたちの通学路を何とかしてあげたい」を再生"><img src="https://i.ytimg.com/vi/OF7wQui5P-I/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"><span class="short-play"><b aria-hidden="true">▶</b><span>再生する</span></span></button></div><h4>子どもたちの通学路を何とかしてあげたい</h4><a class="ext" href="https://www.youtube.com/shorts/OF7wQui5P-I" target="_blank" rel="noopener">YouTubeで見る</a></article>
+      <article class="short"><div class="short-player"><button type="button" data-short-id="BD8wr3f6wv8" data-short-title="【伊東市】じめーっとした道を変えたいから綺麗にしてみた" aria-label="動画「【伊東市】じめーっとした道を変えたいから綺麗にしてみた」を再生"><img src="https://i.ytimg.com/vi/BD8wr3f6wv8/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"><span class="short-play"><b aria-hidden="true">▶</b><span>再生する</span></span></button></div><h4>【伊東市】じめーっとした道を変えたいから綺麗にしてみた</h4><a class="ext" href="https://www.youtube.com/shorts/BD8wr3f6wv8" target="_blank" rel="noopener">YouTubeで見る</a></article>
+      <article class="short"><div class="short-player"><button type="button" data-short-id="0IDDVp3S2s8" data-short-title="【伊東市】子どもたちの通学路にボランティアで手を入れてみた" aria-label="動画「【伊東市】子どもたちの通学路にボランティアで手を入れてみた」を再生"><img src="https://i.ytimg.com/vi/0IDDVp3S2s8/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"><span class="short-play"><b aria-hidden="true">▶</b><span>再生する</span></span></button></div><h4>【伊東市】子どもたちの通学路にボランティアで手を入れてみた</h4><a class="ext" href="https://www.youtube.com/shorts/0IDDVp3S2s8" target="_blank" rel="noopener">YouTubeで見る</a></article>
+    </div>
+    <div class="btn-row">
+      <a class="btn btn-outline" href="https://www.instagram.com/clean_vibes_ito/" target="_blank" rel="noopener">Instagramで最新の活動を見る</a>
+      <a class="btn btn-outline" href="https://www.youtube.com/@ITO-CleanVibes/shorts" target="_blank" rel="noopener">YouTubeでほかの動画を見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- 8. 支援する -->
+<section class="section" id="support">
+  <div class="wrap">
+    <p class="sec-label">Support</p>
+    <h2>活動を支援する</h2>
+    <div class="prose sec-lead">
+      <p>現場に立つことだけが、参加のかたちではありません。活動を続けるには、道具や資材が欠かせません。いただいたご支援は、防草の資材や道具の購入に大切に使います。企業・団体の皆さまからの協賛も歓迎しています。</p>
+      <p>これまでに物品や資材、お力添えをくださった皆さま、本当にありがとうございます。</p>
+    </div>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="#" aria-disabled="true">Amazonほしい物リスト</a>
+      <a class="btn btn-outline" href="#contact">協賛のご相談</a>
+    </div>
+    <p class="note"><span class="tbd">要確認：ほしい物リストのURL</span> <span class="tbd">要確認：受け付ける支援（物品・協賛・寄付金）</span> <span class="tbd">要確認：使い道の報告方法</span></p>
+  </div>
+</section>
+
+<!-- 9. メディア・受賞・協働 -->
+<section class="section soft" id="proof">
+  <div class="wrap">
+    <p class="sec-label">Recognition</p>
+    <h2>メディア・受賞・協働</h2>
+    <div class="proof grid-3">
+      <div class="card">
+        <span class="chip">行政との協働</span>
+        <h3>しずおかアダプトロード・プログラム</h3>
+        <p>この制度に参加し、国道135号のオレンジビーチ沿いの区間について、協定（同意書）を結んでいます。<span class="tbd">要確認：締結日</span></p>
+        <p class="note"><a class="ext" href="https://www.pref.shizuoka.jp/machizukuri/doro/doroiji/1040923/1029261.html" target="_blank" rel="noopener">制度について（静岡県）</a></p>
+      </div>
+      <div class="card">
+        <span class="chip">メディア掲載</span>
+        <h3>伊豆新聞</h3>
+        <p>活動が取り上げられています（諏訪市での活動の記事など）。<span class="tbd">要確認：掲載日・記事の見出し</span></p>
+      </div>
+      <div class="card">
+        <span class="chip">受賞</span>
+        <h3>関東商工会議所連合会 ベスト・アクション表彰ほか</h3>
+        <p>2025年<span class="tbd">要確認：正式名称・受賞月</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. お問い合わせ -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <p class="sec-label">Contact</p>
+    <h2>お問い合わせ</h2>
+    <dl class="contact-list">
+      <div><dt>活動への参加</dt><dd>Instagramのダイレクトメッセージ（DM）</dd></div>
+      <div><dt>自分のまちで始めたい・資料がほしい</dt><dd>InstagramのDM</dd></div>
+      <div><dt>支援・協賛のご相談</dt><dd><span class="tbd">要確認：メールまたはフォーム</span>（当面はInstagramのDM）</dd></div>
+      <div><dt>行政・報道機関の方</dt><dd><span class="tbd">要確認：メールまたはフォーム</span>（当面はInstagramのDM）</dd></div>
+    </dl>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="https://ig.me/m/clean_vibes_ito" target="_blank" rel="noopener">InstagramのDMを送る</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
       <div>
-        <p class="brand"><img class="brand-mark" src="img/logo-mark.png" alt="">CleanVibes</p>
-        <p class="slogan">綺麗なまちを後世へ</p>
-        <p class="slogan-en">Clean towns, handed to the future — from Ito to all of Japan.</p>
-        <address>
-          静岡県伊東市<br>
-          Instagram @clean_vibes_ito
-        </address>
+        <img class="footer-logo" src="img/logo-yoko.png" alt="Clean Vibes 綺麗なまちを後世へ" width="800" height="226" loading="lazy">
+        <p style="margin-top:12px">静岡県伊東市</p>
       </div>
-      <div class="links">
-        <a href="https://www.instagram.com/clean_vibes_ito/reels/?hl=ja" target="_blank" rel="noopener">Instagram Reels</a>
-        <a href="https://www.youtube.com/@ITO-CleanVibes/shorts" target="_blank" rel="noopener">YouTube Shorts</a>
+      <div class="footer-links">
+        <a class="ext" href="https://www.instagram.com/clean_vibes_ito/" target="_blank" rel="noopener">Instagram（@clean_vibes_ito）</a>
+        <a class="ext" href="https://www.youtube.com/@ITO-CleanVibes" target="_blank" rel="noopener">YouTube</a>
       </div>
     </div>
-    <details style="margin-top:20px;font-size:12px;line-height:1.9">
-      <summary style="cursor:pointer">アクセス解析について</summary>
-      <p>当サイトではサイトの改善のためGoogle アナリティクスを使用し、Cookieを通じて閲覧状況やSNSリンクのクリックを集計しています。解析結果は一般公開しません。氏名やメールアドレスを計測データとして送信しません。広告向けの追加機能は無効にしています。</p>
-      <p><a href="https://policies.google.com/technologies/partner-sites?hl=ja" target="_blank" rel="noopener">Googleによるデータの利用</a> ／ <a href="https://tools.google.com/dlpage/gaoptout?hl=ja" target="_blank" rel="noopener">ブラウザ拡張による計測の停止</a></p>
+    <details>
+      <summary>写真の掲載について</summary>
+      <p><span class="tbd">要確認：撮影・掲載の方針、掲載を望まない方への対応、子どもの写真の扱い</span></p>
     </details>
-    <p class="copy">2022 – 2030 CleanVibes — Ito, Shizuoka, Japan</p>
+    <details>
+      <summary>アクセス解析について</summary>
+      <p>このサイトでは、内容の改善のためにGoogleアナリティクスを使い、Cookieを通じて閲覧状況やSNSへのリンクのクリック数を集計しています。集計結果は公開しません。氏名やメールアドレスを、計測データとして送ることはありません。広告向けの機能は無効にしています。動画は、再生ボタンを押したときにYouTubeから読み込みます（動画の表紙の画像は、ページを開いたときに読み込みます）。</p>
+      <p><a class="ext" href="https://policies.google.com/technologies/partner-sites?hl=ja" target="_blank" rel="noopener">Googleによるデータの利用</a> ／ <a class="ext" href="https://tools.google.com/dlpage/gaoptout?hl=ja" target="_blank" rel="noopener">計測を止める方法（ブラウザ拡張）</a></p>
+    </details>
+    <p class="copyright">最終更新：2026年11月　© 2022 Clean Vibes</p>
   </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<nav class="mobile-bar" aria-label="参加とInstagram">
+  <a class="btn btn-primary" href="#join">参加する</a>
+  <a class="btn btn-outline" href="https://www.instagram.com/clean_vibes_ito/" target="_blank" rel="noopener">Instagram</a>
+</nav>
+
 <script>
 (function(){
-  const header = document.getElementById('header');
-  const menuBtn = document.getElementById('menuBtn');
-  const mobileNav = document.getElementById('mobileNav');
-
-  /* mobile menu */
-  menuBtn.addEventListener('click', () => {
-    const open = mobileNav.classList.toggle('open');
-    menuBtn.children[0].style.transform = open ? 'translateY(8px) rotate(45deg)' : '';
-    menuBtn.children[1].style.opacity = open ? '0' : '';
-    menuBtn.children[2].style.transform = open ? 'translateY(-8px) rotate(-45deg)' : '';
-    menuBtn.style.color = open ? '#fff' : '';
-  });
-  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { if (mobileNav.classList.contains('open')) menuBtn.click(); }));
-
-  /* header: tint over hero, shrink + hide/show on scroll */
-  let lastY = 0;
-  const heroEl = document.querySelector('.hero');
-  function onScrollY(y){
-    header.classList.toggle('is-scrolled', y > 40);
-    if (y > 200 && y > lastY + 3) header.classList.add('is-hidden');
-    else if (y < lastY - 3) header.classList.remove('is-hidden');
-    header.style.color = (y < heroEl.offsetHeight - 80 && y <= 40) ? '#fff' : '';
-    lastY = y;
+  /* スマホのメニュー：閉じている間はリンクにフォーカスが入らないよう hidden で隠す */
+  var btn = document.querySelector('.menu-btn');
+  var nav = document.getElementById('site-nav');
+  var mq = window.matchMedia('(max-width: 1180px)');
+  function setOpen(open){
+    btn.setAttribute('aria-expanded', String(open));
+    nav.hidden = mq.matches ? !open : false;
   }
-  onScrollY(0);
+  setOpen(false);
+  btn.addEventListener('click', function(){ setOpen(btn.getAttribute('aria-expanded') !== 'true'); });
+  nav.addEventListener('click', function(e){ if (e.target.closest('a') && mq.matches) setOpen(false); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') { setOpen(false); btn.focus(); } });
+  mq.addEventListener('change', function(){ setOpen(false); });
 
-  if (!window.gsap || !window.Lenis) {
-    addEventListener('scroll', () => onScrollY(scrollY), {passive:true});
-    return;
-  }
-
-  gsap.registerPlugin(ScrollTrigger);
-  const lenis = new Lenis({ duration: 1.2, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
-  lenis.on('scroll', e => { onScrollY(e.scroll); ScrollTrigger.update(); });
-  gsap.ticker.add(t => lenis.raf(t * 1000));
-  gsap.ticker.lagSmoothing(0);
-
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', ev => {
-      const t = document.querySelector(a.getAttribute('href'));
-      if (!t) return;
-      ev.preventDefault();
-      lenis.scrollTo(t, { offset: -10, duration: 1.4 });
+  /* 動画は、再生ボタンを押したときだけYouTubeから読み込む */
+  document.querySelectorAll('[data-short-id]').forEach(function(button){
+    button.addEventListener('click', function(){
+      var id = button.dataset.shortId;
+      if (!/^[A-Za-z0-9_-]{11}$/.test(id)) return;
+      document.querySelectorAll('.short-player iframe').forEach(function(old){
+        var poster = old.parentElement.querySelector('button');
+        old.remove(); if (poster) poster.hidden = false;
+      });
+      var frame = document.createElement('iframe');
+      frame.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&playsinline=1&rel=0';
+      frame.title = button.dataset.shortTitle;
+      frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      frame.allowFullscreen = true;
+      frame.referrerPolicy = 'strict-origin-when-cross-origin';
+      button.hidden = true; button.parentElement.appendChild(frame); frame.focus();
     });
-  });
-
-  const EASE = 'expo.out';
-  const ST = (trg, extra = {}) => ({ scrollTrigger: { trigger: trg, start: 'top 86%', ...extra } });
-
-  /* ===== hero intro: aligned line masks ===== */
-  gsap.timeline({ defaults: { ease: EASE } })
-    .from('.hero h1 .l-in', { yPercent: 115, duration: 1.4, stagger: 0.14 }, 0.15)
-    .from('.hero .tagline', { opacity: 0, y: 26, duration: 1.2 }, 0.6)
-    .from('.hero .sub', { opacity: 0, y: 26, duration: 1.2 }, 0.75)
-    .from('.hero .ctas a', { opacity: 0, y: 24, duration: 1, stagger: 0.1 }, 0.85)
-    .from('.hero .stat', { opacity: 0, y: 30, scale: .92, duration: 1, stagger: 0.12, ease: 'back.out(1.6)' }, 1.0)
-    .from('.hero .scroll', { opacity: 0, duration: 1 }, 1.5);
-
-  /* hero blobs drift */
-  gsap.to('.hero .b1', { xPercent: -10, yPercent: 14, duration: 9, yoyo: true, repeat: -1, ease: 'sine.inOut' });
-  gsap.to('.hero .b2', { xPercent: 12, yPercent: -10, duration: 11, yoyo: true, repeat: -1, ease: 'sine.inOut' });
-
-  /* ===== section titles ===== */
-  document.querySelectorAll('.mline').forEach(el => {
-    gsap.from(el, { yPercent: 115, duration: 1.4, ease: EASE, ...ST(el, { start: 'top 88%' }) });
-  });
-
-  /* ===== method steps: verb stamps in from alternating sides, bg number scrubs ===== */
-  document.querySelectorAll('.step').forEach((step, i) => {
-    const dir = i % 2 === 0 ? 1 : -1;
-    gsap.from(step.querySelector('.step-in'), { x: 90 * dir, opacity: 0, scale: .9, duration: 1.4, ease: EASE, ...ST(step, { start: 'top 75%' }) });
-    gsap.fromTo(step.querySelector('.bg-no'), { yPercent: -75 }, { yPercent: -25, ease: 'none', scrollTrigger: { trigger: step, start: 'top bottom', end: 'bottom top', scrub: true } });
-  });
-
-  /* ===== count-up numbers (position check: fires the moment any part is visible) ===== */
-  const counters = Array.from(document.querySelectorAll('[data-count]'));
-  function runCounter(el){
-    el.dataset.started = '1';
-    const dur = 2000, t0 = performance.now();
-    (function tick(){
-      const p = Math.min(1, (performance.now() - t0) / dur);
-      el.textContent = Math.round((+el.dataset.count) * (1 - Math.pow(1 - p, 3)));
-      if (p < 1) requestAnimationFrame(tick); else el.dataset.done = '1';
-    })();
-    /* tab-hidden safety: rAF freezes in background tabs — force the final value */
-    setTimeout(() => { if (!el.dataset.done) { el.textContent = el.dataset.count; el.dataset.done = '1'; } }, 3500);
-  }
-  function checkCounters(){
-    counters.forEach(el => {
-      if (el.dataset.started) return;
-      const r = el.getBoundingClientRect();
-      if (r.top < innerHeight + 60 && r.bottom > -60) runCounter(el);
-    });
-  }
-  checkCounters();
-  lenis.on('scroll', checkCounters);
-  addEventListener('resize', checkCounters, {passive:true});
-  setTimeout(checkCounters, 600);
-
-  /* ===== join: ripples expanding from Ito ===== */
-  const join = document.querySelector('.join');
-  for (let i = 0; i < 4; i++) {
-    const r = document.createElement('div');
-    r.className = 'ripple';
-    const size = 220 + i * 260;
-    r.style.cssText = 'width:' + size + 'px;height:' + size + 'px;left:12%;top:72%;margin-left:-' + size/2 + 'px;margin-top:-' + size/2 + 'px';
-    join.appendChild(r);
-    gsap.fromTo(r, { scale: .55, opacity: 0 }, {
-      scale: 1.35, opacity: .9, duration: 3.2, repeat: -1, delay: i * .8, ease: 'sine.out',
-      scrollTrigger: { trigger: join, start: 'top bottom' }
-    });
-  }
-
-  /* ===== generic reveals ===== */
-  const rest = gsap.utils.toArray('.reveal');
-  gsap.set(rest, { y: 40, opacity: 0 });
-  ScrollTrigger.batch(rest, {
-    start: 'top 88%',
-    onEnter: batch => gsap.to(batch, { y: 0, opacity: 1, duration: 1.1, ease: EASE, stagger: .08, overwrite: true })
-  });
-
-  /* ===== live data from the activity-log app (GAS) ===== */
-  const GAS = 'https://script.google.com/macros/s/AKfycbyCHg6qLzpttcBDAAiAIFxBCreZ4ZVk0WdEQ-YVGNWMKYooWY4Wgsti2gGWSdZTRvVK0Q/exec';
-  const OFFSET = 409;
-  const esc = s => String(s).replace(/[<>&]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[c]));
-  window.cvApplyData = function(d){
-    if (!d || !d.records) return;
-    const total = d.records.length + OFFSET;
-    document.querySelectorAll('[data-live="total"]').forEach(el => {
-      el.dataset.count = total;
-      el.textContent = total;
-      el.dataset.done = '1';
-    });
-    document.querySelectorAll('[data-total]').forEach(el => el.textContent = total);
-    [document.querySelector('meta[name="description"]'), document.querySelector('meta[property="og:description"]')].forEach(m => { if (m) m.setAttribute('content', m.getAttribute('content').replace(/通算[0-9,]+回/, '通算' + total + '回')); });
-    const list = document.getElementById('recentList');
-    const recent = [...d.records].sort((a, b) => String(b.date).localeCompare(String(a.date))).slice(0, 3);
-    if (list && recent.length) {
-      list.innerHTML = recent.map(r =>
-        '<li><b>' + esc(String(r.date).replace(/-/g, '.')) + '</b> ' + esc(r.place) + ' — ' + esc(r.work) + '（' + r.members.length + '名）</li>'
-      ).join('');
-    }
-    /* 活動レポートのカード（写真・Before/After・回収量つき） */
-    const grid = document.getElementById('reportGrid');
-    if (grid) {
-      const rs = [...d.records].sort((a, b) => String(b.date).localeCompare(String(a.date))).slice(0, 6);
-      if (rs.length) {
-        grid.innerHTML = rs.map(r => {
-          const date = String(r.date).replace(/-/g, '.');
-          const nm = (r.members || []).length;
-          const pics = [...(r.photos || []), ...(r.photosDone || [])].slice(0, 4);
-          const pair = (r.pairs || []).find(p => p.before && p.after);
-          let media = '';
-          if (pics.length) {
-            media = '<div class="rphotos' + (pics.length === 1 ? ' single' : '') + '">' +
-              pics.map(u => '<img src="' + esc(u) + '" alt="活動の様子" loading="lazy">').join('') + '</div>';
-          }
-          let ba = '';
-          if (pair) {
-            ba = '<div class="rba">' +
-              '<figure><figcaption>BEFORE</figcaption><img src="' + esc(pair.before) + '" alt="作業前" loading="lazy"></figure>' +
-              '<figure><figcaption>AFTER</figcaption><img src="' + esc(pair.after) + '" alt="作業後" loading="lazy"></figure></div>';
-          }
-          return '<article class="report-card">' + media +
-            '<div class="rbody"><div class="rdate">' + esc(date) + '</div>' +
-            '<div class="rplace">' + esc(r.place) + '</div>' +
-            '<div class="rwork">' + esc(r.work) + '</div>' + ba +
-            '<div class="rmeta"><span>参加 <b>' + nm + '</b> 名</span>' + (r.bags ? '<span>回収量 ' + esc(r.bags) + '</span>' : '') + '</div>' +
-            '</div></article>';
-        }).join('');
-        document.getElementById('reports').style.display = '';
-        if (window.ScrollTrigger) ScrollTrigger.refresh();
-      }
-    }
-    const sw = document.getElementById('supportList');
-    if (sw && Array.isArray(d.supports) && d.supports.length) {
-      sw.innerHTML = d.supports.slice().filter(function(s){ return s.category !== '代表提供'; }).reverse().map(function(s){
-        return '<li><b>' + esc(s.name) + '</b><span class="sv">' + esc(s.value) + '</span>' + (s.category ? '<span class="sc">' + esc(s.category) + '</span>' : '') + '</li>';
-      }).join('');
-      var sww = document.getElementById('supportWall'); if (sww) sww.style.display = '';
-    }
-  };
-  (function(){ var s = document.createElement('script'); s.src = GAS + '?callback=cvApplyData'; s.async = true; document.body.appendChild(s); })();
-
-  /* ===== magnetic CTA ===== */
-  document.querySelectorAll('.header .cta, .btn-insta').forEach(btn => {
-    btn.addEventListener('mousemove', e => {
-      const r = btn.getBoundingClientRect();
-      gsap.to(btn, { x: (e.clientX - r.left - r.width / 2) * .22, y: (e.clientY - r.top - r.height / 2) * .3, duration: .5, ease: 'power3.out' });
-    });
-    btn.addEventListener('mouseleave', () => gsap.to(btn, { x: 0, y: 0, duration: .8, ease: 'elastic.out(1,0.4)' }));
   });
 })();
 </script>
-<nav class="social-dock" aria-label="いつでも見られる公式SNS"><a class="social-ig" href="#instagram-reels"><svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg>Instagram リール</a><a class="social-yt" href="https://www.youtube.com/@ITO-CleanVibes/shorts" target="_blank" rel="noopener"><svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3Z" fill="currentColor" stroke="none"/></svg>YouTube ショート</a></nav>
-<script>
-// Load the player only after a visitor requests a video. No API key is needed.
-document.querySelectorAll('[data-short-id]').forEach(function(button){
-  button.addEventListener('click',function(){
-    var id=button.dataset.shortId;
-    if(!/^[A-Za-z0-9_-]{11}$/.test(id))return;
-    document.querySelectorAll('.short-player iframe').forEach(function(old){
-      var poster=old.parentElement.querySelector('button');
-      old.remove();if(poster)poster.hidden=false;
-    });
-    var frame=document.createElement('iframe');
-    frame.src='https://www.youtube.com/embed/'+id+'?autoplay=1&playsinline=1&rel=0';
-    frame.title=button.dataset.shortTitle;
-    frame.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-    frame.allowFullscreen=true;
-    frame.referrerPolicy='strict-origin-when-cross-origin';
-    button.hidden=true;button.parentElement.appendChild(frame);frame.focus();
-  });
-});
-</script>
-<script async src="https://www.instagram.com/embed.js"></script>
 </body>
 </html>
