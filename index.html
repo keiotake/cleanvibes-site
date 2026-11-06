@@ -67,7 +67,7 @@ document.addEventListener('click', function(event){
   --font:"M PLUS Rounded 1c","Hiragino Maru Gothic ProN","Hiragino Sans","Yu Gothic",Meiryo,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-padding-top:96px;-webkit-text-size-adjust:100%}
+html{scroll-padding-top:84px;-webkit-text-size-adjust:100%}
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 body{background:#fff;color:var(--ink);font-family:var(--font);font-weight:500;font-size:16px;line-height:1.95;letter-spacing:.04em;overflow-wrap:anywhere}
 @media (min-width:768px){body{font-size:17px}}
@@ -94,10 +94,10 @@ h1,h2,h3,.welcome{word-break:auto-phrase}
 .btn-outline:hover{background:var(--bg-sky)}
 .btn-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
 
-/* ===== ヘッダー（写真の上に浮かぶ白い帯） ===== */
-.site-header{position:relative;z-index:100;padding:14px 16px 0;margin-bottom:-82px}
+/* ===== ヘッダー（画面の端から端まで） ===== */
+.site-header{position:relative;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .js .site-header{position:sticky;top:0}
-.header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:62px;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-radius:999px;padding:8px 10px 8px 22px;box-shadow:0 8px 24px rgba(13,59,122,.12);width:min(var(--wrap),100%)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:72px}
 .brand{display:flex;align-items:center;gap:9px;color:var(--navy);font-weight:800;font-size:19px;text-decoration:none;white-space:nowrap}
 .brand img{width:34px;height:34px}
 .menu-btn{display:none;align-items:center;gap:8px;min-height:44px;padding:8px 16px;border:0;border-radius:999px;background:var(--bg-sky);color:var(--navy);font:inherit;font-size:15px;font-weight:800;cursor:pointer}
@@ -105,42 +105,39 @@ h1,h2,h3,.welcome{word-break:auto-phrase}
 .menu-btn .bars::before,.menu-btn .bars::after{content:"";position:absolute;left:0;width:18px;height:2px;background:currentColor;border-radius:2px}
 .menu-btn .bars::before{top:-6px}.menu-btn .bars::after{top:6px}
 .site-nav ul{display:flex;align-items:center;gap:2px}
-.site-nav a{display:block;white-space:nowrap;padding:8px 12px;border-radius:999px;color:var(--ink);font-size:14.5px;font-weight:700;text-decoration:none}
+.site-nav a{display:block;white-space:nowrap;padding:8px 12px;border-radius:8px;color:var(--ink);font-size:14.5px;font-weight:700;text-decoration:none}
 .site-nav a:hover{background:var(--bg-sky);color:var(--navy)}
-.site-nav a.nav-cta{background:var(--grad);color:#fff;padding:10px 22px;margin-left:6px}
+.site-nav a.nav-cta{background:var(--grad);color:#fff;padding:10px 22px;margin-left:6px;border-radius:999px}
 .site-nav a.nav-cta:hover{filter:brightness(.92)}
 @media (max-width:1180px){
   .js .menu-btn{display:inline-flex}
   .site-nav{width:100%}
-  .site-nav ul{flex-wrap:wrap;padding:4px 0 8px}
-  .header-inner{flex-wrap:wrap;border-radius:28px}
-  .js .header-inner{flex-wrap:nowrap;border-radius:999px}
-  .js .site-nav{position:absolute;left:16px;right:16px;top:calc(100% + 8px);background:#fff;border-radius:24px;box-shadow:0 16px 40px rgba(13,59,122,.18)}
+  .site-nav ul{flex-wrap:wrap;padding:4px 0 10px}
+  .header-inner{flex-wrap:wrap}
+  .js .header-inner{flex-wrap:nowrap}
+  .js .site-nav{position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 16px 30px rgba(13,59,122,.12)}
   .js .site-nav[hidden]{display:none}
-  .js .site-nav ul{flex-direction:column;align-items:stretch;gap:0;padding:10px 20px 18px}
-  .js .site-nav a{padding:14px 6px;border-bottom:1px solid var(--line);border-radius:0;font-size:17px}
+  .js .site-nav ul{flex-direction:column;align-items:stretch;gap:0;padding:8px 20px 18px}
+  .js .site-nav a{padding:14px 4px;border-bottom:1px solid var(--line);border-radius:0;font-size:17px}
   .js .site-nav a.nav-cta{margin:14px 0 0;text-align:center;border-radius:999px;border-bottom:0}
 }
 
-/* ===== トップ：写真を全面に ===== */
-.hero{position:relative;padding-bottom:40px}
-.hero-photo{position:relative;height:clamp(520px,88vh,860px);overflow:hidden;background:var(--bg-sky)}
-.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 40%}
-.hero-box{position:relative;margin-top:-210px;background:#fff;border-radius:32px;padding:40px 44px 36px;max-width:620px;box-shadow:0 24px 60px rgba(13,59,122,.18)}
+/* ===== トップ：見出しの下に写真を全面に（文字と写真は重ねない） ===== */
+.hero{background:linear-gradient(180deg,#fff 0%,var(--bg-sky) 100%)}
+.hero-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:end;padding:56px 0 44px}
 .hero-label{display:inline-block;background:var(--bg-mint);color:var(--teal-text);border-radius:999px;padding:4px 14px;font-size:14px;font-weight:800}
-.hero h1{margin-top:14px;color:var(--navy);font-size:clamp(36px,4.6vw,60px);line-height:1.3;letter-spacing:.03em;word-break:keep-all;overflow-wrap:normal}
+.hero h1{margin-top:14px;color:var(--navy);font-size:clamp(38px,5.2vw,68px);line-height:1.3;letter-spacing:.03em;word-break:keep-all;overflow-wrap:normal}
 .accent{background:linear-gradient(90deg,var(--blue),var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero .lead{margin-top:14px;color:var(--muted);font-size:clamp(15.5px,1.4vw,17px)}
-.facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.facts li{display:flex;flex-direction:column;background:var(--bg-sky);border-radius:16px;padding:6px 14px;line-height:1.5}
+.hero .lead{color:var(--muted);font-size:clamp(15.5px,1.4vw,17px)}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.facts li{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:16px;padding:6px 14px;line-height:1.5}
 .facts small{color:var(--muted);font-size:12px}
 .facts b{color:var(--navy);font-size:15px}
-.hero .btn-row{margin-top:22px}
+.hero .btn-row{margin-top:20px}
+.hero-photo{max-width:1440px;margin:0 auto}
+.hero-photo img{width:100%}
 @media (max-width:900px){
-  /* スマホでは写真の上に重ねず、写真の上端の人が隠れないようにする */
-  .site-header{margin-bottom:0;padding-bottom:10px}
-  .hero-photo{height:auto;aspect-ratio:4/3}
-  .hero-box{margin-top:-48px;padding:28px 22px 26px;border-radius:26px}
+  .hero-head{grid-template-columns:1fr;gap:16px;padding:36px 0 28px}
 }
 
 /* ===== セクション共通 ===== */
@@ -257,11 +254,10 @@ h1,h2,h3,.welcome{word-break:auto-phrase}
 
 /* ===== 参加方法 ===== */
 /* 写真の上に一言を載せる帯（横写真は切らずに全体を見せる） */
-.photo-band{position:relative;max-width:980px;margin:0 auto 64px;border-radius:36px;overflow:hidden;box-shadow:0 24px 60px rgba(13,59,122,.18)}
-.photo-band img{width:100%}
-.photo-band figcaption{position:absolute;left:0;right:0;bottom:28px;text-align:center;padding:0 16px}
-.photo-band span{display:inline-block;background:#fff;color:var(--navy);font-weight:800;font-size:clamp(18px,2.6vw,30px);line-height:1.5;padding:12px 30px;border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,.15)}
-@media (max-width:700px){.photo-band{border-radius:24px;margin-bottom:44px}.photo-band figcaption{bottom:14px}.photo-band span{padding:8px 18px}}
+.photo-band{max-width:980px;margin:0 auto 64px}
+.photo-band img{width:100%;border-radius:36px;box-shadow:0 24px 60px rgba(13,59,122,.18)}
+.photo-band figcaption{margin-top:22px;text-align:center;color:var(--navy);font-weight:800;font-size:clamp(20px,2.6vw,30px);line-height:1.5}
+@media (max-width:700px){.photo-band{margin-bottom:44px}.photo-band img{border-radius:24px}.photo-band figcaption{margin-top:14px}}
 .join{background:linear-gradient(160deg,#E6F4FC 0%,#E6F6F3 100%)}
 .welcome{color:var(--navy);font-size:clamp(19px,2.2vw,26px);font-weight:800;line-height:1.65;margin-top:16px}
 .join-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
@@ -355,12 +351,12 @@ h1,h2,h3,.welcome{word-break:auto-phrase}
 /* ===== スマホ下部の固定ボタン ===== */
 .mobile-bar{display:none}
 @media (max-width:900px){
-  .mobile-bar{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:10px;right:10px;bottom:10px;z-index:90;background:rgba(255,255,255,.96);border-radius:999px;box-shadow:0 10px 30px rgba(13,59,122,.2);padding:8px calc(8px + env(safe-area-inset-right)) calc(8px + env(safe-area-inset-bottom)) 8px}
+  .mobile-bar{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:90;background:rgba(255,255,255,.97);border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
   .mobile-bar .btn{min-height:46px;padding:8px 10px;font-size:15px}
   /* トップのボタンが見えている間は隠し、下へ進んだら出す（JavaScriptが動かない環境では常に表示） */
   .js .mobile-bar{transform:translateY(140%);visibility:hidden;transition:transform .25s,visibility .25s}
   .js .mobile-bar.show{transform:none;visibility:visible}
-  body{padding-bottom:84px}
+  body{padding-bottom:72px}
 }
 @media (max-width:520px){.btn-row .btn{flex:1 1 100%}}
 
@@ -403,11 +399,12 @@ h1,h2,h3,.welcome{word-break:auto-phrase}
 
 <!-- トップ -->
 <section class="hero" id="top">
-  <div class="hero-photo"><img src="img/p/hero.jpg" alt="建物の前で撮った、参加者の集合写真" width="1280" height="960"></div>
-  <div class="wrap">
-    <div class="hero-box">
+  <div class="wrap hero-head">
+    <div>
       <p class="hero-label">伊東市の美化・防草ボランティア</p>
       <h1>綺麗なまちを、<br><span class="accent">後世へ。</span></h1>
+    </div>
+    <div>
       <p class="lead">Clean Vibes（クリーンバイブス）は、伊東市で、市民の手でまちの美化と雑草対策に取り組んでいます。</p>
       <ul class="facts">
         <li><small>活動開始</small><b>2022年4月</b></li>
@@ -417,6 +414,7 @@ h1,h2,h3,.welcome{word-break:auto-phrase}
       <div class="btn-row"><a class="btn btn-primary" href="#join">活動に参加する</a><a class="btn btn-outline" href="#about">Clean Vibesとは</a></div>
     </div>
   </div>
+  <div class="hero-photo"><img src="img/p/hero.jpg" alt="建物の前で撮った、参加者の集合写真" width="1280" height="960"></div>
 </section>
 
 <!-- 最近の活動 -->
@@ -592,7 +590,7 @@ h1,h2,h3,.welcome{word-break:auto-phrase}
 <!-- 参加方法 -->
 <section class="section join" id="join">
   <div class="wrap">
-    <figure class="photo-band"><img src="img/wide-thanks.jpg" alt="子どもたちが書いた「CLEAN VIBES! ありがとう」の横断幕を手に、活動後に集まった参加者" width="1125" height="843" loading="lazy"><figcaption><span>土日祝の朝、いっしょにまちへ。</span></figcaption></figure>
+    <figure class="photo-band"><img src="img/wide-thanks.jpg" alt="子どもたちが書いた「CLEAN VIBES! ありがとう」の横断幕を手に、活動後に集まった参加者" width="1125" height="843" loading="lazy"><figcaption>土日祝の朝、いっしょにまちへ。</figcaption></figure>
     <div class="sec-head">
       <p class="sec-en">JOIN US</p>
       <h2>参加方法</h2>
