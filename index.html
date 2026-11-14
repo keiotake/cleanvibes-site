@@ -48,6 +48,8 @@ document.addEventListener('click', function(event){
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"NGO","name":"Clean Vibes","alternateName":"クリーンバイブス","url":"https://www.cleanvibes-ito.com/","logo":"https://www.cleanvibes-ito.com/img/logo-mark.png","foundingDate":"2022-04","address":{"@type":"PostalAddress","addressLocality":"伊東市","addressRegion":"静岡県","addressCountry":"JP"},"sameAs":["https://www.instagram.com/clean_vibes_ito/"]}
 </script>
+<link rel="stylesheet" href="js/lenis.css">
+<script src="js/lenis.min.js" defer></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Noto+Sans+JP:wght@500;700;900&display=swap" rel="stylesheet">
@@ -100,7 +102,7 @@ h1,h2,h3,.welcome,.quote p{word-break:auto-phrase}
 .header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:70px}
 .brand{display:flex;align-items:center;gap:10px;color:var(--navy);font-family:var(--display);font-size:21px;letter-spacing:.02em;text-decoration:none;white-space:nowrap}
 .brand img{width:38px;height:38px}
-.menu-btn{display:none;align-items:center;gap:8px;min-height:44px;padding:8px 16px;border:2px solid var(--navy);border-radius:6px;background:#fff;color:var(--navy);font:inherit;font-size:15px;font-weight:900;cursor:pointer}
+.menu-btn{display:none;align-items:center;gap:8px;min-height:44px;padding:8px 16px;white-space:nowrap;flex:none;border:2px solid var(--navy);border-radius:6px;background:#fff;color:var(--navy);font:inherit;font-size:15px;font-weight:900;cursor:pointer}
 .menu-btn .bars{display:block;width:18px;height:2px;background:currentColor;position:relative}
 .menu-btn .bars::before,.menu-btn .bars::after{content:"";position:absolute;left:0;width:18px;height:2px;background:currentColor}
 .menu-btn .bars::before{top:-6px}.menu-btn .bars::after{top:6px}
@@ -432,10 +434,72 @@ h1,h2,h3,.welcome,.quote p{word-break:auto-phrase}
 }
 .hero h1 .line{display:block}
 .opening{display:none}
+
+/* ===== 参考サイト（TITAN）を参考にした動き ===== */
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.site-nav .mn{display:none}
+/* 開幕：ロゴとひと言 → 幕が下へ抜ける */
+@media (prefers-reduced-motion:no-preference){
+  .js.op .opening{background:#fff}
+  .js.op .opening .op-in{display:grid;justify-items:center;gap:22px}
+  .js.op .opening img{width:76px;height:76px;opacity:0;transform:scale(.6) rotate(-30deg);animation:op-logo .9s cubic-bezier(.2,.7,.2,1) forwards}
+  .js.op .opening p{font-family:var(--display);color:var(--navy);font-size:clamp(22px,3.6vw,40px);letter-spacing:.2em;overflow:hidden}
+  .js.op .opening p span{animation:op-in .8s .35s cubic-bezier(.77,0,.18,1) forwards}
+  .js.op .opening.out{transform:translateY(100%)}
+  @keyframes op-logo{to{opacity:1;transform:none}}
+  @keyframes op-out{to{transform:translateY(100%);visibility:hidden}}
+  /* 見出しが1文字ずつ浮き上がる */
+  .js .split .ch{display:inline-block;opacity:0;transform:translateY(.7em) rotate(4deg);transition:opacity .6s,transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i)*35ms)}
+  .js .split.in .ch{opacity:1;transform:none}
+}
+/* 言葉が入れ替わる帯 */
+.roulette{background:#fff;padding:96px 0;border-top:2px solid var(--navy);border-bottom:2px solid var(--navy);overflow:hidden}
+.rl{font-family:var(--display);color:var(--navy);font-size:clamp(36px,7vw,96px);line-height:1.25}
+.rl-box{display:inline-block;position:relative;overflow:hidden;vertical-align:bottom;background:var(--yellow);padding:0 .18em;margin-right:.06em}
+.rl-word{display:inline-block;transition:transform .5s cubic-bezier(.65,0,.35,1),opacity .5s}
+.rl-word.out{transform:translateY(105%);opacity:0}
+.rl-word.pre{transform:translateY(-105%);opacity:0;transition:none}
+.rl-br{display:none}
+@media (max-width:700px){.roulette{padding:64px 0}.rl-br{display:inline}}
+/* ボタン：黒が左から塗られる */
+.btn-outline{background-image:linear-gradient(var(--navy),var(--navy));background-repeat:no-repeat;background-size:0 100%;transition:background-size .3s ease,color .3s}
+.btn-outline:hover{background-color:#fff;background-size:100% 100%;color:#fff}
+/* 活動内容：マウスを乗せた写真が広がる（PC） */
+@media (min-width:901px) and (hover:hover){
+  .acts{display:flex!important}
+  .acts .card{flex:1 1 0;min-width:0;transition:flex .55s cubic-bezier(.4,0,.2,1)}
+  .acts:hover .card{flex:.8 1 0}
+  .acts .card:hover{flex:1.7 1 0}
+  .acts .card img,.acts .rv-wrap{height:520px}
+  .acts .card img{aspect-ratio:auto;height:520px}
+}
+/* 写真を大きく見る */
+.zoomable{cursor:zoom-in}
+.lightbox{position:fixed;inset:0;z-index:400;background:rgba(11,46,99,.94);display:grid;grid-template-rows:1fr auto;place-items:center;padding:56px 16px 20px;opacity:0;transition:opacity .3s}
+.lightbox.open{opacity:1}
+.lightbox img{max-width:min(1400px,100%);max-height:100%;width:auto;height:auto;object-fit:contain}
+.lightbox p{color:#fff;font-weight:700;font-size:15px;margin-top:12px;text-align:center}
+.lightbox button{position:absolute;top:12px;right:12px;min-width:48px;min-height:48px;border:2px solid #fff;background:transparent;color:#fff;font:inherit;font-weight:900;font-size:15px;padding:0 14px;cursor:pointer}
+/* マウスについてくる丸（PCのみ） */
+.cursor{position:fixed;left:0;top:0;z-index:450;pointer-events:none;width:72px;height:72px;margin:-36px 0 0 -36px;border-radius:50%;background:#fff;mix-blend-mode:difference;transform:translate3d(-100px,-100px,0) scale(.14);transition:transform .35s cubic-bezier(.34,1.56,.64,1),opacity .3s;display:grid;place-items:center;opacity:0}
+.cursor span{font-family:var(--display);font-size:13px;color:#000;opacity:0;transition:opacity .2s;letter-spacing:.06em}
+.cursor.show{opacity:1}
+/* 全画面のメニュー（スマホ・タブレット） */
+@media (max-width:1180px){
+  .js .brand,.js .menu-btn{position:relative;z-index:102}
+  .js .site-nav{position:fixed;inset:0;top:0;z-index:101;background:rgba(255,255,255,.86);-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);border-bottom:0;padding:120px 24px 40px;overflow-y:auto;opacity:0;transition:opacity .4s}
+  .js .site-nav.open{opacity:1}
+  .js .site-nav ul{display:grid;grid-template-columns:1fr;gap:0;padding:0;max-width:640px}
+  .js .site-nav a{display:flex;align-items:baseline;gap:14px;padding:12px 2px;border-bottom:1px solid var(--line);font-family:var(--display);font-weight:400;font-size:clamp(24px,6vw,34px);color:var(--navy)}
+  .js .site-nav .mn{display:inline;font-family:var(--font);font-weight:900;font-size:13px;color:var(--teal-text)}
+  .js .site-nav a.nav-cta{display:block;margin-top:22px;text-align:center;font-family:var(--font);font-weight:900;font-size:18px}
+  .js .site-nav::after{content:"綺麗なまちを、後世へ。";display:block;margin-top:36px;font-family:var(--display);color:var(--navy);font-size:18px;letter-spacing:.2em}
+}
+@media (max-width:380px){.brand{font-size:17px;gap:8px}.brand img{width:32px;height:32px}.menu-btn{padding:8px 11px;font-size:14px}}
 </style>
 </head>
 <body>
-<div class="opening" aria-hidden="true"><p><span>綺麗なまちを、後世へ。</span></p></div>
+<div class="opening" aria-hidden="true"><div class="op-in"><img src="img/logo-mark-180.png" alt="" width="76" height="76"><p><span>綺麗なまちを、後世へ。</span></p></div></div>
 <a class="skip" href="#main">本文へ移動</a>
 <p class="site-notice" role="note">ただいま、ホームページの更新作業中です。</p>
 
@@ -445,13 +509,13 @@ h1,h2,h3,.welcome,.quote p{word-break:auto-phrase}
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav"><span class="bars" aria-hidden="true"></span>メニュー</button>
     <nav class="site-nav" id="site-nav" aria-label="サイト内メニュー">
       <ul>
-        <li><a href="#about">Clean Vibesとは</a></li>
-        <li><a href="#activities">活動内容</a></li>
-        <li><a href="#method">防草の方法</a></li>
-        <li><a href="#join">参加方法</a></li>
-        <li><a href="#record">実績</a></li>
-        <li><a href="#support">支援・協賛</a></li>
-        <li><a href="#contact">お問い合わせ</a></li>
+        <li><a href="#about"><span class="mn" aria-hidden="true">01</span>Clean Vibesとは</a></li>
+        <li><a href="#activities"><span class="mn" aria-hidden="true">02</span>活動内容</a></li>
+        <li><a href="#method"><span class="mn" aria-hidden="true">03</span>防草の方法</a></li>
+        <li><a href="#join"><span class="mn" aria-hidden="true">04</span>参加方法</a></li>
+        <li><a href="#record"><span class="mn" aria-hidden="true">05</span>実績</a></li>
+        <li><a href="#support"><span class="mn" aria-hidden="true">06</span>支援・協賛</a></li>
+        <li><a href="#contact"><span class="mn" aria-hidden="true">07</span>お問い合わせ</a></li>
         <li><a class="nav-cta" href="#join">参加する</a></li>
       </ul>
     </nav>
@@ -477,7 +541,7 @@ h1,h2,h3,.welcome,.quote p{word-break:auto-phrase}
 <section class="facts-band" aria-label="Clean Vibesの概要">
   <ul class="wrap facts">
     <li><span class="big">2022<small>年4月</small></span><span class="lbl">伊東のオレンジビーチで活動開始</span></li>
-    <li><span class="big">500<small>回以上</small></span><span class="lbl">累計活動回数（2026年10月時点）</span></li>
+    <li><span class="big"><span class="count" data-to="500">500</span><small>回以上</small></span><span class="lbl">累計活動回数（2026年10月時点）</span></li>
     <li><span class="big">6:30<small>から</small></span><span class="lbl">主に土日祝の朝に活動</span></li>
   </ul>
 </section>
@@ -521,6 +585,13 @@ h1,h2,h3,.welcome,.quote p{word-break:auto-phrase}
       <figure><img src="img/p/about-banner.jpg" alt="「仲間募集中」ののぼりを囲む、6人の参加者" width="450" height="600" loading="lazy" decoding="async"></figure>
       <figure><img src="img/p/about-branches.jpg" alt="反射ベストを着て、道路脇の木の枝を払う参加者" width="452" height="600" loading="lazy" decoding="async"></figure>
     </div>
+  </div>
+</section>
+
+<!-- 言葉が入れ替わる帯 -->
+<section class="roulette" aria-label="Clean Vibesの活動">
+  <div class="wrap">
+    <p class="rl"><span class="vh">歩道、通学路、側溝、駐車場、公園、そしてまちを、自分たちの手で。</span><span aria-hidden="true"><span class="rl-box"><span class="rl-word">まち</span></span>を、<br class="rl-br">自分たちの手で。</span></p>
   </div>
 </section>
 
@@ -872,9 +943,22 @@ h1,h2,h3,.welcome,.quote p{word-break:auto-phrase}
   var btn = document.querySelector('.menu-btn');
   var nav = document.getElementById('site-nav');
   var mq = window.matchMedia('(max-width: 1180px)');
+  var lenis = null, menuTimer = null;
   function setOpen(open){
     btn.setAttribute('aria-expanded', String(open));
-    nav.hidden = mq.matches ? !open : false;
+    btn.lastChild.textContent = open ? '閉じる' : 'メニュー';
+    clearTimeout(menuTimer);
+    if (!mq.matches) { nav.hidden = false; nav.classList.remove('open'); return; }
+    if (open) {
+      nav.hidden = false;
+      requestAnimationFrame(function(){ nav.classList.add('open'); });
+      document.documentElement.style.overflow = 'hidden'; if (lenis) lenis.stop();
+      var first = nav.querySelector('a'); if (first) first.focus({preventScroll:true});
+    } else {
+      nav.classList.remove('open');
+      menuTimer = setTimeout(function(){ nav.hidden = true; }, 400);
+      document.documentElement.style.overflow = ''; if (lenis) lenis.start();
+    }
   }
   setOpen(false);
   btn.addEventListener('click', function(){ setOpen(btn.getAttribute('aria-expanded') !== 'true'); });
@@ -891,6 +975,32 @@ h1,h2,h3,.welcome,.quote p{word-break:auto-phrase}
       bar.classList.toggle('show', !e.isIntersecting && e.boundingClientRect.top < 0);
     }).observe(heroBtns);
   } else if (bar) { bar.classList.add('show'); }
+
+
+  /* 写真を大きく見る（クリック／Enterで開き、Escか「閉じる」で戻る） */
+  var lbImgs = document.querySelectorAll('.gallery img, .ba-grid img, .acts .card img, .step-photos img, .photo-band img, .join-photos img, .about-photos img, .hero-photo img');
+  var lastFocus = null;
+  function openLb(img){
+    lastFocus = img;
+    var box = document.createElement('div'); box.className = 'lightbox'; box.setAttribute('role','dialog'); box.setAttribute('aria-modal','true'); box.setAttribute('aria-label','写真を大きく表示');
+    var cap = img.closest('figure') && img.closest('figure').querySelector('figcaption');
+    box.innerHTML = '<button type="button">閉じる</button><img alt=""><p></p>';
+    box.querySelector('img').src = img.currentSrc || img.src; box.querySelector('img').alt = img.alt;
+    box.querySelector('p').textContent = cap ? cap.textContent : img.alt;
+    function close(){ box.classList.remove('open'); setTimeout(function(){ box.remove(); }, 300); document.removeEventListener('keydown', onKey); document.documentElement.style.overflow=''; if (lenis) lenis.start(); if (lastFocus) lastFocus.focus({preventScroll:true}); }
+    function onKey(e){ if (e.key === 'Escape') close(); if (e.key === 'Tab') { e.preventDefault(); box.querySelector('button').focus(); } }
+    box.addEventListener('click', function(e){ if (e.target === box || e.target.tagName === 'BUTTON') close(); });
+    document.addEventListener('keydown', onKey);
+    document.body.appendChild(box); document.documentElement.style.overflow='hidden'; if (lenis) lenis.stop();
+    requestAnimationFrame(function(){ box.classList.add('open'); });
+    box.querySelector('button').focus();
+  }
+  lbImgs.forEach(function(img){
+    img.classList.add('zoomable'); img.tabIndex = 0; img.setAttribute('role','button');
+    img.setAttribute('aria-label', img.alt + '（大きく表示）');
+    img.addEventListener('click', function(){ openLb(img); });
+    img.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLb(img); } });
+  });
 
   /* ===== 動き ===== */
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -922,6 +1032,80 @@ h1,h2,h3,.welcome,.quote p{word-break:auto-phrase}
     entries.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
   }, {rootMargin: '0px 0px -8% 0px', threshold: 0.08});
   document.querySelectorAll('.rv, .rv-img').forEach(function(el){ io.observe(el); });
+
+  /* なめらかな慣性スクロール（Lenis） */
+  function startLenis(){
+    if (!window.Lenis) return;
+    lenis = new Lenis({lerp:.1});
+    function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+    document.addEventListener('click', function(e){
+      var a = e.target.closest('a[href^="#"]'); if (!a) return;
+      var id = a.getAttribute('href'); if (id.length < 2) return;
+      var t = document.getElementById(id.slice(1)); if (!t) return;
+      e.preventDefault(); lenis.scrollTo(t, {offset: -80, duration: 1.1});
+      history.replaceState(null, '', id);
+    });
+  }
+  if (document.readyState === 'complete') startLenis(); else window.addEventListener('load', startLenis);
+
+  /* 見出しを1文字ずつに分ける（英単語はまとめる） */
+  document.querySelectorAll('.section h2, .news h2').forEach(function(h){
+    if (h.children.length) return;
+    var text = h.textContent; h.setAttribute('aria-label', text);
+    var parts = text.match(/[A-Za-z0-9]+|\s+|./g) || [], i = 0, out = '';
+    parts.forEach(function(p){ out += /^\s+$/.test(p) ? p : '<span class="ch" style="--i:'+(i++)+'">'+p+'</span>'; });
+    h.innerHTML = '<span aria-hidden="true">'+out+'</span>';
+    h.classList.add('split'); h.classList.remove('rv');
+    io.observe(h);
+  });
+
+  /* 数字のカウントアップ */
+  document.querySelectorAll('.count').forEach(function(el){
+    var to = +el.dataset.to; el.textContent = '0';
+    var co = new IntersectionObserver(function(es){
+      if (!es[0].isIntersecting) return; co.disconnect();
+      var t0 = performance.now();
+      (function step(t){ var k = Math.min(1,(t-t0)/1400), e = 1-Math.pow(1-k,3); el.textContent = Math.round(to*e); if (k<1) requestAnimationFrame(step); })(t0);
+    }, {threshold:.6});
+    co.observe(el);
+  });
+
+  /* 言葉が入れ替わる */
+  var word = document.querySelector('.rl-word');
+  if (word) {
+    var words = ['歩道','通学路','側溝','駐車場','公園','まち'], wi = 0; word.textContent = words[0];
+    var ro = new IntersectionObserver(function(es){
+      if (!es[0].isIntersecting) return; ro.disconnect();
+      (function next(){
+        if (wi >= words.length-1) return;
+        setTimeout(function(){
+          word.classList.add('out');
+          setTimeout(function(){
+            wi++; word.textContent = words[wi]; word.classList.remove('out'); word.classList.add('pre');
+            void word.offsetWidth; word.classList.remove('pre'); next();
+          }, 500);
+        }, 1000);
+      })();
+    }, {threshold:.6});
+    ro.observe(word);
+  }
+
+  /* マウスについてくる丸（PCのみ） */
+  if (window.matchMedia('(pointer:fine) and (min-width:901px)').matches) {
+    var cur = document.createElement('div'); cur.className = 'cursor'; cur.setAttribute('aria-hidden','true'); cur.innerHTML = '<span>VIEW</span>';
+    document.body.appendChild(cur);
+    var mx = -100, my = -100, scale = .14, label = cur.firstChild;
+    document.addEventListener('mousemove', function(e){
+      mx = e.clientX; my = e.clientY; cur.classList.add('show');
+      var t = e.target, s2 = .14, v = false;
+      if (t.closest('.zoomable')) { s2 = 1; v = true; } else if (t.closest('a, button, summary')) { s2 = .66; }
+      scale = s2; label.style.opacity = v ? 1 : 0;
+      cur.style.transform = 'translate3d('+mx+'px,'+my+'px,0) scale('+scale+')';
+    }, {passive:true});
+    document.addEventListener('mouseleave', function(){ cur.classList.remove('show'); });
+  }
+
 })();
 </script>
 </body>
