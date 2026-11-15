@@ -276,7 +276,7 @@ h1,h2,h3,.welcome,.quote p{word-break:auto-phrase}
 .tool-group li:last-child{border-bottom:0;padding-bottom:0}
 .tool-group b{color:var(--navy);font-size:18px;font-weight:900}
 .tool-group small{margin-left:8px;color:var(--muted);font-size:13px}
-.tool-group li>span:last-child{display:block;font-size:15px;margin-top:2px}
+.tool-group li>span:not(.fav-tag){display:block;font-size:15px;margin-top:2px}
 .tool-group li.fav{background:#FFF6C2;padding:14px 16px;margin:10px 0;border-bottom:0}
 .fav-tag{display:inline-block;background:var(--navy);color:#fff;padding:0 8px;font-size:13px;font-weight:900;margin-right:8px;vertical-align:2px}
 @media (max-width:900px){.tools{columns:1}}
@@ -500,6 +500,7 @@ h1,h2,h3,.welcome,.quote p{word-break:auto-phrase}
 .tool-photos img{width:100%}
 .tool-photos figcaption{padding:8px 2px 0;font-size:14.5px;font-weight:700;color:#fff}
 @media (max-width:700px){.tool-photos{grid-template-columns:1fr 1fr}.tool-photos figure:last-child{display:none}}
+.tool-group .buy{display:inline-block;margin-top:6px;font-size:14px;font-weight:900}
 </style>
 </head>
 <body>
@@ -694,16 +695,16 @@ h1,h2,h3,.welcome,.quote p{word-break:auto-phrase}
       <div class="tool-group">
         <p class="tool-step">①ほじる</p>
         <ul>
-          <li class="fav"><span class="fav-tag">いちばんの相棒</span><b>草取り一番</b><small>清水製作所 モンブラン</small><span>太い根も細かい根も絡め取り、狭い隙間までしっかりほじれます。この道具なしに、Clean Vibesの「ほじる」はありえません。</span></li>
-          <li><b>根こそぎ草抜き</b><small>千吉 SGJ-10</small><span>細かい根を取ります。</span></li>
-          <li><b>パワーグリップ付草取り</b><small>千吉 SGT-16PW</small><span>頑固な根を、力を入れてほじるときに使います。</span></li>
+          <li class="fav"><span class="fav-tag">いちばんの相棒</span><b>草取り一番</b><small>清水製作所 モンブラン</small><span>太い根も細かい根も絡め取り、狭い隙間までしっかりほじれます。この道具なしに、Clean Vibesの「ほじる」はありえません。</span><a class="buy ext" href="https://www.amazon.co.jp/s?k=%E3%83%A2%E3%83%B3%E3%83%96%E3%83%A9%E3%83%B3%20%E8%8D%89%E5%8F%96%E3%82%8A%E4%B8%80%E7%95%AA" target="_blank" rel="noopener">Amazonで見る</a></li>
+          <li><b>根こそぎ草抜き</b><small>千吉 SGJ-10</small><span>細かい根を取ります。</span><a class="buy ext" href="https://www.amazon.co.jp/dp/B003VUWO0K" target="_blank" rel="noopener">Amazonで見る</a></li>
+          <li><b>パワーグリップ付草取り</b><small>千吉 SGT-16PW</small><span>頑固な根を、力を入れてほじるときに使います。</span><a class="buy ext" href="https://www.amazon.co.jp/dp/B079YNXRB3" target="_blank" rel="noopener">Amazonで見る</a></li>
         </ul>
       </div>
       <div class="tool-group">
         <p class="tool-step">②掃く</p>
         <ul>
-          <li class="fav"><span class="fav-tag">仕上がりの決め手</span><b>外苑ほうき</b><small>アズマ工業 名匠168</small><span>活動を始めた頃から使い続けているほうきです。コシが強く、溝の奥の砂や土までしっかりかき出せます。</span></li>
-          <li><b>手箕（てみ）</b><small>千吉 ECOテミ 小</small><span>集めた砂や草をすくいます。土のう袋やガラ袋に入れやすい大きさです。</span></li>
+          <li class="fav"><span class="fav-tag">仕上がりの決め手</span><b>外苑ほうき</b><small>アズマ工業 名匠168</small><span>活動を始めた頃から使い続けているほうきです。コシが強く、溝の奥の砂や土までしっかりかき出せます。</span><a class="buy ext" href="https://www.amazon.co.jp/dp/B004D2I0M6" target="_blank" rel="noopener">Amazonで見る</a></li>
+          <li><b>手箕（てみ）</b><small>千吉 ECOテミ 小</small><span>集めた砂や草をすくいます。土のう袋やガラ袋に入れやすい大きさです。</span><a class="buy ext" href="https://www.amazon.co.jp/s?k=%E5%8D%83%E5%90%89%20ECO%E3%83%86%E3%83%9F%20%E5%B0%8F" target="_blank" rel="noopener">Amazonで見る</a></li>
         </ul>
       </div>
       <div class="tool-group">
@@ -715,15 +716,15 @@ h1,h2,h3,.welcome,.quote p{word-break:auto-phrase}
       <div class="tool-group">
         <p class="tool-step">④埋める</p>
         <ul>
-          <li class="fav"><span class="fav-tag">活動の原点</span><b>雑草ストッパー</b><small>カインズ ハード 速乾</small><span>オレンジビーチの約800mの歩道は、これで施工しました。</span></li>
-          <li><b>マサファルト</b><small>水で固まる自然土</small><span>大室山・さくらの里周辺で使っています。</span></li>
-          <li><b>散水パッチ</b><small>MATERAN</small><span>歩道やアスファルトで使っています。</span></li>
+          <li class="fav"><span class="fav-tag">活動の原点</span><b>雑草ストッパー</b><small>カインズ ハード 速乾</small><span>オレンジビーチの約800mの歩道は、これで施工しました。</span><a class="buy ext" href="https://www.cainz.com/g/4549509783299.html" target="_blank" rel="noopener">カインズで見る</a></li>
+          <li><b>マサファルト</b><small>水で固まる自然土</small><span>大室山・さくらの里周辺で使っています。</span><a class="buy ext" href="https://www.amazon.co.jp/s?k=%E3%83%9E%E3%82%B5%E3%83%95%E3%82%A1%E3%83%AB%E3%83%88%20%E6%B0%B4%E3%81%A7%E5%9B%BA%E3%81%BE%E3%82%8B%E5%9C%9F" target="_blank" rel="noopener">Amazonで見る</a></li>
+          <li><b>散水パッチ</b><small>MATERAN</small><span>歩道やアスファルトで使っています。</span><a class="buy ext" href="https://www.amazon.co.jp/s?k=MATERAN%20%E6%95%A3%E6%B0%B4%E3%83%91%E3%83%83%E3%83%81" target="_blank" rel="noopener">Amazonで見る</a></li>
         </ul>
       </div>
       <div class="tool-group">
         <p class="tool-step">⑤まく</p>
         <ul>
-          <li><b>セスキ炭酸ソーダ</b><small>ニチガ</small><span>水に溶かして、アルカリ性の水をつくります（効果を検証中）。</span></li>
+          <li><b>セスキ炭酸ソーダ</b><small>ニチガ</small><span>水に溶かして、アルカリ性の水をつくります（効果を検証中）。</span><a class="buy ext" href="https://www.amazon.co.jp/s?k=%E3%83%8B%E3%83%81%E3%82%AC%20%E3%82%BB%E3%82%B9%E3%82%AD%E7%82%AD%E9%85%B8%E3%82%BD%E3%83%BC%E3%83%80" target="_blank" rel="noopener">Amazonで見る</a></li>
         </ul>
       </div>
     </div>
