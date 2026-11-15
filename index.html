@@ -496,6 +496,10 @@ h1,h2,h3,.welcome,.quote p{word-break:auto-phrase}
   .js .site-nav::after{content:"綺麗なまちを、後世へ。";display:block;margin-top:36px;font-family:var(--display);color:var(--navy);font-size:18px;letter-spacing:.2em}
 }
 @media (max-width:380px){.brand{font-size:17px;gap:8px}.brand img{width:32px;height:32px}.menu-btn{padding:8px 11px;font-size:14px}}
+.tool-photos{display:grid;grid-template-columns:1.25fr 1.15fr .8fr;gap:8px;margin-bottom:28px;align-items:start}
+.tool-photos img{width:100%}
+.tool-photos figcaption{padding:8px 2px 0;font-size:14.5px;font-weight:700;color:#fff}
+@media (max-width:700px){.tool-photos{grid-template-columns:1fr 1fr}.tool-photos figure:last-child{display:none}}
 </style>
 </head>
 <body>
@@ -681,6 +685,11 @@ h1,h2,h3,.welcome,.quote p{word-break:auto-phrase}
     <p class="no-herb">どの工程でも、除草剤は使いません。</p>
 
     <h3 class="sub-h">使っている道具</h3>
+    <div class="tool-photos">
+      <figure><img src="img/p/tool-sweep.jpg" alt="歩道に置いたほうき、緑の手箕、ガスバーナーと、作業する参加者" width="800" height="623" loading="lazy" decoding="async"><figcaption>ほうき、手箕（てみ）、ガスバーナー</figcaption></figure>
+      <figure><img src="img/p/tool-sand.jpg" alt="道路の縁の目地の横に置いた、砂とスコップの入った容器" width="800" height="683" loading="lazy" decoding="async"><figcaption>目地に詰める砂と、すくう道具</figcaption></figure>
+      <figure><img src="img/p/tool-gutter.jpg" alt="ふたを外した排水ますと、かき出した泥が入った緑の手箕" width="562" height="800" loading="lazy" decoding="async"><figcaption>排水ますの泥をかき出す道具</figcaption></figure>
+    </div>
     <div class="tools">
       <div class="tool-group">
         <p class="tool-step">①ほじる</p>
@@ -978,7 +987,7 @@ h1,h2,h3,.welcome,.quote p{word-break:auto-phrase}
 
 
   /* 写真を大きく見る（クリック／Enterで開き、Escか「閉じる」で戻る） */
-  var lbImgs = document.querySelectorAll('.gallery img, .ba-grid img, .acts .card img, .step-photos img, .photo-band img, .join-photos img, .about-photos img, .hero-photo img');
+  var lbImgs = document.querySelectorAll('.tool-photos img, .gallery img, .ba-grid img, .acts .card img, .step-photos img, .photo-band img, .join-photos img, .about-photos img, .hero-photo img');
   var lastFocus = null;
   function openLb(img){
     lastFocus = img;
@@ -1017,7 +1026,7 @@ h1,h2,h3,.welcome,.quote p{word-break:auto-phrase}
 
   /* スクロールで現れる */
   var textSel = '.section h2, .sec-lead, .news h2, .news-list li, .prose p, .quote, .acts .card .in, .gallery figure, .ba-grid li, .steps5 li, .tool-group, .effect2 .card, .join-steps li, .proof .card, .timeline li, .profile dl, .contact-ways .card, .sponsors, .facts li, .welcome, .photo-band figcaption, .no-herb, .sub-h';
-  var imgSel = '.hero-photo, .about-photos figure, .acts .card > img, .photo-band, .support-grid figure, .step-photos figure';
+  var imgSel = '.tool-photos figure, .hero-photo, .about-photos figure, .acts .card > img, .photo-band, .support-grid figure, .step-photos figure';
   var groups = new Map();
   document.querySelectorAll(textSel).forEach(function(el){
     el.classList.add('rv');
