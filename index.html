@@ -1012,6 +1012,19 @@ h1,h2,h3,.welcome,.quote p{word-break:auto-phrase}
     img.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLb(img); } });
   });
 
+  /* ページ内リンク：URLの最後に「#…」を付けずに移動する（Lenisが動かないときの分） */
+  document.addEventListener('click', function(e){
+    if (e.defaultPrevented) return;
+    var a = e.target.closest('a[href^="#"]'); if (!a) return;
+    var id = a.getAttribute('href'); if (id.length < 2) return;
+    var t = document.getElementById(id.slice(1)); if (!t) return;
+    e.preventDefault();
+    t.scrollIntoView({block:'start'});
+    if (id === '#main') { t.setAttribute('tabindex','-1'); t.focus({preventScroll:true}); }
+    if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+  });
+  if (location.hash) { var h0 = document.getElementById(location.hash.slice(1)); history.replaceState(null, '', location.pathname + location.search); if (h0) setTimeout(function(){ h0.scrollIntoView({block:'start'}); }, 50); }
+
   /* ===== 動き ===== */
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var root = document.documentElement;
@@ -1054,7 +1067,7 @@ h1,h2,h3,.welcome,.quote p{word-break:auto-phrase}
       var id = a.getAttribute('href'); if (id.length < 2) return;
       var t = document.getElementById(id.slice(1)); if (!t) return;
       e.preventDefault(); lenis.scrollTo(t, {offset: -80, duration: 1.1});
-      history.replaceState(null, '', id);
+      if (location.hash) history.replaceState(null, '', location.pathname + location.search);
     });
   }
   if (document.readyState === 'complete') startLenis(); else window.addEventListener('load', startLenis);
