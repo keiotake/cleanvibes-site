@@ -1,0 +1,16 @@
+name: indexnow
+on:
+  push:
+    branches: [indexnow]
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: check live site
+        run: |
+          for p in "" robots.txt sitemap.xml a3f9ca94a99358c424b7ee34add9e7db.txt; do echo "$p -> $(curl -s -o /dev/null -w '%{http_code}' https://www.cleanvibes-ito.com/$p)"; done
+          curl -s https://www.cleanvibes-ito.com/ | grep -c 'URLの最後に「#…」を付けずに' || true
+          curl -s https://www.cleanvibes-ito.com/ | grep -o '<title>[^<]*</title>'
+      - name: notify IndexNow (Bing etc.)
+        run: |
+          curl -sS -i -X POST https://api.indexnow.org/indexnow -H 'Content-Type: application/json; charset=utf-8' -d '{"host":"www.cleanvibes-ito.com","key":"a3f9ca94a99358c424b7ee34add9e7db","keyLocation":"https://www.cleanvibes-ito.com/a3f9ca94a99358c424b7ee34add9e7db.txt","urlList":["https://www.cleanvibes-ito.com/","https://www.cleanvibes-ito.com/sitemap.xml"]}'
